@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+  ~ Written by wei.Li and released to the public domain
+  ~ Welcome to correct discussion as explained at
+  ~
+  ~ -----------------------------------------------------------------
+  ~
+  ~ GitHub:  https://github.com/GourdErwa
+  ~ CSDN  :	http://blog.csdn.net/xiaohulunb
+  ~ WeiBo :	http://www.weibo.com/xiaohulunb  	@GourdErwa
+  ~ Email :	gourderwa@163.com
+  ~
+  ~ Personal home page: http://grouderwa.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="countUp.js"></script>
+</head>
+<body>
+
+<div style="margin-left: 45%;margin-top: 200px">
+    <span id="1"></span>
+    <input type="button" value="sStart" onclick="sStart()">
+
+    <input type="button" value="sTop" onclick="sTop()">
+</div>
+</body>
+<script>
+    var options = {
+        useEasing: false,
+        useGrouping: true,
+        separator: ',',
+        decimal: '.',
+        prefix: '',
+        suffix: ''
+    };
+    var c = new countUp("1", 0, 1000000, 0, 100, options);
+
+
+    function sStart() {
+        c.start();
+        console.log("sStart: rAF = " + c.rAF);
+    }
+    function sTop() {
+        c.stop();
+        console.log("sTop: rAF = " + c.rAF);
+
+        //
+        c = new countUp("1", 0, 0, 0, 0, options);
+        c.start();
+
+    }
+</script>
+</html>

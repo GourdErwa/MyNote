@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+  ~ Written by wei.Li and released to the public domain
+  ~ Welcome to correct discussion as explained at
+  ~
+  ~ -----------------------------------------------------------------
+  ~
+  ~ GitHub:  https://github.com/GourdErwa
+  ~ CSDN  :	http://blog.csdn.net/xiaohulunb
+  ~ WeiBo :	http://www.weibo.com/xiaohulunb  	@GourdErwa
+  ~ Email :	gourderwa@163.com
+  ~
+  ~ Personal home page: http://grouderwa.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>checkbox_demo</title>
+    <script type="text/javascript" src="../../public_file/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="countUp.js"></script>
+
+</head>
+<style>
+</style>
+<body>
+<div id="SomeElementYouWantToAnimate1" style="color: #13ee41;font-size: 28px;"></div>
+<div id="SomeElementYouWantToAnimate2" style="color: #13ee41;font-size: 28px;"></div>
+
+<input type="button" value="Demo" onclick="a+=100;b+=200;numAnim.startOfResetVal(a, b);">
+</body>
+<script>
+    // Example:
+    var numAnim = new countUp("SomeElementYouWantToAnimate1", 0, 99.99, 0, 2.5);
+    numAnim.start();
+    var a = 1, b = 10;
+
+    // with optional callback:
+    //numAnim.start(someMethodToCallOnComplete);
+</script>
+</html>

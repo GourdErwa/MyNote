@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>json_.html</title>
+    <script type="text/javascript" src="../public_file/js/jquery-2.0.3.min.js"></script>
+</head>
+<script>
+
+    var obj2Json = {
+        name: 'liw',
+        age: 12,
+        address: [
+            {home: 'shanxi', now: 'beijing'},
+            {home: 'hebei', now: 'beijing'}
+        ]
+    };
+
+    var str = '{"name":"huangxiaojian","age":"23"}';
+    $(function () {
+
+
+        //stringify()用于从一个对象解析出字符串
+        var json_Str = JSON.stringify(obj2Json);
+        alert(json_Str);
+        //parse用于从一个字符串中解析出json对象
+        var json_Obj = JSON.parse(str);
+        alert(json_Obj);
+
+    });
+</script>
+<body>
+
+</body>
+</html>

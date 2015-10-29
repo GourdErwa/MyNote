@@ -1,0 +1,36 @@
+Buffer
+定义了一个可以线性存放 primitive type 数据的容器接口。
+Buffer 主要包含了与类型（ byte, char… ）无关的功能。值得注意的是 Buffer 及其子类都不是线程安全的。
+
+每个 Buffer 都有以下的属性：
+
+capacity
+这个 Buffer 最多能放多少数据。 capacity 一般在 buffer 被创建的时候指定。
+
+limit
+在 Buffer 上进行的读写操作都不能越过这个下标。当写数据到 buffer 中时， limit 一般和 capacity 相等, 当读数据时， limit 代表 buffer 中有效数据的长度。
+
+position
+读 / 写操作的当前下标。当使用 buffer 的相对位置进行读 / 写操作时，读 / 写会从这个下标进行，并在操作完成后， buffer 会更新下标的值。
+
+mark
+一个临时存放的位置下标。调用 mark() 会将 mark 设为当前的 position 的值，以后调用 reset() 会将position 属性设置为 mark 的值。
+mark 的值总是小于等于 position 的值，如果将 position 的值设的比mark 小，当前的 mark 值会被抛弃掉。
+
+
+这些属性总是满足以下条件：
+0 <= mark <= position <= limit <= capacity
+
+limit 和 position 的值除了通过 limit() 和 position() 函数来设置，也可以通过下面这些函数来改变：
+
+Buffer clear()
+把 position 设为 0 ，把 limit 设为 capacity ，一般在把数据写入 Buffer 前调用。
+
+Buffer flip()
+把 limit 设为当前 position ，把 position 设为 0 ，一般在从 Buffer 读出数据前调用。
+
+Buffer rewind()
+把 position 设为 0 ， limit 不变，一般在把数据重写入 Buffer 前调用。
+
+Buffer 对象有可能是只读的，这时，任何对该对象的写操作都会触发一个 ReadOnlyBufferException 。
+isReadOnly() 方法可以用来判断一个 Buffer 是否只读。

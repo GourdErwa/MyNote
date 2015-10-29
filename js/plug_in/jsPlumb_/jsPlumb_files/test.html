@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jquery-1.9.0.js"></script>
+    <script src="jquery-ui-1.9.2-min.js"></script>
+    <script src="jquery.jsPlumb-1.4.0-all.js"></script>
+
+    <style type="text/css">
+
+        .dragActive {
+            border: 2px dotted orange;
+        }
+
+        .dropHover {
+            border: 1px dotted red;
+        }
+
+        .item {
+            border: 1px solid black;
+            background-color: #ddddff;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #someDiv {
+            left: 100px;
+            top: 100px;
+        }
+
+        #someOtherDiv {
+            left: 250px;
+            top: 250px;
+        }
+
+        #state3 {
+            left: 100px;
+            top: 250px;
+        }
+    </style>
+
+    <script>
+        jsPlumb.ready(function () {
+
+//            document.onselectstart = function () { return false; };
+            // setup jsPlumb defaults.
+            jsPlumb.importDefaults({
+                DragOptions: {cursor: 'pointer', zIndex: 2000},
+                PaintStyle: {strokeStyle: '#666'},
+                EndpointStyle: {width: 10, height: 16, strokeStyle: '#666'},
+                Endpoint: "Rectangle",
+                Anchors: ["TopCenter"]
+            });
+
+            var exampleDropOptions = {
+                hoverClass: "dropHover",
+                activeClass: "dragActive"
+            };
+
+            // bind to connection/connectionDetached events, and update the list of connections on screen.
+//            jsPlumb.bind("connection", function(info, originalEvent) {
+//                updateConnections(info.connection);
+//            });
+//            jsPlumb.bind("connectionDetached", function(info, originalEvent) {
+//                updateConnections(info.connection, true);
+//            });
+
+
+            var color1 = "#316b31";
+            var exampleEndpoint1 = {
+                endpoint: ["Dot", {radius: 11}],
+                paintStyle: {fillStyle: color1},
+                isSource: true,
+                scope: "green dot",
+                connectorStyle: {strokeStyle: color1, lineWidth: 6},
+                connector: ["Bezier", {curviness: 63}],
+                maxConnections: 1,
+                isTarget: true,
+                dropOptions: exampleDropOptions
+            };
+
+            var color2 = "rgba(229,219,61,0.5)";
+            var exampleEndpoint2 = {
+                endpoint: "Rectangle",
+                anchor: "BottomLeft",
+                paintStyle: {fillStyle: color2, opacity: 0.5},
+                isSource: true,
+                scope: 'yellow dot',
+                connectorStyle: {strokeStyle: color2, lineWidth: 4},
+                connector: "Straight",
+                isTarget: true,
+                dropOptions: exampleDropOptions,
+                beforeDetach: function (conn) {
+                    return confirm("Detach connection?");
+                },
+                onMaxConnections: function (info) {
+                    alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
+                }
+            };
+
+            var anchors = [[1, 0.2, 1, 0], [0.8, 1, 0, 1], [0, 0.8, -1, 0], [0.2, 0, 0, -1]],
+                    maxConnectionsCallback = function (info) {
+                        alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
+                    };
+
+            var e1 = jsPlumb.addEndpoint("state2", {anchor: "LeftMiddle"}, exampleEndpoint1);
+            // you can bind for a maxConnections callback using a standard bind call, but you can also supply 'onMaxConnections' in an Endpoint definition - see exampleEndpoint3 above.
+            e1.bind("maxConnections", maxConnectionsCallback);
+
+            jsPlumb.addEndpoint("state1", exampleEndpoint1);
+            jsPlumb.addEndpoint("state3", exampleEndpoint2);
+            jsPlumb.addEndpoint("state1", {anchor: anchors}, exampleEndpoint2);
+        });
+    </script>
+</head>
+
+<body>
+<div id="someDiv" class="item"></div>
+<div id="someOtherDiv" class="item"></div>
+<div id="state3" class="item"></div>
+</body>
+
+
+</html>

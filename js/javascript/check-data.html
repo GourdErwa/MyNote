@@ -1,0 +1,55 @@
+<!--
+  ~ Written by wei.Li and released to the public domain
+  ~ Welcome to correct discussion as explained at
+  ~
+  ~ -----------------------------------------------------------------
+  ~
+  ~ GitHub:  https://github.com/GourdErwa
+  ~ CSDN  :	http://blog.csdn.net/xiaohulunb
+  ~ WeiBo :	http://www.weibo.com/xiaohulunb  	@GourdErwa
+  ~ Email :	gourderwa@163.com
+  ~
+  ~ Personal home page: http://grouderwa.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>json_.html</title>
+    <script type="text/javascript" src="../public_file/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../JQuery_JavaScript/check/chechk-data.js"></script>
+
+</head>
+<script>
+
+    var JSONObject = [
+        {
+            id: "0",
+            age: 20,
+            home: ["bj", "shanxi"]
+        },
+        {
+            id: "1",
+            age: 22,
+            home: ["beijing", "shanxi"]
+        }
+    ];
+
+    var one = {
+        id: "0",
+        age: 20,
+        home: ["bj", "shanxi"]
+    };
+
+    var b = checkArgs.isElementInJSONObject(JSONObject, one);
+    //console.log(b);
+
+    //console.log(checkArgs.checkEmail("liwei@.com"));
+    //console.log(checkArgs.checkNumberLtDefaultMaxLength(123));
+    console.log(checkArgs.checkIsEmpty(one));
+
+</script>
+<body>
+
+</body>
+</html>

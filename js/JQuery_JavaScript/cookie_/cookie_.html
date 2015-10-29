@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title>jquery.cookie.js_demo</title>
+    <script type="text/javascript" src="public_file/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="public_file/js/jquery.cookie.js"></script>
+</head>
+<script>
+
+    //demo 保存设置
+    var option_cookie = {expires: 7, path: '/', domain: 'jquery.com', secure: true};
+
+    $(function ($) {
+
+        var userName = COOKIE_UTIL.getCookie("userName");
+        var userPswd;
+        //页面初始化判断是否有cookie记录
+        if (userName != null) {
+            userPswd = COOKIE_UTIL.getCookie("userPswd");
+            $("#userName").val(userName);
+            $("#userPswd").val(userPswd);
+            $("#isSavaCookie").attr("checked", "checked");
+        }
+
+        //注册登录按钮事件
+        $("#login").click(function () {
+
+            userName = $("#userName").val();
+            userPswd = $("#userPswd").val();
+            var isSavaCookie = $("#isSavaCookie").attr("checked");
+
+            //如果勾选保存密码则保存cookie，否则删除
+            if (isSavaCookie == undefined) {
+
+                COOKIE_UTIL.delCookie("userName");
+                COOKIE_UTIL.delCookie("userPswd");
+            } else {
+
+                COOKIE_UTIL.savaCookie("userName", userName, option_cookie);
+                COOKIE_UTIL.savaCookie("userPswd", userPswd, option_cookie);
+            }
+            login();
+        });
+
+
+    });
+
+    //登录事件
+    function login() {
+        //code......
+        //alert("login...");
+    }
+
+    //对cookie 进行保存-获取-删除
+    var COOKIE_UTIL = new function () {
+        this.savaCookie = function (the_cookie, the_value, option) {
+            $.cookie(the_cookie, the_value, option);
+        }
+        this.getCookie = function (the_cookie) {
+            return $.cookie(the_cookie);
+        }
+        this.delCookie = function (the_cookie) {
+            $.cookie(the_cookie, null);
+        }
+    };
+</script>
+<body>
+
+<div style="text-align: center">
+    <br><br>
+    userName:<input type="text" id="userName"><br>
+    userPswd:<input type="password" id="userPswd"><br>
+    <input type="checkbox" id="isSavaCookie">保存密码<br>
+    <input type="button" id="login" value="Login">
+
+</div>
+</body>
+</html>

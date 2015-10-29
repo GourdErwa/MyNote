@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>core_</title>
+    <script type="text/javascript" src="../../public_file/js/jquery-2.0.3.min.js"></script>
+</head>
+<script>
+    var value;
+    $(function ($) {
+
+
+    });
+
+    //在元素上存放数据,返回jQuery对象。
+    $("div").data("test", {first: 16, last: "pizza!"});
+    value = $("div").data("test").first; //16;
+    value = $("div").data("test").last;//pizza!;
+</script>
+<body>
+
+<div id="data">
+
+</div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>actionscope_作用域与命名空间</title>
+</head>
+<script>
+
+    function abc(a, b) {
+        return
+        a + b;  //error 返回underfined
+    }
+    console.log(abc(1, 2));
+
+    /*
+     隐式的全局变量
+     */
+
+    foo = '44'; //全局作用域
+    var bar = '45';   //局部作用域
+
+    function test() {
+        foo = '1';
+    }
+    /**
+     * 在函数 test 内不使用 var 关键字声明 foo 变量将会覆盖外部的同名变量。
+     * 起初这看起来并不是大问题，但是当有成千上万行代码时，不使用 var 声明变量将会带来难以跟踪的 BUG。
+     */
+
+    // 全局作用域
+    var items = [/* some list */];
+
+    for (var i = 0; i < 10; i++) {
+        subLoop();
+    }
+
+    function subLoop() {
+        // subLoop 函数作用域
+        for (i = 0; i < 10; i++) { // 没有使用 var 声明变量
+            // do amazing stuff!
+            console.log(i);
+        }
+    }
+
+    /**
+     * 外部循环在第一次调用 subLoop 之后就会终止，因为 subLoop 覆盖了全局变量 i。
+     * 在第二个 for 循环中使用 var 声明变量可以避免这种错误。
+     * 声明变量时绝对不要遗漏 var 关键字，除非这就是期望的影响外部作用域的行为。
+     */
+
+
+
+
+    /*
+     JavaScript 会提升变量声明。
+     这意味着 var 表达式和 function 声明都将会被提升到当前作用域的顶部。
+     */
+    bar();
+    var bar = function () {
+    };
+    var someValue = 42;
+
+    test(["1", "2"]);
+    function test(data) {
+        if (false) {
+            goo = 1;
+
+        } else {
+            var goo = 2;
+        }
+        for (var i = 0; i < 100; i++) {
+            var e = data[i];
+        }
+    }
+
+    /**
+     * 上面代码在运行之前将会被转化。
+     * JavaScript 将会把 var 表达式和 function 声明提升到当前作用域的顶部。
+     */
+
+    // var 表达式被移动到这里
+    var bar, someValue; // 缺省值是 'undefined'
+
+    // 函数声明也会提升
+    function test(data) {
+        var goo, i, e; // 没有块级作用域，这些变量被移动到函数顶部
+        if (false) {
+            goo = 1;
+
+        } else {
+            goo = 2;
+        }
+        for (i = 0; i < 100; i++) {
+            e = data[i];
+        }
+    }
+
+    bar(); // 出错：TypeError，因为 bar 依然是 'undefined'
+    someValue = 42; // 赋值语句不会被提升规则（hoisting）影响
+    bar = function () {
+    };
+
+    test(["1", "2"]);
+
+
+    /**
+     * 如果没有提升规则（hoisting）的知识，下面的代码看起来会抛出异常
+     */
+    // 检查 SomeImportantThing 是否已经被初始化
+    if (!SomeImportantThing) {
+        var SomeImportantThing = {};
+    }
+
+    /**
+     * 实际上，上面的代码正常运行，因为 var 表达式会被提升到全局作用域的顶部。
+     */
+    var SomeImportantThing;
+
+    // 其它一些代码，可能会初始化 SomeImportantThing，也可能不会
+
+    // 检查是否已经被初始化
+    if (!SomeImportantThing) {
+        SomeImportantThing = {};
+    }
+
+
+    //来自 Nettuts+ 的一段代码，生动的阐述了 JavaScript 中变量声明提升规则
+    var myvar = 'my value';
+
+    (function () {
+        alert(myvar); // undefined
+        var myvar = 'local value';
+    })();
+
+
+    /*
+     名称解析顺序
+     */
+
+    /**
+     比如，当访问函数内的 foo 变量时，JavaScript 会按照下面顺序查找：
+
+     1.当前作用域内是否有 var foo 的定义。
+     2.函数形式参数是否有使用 foo 名称的。
+     3.函数自身是否叫做 foo。
+     4.回溯到上一级作用域，然后从 #1 重新开始。
+     */
+
+    /*
+     命名空间（Namespaces）
+     */
+
+    /*只有一个全局作用域导致的常见错误是命名冲突。在 JavaScript中，这可以通过 匿名包装器 轻松解决。*/
+
+    (function () {
+        // 函数创建一个命名空间（译者注：也就是作用域）
+
+        window.foo = function () {
+            // 对外公开的函数，创建了闭包
+        };
+
+    })(); // 立即执行此匿名函数
+
+    /*匿名函数被认为是 表达式；因此为了可调用性，它们首先会被执行（evaluated）。*/
+
+    ( // 小括号内的函数首先被执行
+            function () {
+            }) // 并且返回函数对象
+    () // 调用上面的执行结果，也就是函数对象
+        /*有一些其他的调用函数表达式的方法，比如下面的两种方式语法不同，但是效果一模一样。*/
+
+        // 另外两种方式
+    + function () {
+    }();
+    (function () {
+    }());
+
+    /*
+     结论（In conclusion）
+
+     推荐使用匿名包装器（译者注：也就是自执行的匿名函数）来创建命名空间。这样不仅可以防止命名冲突， 而且有利于程序的模块化。
+
+     另外，使用全局变量被认为是不好的习惯。这样的代码倾向于产生错误和带来高的维护成本。
+     */
+</script>
+<body>
+
+</body>
+</html>

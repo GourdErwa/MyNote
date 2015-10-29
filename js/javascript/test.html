@@ -1,0 +1,70 @@
+<!--
+  ~ Written by wei.Li and released to the public domain
+  ~ Welcome to correct discussion as explained at
+  ~
+  ~ -----------------------------------------------------------------
+  ~
+  ~ GitHub:  https://github.com/GourdErwa
+  ~ CSDN  :	http://blog.csdn.net/xiaohulunb
+  ~ WeiBo :	http://www.weibo.com/xiaohulunb  	@GourdErwa
+  ~ Email :	gourderwa@163.com
+  ~
+  ~ Personal home page: http://grouderwa.com
+  -->
+
+<!--
+  ~ Written by wei.Li and released to the public domain
+  ~ Welcome to correct discussion as explained at
+  ~
+  ~ -----------------------------------------------------------------
+  ~
+  ~ GitHub:  https://github.com/GourdErwa
+  ~ CSDN  :	http://blog.csdn.net/xiaohulunb
+  ~ WeiBo :	http://www.weibo.com/xiaohulunb  	@GourdErwa
+  ~ Email :	gourderwa@163.com
+  ~
+  ~ Personal home page: http://grouderwa.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>json_.html</title>
+    <script type="text/javascript" src="../public_file/js/jquery-2.0.3.min.js"></script>
+</head>
+<script>
+    var i = 1;
+    $(function () {
+        console.log("1");
+        init(i);
+        i = 1000;
+
+    });
+
+    function init(i) {
+        $("#click").click(function () {
+            method(i);
+        });
+        $("#bind").bind("click", function () {
+            method(1);
+        });
+        $("#bind").bind("click", function () {
+            method(2);
+        });
+        $("#bind").bind("click", function () {
+            method(3);
+        });
+
+        $("#bind").data("events");
+    }
+    var method = function (i) {
+
+        alert(i);
+    }
+</script>
+<body>
+
+<input type="button" id="click" value="test-click">
+<input type="button" id="bind" value="test-bind">
+</body>
+</html>

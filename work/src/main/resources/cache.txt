@@ -1,0 +1,17 @@
+//读取此文件，按以下规则取出关键字段值,将输出结果保存为一个 cacheResult.txt 文件
+
+//规则:
+//提取每个方法的 方法名称->useClassName 的值 -> level的值
+
+//例如对第一个方法按规则提取输出结果为：
+//topoCache->Topo.class->3
+
+@Cache(useClassName = "Topo.class", level = 3)
+public static void topoCache(){}
+
+@Cache(useClassName = "Stream.class", level = 1)
+public static void streamCache(){}
+
+@Cache(useClassName = "Report.class", level = 1)
+public static void reportCache(){
+}

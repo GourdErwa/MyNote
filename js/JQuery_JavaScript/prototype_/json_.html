@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    /**
+     *
+     * JavaScript 不包含传统的类继承模型，而是使用 prototypical 原型模型。
+     *
+     **/
+        //Object对象的inObj设置为1;
+    Object.prototype.inObj = 1;
+
+    //定义A类;
+    function A() {
+        //给属性设置值为2;
+        this.inA = 2;
+    }
+
+    //给A类的inAproto属性设置为3;
+    A.prototype.inAProto = 3;
+
+
+    //定义B类;
+    function B() {
+        //给B类属性设置值为4;
+        this.inB = 4;
+    }
+
+    //这下面两句是什么意思?
+    B.prototype = new A();
+    //B.prototype.constructor = B;
+    B.prototype.inBroto = 5;
+
+    var B = new B();
+    document.write(B.inObj + "," + B.inA + "," + B.inAProto + "," + B.inB + "," + B.inBroto);
+
+
+    var People = function (name) {
+        alert("p..");
+        this.name = name;
+    }
+    People.prototype.name = "liwei";
+
+    document.write(People("l").name);
+</script>
+<body>
+
+</body>
+</html>

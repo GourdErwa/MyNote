@@ -1,0 +1,34 @@
+2 org.elasticsearch.client.Client接口
+
+Client为从集群中执行action或operation提供了一站式接口，这里的所有操作都是自然而然地异步执行的，每个action或operation都有两种风格，一种是简单地返回一个org.elasticsearch.action.ActionFuture，另一种是访问一个org.elasticsearch.action.ActionListener。你可以在org.elasticsearch.node.Node启动时取得一个Client，也可以使用org.elasticsearch.client.transport.TransportClient远程连接一个或多个节点。
+Client有以下方法：
+
+1) close()，关闭客户端；
+2) admin()，返回一个可以执行管理性操作的客户端；
+3) 两个execute，用于执行一般性操作，这里的一般性与上文提到的管理性相对；
+4) prepareExecute，准备一个RequestBuilder对象，得到RequestBuilder对象后再做执行操作，当然，在这之间，你可以做一些个性化设置；
+5) index(IndexRequest request)，根据给写的index和type索引一个JSON资源，index和type由IndexRequest提供，IndexRequest也可提供id，若不提供时，id将自动生成；
+6) index(IndexRequest request, ActionListener<IndexResponse> listener)，与index(IndexRequest request)的区别在于它不会直接返回索引创建的结果，而是将结果转给监听器，由listener来通知请求者；
+7) prepareIndex()、prepareIndex(String index, String type)、prepareIndex(String index, String type, @Nullable String id)，准备创建索引，但不创建索引；
+8) update(UpdateRequest request)，基于一个script更新文档，返回更新后的结果；
+9) update(UpdateRequest request, ActionListener<UpdateResponse> listener)，更新，但不返回结果，而是交由监听器；
+10) prepareUpdate()、prepareUpdate(String index, String type, String id)，准备更新，但不执行更新；
+11) delete(DeleteRequest request)、delete(DeleteRequest request, ActionListener<DeleteResponse> listener)，根据DeleteRequest提供的index、type和id从索引中删除文档；
+12) prepareDelete()、prepareDelete(String index, String type, String id)，准备删除，但不执行删除；
+13) bulk(BulkRequest request)、bulk(BulkRequest request, ActionListener<BulkResponse> listener)，批量操作；
+14) prepareBulk()，准备执行批量操作，但不执行；
+15) deleteByQuery(DeleteByQueryRequest request)、deleteByQuery(DeleteByQueryRequest request, ActionListener<DeleteByQueryResponse> listener)，基于查询删除索引；
+16) prepareDeleteByQuery(String... indices)，准备删除，但不执行删除；
+17) get(GetRequest request)、get(GetRequest request, ActionListener<GetResponse> listener)根据GetRequest提供的index、type和id获取文档；
+18) prepareGet()、prepareGet(String index, @Nullable String type, String id)，准备获取，但不执行获取；
+19) multiGet(MultiGetRequest request)、multiGet(MultiGetRequest request, ActionListener<MultiGetResponse> listener)，批量获取文档；
+20) prepareMultiGet()，准备批量获取，但不执行获取操作；
+21) count(CountRequest request)、count(CountRequest request, ActionListener<CountResponse> listener)，获取适应特定query的文档数量；
+22) prepareCount(String... indices)，准备获取适应特定query的文档数量，但不获取；
+23) search(SearchRequest request)、search(SearchRequest request, ActionListener<SearchResponse> listener)，根据SearchRequest提供的index、id和type执行搜索；
+24) prepareSearch(String... indices)，准备但不搜索；
+25) searchScroll(SearchScrollRequest request)、searchScroll(SearchScrollRequest request, ActionListener<SearchResponse> listener)、prepareSearchScroll(String scrollId)，通过用于迭代搜索结果；
+26) multiSearch(MultiSearchRequest request)、multiSearch(MultiSearchRequest request, ActionListener<MultiSearchResponse> listener)、prepareMultiSearch()，执行多个搜索请求；
+27) moreLikeThis(MoreLikeThisRequest request)、moreLikeThis(MoreLikeThisRequest request, ActionListener<SearchResponse> listener)、prepareMoreLikeThis(String index, String type, String id)，类似于数据库中的like操作，先根据index、type、id找到一个document，再找到跟这个文档like的其他文档；
+28) percolate(PercolateRequest request)、percolate(PercolateRequest request, ActionListener<PercolateResponse> listener)、preparePercolate(String index, String type)，过滤一个请求，返回匹配的结果；
+29) explain(ExplainRequest request)、explain(ExplainRequest request, ActionListener<ExplainResponse> listener)、prepareExplain(String index, String type, String id)，为指定的请求计算一个score。

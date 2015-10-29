@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>constructor_prototype_demo</title>
+</head>
+<script>
+    /**
+     * JavaScript 中所有变量都是对象，除了两个例外 null 和 undefined。
+     **/
+
+    false.toString();//false
+    [1, 2, 3].toString();//'1,2,3'
+
+    function Foo() {
+    }
+    Foo.bar = 1;
+    Foo.bar;//1
+
+    /**
+     * 一个常见的误解是数字的字面值（literal）不是对象。
+     * 这是因为 JavaScript 解析器的一个错误， 它试图将点操作符解析为浮点数字面值的一部分。
+     */
+        // 2.toString();//出错
+    2..toString();//第二个点正确解释
+    (2).toString();//2被计算
+
+    /**
+     * 使用对象的字面语法 - {} - 可以创建一个简单对象。
+     * 这个新创建的对象从 Object.prototype 继承下面，没有任何自定义属性。
+     */
+
+    var foo = {};//一个空对象
+    var bar = {name: 'liw'};//有属性的对象
+
+    /**
+     * 有两种方式来访问对象的属性，点操作符或者中括号操作符。
+     */
+
+    bar.name;
+    bar['name'];
+
+    document.write(bar['name']);//打印liw
+
+    /**
+     * 删除属性的唯一方法是使用 delete 操作符；
+     * 设置属性为 undefined 或者 null 并不能真正的删除属性，
+     * 而仅仅是移除了属性和值的关联。
+     */
+
+    var obj = {
+        bar: 1,
+        foo: 2,
+        baz: 3
+    }
+    obj.bar = undefined;
+    obj.foo = null;
+    delete obj.baz;
+
+    for (var i in obj) {
+        if (obj.hasOwnProperty(i)) {
+            //console.log(i, " " + obj[i]);
+        }
+    }
+    //发现只有baz被删除
+
+
+    /**
+     * JavaScript 不包含传统的类继承模型，而是使用 prototypical 原型模型。
+     */
+
+    Object.prototype.type = "people";
+
+    function Man() {
+        this.sex = "男";
+    }
+    Man.prototype.action = "run by Man_people...";//男人有一个动作是run...
+
+    function WoMan() {
+        this.sex = "女";
+    }
+
+    WoMan.prototype.action = "run by WoMan_people...";//女人有一个动作是run...
+
+    WoMan.prototype = new Man();//女人引用男人模型
+    //WoMan.prototype.constructor = WoMan;//这是什么？
+
+
+    var woMan_ = new WoMan();
+
+    document.write("<br>" + woMan_.sex);//打印people
+
+    document.write("<br>" + woMan_.action);//打印run by people...
+
+
+    /**
+     * constructor与prototype解惑
+     */
+
+    function People(name) {
+        this.name = name;
+        this.showMyName = function () {
+            document.write("<br>" + this.name);
+        }
+    }
+
+    var _people = new People("liw");
+    _people.showMyName();
+
+    /**
+     * function定义的这个Person就是一个Object(对象),而且还是一个很特殊的对象，
+     * 这个使用function定义的对象与使用new操作符生成的对象之间有一个重要的区别。
+     * 这个区别就是function定义的对象有一个prototype属性，
+     * 使用new生成的对象就没有这个prototype属性。
+     * prototype属性又指向了一个prototype对象，注意prototype属性与prototype对象是两个不同的东西，要注意区别。
+     * 在prototype对象中又有一个constructor属性，这个constructor属性同样指向一个constructor对象，
+     * 而这个constructor对象恰恰就是这个function函数本身。
+     */
+
+    document.write("<br>" + _people.prototype);//undefined -----new操作生成的对象没有prototype
+    document.write("<br>" + typeof  People.prototype);//object -----函数定义的时候函数本身有一个prototype对象
+    document.write("<br>" + People.prototype.constructor);//function People(name) {...}
+
+
+    /**
+     * _people.prototype 包含了2个属性，一个是constructor ，另外一个是__proto__
+
+     这个constructor 就是我们的构造函数a，这个也很容易理解。
+     那么__proto__ 是什么呢？
+
+     这个就涉及到了原型链的概念：
+     每个对象都会在其内部初始化一个属性，就是__proto__，当我们访问一个对象的属性 时，
+     如果这个对象内部不存在这个属性，那么他就会去__proto__里找这个属性，这个__proto__又会有自己的__proto__，
+     于是就这样 一直找下去。
+     */
+
+</script>
+<script>
+
+
+    function Foo() {
+        this.foo = 'I am Foo';
+        this.sayHello = function () {
+            alert('hello!');
+        }
+        return 'I am a function';
+    }
+    var foo = new Foo();
+    var boo = new Foo();
+    boo.foo = 'I don want to be Foo'
+    // console.log(foo.foo);
+    //console.log(boo.foo);
+
+    /**
+     * 这里有个问题，foo属性我其实是想让它有类属性的特性，当它被改变是，我希望所有Foo构造的对象都受到影响，
+     * 可是Javascript目前的特性来讲，无法实现，于是Javascript的发明者Brendan Eich决定为构造函数设置一个prototype属性，即原型对象。
+     * 然后另Javascript中所有对象都有一个__proto__属性，每一个对象被创建时，Javascript会把这个对象的__proto__属性赋值为这个对象所基于的原型对象，
+     * 比如new Foo()语句生成的对象的__proto__属性会被赋值为Foo.prototype。
+     * 当从一个对象中获取一个属性失败时，JS会自动尝试去其__proto__链接指向的对象中去查找，如果还找不到，继续在它的__proto__指向对象中找，直
+     * 到找到Object.prototype为止。
+
+
+     前面说过Javascript中所有变量都是对象，除了两个例外null和undefined。现在我们来讨论函数，其实函数也是个对象。
+     这里我先把对象分成两类，普通对象和函数对象。之所以把函数单独分类为函数对象，因为函数有一个prototype属性(原型属性)。
+     在定义一个函数的时候，Javascript会执行几个动作：
+
+     1.为该函数对象添加一个原型属性（即prototype对象）。
+
+     2.另prototype属性指向这个函数的原型对象。（比如定义Foo()函数，那么Foo.protopye就指向Foo()函数的原型对象，即Foo{}对象，这里一定要注意函数对象和函数的原型对象可不是一个对象）。
+
+     3.为prototype对象添加一个constructor属性，constructor属性指向prototype原型对象的构造函数。（Foo()是一个函数对象而原型对象Foo{}只是一个普通对象。）
+
+     在Javascript里每一个函数都可以结合new来创建一个对象（模拟面向对象编程），所以Javascript里的任何函数都是构造函数。
+     */
+
+
+    /*
+     Function是一个函数对象，它的prototype指向"function()"原型对象，按理Function的原型对象应该是Function{}
+     但是此处给出结果是function()对象，那我们这里先特殊记忆一下只有Function的原型对象为"function()"。
+     其他构造函数的原型对象为“对象名{}”。
+     据一遍技术文档里说function()对象是一个空函数（我更愿意理解为
+     function()对象是一个普通对象，因为它没有prototype属性）
+     */
+
+
+    function Foo() {
+        this.foo = 'I am Foo';
+        return 'I am a function';
+    }
+
+    console.log(Function.prototype) //function()
+    console.log(Function.__proto__); //function()
+    //个人这里有一个比较难理解的地方，所有函数对象的__proto__属性都指向Function.prototype,应为所有函数都是有
+    //Function函数构造的，包括Function对象自己，所以 Function.__proto__ 等于 Function自身的prototype。
+    console.log(Function.prototype === Function.__proto__);
+    console.log(Function.prototype.constructor); //Function()
+    console.log(Function.constructor); //Function()
+    console.log(Function.__proto__.prototype); //undefined
+    console.log(Function.prototype.__proto__); //Object {}
+    console.log(Object.prototype); //Object {}
+    console.log(Object.__proto__); //function()
+
+
+    console.log(typeof(Foo)); //function
+    console.log(Foo.prototype); //Foo{}
+    //Foo本身是一个函数对象，它是由Function构造函数创建的，Foo.__proto__指向Function.prototype即function对象
+    console.log(Foo.__proto__); //function()
+
+
+    console.log(typeof(Foo.prototype)); //object
+    console.log(typeof(Foo.__proto__)); //function
+    //下面这句等价于Function.prototype.__proto__,因为function（）是一个对象，它的构造函数自然是Object{}，所以
+    //等于Object.prototype,即Object {}原型对象。
+    console.log(Foo.__proto__.__proto__); //Object {}
+    console.log(Object.prototype); //Object {}
+    console.log(Foo.prototype.constructor); //Foo()
+    //Foo.constructor实际等于Foo.__proto__.constructor(Function.prototype.constructor)
+    console.log(Foo.constructor); //Function()
+
+
+    var foo = new Foo();
+    var st = "I'm a string";
+    var Class = function () {
+    };
+    //Class是一个函数对象，
+    console.log(Class.__proto__); //function()
+    console.log(Class.prototype); //Object {}
+    console.log(String.__proto__); //function()
+    console.log(String.prototype); //String {}
+    console.log(st.__proto__);//String {}
+    console.log(typeof(foo)); //object
+    console.log(foo.__proto__); //Foo {}
+    console.log(foo.prototype); //undefined
+    console.log(foo.constructor); //Foo()
+
+
+    function a() {
+    }
+    var arr = new Array();
+    a.prototype = arr;
+    var as = new a();
+
+    arr.push(1);
+    as.push(2);
+    as.push(3);
+    console.log(as);
+
+
+</script>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="jsPlumb_files/jquery-1.9.0.js"></script>
+    <script src="jsPlumb_files/jquery-ui-1.9.2-min.js"></script>
+    <script src="jsPlumb_files/jquery.jsPlumb-1.4.0-all.js"></script>
+    <title>jsPlumb_my_</title>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        /**当拖动一个连接点时，可连接的连接点会自动使用该css**/
+        .dragActive {
+            border: 2px dotted orange;
+        }
+
+        /**当拖动一个连接点到可连接的点时，该点会自动使用该css**/
+        .dropHover {
+            border: 1px dotted red;
+        }
+
+        .item {
+            border: 1px solid black;
+            background-color: #ddddff;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+
+        #someDiv {
+            left: 100px;
+            top: 100px;
+        }
+
+        #someOtherDiv {
+            left: 350px;
+            top: 150px;
+        }
+
+        #state3 {
+            left: 100px;
+            top: 350px;
+        }
+    </style>
+
+    <script>
+
+        //初始化
+        jsPlumb.ready(function () {
+
+
+        });
+
+        jsPlumb.connect({
+            source: "someDiv",
+            targert: "someOtherDiv",
+            endpoint: "Rectangle"
+        });
+
+
+    </script>
+</head>
+
+<body>
+//html部分仅声明三个div，注意，jsPlumb通过id来识别html元素，因此如果要使用jsPlumb连线必须声明id。
+<div id="someDiv" class="item"></div>
+<div id="someOtherDiv" class="item"></div>
+<div id="state3" class="item"></div>
+
+
+<div id="container">
+    <div class="header" style="height:20px;background-color:blue;">header</div>
+    <div class="childType1"></div>
+    <div class="childType2"></div>
+    <div>
+
+
+</body>
+
+
+</html>

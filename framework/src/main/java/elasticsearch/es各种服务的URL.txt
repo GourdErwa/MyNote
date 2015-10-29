@@ -1,0 +1,55 @@
+elasticsearch 将各种功能、配置、服务都以API的形式暴露，这也是elasticsearch区别于其他搜索引擎框架的一个特征。
+=============================================================================================
+
+###索引相关
+URL    说明
+/index/_search    不解释
+/_aliases        获取或操作索引的别名
+/index/
+/index/type/    创建或操作类型
+/index/_mapping    创建或操作mapping
+/index/_settings创建或操作设置(number_of_shards是不可更改的)
+/index/_open    打开被关闭的索引
+/index/_close    关闭索引
+/index/_refresh    刷新索引（使新加内容对搜索可见）
+/index/_flush   刷新索引, 将变动提交到lucene索引文件中,并清空elasticsearch的transaction log
+与refresh的区别需要研究
+
+/index/_optimize    优化segement，个人认为主要是对segement进行合并
+/index/_status        获得索引的状态信息
+/index/_segments    获得索引的segments的状态信息
+/index/_explain        不执行实际搜索，而返回解释信息
+/index/_analyze        不执行实际搜索，根据输入的参数进行文本分析
+/index/type/id        操作指定文档，不解释
+/index/type/id/_create    创建一个文档，如果该文件已经存在，则返回失败
+/index/type/id/_update    更新一个文件，如果改文件不存在，则返回失败
+
+
+###分布式
+URL    说明
+/_cluster/nodes    获得集群中的节点列表和信息
+/_cluster/health    获得集群信息
+/_cluster/state    获得集群里的所有信息（集群信息、节点信息、mapping信息等）
+
+Nodes
+URL    说明
+/_nodes/process        我主要看file descriptor 这个信息
+/_nodes/process/stats    统计信息（内存、CPU能）
+/_nodes/jvm            获得各节点的虚拟机统计和配置信息
+/_nodes/jvm/stats    更详细的虚拟机信息
+/_nodes/http        获得各个节点的http信息（如ip地址）
+/_nodes/http/stats    获得各个节点处理http请求的统计情况
+/_nodes/thread_pool 获得各种类型的线程池（elasticsearch分别对不同的操作提供不同的线程池）的配置信息
+
+/_nodes/thread_pool/stats    获得各种类型的线程池的统计信息
+以上这些操作和可以通过如
+[/_nodes/${nodeId}/jvm/stats, /_nodes/${nodeip}/jvm/stats, /_nodes/${nodeattribute}/jvm/stats]
+的形式针对指定节点的操作。
+
+
+###其他
+/_template/templateName 创建索引配置模板，比如默认的mapping
+
+/_percolator/indexName/percolatorName 创建percolator（这个词怎么翻译成中文，是个问题）
+
+/index/type/_percolate/ 对payload中指定的文档进行”反

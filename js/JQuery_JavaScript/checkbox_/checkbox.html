@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>checkbox_demo</title>
+    <script type="text/javascript" src="../../public_file/js/jquery-2.0.3.min.js"></script>
+</head>
+<style>
+    body {
+        text-align: center;
+        font-family: "Helvetica Neue", Arial, Verdana, "Nimbus Sans L", sans-serif;
+        font-size: 16;
+    }
+
+    select {
+        width: 250px;
+        font-size: 16;
+    }
+</style>
+<body>
+<div>
+    <input type="checkbox" name="checkAll" value="checkAll" onclick="checkAll(this)">全选、反选
+    <br>
+    <input type="checkbox" name="like" value="lanqiu">篮球
+    <br>
+    <input type="checkbox" name="like" value="zuqiu">足球
+    <br>
+    <input type="checkbox" name="like" value="bangqiu">棒球
+    <br>
+    <input type="button" value="获取value" onclick=writeCheckValue()>
+
+</div>
+</body>
+<script>
+
+    /**************设置某值被选中**************/
+
+        //设置第一个checkbox 为选中值
+    $('input:checkbox[name="like"]:first').attr("checked", 'checked');
+    $('[name="like"]:first').attr("checked", 'checked');
+    $('[name="like"]').eq(0).attr("checked", 'true');
+
+    // 根据索引值设置任意一个checkbox为选中值
+    $('[name="like"]').eq(2).attr("checked", "true");//索引值=0,1,2....
+    $('[name="like"]').slice(1).attr('checked', 'true');//索引是0以后的都选中
+
+    //根据Value值设置checkbox为选中值
+    $('[name="like"][value="zuqiu"]').attr('checked', 'true');
+
+
+    /**************删除某值**************/
+
+        //删除Value=1的checkbox
+    $('[name="like"][value="zuqiu"]').remove();
+
+    // 删除第几个checkbox
+    $('[name="like"]').eq(1).remove();//索引值=0,1,2....
+    //如删除第3个checkbox:
+    $('[name="like"]').eq(2).remove();
+
+
+    /**************全选、反选**************/
+
+    $('[name="like"]').attr("checked", 'true');//全选
+    $('[name="like"]').removeAttr("checked", 'true');//取消全选
+    $('[name="like"]:even').attr("checked", 'true');//选中所有奇数
+
+    //反选
+    $('[name="like"]').each(function () {
+        if ($(this).attr("checked")) {
+            $(this).removeAttr("checked");
+        }
+        else {
+            $(this).attr("checked", 'true');
+        }
+    });
+
+    //全选、反选同一按钮事件
+    function checkAll(obj) {
+        if ($("[name='checkAll']").attr("checked")) {
+            $('[name="like"]').
+            attr("checked", 'true');//全选
+        } else {
+            $('[name="like"]').
+            removeAttr("checked", 'true');//取消全选
+        }
+    }
+
+    /**************获取选中的值**************/
+
+    //获取选中的值
+    function writeCheckValue() {
+        var str = "";
+        $('[name="like"][checked]').each(function () {
+            str += $(this).val() + ",";
+        });
+        return str;
+    }
+</script>
+</html>

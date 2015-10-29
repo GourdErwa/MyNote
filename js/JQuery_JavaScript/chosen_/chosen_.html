@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title>jquery.chosen.js_demo</title>
+    <link rel="stylesheet" href="../../public_file/chosen_v1.1.0/chosen.css">
+    <script type="text/javascript" src="../../public_file/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../../public_file/chosen_v1.1.0/chosen.jquery.min.js"></script>
+</head>
+<style>
+    body {
+        font-family: "Helvetica Neue", Arial, Verdana, "Nimbus Sans L", sans-serif;
+    }
+
+    select {
+        width: 300px;
+    }
+
+    hr {
+        color: #ae81ff;
+        width: 30%;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+
+<div style="text-align: center;">
+
+    <input type="button" id="chosen_s_1" value="标准下拉单选(1)_取值">
+    <input type="button" id="chosen_s_2" value="标准下拉多选(2)_取值">
+    <br>
+    <input type="button" id="chosen_u_1" value="标准下拉单选(1)_添加option">
+    <input type="button" id="chosen_u_2" value="标准下拉多选(2)_添加option">
+    <br><br>
+    标准下拉单选(1)<br><br>
+    <select data-placeholder="请选择一个国家..." class="chosen-select 1" id="chosen-select-1">
+        <option value=""></option>
+        <option value="United States" selected>United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Afghanistan" disabled>Afghanistan</option>
+        <option value="Albania">Albania</option>
+    </select>
+
+    <hr>
+    <br>
+    标准下拉多选(2)<br><br>
+    <select data-placeholder="请选择一个国家..." class="chosen-select 2" multiple id="chosen-select-2">
+        <option value=""></option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Afghanistan">Afghanistan</option>
+        <option value="Aland Islands">Aland Islands</option>
+        <option value="Albania">Albania</option>
+    </select>
+
+    <hr>
+    <br>
+    分组单选(3)<br><br>
+    <select data-placeholder="你最喜欢的足球队..." class="chosen-select 3" tabindex="5">
+        <option value=""></option>
+        <optgroup label="NFC EAST">
+            <option>Dallas Cowboys</option>
+            <option>New York Giants</option>
+            <option>Philadelphia Eagles</option>
+            <option>Washington Redskins</option>
+        </optgroup>
+        <optgroup label="NFC NORTH">
+            <option>Chicago Bears</option>
+            <option>Detroit Lions</option>
+            <option>Green Bay Packers</option>
+            <option>Minnesota Vikings</option>
+        </optgroup>
+        <optgroup label="NFC SOUTH">
+            <option>Atlanta Falcons</option>
+            <option>Carolina Panthers</option>
+            <option>New Orleans Saints</option>
+            <option>Tampa Bay Buccaneers</option>
+        </optgroup>
+        <optgroup label="NFC WEST">
+            <option>Arizona Cardinals</option>
+            <option>St. Louis Rams</option>
+            <option>San Francisco 49ers</option>
+            <option>Seattle Seahawks</option>
+        </optgroup>
+    </select>
+
+    <hr>
+    <br>
+    分组多选(4)
+    <br><br>
+    <select data-placeholder="你最喜欢的足球队..." class="chosen-select 4" multiple
+            tabindex="6">
+        <option value=""></option>
+        <optgroup label="NFC EAST">
+            <option>Dallas Cowboys</option>
+            <option>New York Giants</option>
+            <option>Philadelphia Eagles</option>
+            <option>Washington Redskins</option>
+        </optgroup>
+        <optgroup label="NFC NORTH">
+            <option>Chicago Bears</option>
+            <option>Detroit Lions</option>
+            <option>Green Bay Packers</option>
+            <option>Minnesota Vikings</option>
+        </optgroup>
+        <optgroup label="NFC SOUTH">
+            <option>Atlanta Falcons</option>
+            <option>Carolina Panthers</option>
+            <option>New Orleans Saints</option>
+            <option>Tampa Bay Buccaneers</option>
+        </optgroup>
+    </select>
+
+    <br>
+    <hr>
+    <p>自动选中和移除不能选择的option(单选(5)、多选(6))</p>
+
+    <select data-placeholder="Your Favorite Type of Bear" class="chosen-select 5"
+            tabindex="7">
+        <option value=""></option>
+        <option>American Black Bear</option>
+        <option>Asiatic Black Bear</option>
+        <option>Brown Bear</option>
+        <option>Giant Panda</option>
+        <option selected>Sloth Bear</option>
+        <option disabled>Sun Bear</option>
+        <option>Polar Bear</option>
+        <option disabled>Spectacled Bear</option>
+    </select>
+    <br><br>
+    <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select 6"
+            tabindex="8">
+        <option value=""></option>
+        <option>American Black Bear</option>
+        <option>Asiatic Black Bear</option>
+        <option>Brown Bear</option>
+        <option>Giant Panda</option>
+        <option selected>Sloth Bear</option>
+        <option disabled>Sun Bear</option>
+        <option selected>Polar Bear</option>
+        <option disabled>Spectacled Bear</option>
+    </select>
+    <br>
+    <hr>
+    <p>如果有比较少的选项的时候 disable_search_threshold 可以在单选select中隐藏搜索输入框</p>
+    <pre><code class="language-javascript">$(".chosen-select").chosen({disable_search_threshold: 10});</code></pre>
+    <p></p>
+    <br>
+    <hr>
+    <h2>复选框中option数量的限制</h2>
+
+    <p>你可以很轻松的设置用户可以选多少个option:</p>
+    <pre><code class="language-javascript">$(".chosen-select").chosen({max_selected_options: 5});</code></pre>
+    <p> 如果你想选择另一个选项与限制选择:maxselected事件触发:</p>
+    <pre><code class="language-javascript"> $(".chosen-select").bind("chosen:maxselected", function () { ... }); </code></pre>
+    <br>
+    <hr>
+
+    <h2>允许取消单一的选择(7)</h2>
+
+    <p>设置属性:allow_single_deselect: true</p>
+    <select data-placeholder="Your Favorite Type of Bear" class="chosen-select-deselect 7"
+            tabindex="12">
+        <option value=""></option>
+        <option>American Black Bear</option>
+        <option>Asiatic Black Bear</option>
+        <option>Brown Bear</option>
+        <option>Giant Panda</option>
+        <option selected>Sloth Bear</option>
+        <option>Sun Bear</option>
+        <option>Polar Bear</option>
+        <option>Spectacled Bear</option>
+    </select>
+    <hr>
+    <h2>字体居右显示(8)</h2>
+
+    <p>只需添加“chosen-rtl”到了“chosen-select”选择标签后</p>
+    <select data-placeholder="Your Favorite Type of Bear" class="chosen-select  chosen-rtl 8"
+            tabindex="12">
+        <option value=""></option>
+        <option>American Black Bear</option>
+        <option>Asiatic Black Bear</option>
+        <option>Brown Bear</option>
+        <option>Giant Panda</option>
+        <option selected>Sloth Bear</option>
+        <option>Sun Bear</option>
+        <option>Polar Bear</option>
+        <option>Spectacled Bear</option>
+    </select>
+
+    <br>
+    <hr>
+    　　<h2>更改/更新事件</h2>
+    　　<h3>表单字段的变化</h3>
+    　　在进行表单操作时，你经常会遇到一些在某些选择项被选中，或选择项改变时，去触发某些操作的情况。
+    <br>而在Chosen里，用户在任何时候选中一个选择项时，都会触发一个change事件。
+    <br>你可以这样去写这个change操作：
+    　　<br>
+    　　$("#form_field").chosen().change( … );
+    　　<h3>选择更新动态</h3>
+    　　如果你需要去动态更新select选择框里的选择项，你需要通知Chosen去响应这个变动，
+    <br>你需要在这个选项框是触发一个"liszt:updated"事件，
+    <br>这样Chosen就会对更新过内容后的select选择框重新进行渲染。
+    　　<br>
+    　　$("#form_field").trigger("chosen:updated");
+    　　<h3>自定义宽度支持</h3>
+    　　使用自定义宽度与选择一样容易通过一个选择当您创建选择:
+    　　<br>
+    　　 $(".chosen-select").chosen({width: "95%"});
+
+</div>
+</body>
+<script type="text/javascript">
+
+    var config = {
+        '.chosen-select': {},
+        '.chosen-select-deselect': {allow_single_deselect: true},//允许取消单一选择
+        '.chosen-select-no-single': {disable_search_threshold: 10},//取消搜索框
+        '.chosen-select-no-results': {no_results_text: 'Oops, nothing found!'},//搜索结果为空时候提示信息
+        '.chosen-select-width': {width: "95%"}//设置长度
+    };
+
+
+    $(function ($) {
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+        // $(".chosen-select").chosen();
+        //获取value
+        $("#chosen_s_1").click(function () {
+            alert($("#chosen-select-1").val());
+        });
+        $("#chosen_s_2").click(function () {
+            alert($("#chosen-select-2").val());
+        });
+
+        $("#chosen_u_1").click(function () {
+            $("#chosen-select-1").append("<option value='1'>add_option</option>");
+            $("#chosen-select-1").trigger("chosen:updated");//修改demo结构后刷新下拉框
+        });
+        $("#chosen_u_2").click(function () {
+            $("#chosen-select-2").append("<option value='1'>add_option</option>");
+            $("#chosen-select-2").trigger("chosen:updated");
+        });
+
+    });
+</script>
+
+</html>

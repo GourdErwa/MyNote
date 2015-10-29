@@ -1,0 +1,30 @@
+/**
+  * Table 12.1. Built-in Data Window Views
+  * <p>
+  * View	Syntax	                                             Description
+  * ==========================================================================================================
+  * win:length(size)	                                滑动窗口，存最近的 size 条数据
+  * win:length_batch(size)	                        批处理-间隔窗口，存满 size 条触发查询
+  * win:time(time period)	                        滑动窗口，存最近 size 秒内的数据
+  * win:ext_timed(timestamp expression, time period)	滑动窗口，存最近 time period 内的数据，不再基于EPL引擎，而是系统时间戳[timestamp]
+  * win:time_batch(time period[,optional reference point] [, flow control])	            批次事件和释放他们指定的时间间隔,与流控制选项
+  * win:ext_timed_batch(timestamp expression, time period[,optional reference point])	批处理事件并释放它们的基础上由表达式提供的毫秒值每隔指定的时间间隔
+  * win:time_length_batch(time period, size [, flow control])	多策略的时间和长度的批处理窗口,当时间或数量任意一个满足条件时，触发查询
+  * win:time_accum(time period)	                                阻塞输出，直到 period 内没有新进入的数据时，才输出并触发查询. 这些数据视为已移出窗口
+  * win:keepall()	                                            keep-all 无参数，记录所有进入的数据，除非使用delete操作，才能从窗口移出数据
+  * ext:sort(size, sort criteria)	                            排序的排序标准表达式返回的值,仅保留事件到给定的大小。 Q:select sum(amount) from userbuy.ext:sort(3, amount desc) 将3个最高金额求和
+  * ext:rank(unique criteria(s), size, sort criteria(s))	        只保留最近的事件中有相同的值为标准表达式(s)按某种标准表达式和仅保留顶部事件到给定的大小。 Q:select * from userbuy.ext:sort(3,amount desc,id asc) 找出最高金额的3条事件，并按id排序
+  * ext:time_order(timestamp expression, time period)	        Orders events that arrive out-of-order, using an expression providing timestamps to be ordered.
+  * std:unique(unique criteria(s))	        对不同的unique[例如:id]保留其最近的一条事件
+  * std:groupwin(grouping criteria(s))	    一般与其它窗口组合使用，将进入的数据按表达式 id 分组
+  * 关于分组的时间窗口:当使用grouped-window时间窗口,注意,是否保留5分钟的事件或每组保留5分钟的事件,
+  * 结果都是一样的从保留的角度事件既保留政策,考虑所有组,同一组的事件。因此请单独指定时间窗
+  * std:lastevent()	                        保留最后一个事件，长度为1
+  * std:firstevent()	                        保留第一个事件，不顾后续的事件
+  * std:firstunique(unique criteria(s))	    Retains only the very first among events having the same value for the criteria expression(s), disregarding all subsequent events for same value(s).
+  * win:firstlength(size)	                保留一批数据的前 size 条，需配合delete操作
+  * win:firsttime(time period)	            保留窗口初始化后 period 内的所有数据
+  *
+  * @return epl
+  */
+

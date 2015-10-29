@@ -1,0 +1,47 @@
+/**
+部分语法说明
+ * <p>
+ * 1.EPL Syntax
+ * <p>
+ * [annotations]
+ * [expression_declarations]
+ * [context context_name]
+ * [insert into insert_into_def]
+ * select select_list
+ * from stream_def [as name] [, stream_def [as name]] [,...]
+ * [where search_conditions]
+ * [group by grouping_expression_list]
+ * [having grouping_search_conditions]
+ * [output output_specification]
+ * [order by order_by_expression_list]
+ * [limit num_rows]
+ * <p>
+ * 2.Time Periods
+ * <p>
+ * time-period :  [year-part] [month-part] [week-part] [day-part] [hour-part]
+ * [minute-part]  [seconds-part] [milliseconds-part]
+ * year-part :    (number|variable_name) ("years" | "year")
+ * month-part :   (number|variable_name) ("months" | "month")
+ * week-part :    (number|variable_name) ("weeks" | "week")
+ * day-part :     (number|variable_name) ("days" | "day")
+ * hour-part :    (number|variable_name) ("hours" | "hour")
+ * minute-part :  (number|variable_name) ("minutes" | "minute" | "min")
+ * seconds-part : (number|variable_name) ("seconds" | "second" | "sec")
+ * milliseconds-part : (number|variable_name) ("milliseconds" | "millisecond" |
+ * "msec")
+ * <p>
+ * 3.注解
+ * a) @Name 指定EPL的名称，参数只有一个。例如：@Name("MyEPL")
+ * b) @Description 对EPL进行描述，参数只有一个。例如：@Description("This is MyEPL")
+ * c) @Tag 对EPL进行额外的说明，参数有两个，分别为Tag的名称和Tag的值，用逗号分隔。
+            例如：@Tag(name="author",value="luonanqin")
+ * d) @Priority 指定EPL的优先级，参数只有一个，并且整数（可负可正）。例如：@Priority(10)
+ * e) @Drop 指定事件经过此EPL后不再参与其他的EPL计算，该注解无参数。
+ * f) @Hint 为EPL加上某些标记，让引擎对此EPL产生其他的操作，会改变EPL实例的内存占用，但通常不会改变输出。
+            其参数固定，由Esper提供，之后的篇幅会穿插讲解这个注解的使用场景。
+ * g) @Audit EPL添加此注解后，可以额外输出EPL运行情况，有点类似日志的感觉（当然没有日志的功能全啦），具体使用场景在此先不提。
+ * h) @Hook 与SQL相关，这里暂且不说
+ * i) @EventRepresentation 这是用来指定EPL产生的计算结果事件包含的数据形式。
+                            参数只有一个，即array=true或array=false。false为默认值，代表数据形式为Map，若为true，则数据形式为数组。
+ *
+ */

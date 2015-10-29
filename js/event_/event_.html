@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>event_</title>
+    <script type="text/javascript" src="../../public_file/js/jquery-2.0.3.min.js"></script>
+</head>
+<script>
+    (function () {
+
+    })();
+
+</script>
+<body>
+<script>
+    function handler(event) {
+        alert(event.data.foo);
+    }
+    $(function ($) {
+        //$("p").bind("click", {foo: "bar"}, handler);
+
+        $("p").bind({
+            click: function () {
+                $("p").css("background-color", "red");
+            }, onmousemove: function () {
+                $("p").css("background-color", "blue");
+            }
+        });
+    });
+
+</script>
+<p>bin()</p>
+</body>
+</html>

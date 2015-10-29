@@ -1,0 +1,26 @@
+
+%\{([a-zA-Z0-9_]*)\}
+
+## 无空格
+([ ]*?)
+
+^1([\d]{12})
+
+^\d{4}[\-\s/](^0[012])[\-\s/]((0[1-9])|[1-31])\d$
+([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]|[0-9][1-9][0-9]{2}|[1-9][0-9]{3})-(((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)-(0[1-9]|[12][0-9]|30))|(02-(0[1-9]|[1][0-9]|2[0-8])))
+
+
+我叫李伟，我今年18岁
+
+我叫(\S),.(\d)岁
+
+
+(?:[^[:punct:]\s[:cntrl:]'‘’]+[’'][^[:punct:]\s[:cntrl:]'‘’]+)
+			# A run of characters that are not a punctuation,
+			# whitespace, or control character, followed by a
+			# single quote, then another run of characters that
+			# are not a punctuation, whitespace, or control character
+|			# OR
+[^[:punct:]\s[:cntrl:]'‘’]+
+			# Just a run of characters that are not a punctuation,
+			# whitespace, or control character

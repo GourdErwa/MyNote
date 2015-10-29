@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--
+  ~ Written by wei.Li and released to the public domain
+  ~ Welcome to correct discussion as explained at
+  ~
+  ~ -----------------------------------------------------------------
+  ~
+  ~ GitHub:  https://github.com/GourdErwa
+  ~ CSDN  :	http://blog.csdn.net/xiaohulunb
+  ~ WeiBo :	http://www.weibo.com/xiaohulunb  	@GourdErwa
+  ~ Email :	gourderwa@163.com
+  ~
+  ~ Personal home page: http://grouderwa.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script type="text/javascript" src="../../public_file/js/jquery-2.0.3.min.js"></script>
+
+<script type="text/javascript" src="jquery.validate.js"></script>
+<script type="text/javascript" src="additional-methods.js"></script>
+<script type="text/javascript" src="jquery.qtip.min.js"></script>
+<link rel="stylesheet" href="jquery.qtip.min.css">
+
+<script type="text/javascript" src="messages_zh.js"></script>
+<script>
+    var _toString = Object.prototype.toString;
+    $(function () {
+
+        /* var obj = {
+         aa: [{
+         b: 1,
+         c: 1
+         }]
+         };*/
+
+        for (var key in obj) {
+            var obj = obj[key];
+            var type = _toString.call(obj).slice(8, -1);
+            console.log(type);
+            for (var element in obj) {
+                var pa = obj[element];
+                /* switch (type) {
+                 case 'String':
+                 return !$.trim(args);
+                 case 'Array':
+                 return !args.length;
+                 case 'Object':
+                 // 普通对象使用 for...in 判断，有 key 即为 false
+                 if (!args) return true;
+                 for (var key in args)
+                 return false;
+                 return true;
+                 default:
+                 // 其他对象均视作空
+                 return true;
+                 }*/
+                console.log(pa);
+            }
+        }
+
+
+//带标题
+        $("#demo2").qtip({
+            content: {
+                text: "<b>这是提示内容</b>（By Hu Sir）",
+                title: "提示标题"
+            }
+        });
+
+        $('#test_form').validate({
+            rules: {
+                t2: {required: true, number: true}
+            },
+            messages: {t2: {required: "这个字段你必须填~~！", number: "这个字段真可以是数字"}},
+            errorPlacement: function (error, element) {
+                var elem = $(element);
+                if (!error.is(':empty')) {
+                    console.log(error);
+                    $("#email").qtip({
+                        content: "这是提示内容（by囧月）"
+                        , style: {
+                            classes: 'ui-tooltip-red ui-tooltip-shadow ui-tooltip-rounded'
+                        }
+                    });
+                    /* elem.filter(':not(.valid)').qtip({
+                     overwrite: false,
+                     content: error,
+                     position: {
+                     my: 'left center',
+                     at: 'right center',
+                     target: elem,
+                     container: this,
+                     viewport: $(window)
+                     },
+                     show: {
+                     event: false,
+                     ready: true
+                     },
+                     hide: false,
+                     style: {
+                     classes: 'ui-tooltip-red'
+                     }
+                     });*/
+                } else {
+                    elem.qtip('destroy');
+                }
+            },
+            success: $.noop,
+            submitHandler: function () {
+                //alert("Submitted!")
+            }
+        });
+
+        $("#check").click(function () {
+            //$("email").validate();
+            $("#email").qtip({
+                content: "这是提示内容（by囧月）"
+            });
+            validateForm(this);
+        });
+
+        $("#myform").validate({
+            meta: "validate",
+            submitHandler: function () {
+                //alert("Submitted!")
+            }
+        });
+        /*di(obj11);
+         di(obj11);
+         console.log(obj11);*/
+
+        var objs = [{
+            "array": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "boolean": true,
+            "null": null,
+            "number": 123,
+            "object": {
+                "a": "b",
+                "c": "d",
+                "e": "f"
+            },
+            "string": "Hello World"
+        }, {
+            "array": [
+                1,
+                2,
+                3, 5
+            ],
+            "boolean": true,
+            "null": null,
+            "number": 123,
+            "object": {
+                "a": "b",
+                "c": "d",
+                "e": "f"
+            },
+            "string": "Hello World"
+        }, {
+            "array": [
+                1,
+                2,
+                3, 9
+            ],
+            "boolean": true,
+            "null": null,
+            "number": 123,
+            "object": {
+                "a": "b",
+                "c": "d",
+                "e": "f"
+            },
+            "string": "Hello World"
+        }];
+        var arg = {
+            "array": [
+                1,
+                2,
+                3, "9"
+            ],
+            //"aaaa":1,
+            "boolean": true,
+            "null": null,
+            "number": 123,
+            "object": {
+                "a": "b",
+                "c": "d",
+                "e": "f"
+            },
+            "string": "Hello World"
+        };
+        console.log(checkHelperUtils.dontIgnoreNumberStringTypeCompare(objs, arg));
+    });
+    function validateForm(form_id) {
+        $("#test_form").validate({
+            ignore: ':hidden:not(.chzn-done)',
+            onfocusout: false,
+            errorClass: 'error',
+            // validClass: 'valid'
+            errorPlacement: function (error, element) {
+                var elem = $(element);
+                console.log(error);
+                if (!error.is(':empty')) {
+                    elem.filter(':not(.valid)').qtip({
+                        overwrite: false,
+                        content: error,
+                        position: {
+                            my: 'left center',
+                            at: 'right center',
+                            target: elem,
+                            container: $(form_id).parents(".tab-pane"),
+                            viewport: $(window)
+                        },
+                        show: {
+                            event: false,
+                            ready: true
+                        },
+                        hide: false,
+                        style: {
+                            classes: 'ui-tooltip-red'
+                        }
+                    });
+                } else {
+                    elem.qtip('destroy');
+                }
+            },
+            success: $.noop
+        });
+
+    }
+    var obj11 = {
+        "array": [
+            1,
+            2,
+            3
+        ],
+        "boolean": true,
+        "null": null,
+        "number": 123,
+        "object": {
+            "a": "b",
+            "c": "d",
+            "e": "f",
+            "f": 10
+        },
+        "string": "Hello World",
+        "ss": null
+    };
+    function di(obj) {
+        for (var key in obj) {
+            var obj22 = obj[key];
+            if (typeof obj22 === "object") {
+                console.log("Object");
+                di(obj22);
+            } else if (typeof obj22 === "number") {
+                console.log("number");
+                obj[key] = obj22.toString();
+            }
+        }
+    }
+
+    var checkHelperUtils = new function () {
+        /**
+         *  arg 的所有参数逐个对比 objes[{}]中的信息，忽略字符串与数字类型的比较
+         * @param {[{}]} objs
+         * @param {{}} arg
+         * @returns {boolean} 是否重复
+         */
+        this.ignoreNumberStringTypeCompare = function (objs, arg) {
+            var result = false;
+            $.each(objs, function () {
+
+                var is_repetition = true;
+                for (var key in arg) {
+                    var argParam = arg[key];
+                    var objsParam = this[key];
+                    if (typeof argParam === "object") {
+                        if (!checkHelperUtils.ignoreNumberStringTypeCompareHandle(objsParam, argParam)) {
+                            is_repetition = false;
+                            break;
+                        }
+                    } else if (argParam.toString() !== objsParam.toString()) {
+                        is_repetition = false;
+                        break;
+                    }
+                }
+                if (is_repetition) {
+                    result = true;
+                    return false;
+                }
+            });
+            return result;
+        };
+
+        /**
+         *  arg 的所有参数逐个对比 objes[{}]中的某个对象的信息，忽略字符串与数字类型的比较
+         * @param {{}} obj
+         * @param {{}} arg
+         * @returns {boolean} 是否重复某字段
+         */
+        this.ignoreNumberStringTypeCompareHandle = function (obj, arg) {
+            for (var key in arg) {
+                var argParam = arg[key];
+                var objsParam = obj[key];
+                if (typeof argParam === "object") {
+                    if (!checkHelperUtils.ignoreNumberStringTypeCompareHandle(objsParam, argParam)) {
+                        return false;
+                    }
+                } else if (argParam.toString() !== objsParam.toString()) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+
+        /**
+         *  arg 的所有参数逐个对比 objes[{}]中的信息，不忽略字符串与数字类型的比较
+         * @param {[{}]} objs
+         * @param {{}} arg
+         * @returns {boolean} 是否重复
+         */
+        this.dontIgnoreNumberStringTypeCompare = function (objs, arg) {
+            var result = false;
+            $.each(objs, function () {
+
+                var is_repetition = true;
+                for (var key in arg) {
+                    var argParam = arg[key];
+                    var objsParam = this[key];
+                    if (typeof argParam === "object") {
+                        if (!checkHelperUtils.dontIgnoreNumberStringTypeCompareHandle(objsParam, argParam)) {
+                            is_repetition = false;
+                            break;
+                        }
+                    } else if (argParam !== objsParam) {
+                        is_repetition = false;
+                        break;
+                    }
+                }
+                if (is_repetition) {
+                    result = true;
+                    return false;
+                }
+            });
+            return result;
+        };
+
+        /**
+         *  arg 的所有参数逐个对比 objes[{}]中的某个对象的信息，不忽略字符串与数字类型的比较
+         * @param {{}} obj
+         * @param {{}} arg
+         * @returns {boolean} 是否重复某字段
+         */
+        this.dontIgnoreNumberStringTypeCompareHandle = function (obj, arg) {
+            for (var key in arg) {
+                var argParam = arg[key];
+                var objsParam = obj[key];
+                if (typeof argParam === "object") {
+                    if (!checkHelperUtils.dontIgnoreNumberStringTypeCompareHandle(objsParam, argParam)) {
+                        return false;
+                    }
+                } else if (argParam !== objsParam) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+    };
+</script>
+<body>
+<br>
+电子邮件(必填) <input id="email" class="required email" value="email@"/>
+
+<input type="button" value="check" id="check">
+<br>
+
+<form id="test_form">
+    <input type="text" class="required number" max="10" name="t2">
+    <input type="submit" value="Submit"/></form>
+</form>
+<form id="myform">
+    <input type="text" name="email" class="{validate:{ required:true,email:true }}"/>
+    <input type="submit" value="Submit"/></form>
+
+<span id="demo2">测试二</span><br/><br/>
+</body>
+</html>
+
+

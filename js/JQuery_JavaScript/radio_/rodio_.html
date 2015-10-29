@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>radio_demo</title>
+    <script type="text/javascript" src="../../public_file/js/jquery-2.0.3.min.js"></script>
+</head>
+<style>
+    body {
+        text-align: center;
+        font-family: "Helvetica Neue", Arial, Verdana, "Nimbus Sans L", sans-serif;
+        font-size: 16;
+    }
+
+    select {
+        width: 250px;
+        font-size: 16;
+    }
+</style>
+<body>
+<div>
+    <input type="radio" name="isSingle" value="1" checked>单一选择测试
+    <input type="radio" name="isSingle" value="2">多项选择测试
+    <input type="checkbox">
+    <br>
+    <input type="button" value="获取value" onclick=alert(A())>
+
+</div>
+</body>
+<script>
+    $("input[type=radio]:checked").val();//获取被选择的值
+    $("input[type=radio][name='isSingle']:checked").val();//获取被选择的值
+    $("input[name='isSingle']:checked").val();//获取被选择的值
+
+    $("input[name='isSingle']").attr("checked", '2');//设置value=2的项目为当前选中项
+
+</script>
+</html>

@@ -1,0 +1,17 @@
+// Apple事件进入Esper，只有amount大于200的才能进入win:length，并且length长度为5
+EPL:select * from Apple(amount>200).win: length(5)
+
+// Apple事件进入Esper并进入win:length(5)，但是只有amount大于200的才能触发UpdateListener
+EPL: select * from Apple.win: length(5) where amount>200
+
+
+// 统计进入的5个Apple事件，amount的总数是多少
+select sum(amount) from Apple.win: length_batch(5)
+
+// 统计进入的5个Apple事件，amount的总数是多少，并按照price分组
+select price, sum(amount) from Apple.win: length_batch(5) group by price
+
+// 统计进入的5个Apple事件，amount的总数和name，并按照price分组
+select price, name, sum(amount) from Apple.win:length_batch(5) group by price
+
+

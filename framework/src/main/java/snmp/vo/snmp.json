@@ -1,0 +1,55 @@
+{
+  "targetAddress": "udp:127.0.0.1/8999",
+  "pduSettings": [
+    {
+      "version": 3,
+      "usmUser": {
+        "userName": "MD5DES",
+        "securityName": "MD5DES",
+        "authenticationProtocol": "1.3.6.1.6.3.10.1.1.2",
+        "authenticationPassphrase": "MD5DESUserAuthPassword",
+        "privacyProtocol": "1.3.6.1.6.3.10.1.2.2",
+        "privacyPassphrase": "MD5DESUserPrivPassword",
+        "securityLevel": 3
+      },
+      "communityTarget": null,
+      "variableBindingSettings": [
+        {
+          "oid": "1.3.6.1.2.1.1.1.0",
+          "variable": "default"
+        },
+        {
+          "oid": "1.3.6.1.2.1.1.1.4",
+          "variable": "default"
+        }
+      ],
+      "pduType": "GETNEXT",
+      "retries": 1,
+      "timeout": 2000,
+      "synchronization": true,
+      "broadcast": true
+    },
+    {
+      "version": 2,
+      "usmUser": null,
+      "communityTarget": {
+        "community": "public"
+      },
+      "variableBindingSettings": [
+        {
+          "oid": "1.3.6.1.2.1.1.1.0",
+          "variable": "default"
+        },
+        {
+          "oid": "1.3.6.1.2.1.1.1.4",
+          "variable": "default"
+        }
+      ],
+      "pduType": "GETNEXT",
+      "retries": 1,
+      "timeout": 2000,
+      "synchronization": true,
+      "broadcast": false
+    }
+  ]
+}

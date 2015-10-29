@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+  ~ Written by wei.Li and released to the public domain
+  ~ Welcome to correct discussion as explained at
+  ~
+  ~ -----------------------------------------------------------------
+  ~
+  ~ GitHub:  https://github.com/GourdErwa
+  ~ CSDN  :	http://blog.csdn.net/xiaohulunb
+  ~ WeiBo :	http://www.weibo.com/xiaohulunb  	@GourdErwa
+  ~ Email :	gourderwa@163.com
+  ~
+  ~ Personal home page: http://grouderwa.com
+  -->
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>actionscope_作用域与命名空间</title>
+</head>
+<script>
+
+    a();
+    var a = c = function () {
+        console.log(2)
+    };
+    a();
+    function a() {
+        console.log(1)
+    }
+    a();
+    (function (b) {
+        b(), c();
+        var b = c = function a() {
+            console.log(3)
+        };
+        b()
+    })(a);
+    c();
+</script>
+<body>
+
+</body>
+</html>

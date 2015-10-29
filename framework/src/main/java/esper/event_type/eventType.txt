@@ -1,0 +1,3 @@
+Esper对事件有特殊的数据结构约定。
+
+能处理的事件结构有：POJO，java.util.Map，Object Array，XML

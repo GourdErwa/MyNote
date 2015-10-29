@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>arguments 对象（The arguments object）</title>
+</head>
+<script>
+
+
+    /*
+     JavaScript 中每个函数内都能访问一个特别变量 arguments。
+     这个变量维护着所有传递到这个函数中的参数列表。
+
+     注意: 由于 arguments 已经被定义为函数内的一个变量。
+     因此通过 var 关键字定义 arguments 或者将 arguments 声明为一个形式参数， 都将导致原生的 arguments 不会被创建。
+     arguments 变量不是一个数组（Array）。
+     尽管在语法上它有数组相关的属性 length，但它不从 Array.prototype 继承，实际上它是一个对象（Object）。
+     */
+
+    function foo(name, age) {
+        console.log(arguments);//["liw", "24"]
+        bar.apply(null, arguments);
+    }
+    function bar(a, b, c) {
+        // do stuff here
+        console.log(a + b + c);//liw,24,undefined
+    }
+
+    var foo = new foo('liw', '24');
+
+
+    /*
+     探究call、apply方法的区别
+     */
+
+    function people(name, sex) {
+        this.name = name;
+        this.sex = sex;
+
+    }
+
+    //利用apply方法赋值
+    function studentByApply(name, sex, age) {
+
+        people.apply(this, arguments);//arguments数组中的内容去逐一匹配people方法中的参数链表
+        this.age = age;
+    }
+
+    var st = new studentByApply("liw", "男", 24);
+
+    console.log(st.name + "\t" + st.sex + "\t" + st.age);//liw	男	24
+
+    /*
+     分析: Person.apply(this,arguments);
+     this:在创建对象在这个时候代表的是student
+     arguments:是一个数组,也就是[“liw”,”男”,24];
+     也就是通俗一点讲就是:用student去执行Person这个类里面的内容,在Person这个类里面存在this.name等之类的语句,这样就将属性创建到了student对象里面
+     */
+
+    //利用call方法赋值
+    function studentByCall(name, sex, age) {
+
+        people.call(this, arguments);//arguments即默认为name
+        //people.call(this, name,sex);//正确写法
+        this.age = age;
+    }
+    var st = new studentByCall("liw", "男", 24);
+
+    console.log(st.name + "\t" + st.sex + "\t" + st.age);//[object Arguments]	undefined	24
+
+    /**
+     发现是两个方法参数列表第二个参数意义不同，apply是接受了数组，call是一个参数链
+     **/
+
+
+    /*
+     apply的一些其他巧妙用法
+
+     */
+    var arr1 = new Array("1", "2", "3");
+
+    var arr2 = new Array("4", "5", "6");
+
+    Array.prototype.push.apply(arr1, arr2);
+
+    console.log(arr1);//["1", "2", "3", "4", "5", "6"]
+    console.log(arr2);//[ "4", "5", "6"]
+
+    var min = Math.min.apply(null, arr1);
+    console.log(min);//1
+
+    /*
+     一般在目标函数只需要n个参数列表,而不接收一个数组的形式（[param1[,param2[,…[,paramN]]]]）,可以通过apply的方式巧妙地解决这个问题!
+     */
+
+
+    /*
+
+     自动更新
+
+     arguments 对象为其内部属性以及函数形式参数创建 getter 和 setter 方法。
+
+     因此，改变形参的值会影响到 arguments 对象的值，反之亦然。
+     */
+
+    function arguments(a, b, c, d) {
+
+        console.log(arguments[0]);//1
+
+        a = 10;
+        console.log(arguments[0]);//10
+
+        arguments[1] = 20;
+        console.log(b);//20
+    }
+    arguments(1, 2, 3, 4);
+
+
+    /*
+     slice()函数
+
+     返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。
+     -2 指倒数第二个元素，以此类推。
+     */
+
+    var arr = new Array("1", "2", "3", "4", "5");
+
+    console.log(arr.slice());//["1", "2", "3", "4", "5"]
+    console.log(arr.slice(1, 3));//["2", "3"]
+    console.log(arr.slice(-1, 3));//[]
+    console.log(arr.slice(-2, 4));//["4"]
+    console.log(arr.slice(-2));//["4","5"]
+
+
+</script>
+<body>
+
+</body>
+</html>

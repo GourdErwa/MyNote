@@ -1,0 +1,196 @@
+问题一：在java中读取文件时应该采用什么编码？
+
+Java读取文件的方式总体可以分为两类：按字节读取和按字符读取。
+按字节读取就是采用InputStream.read()方法来读取字节，然后保存到一个byte[]数组中，最后经常用new String(byte[]);把字节数组转换成String。
+在最后一步隐藏了一个编码的细节，new String(byte[]);会使用操作系统默认的字符集来解码字节数组，中文操作系统就是GBK。
+而我们从输入流里读取的字节很可能就不是GBK编码的，因为从输入流里读取的字节编码取决于被读取的文件自身的编码。
+
+举个例子：我们在D: 盘新建一个名为demo.txt的文件，写入”我们。”，并保存。
+此时demo.txt编码是ANSI，中文操作系统下就是GBK。此时我们用输入字节流读取该文件所得到的字节就是使用GBK方式编码的字节。
+那么我们最终new String(byte[]);时采用平台默认的GBK来编码成String也是没有问题的(字节编码和默认解码一致)。
+试想一下，如果在保存demo.txt文件时，我们选择UTF-8编码，那么该文件的编码就不在是ANSI了，而变成了UTF-8。
+仍然采用输入字节流来读取，那么此时读取的字节和上一次就不一样了，这次的字节是UTF-8编码的字节。
+两次的字节显然不一样，一个很明显的区别就是：GBK每个汉字两个字节，而UTF-8每个汉字三个字节。
+如何我们最后还使用new String(byte[]);来构造String对象，则会出现乱码，原因很简单，因为构造时采用的默认解码GBK，而我们的字节是UTF-8字节。
+正确的办法就是使用new String(byte[], ”UTF-8”);来构造String对象。此时我们的字节编码和构造使用的解码是一致的，不会出现乱码问题了。
+
+
+
+说完字节输入流，再来说说字节输出流。
+
+我们知道如果采用字节输出流把字节输出到某个文件，我们是无法指定生成文件的编码的(假设文件以前不存在)，那么生成的文件是什么编码的呢？
+
+经过测试发现，其实这取决于写入的字节编码格式。比如以下代码：
+
+OutputStream out = new FileOutputStream("d:\\demo.txt");
+
+out.write("我们".getBytes());
+
+getBytes()会采用操作系统默认的字符集来编码字节，这里就是GBK，所以我们写入demo.txt文件的是GBK编码的字节。
+那么这个文件的编码就是GBK。如果稍微修改一下程序：out.write("我们".getBytes(“UTF-8”));
+此时我们写入的字节就是UTF-8的，那么demo.txt文件编码就是UTF-8。
+这里还有一点，如果把”我们”换成123或abc之类的ascii码字符，那么无论是采用getBytes()或者getBytes(“UTF-8”)那么生成的文件都将是GBK编码的。
+
+这里可以总结一下，InputStream中的字节编码取决文件本身的编码，而OutputStream生成文件的编码取决于字节的编码。
+
+
+
+下面说说采用字符输入流来读取文件。
+
+首先，我们需要理解一下字符流。其实字符流可以看做是一种包装流，它的底层还是采用字节流来读取字节，然后它使用指定的编码方式将读取字节解码为字符。
+说起字符流，不得不提的就是InputStreamReader。
+
+以下是java api对它的说明：
+
+InputStreamReader是字节流通向字符流的桥梁：它使用指定的 charset 读取字节并将其解码为字符。
+它使用的字符集可以由名称指定或显式给定，否则可能接受平台默认的字符集。
+说到这里其实很明白了，InputStreamReader在底层还是采用字节流来读取字节，读取字节后它需要一个编码格式来解码读取的字节，
+如果我们在构造InputStreamReader没有传入编码方式，那么会采用操作系统默认的GBK来解码读取的字节
+。还用上面demo.txt的例子，假设demo.txt编码方式为GBK，我们使用如下代码来读取文件：
+
+InputStreamReader  in = new InputStreamReader(new FileInputStream(“demo.txt”));
+
+那么我们读取不会产生乱码，因为文件采用GBK编码，所以读出的字节也是GBK编码的，而InputStreamReader默认采用解码也是GBK。
+如果把demo.txt编码方式换成UTF-8, 那么我们采用这种方式读取就会产生乱码。
+
+这是因为字节编码(UTF-8)和我们的解码编码(GBK)造成的。解决办法如下：
+
+InputStreamReader  in = new InputStreamReader(new FileInputStream(“demo.txt”), ”UTF-8”);
+
+给InputStreamReader指定解码编码，这样二者统一就不会出现乱码了。
+
+
+
+下面说说字符输出流。
+
+字符输出流的原理和字符输入流的原理一样，也可以看做是包装流，其底层还是采用字节输出流来写文件。
+只是字符输出流根据指定的编码将字符转换为字节的。
+字符输出流的主要类是：OutputStreamWriter。Java api解释如下：
+
+OutputStreamWriter 是字符流通向字节流的桥梁：使用指定的 charset 将要向其写入的字符编码为字节。
+它使用的字符集可以由名称指定或显式给定，否则可能接受平台默认的字符集。
+说的很明白了，它需要一个编码将写入的字符转换为字节，如果没有指定则采用GBK编码，那么输出的字节都将是GBK编码，生成的文件也是GBK编码的。
+如果采用以下方式构造OutputStreamWriter：
+
+OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(“dd.txt”), ”UTF-8”);
+
+那么写入的字符将被编码为UTF-8的字节, 生成的文件也将是UTF-8格式的。
+
+
+
+问题二： 既然读文件要使用和文件编码一致的编码，那么javac编译文件也需要读取文件，它使用什么编码呢？
+
+这个问题从来就没想过，也从没当做是什么问题。正是因为问题一而引发的思考，其实这里还是有东西可以挖掘的。
+下面分三种情况来探讨，这三种情况也是我们常用的编译java源文件的方法。
+
+1.javac在控制台编译java类文件。
+
+通常我们手动建立一个java文件Demo.java，并保存。此时Demo.java文件的编码为ANSI, 中文操作系统下就是GBK.然后使用javac命令来编译该源文件。
+”javac Demo.java”。Javac也需要读取java文件，那么javac是使用什么编码来解码我们读取的字节呢？
+其实javac采用了操作系统默认的GBK编码解码我们读取的字节，这个编码正好也是Demo.java文件的编码，二者一致，所以不会出现乱码情况。
+让我们来做点手脚，在保存Demo.java文件时，我们选择UTF-8保存。
+此时Demo.java文件编码就是UTF-8了。我们再使用”javac Demo.java”来编译，如果Demo.java里含有中文字符，此时控制台会出现警告信息，也出现了乱码。
+究其原因，就是因为javac采用了GBK编码解码我们读取的字节。
+因为我们的字节是UTF-8编码的，所以会出现乱码。如果不信的话你可以自己试试。那么解决办法呢？
+解决办法就是使用javac的encoding参数来制定我们的解码编码。
+如下：javac -encoding UTF-8 Demo.java。这里我们指定了使用UTF-8来解码读取的字节，由于这个编码和Demo.java文件编码一致，所以不会出现乱码情况了。
+
+
+
+2.Eclipse中编译java文件。
+
+我习惯把Eclipse的编码设置成UTF-8。那么每个项目中的java源文件的编码就是UTF-8。
+这样编译也从没有问题，也没有出现过乱码。正是因为这样才掩盖了使用javac可能出现的乱码。那么Eclipse是如何正确编译文件编码为UTF-8的java源文件的呢？
+唯一的解释就是Eclipse自动识别了我们java源文件的文件编码，然后采取了正确的encoding参数来编译我们的java源文件。功劳都归功于IDE的强大了。
+
+
+
+3.使用Ant来编译java文件。
+
+Ant也是我常用的编译java文件的工具。首先，必须知道Ant在后台其实也是采用javac来编译java源文件的，那么可想而知，1会出现的问题在Ant中也会存在。
+如果我们使用Ant来编译UTF-8编码的java源文件，并且不指定如何编码，那么也会出现乱码的情况。
+所以Ant的编译命令<javac>有一个属性” encoding”允许我们指定编码，如果我们要编译源文件编码为UTF-8的java文件，那么我们的命令应该如下：
+
+<javac destdir="${classes}" target="1.4" source="1.4" deprecation="off"
+debug="on" debuglevel="lines,vars,source" optimize="off" encoding="UTF-8">
+
+指定了编码也就相当于”javac –encoding”了，所以不会出现乱码了。
+
+
+
+问题三：tomcat中编译jsp的情况。
+
+这个话题也是由问题二引出的。既然javac编译java源文件需要采用正确的编码，那么tomcat编译jsp时也要读取文件，此时tomcat采用什么编码来读取文件？
+会出现乱码情况吗？下面我们来分析。
+
+我们通常会在jsp开头写上如下代码：
+
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+
+我常常不写pageEncoding这个属于，也不明白它的作用，但是不写也没出现过乱码情况
+。其实这个属性就是告诉tomcat采用什么编码来读取jsp文件的。
+它应该和jsp文件本身的编码一致。比如我们新建个jsp文件，设置文件编码为GBK, 那么此时我们的pageEncoding应该设置为GBK,
+这样我们写入文件的字符就是GBK编码的，tomcat读取文件时采用也是GBK编码，所以能保证正确的解码读取的字节。
+不会出现乱码。如果把pageEncoding设置为UTF-8，那么读取jsp文件过程中转码就出现了乱码。上面说我常常不写pageEncoding这个属性，但是也没出现过乱码，这是怎么回事呢？
+那是因为如果没有pageEncoding属性，tomcat会采用contentType中charset编码来读取jsp文件，
+我的jsp文件编码通常设置为UTF-8, contentType的charset也设置为UTF-8, 这样tomcat使用UTF-8编码来解码读取的jsp文件，二者编码一致也不会出现乱码。
+这只是contentType中charset的一个作用，它还有两个作用，后面再说。可能有人会问：如果我既不设置pageEncoding属性，也不设置contentType的charset属性，
+那么tomcat会采取什么编码来解码读取的jsp文件呢？答案是iso-8859-1，这是tomcat读取文件采用的默认编码，如果用这种编码来读取文件显然会出现乱码。
+
+
+
+问题四：输出。
+
+问题二和问题三分析的过程其实就是从源文件àclass文件过程中的转码情况。
+最终的class文件都是以unicode编码的，我们前面所做的工作就是把各种不同的编码转换为unicode编码，比如从GBK转换为unicode, 从UTF-8转换为unicode。
+因为只有采用正确的编码来转码才能保证不出现乱码。Jvm在运行时其内部都是采用unicode编码的，其实在输出时，又会做一次编码的转换。让我们分两种情况来讨论。
+
+1.java中采用Sysout.out.println输出。
+
+比如：Sysout.out.println(“我们”)。
+经过正确的解码后”我们”是unicode保存在内存中的，但是在向标准输出(控制台)输出时，jvm又做了一次转码，
+它会采用操作系统默认编码(中文操作系统是GBK)，将内存中的unicode编码转换为GBK编码，然后输出到控制台。
+因为我们操作系统是中文系统，所以往终端显示设备上打印字符时使用的也是GBK编码。
+因为终端的编码无法手动改变，所以这个过程对我们来说是透明的，只要编译时能正确转码，最终的输出都将是正确的，不会出现乱码。
+在Eclipse中可以设置控制台的字符编码，具体位置在Run Configuration对话框的Common标签里, 我们可以试着设置为UTF-8, 此时的输出就是乱码了。
+因为输出时是采用GBK编码的，而显示却是使用UTF-8，编码不同，所以出现乱码。
+
+
+
+2.jsp中使用out.println()输出到客户端浏览器。
+
+Jsp编译成class后，如果输出到客户端，也有个转码的过程。Java会采用操作系统默认的编码来转码，那么tomcat采用什么编码来转码呢？
+其实tomcat是根据
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+中contentType的charset参数来转码的，contentType用来设置tomcat往浏览器发送HTML内容所使用的编码。
+Tomcat根据这个编码来转码内存中的unicode。经过转码后tomcat输出到客户端的字符编码就是utf-8了。
+那么浏览器怎么知道采取什么编码格式来显示接收到的内容呢？
+这就是contentType的charset属性的第三个作用了：
+这个编码会在HTTP响应头中指定以通知浏览器。浏览器使用http响应头的contentType的charset属性来显示接收到的内容。
+
+总结一下contentType charset的三个作用：
+
+1).在没有pageEncoding属性时，tomcat使用它来解码读取的jsp文件。
+
+2).tomcat向客户端输出时，使用它来编码发送的内容。
+
+3).通知浏览器，应该以什么编码来显示接收到的内容。
+
+为了能更好的理解上面所说的解码和转码过程，我们举一个例子。
+
+新建一个index.jsp文件，该文件编码为GBK, 在jsp开头我们写上如下代码：
+
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="GBK"%>
+
+这里的charset和pageEncoding不同，但是也不会出现乱码，我来解释一下。
+首先tomcat读取jsp内容，并根据pageEncoding指定的GBK编码将读取的GBK字节解码并转换为unicode字节码保存在class文件中。
+然后tomcat在输出时(out.println())使用charset属性将内存中的unicode转换为utf-8编码，并在响应头中通知浏览器，浏览器以utf-8显示接收到的内容。
+整个过程没有一次转码错误，所以就不会出现乱码情况。
+
+
+
+问题五：Properties和ResourceBundle使用的解码编码。
+
+以上两个是我们常用的类，他们在读取文件过程中并不允许我们指定解码编码，那么它们采取什么解码方式呢？查看源码后发现都是采用iso-8859-1编码来解码
+的。这样的话我们也不难理解我们写的properties文件为什么都是iso-8859-1 的了。因为采取任何一个别的编码都将产生乱码。
+因为iso-8859-1编码是没有中文的，所以我们输入的中文要转换为unicode，通常我们使用插件来完成，也可以使用jdk自带的native2ascii工具。

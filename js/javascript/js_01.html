@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var test = {
+            char: 1,
+            char2: 2,
+            char3: {
+                charchar1: 1,
+                charchar2: 2
+            },
+            char4: [1, 2, 3, 4, 5],
+            char5: function test3() {
+                alert("char5->");
+            }
+        };
+
+        var test2 = function () {
+            //alert("test2->" + test.char3.charchar1);
+            alert("test2->" + test.char5);
+        }
+
+        function test1() {
+            //test2();
+            //alert("test1->" + test.char3.charchar1);
+        }
+
+        function on_() {
+            util.demo_1();
+        }
+        var util = {
+            clone: function (obj) {
+                alert(obj);
+            }, demo_1: function () {
+                alert("bb");
+            }
+
+        };
+
+    </script>
+</head>
+<body onload="on_()">
+
+</body>
+</html>
