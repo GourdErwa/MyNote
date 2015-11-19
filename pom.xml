@@ -20,6 +20,7 @@
         <module>performance</module>
         <module>util</module>
         <module>work</module>
+        <module>hadoop</module>
     </modules>
     <name>MyNote</name>
 

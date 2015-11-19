@@ -2,7 +2,6 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/bug" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design" charset="UTF-8" />
@@ -10,6 +9,7 @@
     <file url="file://$PROJECT_DIR$/framework" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework/src/main/java/jasperreport/jasper/sample.jasper" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/game" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hadoop" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/io" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java8" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js" charset="UTF-8" />
