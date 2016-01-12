@@ -15,7 +15,7 @@ public class EPL_1_Common {
      */
     protected static String avg() {
         //return "select " + Apple.AVG_PRICE + " from " + Apple.CLASSNAME + ".win:length_batch(3)";
-        return "select *,true as otherField from " + Apple.CLASSNAME + ".win:length_batch(3)";
+        return "select * from " + Apple.CLASSNAME + ".win:length_batch(3)";
     }
 
 
@@ -148,7 +148,7 @@ public class EPL_1_Common {
 
          注意一定要是静态方法，不然没有实例化是没法引用的。
          */
-        Main_Execute.epAdministrator.getConfiguration().addImport(Apple.class);
+        mainExecute.EP_ADMINISTRATOR.getConfiguration().addImport(Apple.class);
         String epl5 = "select " + Apple.CLASSNAME + ".getPriceByDiscount2StaticMethod(r.price,r.discount) as discount_price from " + Apple.CLASSNAME + " as r";
 
         /**

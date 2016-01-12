@@ -19,7 +19,7 @@ package com.java.basis.math;
  *
  * @author wei.Li by 14/10/8.
  */
-public class BHD_Converter {
+public class BHDConverter {
 
     public static final double HEX = 0x1000_0000_0000_0000L;
 
@@ -34,6 +34,7 @@ public class BHD_Converter {
     }
 
     public static void main(String[] args) {
+
         System.out.println(HEX);
     }
 }

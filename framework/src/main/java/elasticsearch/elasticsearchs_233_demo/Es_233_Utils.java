@@ -1,6 +1,6 @@
 package elasticsearch.elasticsearchs_233_demo;
 
-import json.Json_To_Map;
+import json.jsonToMap;
 import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.indices.alias.get.GetAliasesRequest;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
@@ -114,7 +114,7 @@ public class Es_233_Utils {
         //获取结果集打印
         for (SearchHit searchHit : searchHitsByPrepareSearch) {
             String s = searchHit.getSourceAsString();
-            Map map = Json_To_Map.json_To_Map(s);
+            Map map = jsonToMap.json_To_Map(s);
             Set set = map.keySet();
 /*
             set.stream().filter(s1 -> s1.equals(filed)).forEach(s1 -> {

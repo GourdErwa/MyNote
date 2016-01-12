@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by lw on 14-7-23.
  * JSON字符串转为MAP
  */
-public class Json_To_Map {
+public class jsonToMap {
 
     public static Map json_To_Map(String jsonStr) {
         try {
@@ -23,6 +23,5 @@ public class Json_To_Map {
     public static void main(String[] args) {
        /* String jsonStr = "{ \"name\" : \"liw\", \"sex\" : \"男\", \"age\" : \"23\",\"address\" : \"BeiJing\"}";
         json_To_Map(jsonStr);*/
-
     }
 }

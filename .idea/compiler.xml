@@ -49,7 +49,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="document" />
       </profile>
       <profile default="false" name="Annotation profile for framework" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -114,6 +113,13 @@
         <processorPath useClasspath="true" />
         <module name="work" />
       </profile>
+      <profile default="false" name="Annotation profile for hadoop" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="hadoop" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bug" target="1.8" />
@@ -123,6 +129,7 @@
       <module name="document" target="1.8" />
       <module name="framework" target="1.8" />
       <module name="game" target="1.8" />
+      <module name="hadoop" target="1.8" />
       <module name="io" target="1.8" />
       <module name="java8" target="1.8" />
       <module name="js" target="1.8" />
