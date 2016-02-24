@@ -120,6 +120,20 @@
         <processorPath useClasspath="true" />
         <module name="hadoop" />
       </profile>
+      <profile default="false" name="Annotation profile for spark" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="spark" />
+      </profile>
+      <profile default="false" name="Annotation profile for flume" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="flume" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bug" target="1.8" />
@@ -127,6 +141,7 @@
       <module name="db" target="1.8" />
       <module name="design" target="1.8" />
       <module name="document" target="1.8" />
+      <module name="flume" target="1.8" />
       <module name="framework" target="1.8" />
       <module name="game" target="1.8" />
       <module name="hadoop" target="1.8" />
@@ -136,6 +151,7 @@
       <module name="junit" target="1.8" />
       <module name="MyNote" target="1.8" />
       <module name="performance" target="1.8" />
+      <module name="spark" target="1.8" />
       <module name="util" target="1.8" />
       <module name="work" target="1.8" />
     </bytecodeTargetLevel>

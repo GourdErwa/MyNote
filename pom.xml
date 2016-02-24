@@ -21,6 +21,8 @@
         <module>util</module>
         <module>work</module>
         <module>hadoop</module>
+        <module>spark</module>
+        <module>flume</module>
     </modules>
     <name>MyNote</name>
 

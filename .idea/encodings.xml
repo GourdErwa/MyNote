@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/db" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/document" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/flume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework/src/main/java/jasperreport/jasper/sample.jasper" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/game" charset="UTF-8" />
@@ -15,6 +16,7 @@
     <file url="file://$PROJECT_DIR$/js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/junit" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/performance" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spark" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/java/basis/encoding/java字符串的各种编码转换.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/work" charset="UTF-8" />

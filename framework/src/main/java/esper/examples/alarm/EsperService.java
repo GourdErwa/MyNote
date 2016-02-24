@@ -13,17 +13,17 @@ public class EsperService {
         return new EsperAlarmProvider(providerURI, updateListener);
     }
 
-    public static interface ICEPProvider {
+    public interface ICEPProvider {
 
-        public void registerEPL(String... epl);
+        void registerEPL(String... epl);
 
-        public void registerEPL(String epl, String eplID);
+        void registerEPL(String epl, String eplID);
 
-        public void registerEPL2Listener(String... epl);
+        void registerEPL2Listener(String... epl);
 
-        public void registerEPL2Listener(String epl, String eplID);
+        void registerEPL2Listener(String epl, String eplID);
 
-        public void sendEvent(Object theEvent);
+        void sendEvent(Object theEvent);
     }
 
     public static class EsperAlarmProvider implements ICEPProvider {

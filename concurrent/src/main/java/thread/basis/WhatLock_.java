@@ -132,26 +132,11 @@ public class WhatLock_ {
     private static void runStaticTest() {
         LOGGER.info("~~~~~~~~~ runStaticTest() Submit ticket start ~~~~~~~~~ ");
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                StaticClass.staticMethodOfLongRunning();
-            }
-        });
+        executorService.execute(StaticClass::staticMethodOfLongRunning);
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                StaticClass.staticMethodOfInstantlyComplete();
-            }
-        });
+        executorService.execute(StaticClass::staticMethodOfInstantlyComplete);
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                StaticClass.staticMethodOfInstantlyCompleteNotSynchronized();
-            }
-        });
+        executorService.execute(StaticClass::staticMethodOfInstantlyCompleteNotSynchronized);
 
         LOGGER.info("~~~~~~~~~ runStaticTest() Submit ticket end ~~~~~~~~~ ");
 
@@ -176,26 +161,11 @@ public class WhatLock_ {
         InstanceClass instanceClass_A
                 = new InstanceClass();
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                instanceClass_A.instanceMethodOfLongRunning();
-            }
-        });
+        executorService.execute(instanceClass_A::instanceMethodOfLongRunning);
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                instanceClass_A.instanceMethodOfInstantlyComplete();
-            }
-        });
+        executorService.execute(instanceClass_A::instanceMethodOfInstantlyComplete);
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                instanceClass_A.instanceMethodOfInstantlyCompleteNotSynchronized();
-            }
-        });
+        executorService.execute(instanceClass_A::instanceMethodOfInstantlyCompleteNotSynchronized);
 
         LOGGER.info("~~~~~~~~~ runSameObjInstanceTest() Submit ticket end ~~~~~~~~~ ");
 
@@ -222,19 +192,9 @@ public class WhatLock_ {
         InstanceClass instanceClass_B
                 = new InstanceClass();
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                instanceClass_A.instanceMethodOfLongRunning();
-            }
-        });
+        executorService.execute(instanceClass_A::instanceMethodOfLongRunning);
 
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                instanceClass_B.instanceMethodOfInstantlyComplete();
-            }
-        });
+        executorService.execute(instanceClass_B::instanceMethodOfInstantlyComplete);
 
         LOGGER.info("~~~~~~~~~ runDifferentObjInstanceTest() Submit ticket end ~~~~~~~~~ ");
 
