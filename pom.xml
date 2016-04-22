@@ -10,7 +10,6 @@
         <module>concurrent</module>
         <module>db</module>
         <module>design</module>
-        <module>document</module>
         <module>framework</module>
         <module>game</module>
         <module>io</module>
@@ -82,7 +81,7 @@
     <!-- 问题跟踪 -->
     <issueManagement>
         <system>GIT</system>
-        <url>https://github.com/xiaohulu/my_note/issues</url>
+        <url>https://github.com/GourdErwa/MyNote/issues</url>
     </issueManagement>
 
 

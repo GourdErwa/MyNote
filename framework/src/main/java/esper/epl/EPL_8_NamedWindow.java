@@ -17,7 +17,7 @@ import esper.javabean.Banana;
  *
  * @author wei.Li by 14-8-21.
  */
-public class EPL_8_NamedWindow {
+class EPL_8_NamedWindow {
 
     /**
      * 创建 window  - ①在现有的数据类型上创建列

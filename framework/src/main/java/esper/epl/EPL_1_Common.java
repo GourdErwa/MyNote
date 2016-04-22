@@ -148,7 +148,7 @@ public class EPL_1_Common {
 
          注意一定要是静态方法，不然没有实例化是没法引用的。
          */
-        mainExecute.EP_ADMINISTRATOR.getConfiguration().addImport(Apple.class);
+        MainExecute.EP_ADMINISTRATOR.getConfiguration().addImport(Apple.class);
         String epl5 = "select " + Apple.CLASSNAME + ".getPriceByDiscount2StaticMethod(r.price,r.discount) as discount_price from " + Apple.CLASSNAME + " as r";
 
         /**

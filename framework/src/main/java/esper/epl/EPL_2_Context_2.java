@@ -11,7 +11,7 @@ import esper.javabean.Apple;
  * 2.通过开始和结束条件控制 context 的新建和停止重叠和非重叠     {@link #contextNon_Overlapping()}{@link #contextOverlapping()}
  * 3.不同的事件的起始条件         {@link #contextDistinctEventsForTheInitiatingCondition()}
  */
-public class EPL_2_Context_2 {
+class EPL_2_Context_2 {
 
 
     /**

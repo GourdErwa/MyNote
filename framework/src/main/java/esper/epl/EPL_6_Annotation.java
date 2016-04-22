@@ -7,7 +7,7 @@ import esper.javabean.Apple;
  *
  * @author wei.Li by 14-8-12.
  */
-public class EPL_6_Annotation {
+class EPL_6_Annotation {
 
     /**
      * Table 5.2. Built-In EPL Statement Annotations

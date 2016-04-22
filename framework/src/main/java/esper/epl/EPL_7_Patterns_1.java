@@ -28,7 +28,7 @@ import esper.javabean.Banana;
  *
  * @author wei.Li by 14-8-13.
  */
-public class EPL_7_Patterns_1 {
+class EPL_7_Patterns_1 {
 
 
     /**

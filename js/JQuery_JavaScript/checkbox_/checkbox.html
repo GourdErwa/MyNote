@@ -35,7 +35,7 @@
 
     /**************设置某值被选中**************/
 
-        //设置第一个checkbox 为选中值
+    //设置第一个checkbox 为选中值
     $('input:checkbox[name="like"]:first').attr("checked", 'checked');
     $('[name="like"]:first').attr("checked", 'checked');
     $('[name="like"]').eq(0).attr("checked", 'true');
@@ -50,7 +50,7 @@
 
     /**************删除某值**************/
 
-        //删除Value=1的checkbox
+    //删除Value=1的checkbox
     $('[name="like"][value="zuqiu"]').remove();
 
     // 删除第几个checkbox
@@ -78,11 +78,9 @@
     //全选、反选同一按钮事件
     function checkAll(obj) {
         if ($("[name='checkAll']").attr("checked")) {
-            $('[name="like"]').
-            attr("checked", 'true');//全选
+            $('[name="like"]').attr("checked", 'true');//全选
         } else {
-            $('[name="like"]').
-            removeAttr("checked", 'true');//取消全选
+            $('[name="like"]').removeAttr("checked", 'true');//取消全选
         }
     }
 

@@ -9,7 +9,7 @@ import esper.javabean.Orange;
  *
  * @author wei.Li by 14-8-13.
  */
-public class EPL_7_Patterns_2 {
+class EPL_7_Patterns_2 {
 
     /**
      *

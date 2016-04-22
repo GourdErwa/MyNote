@@ -24,7 +24,7 @@ import java.util.Map;
  * 目标： 当Person类型的事件中name为luonanqin时，Esper能得到对应的age,children
  * TODO PropertyAccessException : Property named 'address' is not a valid property name for this type
  */
-public class Map_EventType {
+public class MapEventType {
     static EPServiceProvider defaultProvider = EPServiceProviderManager.getDefaultProvider();
     static EPAdministrator epAdministrator = defaultProvider.getEPAdministrator();
 
@@ -70,7 +70,7 @@ public class Map_EventType {
         String epl = "select age,children from Person where name=\"xiaohulu\"";
         EPStatement epStatement = epAdministrator.createEPL(epl);
         //注册修改事件监听
-        UpdateListener updateListener = new My_UpdateListener() {
+        UpdateListener updateListener = new MyUpdateListener() {
             @Override
             public void update_Event(EventBean[] newEvents) {
                 if (newEvents != null) {

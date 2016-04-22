@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script language="JavaScript" src="./../vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    {{ message }}
+</div>
+
+<div id="渲染列表">
+    <ul>
+        <li v-for="todo in todos">
+            {{ todo.text }}
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    //Vue.config.devtools = true;
+
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    });
+
+    var data = [
+        {text: 'Learn JavaScript'},
+        {text: 'Learn Vue.js'},
+        {text: 'Build Something Awesome'}
+    ];
+
+    var data_2 = [
+        {text: 'Learn JavaScript'},
+        {text: 'Learn Vue.js'},
+        {text: 'Build Awesome'}
+    ];
+
+
+    new Vue({
+        el: '#渲染列表',
+        data: {
+            todos: data
+        },
+        ready: function () {
+            var that = this;
+            setTimeout(function () {
+                //that.$data.todos = data_2;
+                //data = data_2;
+                that.$data.todos = [];
+                console.log(that.$data);
+                // data.push({text: "123"});
+            }, 2000)
+        }
+    })
+</script>
+</html>

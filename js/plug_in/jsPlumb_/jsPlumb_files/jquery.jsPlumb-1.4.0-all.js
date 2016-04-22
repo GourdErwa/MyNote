@@ -6526,7 +6526,7 @@
                     }
                     else {
                         var ea = self.endAngle < self.startAngle ? self.endAngle + TWO_PI : self.endAngle,
-                            s = Math.abs (ea - self.startAngle);
+                            s = Math.abs(ea - self.startAngle);
 
                         return self.startAngle + (s * location);
                     }
@@ -6565,7 +6565,7 @@
             // arc is 'anticlockwise' in which case 's' is given by 2PI - |d|.
 
             var ea = self.endAngle < self.startAngle ? self.endAngle + TWO_PI : self.endAngle;
-            self.sweep = Math.abs (ea - self.startAngle);
+            self.sweep = Math.abs(ea - self.startAngle);
             if (self.anticlockwise) self.sweep = TWO_PI - self.sweep;
             var circumference = 2 * Math.PI * self.radius,
                 frac = self.sweep / TWO_PI,

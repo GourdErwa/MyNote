@@ -190,7 +190,7 @@ class Child {
 /**
  * 执行测试
  */
-public class POJO_EventType implements Runnable {
+public class POJOEventType implements Runnable {
 
     private static final EPServiceProvider defaultProvider = EPServiceProviderManager.getDefaultProvider();
     private static final EPAdministrator epAdministrator = defaultProvider.getEPAdministrator();
@@ -199,7 +199,7 @@ public class POJO_EventType implements Runnable {
     public static void main(String[] args) {
 
 
-        POJO_EventType pojoEventType = new POJO_EventType();
+        POJOEventType pojoEventType = new POJOEventType();
         //当Person类型的事件中name为xiaohulu时，Esper能得到对应的age,children和address
         //pojoEventType.getFiledByName();
 
@@ -218,7 +218,7 @@ public class POJO_EventType implements Runnable {
 
         EPStatement epStatement = epAdministrator.createEPL(epl);
         //注册修改事件监听
-        UpdateListener updateListener = new My_UpdateListener() {
+        UpdateListener updateListener = new MyUpdateListener() {
             @Override
             public void update_Event(EventBean[] newEvents) {
                 if (newEvents != null) {
@@ -280,7 +280,7 @@ public class POJO_EventType implements Runnable {
         epStatement.addListener(updateListener);
 
         //启动线程添加事件
-        new POJO_EventType().run();
+        new POJOEventType().run();
 
     }
 

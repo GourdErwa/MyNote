@@ -10,7 +10,7 @@ import esper.javabean.Apple;
  * API - 5.7. Stabilizing and Controlling Output: the Output Clause
  * Output 用来控制Esper对事件流计算结果的输出时间和形式,可以以固定频率，也可以是某个时间点输出
  */
-public class EPL_3_Output {
+class EPL_3_Output {
 
 
     /**

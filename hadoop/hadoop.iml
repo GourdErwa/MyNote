@@ -14,7 +14,7 @@
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-common:2.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.hadoop:hadoop-annotations:2.7.1" level="project" />
     <orderEntry type="module-library">
-      <library name="Maven: jdk.tools:jdk.tools:1.7">
+      <library name="Maven: jdk.tools:jdk.tools:1.8">
         <CLASSES>
           <root url="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/lib/tools.jar!/" />
         </CLASSES>

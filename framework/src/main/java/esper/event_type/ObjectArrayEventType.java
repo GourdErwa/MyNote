@@ -16,7 +16,7 @@ import java.util.Map;
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * 对象数组和Map很像，基本没有差别。只是定义方式不一样，Esper同样也只支持增量更新。
  */
-public class ObjectArray_EventType {
+public class ObjectArrayEventType {
 
     /**
      * @param args args

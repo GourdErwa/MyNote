@@ -8,7 +8,7 @@ import document.Keyword;
  *
  * @author wei.Li by 14-8-21.
  */
-public class EPL_9_Schema {
+class EPL_9_Schema {
 
     /**
      * 声明一个提供事件类型的名称和数据类型

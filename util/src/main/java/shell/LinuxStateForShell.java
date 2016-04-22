@@ -739,6 +739,100 @@ class States {
  * Z=僵尸进程
  * x COMMAND 命令名/命令行
  * y WCHAN 若该进程在睡眠，则显示睡眠中的系统函数名
+ * <p>
+ * 返回原始数据
+ * <p>
+ * ~~~~~~~~~~ ~~~~~~~~~~ ~~~~~~~~~~ ~~~~~~~~~~ ~~~~~~~~~~ ~~~~~~~~~~ ~~~~~~~~~~
+ * top - 13:06:06 up 32 days, 23:28,  0 users,  load average: 1.47, 1.70, 1.74
+ * Tasks: 171 total,   1 running, 170 sleeping,   0 stopped,   0 zombie
+ * Cpu(s): 10.8%us,  0.9%sy,  0.0%ni, 87.6%id,  0.7%wa,  0.0%hi,  0.0%si,  0.0%st
+ * Mem:  66100704k total, 65323404k used,   777300k free,    89940k buffers
+ * Swap: 16777212k total,   396056k used, 16381156k free, 23461308k cached
+ * <p>
+ * PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+ * 13673 root      20   0  159g  27g 2.2g S 204.1 43.2  10903:09 java
+ * <p>
+ * <p>
+ * Filesystem            Size  Used Avail Use% Mounted on
+ * /dev/sda3             442G  327G   93G  78% /
+ * tmpfs                  32G     0   32G   0% /dev/shm
+ * /dev/sda1             788M   60M  689M   8% /boot
+ * /dev/md0              1.9T  483G  1.4T  26% /ezsonar
+ * <p>
+ * 字段说明
+ * <p>
+ * 统计信息区
+ * 前五行是系统整体的统计信息。第一行是任务队列信息，同 uptime 命令的执行结果。其内容如下
+ * ：
+ * 01:06:48           当前时间
+ * up 1:22            系统运行时间，格式为时:分
+ * 1 user             当前登录用户数
+ * load average: 0.06, 0.60, 0.48 系统负载，即任务队列的平均长度。
+ * 三个数值分别为 1分钟、5分钟、15分钟前到现在的平均值。
+ * <p>
+ * 第二、三行为进程和CPU的信息。
+ * 当有多个CPU时，这些内容可能会超过两行。内容如下：
+ * Tasks: 29 total    进程总数
+ * 1 running          正在运行的进程数
+ * 28 sleeping        睡眠的进程数
+ * 0 stopped          停止的进程数
+ * 0 zombie           僵尸进程数
+ * Cpu(s): 0.3% us    用户空间占用CPU百分比
+ * 1.0% sy            内核空间占用CPU百分比
+ * 0.0% ni            用户进程空间内改变过优先级的进程占用CPU百分比
+ * 98.7% id           空闲CPU百分比
+ * 0.0% wa            等待输入输出的CPU时间百分比
+ * 0.0% hi            CPU服务于硬中断所耗费的时间总额
+ * 0.0% si，st         CPU服务于软中断所耗费的时间总额、Steal Time
+ * <p>
+ * 最后两行为内存信息。内容如下：
+ * Mem: 191272k total 物理内存总量
+ * 173656k used       使用的物理内存总量
+ * 17616k free        空闲内存总量
+ * 22052k buffers     用作内核缓存的内存量
+ * Swap: 192772k total 交换区总量
+ * 0k used            使用的交换区总量
+ * 192772k free       空闲交换区总量
+ * 123988k cached     缓冲的交换区总量。
+ * 内存中的内容被换出到交换区，而后又被换入到内存，但使用过的交换区尚未被覆盖，
+ * 该数值即为这些内容已存在于内存中的交换区的大小。
+ * 相应的内存再次被换出时可不必再对交换区写入。
+ * <p>
+ * <p>
+ * <p>
+ * 进程信息区
+ * 统计信息区域的下方显示了各个进程的详细信息。
+ * 序号 列名 含义
+ * a PID      进程id
+ * b PPID     父进程id
+ * c RUSER Real user name
+ * d UID      进程所有者的用户id
+ * e USER     进程所有者的用户名
+ * f GROUP    进程所有者的组名
+ * g TTY      启动进程的终端名。不是从终端启动的进程则显示为 ?
+ * h PR       优先级
+ * i NI nice值。负值表示高优先级，正值表示低优先级
+ * j P        最后使用的CPU，仅在多CPU环境下有意义
+ * k %CPU     上次更新到现在的CPU时间占用百分比
+ * l TIME     进程使用的CPU时间总计，单位秒
+ * m TIME+    进程使用的CPU时间总计，单位1/100秒
+ * n %MEM     进程使用的物理内存百分比
+ * o VIRT     进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES
+ * p SWAP     进程使用的虚拟内存中，被换出的大小，单位kb。
+ * q RES      进程使用的、未被换出的物理内存大小，单位kb。RES=CODE+DATA
+ * r CODE     可执行代码占用的物理内存大小，单位kb
+ * s DATA     可执行代码以外的部分(数据段+栈)占用的物理内存大小，单位kb
+ * t SHR      共享内存大小，单位kb
+ * u nFLT     页面错误次数
+ * v nDRT     最后一次写入到现在，被修改过的页面数。
+ * w S        进程状态。
+ * D=不可中断的睡眠状态
+ * R=运行
+ * S=睡眠
+ * T=跟踪/停止
+ * Z=僵尸进程
+ * x COMMAND 命令名/命令行
+ * y WCHAN 若该进程在睡眠，则显示睡眠中的系统函数名
  */
 
 

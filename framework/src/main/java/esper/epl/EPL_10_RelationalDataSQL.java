@@ -6,5 +6,5 @@ package esper.epl;
  *
  * @author wei.Li by 14-8-18.
  */
-public class EPL_10_RelationalDataSQL {
+class EPL_10_RelationalDataSQL {
 }

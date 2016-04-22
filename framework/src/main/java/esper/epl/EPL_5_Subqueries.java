@@ -13,7 +13,7 @@ import esper.javabean.Yieldly;
  *
  * @author wei.Li by 14-8-12.
  */
-public class EPL_5_Subqueries {
+class EPL_5_Subqueries {
 
 
     /**

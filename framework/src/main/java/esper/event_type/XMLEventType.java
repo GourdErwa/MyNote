@@ -21,11 +21,11 @@ import java.net.URL;
  * Time: 17:57
  */
 @Unfinished
-public class XML_EventType {
+public class XMLEventType {
 
 
     public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException {
-        XML_EventType xml_eventType = new XML_EventType();
+        XMLEventType xml_eventType = new XMLEventType();
         xml_eventType.getA();
     }
 

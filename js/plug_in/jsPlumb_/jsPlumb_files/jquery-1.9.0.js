@@ -2261,7 +2261,7 @@
 
                         // oldIE doesn't update selected after form reset (#2551)
                         if (( option.selected || i === index ) &&
-                                // Don't return options that are disabled or in a disabled optgroup
+                            // Don't return options that are disabled or in a disabled optgroup
                             ( jQuery.support.optDisabled ? !option.disabled : option.getAttribute("disabled") === null ) &&
                             ( !option.parentNode.disabled || !jQuery.nodeName(option.parentNode, "optgroup") )) {
 
@@ -4055,9 +4055,9 @@
 
                 // Test
                 var pass = doc.getElementsByName &&
-                        // buggy browsers will return fewer than the correct 2
+                    // buggy browsers will return fewer than the correct 2
                     doc.getElementsByName(expando).length === 2 +
-                        // buggy browsers will return more than the correct 0
+                    // buggy browsers will return more than the correct 0
                     doc.getElementsByName(expando + 0).length;
                 support.getIdNotName = !doc.getElementById(expando);
 
@@ -4369,8 +4369,8 @@
 
                     // IE 9's matchesSelector returns false on disconnected nodes
                     if (ret || support.disconnectedMatch ||
-                            // As well, disconnected nodes are said to be in a document
-                            // fragment in IE 9
+                        // As well, disconnected nodes are said to be in a document
+                        // fragment in IE 9
                         elem.document && elem.document.nodeType !== 11) {
                         return ret;
                     }
@@ -4600,9 +4600,9 @@
 
                         // Strip excess characters from unquoted arguments
                     } else if (unquoted && rpseudo.test(unquoted) &&
-                            // Get excess from tokenize (recursively)
+                        // Get excess from tokenize (recursively)
                         (excess = tokenize(unquoted, true)) &&
-                            // advance to the next closing parenthesis
+                        // advance to the next closing parenthesis
                         (excess = unquoted.indexOf(")", unquoted.length - excess) - unquoted.length)) {
 
                         // excess is a negative index
@@ -4713,7 +4713,7 @@
 
                                     while ((node = ++nodeIndex && node && node[dir] ||
 
-                                            // Fallback to seeking `elem` from the start
+                                        // Fallback to seeking `elem` from the start
                                         (diff = nodeIndex = 0) || start.pop())) {
 
                                         // When found, cache indexes on `parent` and break
@@ -7284,10 +7284,10 @@
         },
         serializeArray: function () {
             return this.map(function () {
-                    // Can add propHook for "elements" to filter or add form elements
-                    var elements = jQuery.prop(this, "elements");
-                    return elements ? jQuery.makeArray(elements) : this;
-                })
+                // Can add propHook for "elements" to filter or add form elements
+                var elements = jQuery.prop(this, "elements");
+                return elements ? jQuery.makeArray(elements) : this;
+            })
                 .filter(function () {
                     var type = this.type;
                     // Use .is(":disabled") so that fieldset[disabled] works
@@ -9087,7 +9087,7 @@
             // show any hidden elements after setting opacity to 0
             return this.filter(isHidden).css("opacity", 0).show()
 
-                // animate to the value specified
+            // animate to the value specified
                 .end().animate({opacity: to}, speed, easing, callback);
         },
         animate: function (prop, speed, easing, callback) {

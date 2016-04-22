@@ -14,7 +14,7 @@ package esper.epl;
  * 嵌套的context过滤         {@link #contextNesting()}
  * 查看 context 的内容       {@link #ContextEndsOutPut()}
  */
-public class EPL_2_Context_3 {
+class EPL_2_Context_3 {
 
 
     /**

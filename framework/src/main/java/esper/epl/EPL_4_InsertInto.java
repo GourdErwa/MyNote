@@ -11,7 +11,7 @@ import esper.javabean.Banana;
  *
  * @author wei.Li by 14-8-12.
  */
-public class EPL_4_InsertInto {
+class EPL_4_InsertInto {
 
 
     /**

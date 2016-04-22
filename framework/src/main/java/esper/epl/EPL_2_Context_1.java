@@ -19,7 +19,7 @@ import esper.javabean.Banana;
  * event_property为事件的属性名，多个属性名之间用and连接，也可以用逗号连接。
  * stream_def为事件流的定义，简单的定义可以是一个事件的名称，比如之前定义了一个Map结构的事件为User，那么这里就可以写User。复杂的流定义后面会说到
  */
-public class EPL_2_Context_1 {
+class EPL_2_Context_1 {
 
 
     /**

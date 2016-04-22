@@ -1,8 +1,7 @@
-package esper.epl;
+package esper.alarm;
 
 
 import com.espertech.esper.client.*;
-import esper.javabean.Apple;
 
 import java.util.Date;
 
@@ -11,13 +10,13 @@ import java.util.Date;
  *
  * @author wei.Li
  *         事件监听处理
- * @see AppleListener#update(com.espertech.esper.client.EventBean[], com.espertech.esper.client.EventBean[])
+ * @see AppleListener#update(EventBean[], EventBean[])
  */
-public class mainExecute extends Thread {
+public class MainExecute extends Thread {
 
-    protected static final EPServiceProvider DEFAULT_PROVIDER = EPServiceProviderManager.getDefaultProvider();
-    protected static final EPAdministrator EP_ADMINISTRATOR = DEFAULT_PROVIDER.getEPAdministrator();
-    protected static final EPRuntime EP_RUNTIME = DEFAULT_PROVIDER.getEPRuntime();
+    private static final EPServiceProvider DEFAULT_PROVIDER = EPServiceProviderManager.getDefaultProvider();
+    static final EPAdministrator EP_ADMINISTRATOR = DEFAULT_PROVIDER.getEPAdministrator();
+    private static final EPRuntime EP_RUNTIME = DEFAULT_PROVIDER.getEPRuntime();
     //执行次数
     private static final int EXECUTE_NUM = 1000;
     //线程执行时间间隔-ms
@@ -35,11 +34,11 @@ public class mainExecute extends Thread {
         configuration.getEngineDefaults().getViewResources().setAllowMultipleExpiryPolicies(true);*/
         //获取 epl
 
-        EPStatement epStatement = EP_ADMINISTRATOR.createEPL(EPL_Test.time());
+        EPStatement epStatement = EP_ADMINISTRATOR.createEPL(AlarmEPL.EPL);
         //注册监听
         epStatement.addListener(new AppleListener());
 
-        new mainExecute().start();
+        new MainExecute().start();
 
     }
 
@@ -50,8 +49,7 @@ public class mainExecute extends Thread {
     public void run() {
         int temp = 0;
         while (++temp <= EXECUTE_NUM) {
-            final Apple apple = Apple.getRandomApple();
-            EP_RUNTIME.sendEvent(apple);
+            EP_RUNTIME.sendEvent(new EventTest("1", 1, 1, 1, 1d, 1, new AlarmHandleSetting("1")));
             System.out.println(new Date() + " sendEvent");
 
             //epRuntime.sendEvent(Orange.getRandomOrange());

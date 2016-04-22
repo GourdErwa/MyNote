@@ -3,9 +3,16 @@ package snmp;
 
 public class Questions {
 
-    /**
-     * questions1
-     */
+    public static void main(String[] args) {
+
+        questions1();
+        questions2();
+        questions3();
+        questions4();
+        questions5();
+    }
+
+    /* questions1 */
     private static void questions1() {
         String str = "str";
         Questions.appendStr(str);
@@ -16,33 +23,29 @@ public class Questions {
         str += "1";
     }
 
-    /**
-     * questions2
-     */
+    /* questions2 */
     private static void questions2() {
 
         new B();
         System.out.println();
     }
 
-    /**
-     * questions3
-     */
+    /* questions3 */
     private static void questions3() {
-
         int a = 3, b = 4;
 
-        if (a++ == 3 && ++b == 5 && ++a + b++ == 10
-                && a++ == 7 && ++b == 11) {
+        if (a++ == 3 &&
+                ++b == 5 &&
+                ++a + b++ == 10 &&
+                a++ == 7 &&
+                ++b == 11) {
             System.out.println("a:" + a + "   b:" + b);
         } else {
             System.out.println("a:" + a + "   b:" + b);
         }
     }
 
-    /**
-     * questions4
-     */
+    /* questions4 */
     private static void questions4() {
 
         int i = 0;
@@ -54,7 +57,6 @@ public class Questions {
             }
             i -= 10;
         } catch (Exception ignored) {
-
         } finally {
             i += 10;
         }
@@ -62,39 +64,32 @@ public class Questions {
         System.out.println(i);
     }
 
-    /**
-     * questions5
-     */
+    /* questions5 */
     public static void questions5() {
         int result = 0;
         int i = 2;
         switch (i) {
-            case 1:
+            case 1: {
                 result = result + i;
-            case 2:
+            }
+            case 2: {
                 result = result + i * 2;
-            case 3:
+            }
+            case 3: {
                 result = result + i * 3;
-                break;
+            }
+            break;
         }
         System.out.println(result);
     }
 
-    public static void main(String[] args) {
-        questions1();
-        questions2();
-        questions3();
-        questions4();
-        questions5();
-    }
-
     /**
-     * inner class A B
+     * 内部类 A , B
      */
     static class A {
 
-        private static String staticStr = initStaticStr();
-        private String str = initStr();
+        private static final String STR = initStaticStr();
+        private final String initStr = initStr();
 
         {
             System.out.print("1");
@@ -122,6 +117,10 @@ public class Questions {
     }
 }
 
+class A {
+
+
+}
 /*
 二、在java中wait和sleep方法的不同？
 

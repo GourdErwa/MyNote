@@ -9,7 +9,7 @@ import com.espertech.esper.client.UpdateListener;
  * Date: 14-7-28
  * Time: 14:58
  */
-public abstract class My_UpdateListener implements UpdateListener {
+public abstract class MyUpdateListener implements UpdateListener {
     @Override
     public void update(EventBean[] newEvents, EventBean[] oldEvents) {
         update_Event(newEvents);

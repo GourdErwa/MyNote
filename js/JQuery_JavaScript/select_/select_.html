@@ -60,7 +60,7 @@
 
     /**************添加操作**************/
 
-        //向下拉框首处添加option
+    //向下拉框首处添加option
     $(select_id).append("<option value='addOption'>addOption_Last</option>");
     //向下拉框尾处添加option
     $(select_id).prepend("<option value='addOption'>addOption_First</option>");
@@ -68,7 +68,7 @@
 
     /**************查询操作**************/
 
-        //获取value值
+    //获取value值
     $(select_id).val();
     //获取text值
     $(select_id).find('option:selected').text();
@@ -84,7 +84,7 @@
 
     /**************设置选中操作**************/
 
-        //单项-让value=某值的被选中
+    //单项-让value=某值的被选中
     $(select_id).val('hebei');
     //多项下拉框中让value=某值的被选中-单项默认选择第一个
     $(select_id).val(['hebei', 'beijing']);
@@ -104,14 +104,14 @@
 
     /**************修改操作**************/
 
-        //修改value，text (text修改不成功)
+    //修改value，text (text修改不成功)
     $(select_id + " option:selected").attr("value", "paraValue").attr("text", "paraText");//选中的修改
     $(select_id + "option[value='beijing']").attr("value", "BeiJing").attr("text", "北京市");//按value修改
 
 
     /**************删除操作**************/
 
-        //删除 value=？的option
+    //删除 value=？的option
     $(select_id + "  option[text='浙江省']").remove();
     //删除 text=？的option---不可用！！！
     $(select_id + "  option[value='shanxi']").remove();

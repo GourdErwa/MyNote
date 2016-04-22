@@ -108,7 +108,8 @@ A2的到来后，有3子表达式活动：
 
 ##6.5.2. Every-Distinct 字段值去重复
 
-语法规则: every-distinct(distinct_value_expr [, distinct_value_exp[...][, expiry_time_period])
+语法规则: every-distinct(distinct_value_expr [
+, distinct_value_exp[...][, expiry_time_period])
 
 Example示例：
 every-distinct(s.sensor) s=Sample
