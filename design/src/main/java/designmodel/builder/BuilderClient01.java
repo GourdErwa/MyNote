@@ -33,7 +33,7 @@ abstract class AbstractProduct {
     protected abstract void part03();
 
     //模板方法给出了默认的组装方式，生成默认的产品
-    public final AbstractProduct defaultProduct() {
+    final AbstractProduct defaultProduct() {
         part01();
         part02();
         part03();
@@ -148,7 +148,7 @@ class Director {
     /**
      * @return ConcreteBuilderA 组装的产品
      */
-    public AbstractProduct getProductA() {
+    AbstractProduct getProductA() {
         this.builderA.buildPart();
         return this.builderA.buildProduct();
     }
@@ -156,7 +156,7 @@ class Director {
     /**
      * @return ConcreteBuilderB 组装的产品
      */
-    public AbstractProduct getProductB() {
+    AbstractProduct getProductB() {
         this.builderB.buildPart();
         return this.builderB.buildProduct();
     }

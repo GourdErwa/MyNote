@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 /**
  * @author lw by 14-5-1.
  */
-public class BookFacadeCglibProxy implements MethodInterceptor {
+class BookFacadeCglibProxy implements MethodInterceptor {
 
     /**
      * 创建代理对象
@@ -17,7 +17,7 @@ public class BookFacadeCglibProxy implements MethodInterceptor {
      * @param object object
      * @return 创建代理对象
      */
-    public Object getInstance(Object object) {
+    Object getInstance(Object object) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(object.getClass());
         // 回调方法

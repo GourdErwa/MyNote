@@ -17,9 +17,9 @@ package designmodel.proxy.cglib;
 /**
  * @author lw by 14-5-1.
  */
-public class BookFacadeCglib {
+class BookFacadeCglib {
 
-    public void seeBook() {
+    void seeBook() {
         System.out.println("BookFacade_Cglib see book ing ...");
     }
 }

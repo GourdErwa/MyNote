@@ -17,7 +17,9 @@ package designmodel.responsibility;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/*
+责任链模式
+ */
 /**
  * 过滤器接口
  */
@@ -43,7 +45,7 @@ public class ResponsibilityClient02 {
         FilterChain filterChain = new FilterChain();
         filterChain.addFilter(new HTMLFilter());
         filterChain.addFilter(new FaceFilter());
-        filterChain.addFilter(new SesitiveFilter());
+        filterChain.addFilter(new SensitiveFilter());
         filterChain.addFilter(filterChain);
 
         filterChain.doFilter(request, response, filterChain);
@@ -63,15 +65,15 @@ class Request {
 
     private String requestStr;
 
-    public Request(String requestStr) {
+    Request(String requestStr) {
         this.requestStr = requestStr;
     }
 
-    public String getRequestStr() {
+    String getRequestStr() {
         return requestStr;
     }
 
-    public void setRequestStr(String requestStr) {
+    void setRequestStr(String requestStr) {
         this.requestStr = requestStr;
     }
 
@@ -90,15 +92,15 @@ class Response {
 
     private String responseStr;
 
-    public Response(String responseStr) {
+    Response(String responseStr) {
         this.responseStr = responseStr;
     }
 
-    public String getResponseStr() {
+    String getResponseStr() {
         return responseStr;
     }
 
-    public void setResponseStr(String responseStr) {
+    void setResponseStr(String responseStr) {
         this.responseStr = responseStr;
     }
 
@@ -115,10 +117,10 @@ class Response {
  */
 class FilterChain implements Filter {
 
-    List<Filter> filters = new ArrayList<>();
-    int index = 0;
+    private List<Filter> filters = new ArrayList<>();
+    private int index = 0;
 
-    public FilterChain addFilter(Filter f) {
+    FilterChain addFilter(Filter f) {
         this.filters.add(f);
         return this;
     }
@@ -157,7 +159,7 @@ class HTMLFilter implements Filter {
 /**
  * 敏感字过滤
  */
-class SesitiveFilter implements Filter {
+class SensitiveFilter implements Filter {
 
     @Override
     public void doFilter(Request request, Response response, FilterChain chain) {

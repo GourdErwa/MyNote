@@ -38,25 +38,25 @@ public class PrototypeClient {
  */
 abstract class Shape implements Cloneable {
 
-    protected String type;
+    private String type;
     private String id;
     private String commonData;
 
-    public Shape(String type) {
+    Shape(String type) {
         this.type = type;
     }
 
     abstract void draw();
 
-    public String getType() {
+    String getType() {
         return type;
     }
 
-    public String getId() {
+    String getId() {
         return id;
     }
 
-    public void setId(String id) {
+    void setId(String id) {
         this.id = id;
     }
 
@@ -85,7 +85,7 @@ abstract class Shape implements Cloneable {
 class Rectangle extends Shape {
 
 
-    public Rectangle(String type) {
+    Rectangle(String type) {
         super(type);
     }
 
@@ -101,7 +101,7 @@ class Rectangle extends Shape {
 class Square extends Shape {
 
 
-    public Square(String type) {
+    Square(String type) {
         super(type);
     }
 
@@ -116,7 +116,7 @@ class Square extends Shape {
  */
 class Circle extends Shape {
 
-    public Circle(String type) {
+    Circle(String type) {
         super(type);
     }
 
@@ -130,7 +130,7 @@ class ShapeCache {
 
     private static Hashtable<String, Shape> shapeMap = new Hashtable<>();
 
-    public static Shape getShape(String shapeId) {
+    static Shape getShape(String shapeId) {
         Shape cachedShape = shapeMap.get(shapeId);
         return (Shape) cachedShape.clone();
     }
@@ -138,7 +138,7 @@ class ShapeCache {
     // for each shape run database query and create shape
     // shapeMap.put(shapeKey, shape);
     // for example, we are adding three shapes
-    public static void loadCache() {
+    static void loadCache() {
         Circle circle = new Circle("circle");
         circle.setId("1");
         shapeMap.put(circle.getId(), circle);

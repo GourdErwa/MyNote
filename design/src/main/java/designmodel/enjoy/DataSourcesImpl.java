@@ -8,7 +8,7 @@ import javax.sql.DataSource;
  * <p>
  * 获取不同的数据库连接信息
  */
-public class DataSourcesImpl implements DataSourcesInterface {
+class DataSourcesImpl implements DataSourcesInterface {
 
     private static DataSource name1, name2;
     private String name;

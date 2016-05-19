@@ -3,7 +3,7 @@ package designmodel.proxy.jdk;
 /**
  * @author lw by 14-5-1.
  */
-public class IBookFacadeJDKImpl implements IBookFacadeJDK {
+class IBookFacadeJDKImpl implements IBookFacadeJDK {
 
     @Override
     public void seeBook() {

@@ -174,11 +174,11 @@ class Meal {
 
     private List<Item> items = new ArrayList<>();
 
-    public void addItem(Item item) {
+    void addItem(Item item) {
         items.add(item);
     }
 
-    public float getCost() {
+    float getCost() {
         float cost = 0.0f;
         for (Item item : items) {
             cost += item.price();
@@ -186,7 +186,7 @@ class Meal {
         return cost;
     }
 
-    public void showItems() {
+    void showItems() {
         for (Item item : items) {
             System.out.print("Item : " + item.name());
             System.out.print(", Packing : " + item.packing().pack());
@@ -200,14 +200,14 @@ class Meal {
  */
 class MealBuilder {
 
-    public Meal prepareVegMeal() {
+    Meal prepareVegMeal() {
         Meal meal = new Meal();
         meal.addItem(new VegBurger());
         meal.addItem(new Coke());
         return meal;
     }
 
-    public Meal prepareNonVegMeal() {
+    Meal prepareNonVegMeal() {
         Meal meal = new Meal();
         meal.addItem(new ChickenBurger());
         meal.addItem(new Pepsi());

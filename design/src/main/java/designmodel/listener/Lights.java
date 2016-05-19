@@ -20,17 +20,17 @@ import java.util.Vector;
 /**
  * @author wei.Li by 15/3/19 (gourderwa@163.com).
  */
-public class Lights {
+class Lights {
 
     private boolean ok = false;
 
     private Vector<DemoListener> repository = new Vector<>();//监听自己的监听器队列
 
-    public Lights() {
+    Lights() {
     }
 
 
-    protected void addDemoListener(DemoListener dl) {
+    void addDemoListener(DemoListener dl) {
         repository.addElement(dl);
     }
 
@@ -40,7 +40,7 @@ public class Lights {
         }
     }
 
-    protected void updateOk(boolean b) {
+    void updateOk(boolean b) {
         ok = b;
 
         if (!ok) {

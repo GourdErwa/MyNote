@@ -42,7 +42,7 @@ abstract class Game {
     abstract void endPlay();
 
     //template method
-    public final void play() {
+    final void play() {
         //initialize the game
         initialize();
         // start game

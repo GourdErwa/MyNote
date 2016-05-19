@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/highcharts/highcharts.js"></script>
+<!--<script src="dark-unica.js"></script>-->
+<body>
+
+<div id="containerWeight" style="min-width: 310px; min-height: 550px; margin: 19px auto;"></div>
+
+<script>
+    $(function () {
+        $.ajaxSettings.async = false;
+        var categories = [];
+        var series = [];
+
+        $.getJSON("data/baselineData.json", function (data) {
+
+            var values = [];
+            data.forEach(function (v) {
+                categories.push(v.time);
+                values.push(v.value);
+            });
+            series.push({
+                name: 'baseline',
+                data: values
+            });
+        });
+
+        $('#containerWeight').highcharts({
+
+            title: {
+                text: 'baseline',
+                style: {
+                    fontWeight: 'bold'
+                },
+                margin: 20,
+                useHTML: true
+            },
+            subtitle: {
+                text: 'GourdErwa'
+            },
+            chart: {
+                //曲线平滑
+                type: 'spline',
+                //动画延迟
+                animation: {
+                    duration: 1000
+                }
+            },
+            colors: ['#2f7ed8', '#8bbc21', '#910000', '#1aadce',
+                '#492970', '#f28f43', '#77a1e5', '#c42525', '#a6c96a'],
+
+            exporting: {
+                enabled: false
+            },
+            credits: {
+                text: 'Link - GourdErwa',
+                href: './link.html',
+                style: {
+                    cursor: 'pointer'
+                }
+            },
+            xAxis: {
+                categories: categories
+            },
+            yAxis: {
+                title: {
+                    text: '(体重)Kg'
+                }
+            },
+            tooltip: {
+                valueSuffix: 'Kg'
+            },
+            legend: {
+                enabled: false,
+                layout: 'vertical',
+                align: 'center',
+                verticalAlign: 'bottom',
+                borderWidth: 0
+            },
+
+            series: series
+        });
+    });
+</script>
+</body>
+</html>

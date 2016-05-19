@@ -7,7 +7,7 @@ import java.lang.reflect.Proxy;
 /**
  * @author lw by 14-5-1.
  */
-public class BookFacadeJDKProxy implements InvocationHandler {
+class BookFacadeJDKProxy implements InvocationHandler {
 
     private Object object;
 
@@ -17,7 +17,7 @@ public class BookFacadeJDKProxy implements InvocationHandler {
      * @param object 委托对象
      * @return 代理类
      */
-    public Object bind(Object object) {
+    Object bind(Object object) {
         this.object = object;
         //取得代理对象
         final Class<?> objectClass = object.getClass();

@@ -81,7 +81,7 @@ abstract class Factory{
  */
 class ProductFactory {
 
-    public static <T extends IProduct> IProduct createProduct(Class<T> aClass) {
+    static <T extends IProduct> IProduct createProduct(Class<T> aClass) {
         IProduct iProduct = null;
         try {
             iProduct = (IProduct) Class.forName(aClass.getName()).newInstance();
