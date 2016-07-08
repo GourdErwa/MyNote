@@ -46,7 +46,6 @@ public class ResponsibilityClient02 {
         filterChain.addFilter(new HTMLFilter());
         filterChain.addFilter(new FaceFilter());
         filterChain.addFilter(new SensitiveFilter());
-        filterChain.addFilter(filterChain);
 
         filterChain.doFilter(request, response, filterChain);
 

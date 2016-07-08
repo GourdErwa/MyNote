@@ -14,8 +14,8 @@ import java.util.List;
  */
 public class FilesUtils {
 
-    public static final String FILEPATH = "/lw/workfile/intellij_work/my_note/src/main/java/com/java/io/json.txt";
-    public static final String CONTAINSSTR = "\"size\":20}";
+    private static final String FILEPATH = "/lw/workfile/intellij_work/my_note/src/main/java/com/java/io/json.txt";
+    private static final String CONTAINSSTR = "\"size\":20}";
 
     /**
      * 找出文件中每行不包含 containsStr 字符串的文本

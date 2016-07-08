@@ -6,7 +6,7 @@ package com.java.basis.classinit;
 public class A {
 
     private static final B b_1 = new B(10);
-    static String staticString = initStaticString();
+    private static String staticString = initStaticString();
     private static A a_1 = new A("类属性[开始]处初始化Class->");
     private static A a = new A("类属性[结尾]处初始化Class->");
 

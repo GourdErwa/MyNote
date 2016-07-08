@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author wei.Li by 14-8-11.
  */
-public class Map_Common {
+public class MapCommon {
 
     private static final Map<String, String> map;
 
