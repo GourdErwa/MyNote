@@ -4,7 +4,7 @@ package io;
 import java.io.*;
 
 /**
- * 流关闭问题
+ * 且套流关闭问题
  *
  * @author wei.Li
  */

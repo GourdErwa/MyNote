@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>1.0.0</artifactId>
@@ -9,15 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spark</artifactId>
+    <artifactId>flink</artifactId>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core_2.10 -->
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-java -->
         <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-core_2.10</artifactId>
-            <version>2.0.0-preview</version>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-java</artifactId>
+            <version>1.0.3</version>
         </dependency>
-
     </dependencies>
+
 </project>
