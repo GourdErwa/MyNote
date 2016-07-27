@@ -12,11 +12,10 @@ import java.util.Scanner;
  */
 public class AnaTestClient {
 
-    //private static final String IP = "192.168.1.166";
-    private static final String IP = "127.0.0.1";
+    private static final String IP = "192.168.1.166";
+    //private static final String IP = "127.0.0.1";
     private static final int PORT = 9292;
-    //private static final byte END = ((byte) '#');
-    private static final String HEART_BEAT = "(s) (heartbeat)";
+    private static final String HEART_BEAT = "(heartbeat)";
     private static InputStream in;
     private static OutputStream outputStream;
     private static Scanner sc;
@@ -43,9 +42,11 @@ public class AnaTestClient {
                 sc = new Scanner(System.in);
                 new Thread(new InputMonitor()).start();
                 new Thread(new OutputMonitor()).start();
-            } else System.err.println("conn failure");
+            } else {
+                System.err.println("conn failure");
+            }
         } catch (IOException e) {
-            System.err.println(e.getMessage());
+            System.err.println("conn failure : " + e.getMessage());
         }
     }
 
@@ -55,6 +56,7 @@ public class AnaTestClient {
         public void run() {
 
             try {
+                byte[] b;
 
                 while (true) {
 
@@ -65,7 +67,7 @@ public class AnaTestClient {
                         Thread.sleep(200L);
                     }
 
-                    byte[] b = new byte[available];
+                    b = new byte[available];
                     in.read(b);
                     final String x = new String(b);
 
@@ -85,8 +87,9 @@ public class AnaTestClient {
         @Override
         public void run() {
             try {
+                String line;
                 while (true) {
-                    String line = sc.nextLine();
+                    line = sc.nextLine();
                     if (line == null || line.isEmpty()) {
                         continue;
                     }

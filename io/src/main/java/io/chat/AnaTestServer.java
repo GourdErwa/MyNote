@@ -11,15 +11,20 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * @author wei.Li
+ */
 public class AnaTestServer {
 
     private static final int PORT = 9292;
     private final static Map<String, CSocket> ALIVE_SOCKET = new ConcurrentHashMap<>();
+    private static final String ME_SEND = "(m) ", OTHER_SEND = "(o) ", SERVER_SEND = "(s) ", HEARTBEAT = "(heartbeat)";
+    private static final int MAX_CONN_NUM = 2;
     private final ExecutorService pool;
     private ServerSocket serverSocket = null;
 
     private AnaTestServer() {
-        pool = Executors.newCachedThreadPool();
+        this.pool = Executors.newCachedThreadPool();
     }
 
     public static void main(String[] args) {
@@ -33,22 +38,31 @@ public class AnaTestServer {
             final String key = entry.getKey();
             final CSocket cSocket = entry.getValue();
             if (key.equals(sendKey)) {
-                cSocket.send("(m) " + s);
+                cSocket.send(ME_SEND + s);
             } else {
-                cSocket.send("(o) " + s);
+                cSocket.send(OTHER_SEND + s);
             }
         }
     }
 
     private static void sendForServer(byte[] msg) {
+
         final String s = new String(msg);
         for (CSocket cSocket : ALIVE_SOCKET.values()) {
-            cSocket.send("(s) " + s);
+            cSocket.send(SERVER_SEND + s);
         }
     }
 
     private static void sendForServer(String msg) {
+
         sendForServer(msg.getBytes());
+    }
+
+    private static void send(String msg) {
+
+        for (CSocket cSocket : ALIVE_SOCKET.values()) {
+            cSocket.send(msg);
+        }
     }
 
     private static void sendConnNum() {
@@ -78,10 +92,10 @@ public class AnaTestServer {
                         Thread.sleep(1000L);
                     } catch (InterruptedException ignored) {
                     }
-                    sendForServer("(heartbeat)");
+                    send(HEARTBEAT);
                     final int size = ALIVE_SOCKET.size();
-                    if (size < 2) {
-                        sendForServer("alert : conn num = " + size);
+                    if (size == 1) {
+                        sendForServer("alert : conn num = 1");
                     }
                 }
             }
@@ -93,14 +107,13 @@ public class AnaTestServer {
             System.out.println("start succeed...");
             while (true) {
                 Socket socket = serverSocket.accept();
-                if (ALIVE_SOCKET.size() > 2) {
+                if (ALIVE_SOCKET.size() > MAX_CONN_NUM) {
                     System.exit(0);
                 }
                 socket.setSoLinger(true, 0);
                 socket.setSoTimeout(5 * 60 * 1000);
                 as = new CSocket(socket);
-                final String key = socket.getInetAddress().toString() + "-" + socket.getPort();
-                ALIVE_SOCKET.put(key, as);
+                ALIVE_SOCKET.put(as.key, as);
                 sendConnNum();
                 pool.execute(as);
             }
@@ -113,6 +126,7 @@ public class AnaTestServer {
     }
 
     private class CSocket implements Runnable {
+
         private String key;
         private Socket socket;
         private OutputStream out = null;
@@ -127,6 +141,7 @@ public class AnaTestServer {
         }
 
         void send(String msg) {
+
             try {
                 if (this.socket.isConnected() && !this.socket.isClosed()) {
                     out.write(msg.getBytes());
