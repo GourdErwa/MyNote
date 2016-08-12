@@ -57,8 +57,8 @@ public class ArrayList2LinkedList_Compare {
 
     private static final int INIT_SIZE = 500000;
     private static final int ADDRANDOM_SIZE = 10000;
-    public static ArrayList<Object> arrayList = new ArrayList(INIT_SIZE);
-    public static LinkedList<Object> linkedList = new LinkedList();
+    private static ArrayList<Object> arrayList = new ArrayList(INIT_SIZE);
+    private static LinkedList<Object> linkedList = new LinkedList();
     private static Object object = new Object();
     private static Random random = new Random();
 
@@ -91,13 +91,13 @@ public class ArrayList2LinkedList_Compare {
 
     }
 
-    public void add2Last(String state, List list) {
+    private void add2Last(String state, List list) {
         for (int i = 0; i < INIT_SIZE; i++) {
             list.add(object);
         }
     }
 
-    public void add2Random(String state, List list) {
+    private void add2Random(String state, List list) {
         int temp = 0;
         for (int i = 0; i < ADDRANDOM_SIZE; i++) {
             temp = random.nextInt(INIT_SIZE);
@@ -105,7 +105,7 @@ public class ArrayList2LinkedList_Compare {
         }
     }
 
-    public void remove2Random(String state, List list) {
+    private void remove2Random(String state, List list) {
         int temp = 0;
         for (int i = 0; i < ADDRANDOM_SIZE; i++) {
             temp = random.nextInt(INIT_SIZE);
@@ -113,21 +113,20 @@ public class ArrayList2LinkedList_Compare {
         }
     }
 
-    public void forEach2(String state, List list) {
+    private void forEach2(String state, List list) {
 
         for (Object o : list) {
             object = o;
         }
     }
 
-    public void iterator2(String state, List list) {
-        Iterator iterator = list.iterator();
-        while (iterator.hasNext()) {
-            object = iterator.next();
+    private void iterator2(String state, List list) {
+        for (Object aList : list) {
+            object = aList;
         }
     }
 
-    public void for2(String state, List list) {
+    private void for2(String state, List list) {
         for (int i = 0; i < INIT_SIZE; i++) {
             object = list.get(i);
         }
@@ -149,7 +148,7 @@ class Proxy_Cglib implements MethodInterceptor {
      * @param object
      * @return
      */
-    public Object getInstance(Object object) {
+    Object getInstance(Object object) {
         Object object1 = object;
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(object1.getClass());

@@ -11,6 +11,12 @@ import java.sql.SQLException;
 public class C3P0_Pool {
 
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws SQLException the sql exception
+     */
     public static void main(String[] args) throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");

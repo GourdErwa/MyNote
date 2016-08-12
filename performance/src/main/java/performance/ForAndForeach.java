@@ -68,7 +68,7 @@ class User {
     private int id;
     private String name;
 
-    public User(int id, String name) {
+    User(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -77,7 +77,7 @@ class User {
         return id;
     }
 
-    public void setId(int id) {
+    void setId(int id) {
         this.id = id;
     }
 
@@ -85,7 +85,7 @@ class User {
         return name;
     }
 
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 

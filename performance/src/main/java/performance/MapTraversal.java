@@ -12,10 +12,12 @@
 
 package performance;
 
+import com.google.common.collect.MapMaker;
 import com.google.common.collect.Maps;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentMap;
 
 /**
  * @author wei.Li by 15/8/28
@@ -35,6 +37,9 @@ public class MapTraversal {
         final Set<String> keySet = MAP.keySet();
 
         final Set<Map.Entry<String, String>> entrySet = MAP.entrySet();
+
+
+        final ConcurrentMap<Object, Object> objectObjectConcurrentMap = new MapMaker().weakKeys().weakValues().makeMap();
 
     }
 

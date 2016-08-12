@@ -3,19 +3,25 @@ package io.chat;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
+import java.nio.charset.Charset;
 import java.util.Scanner;
 
 /**
+ * The type Ana test client.
+ *
  * @author wei.Li
  */
 public class AnaTestClient {
 
-    private static final String IP = "192.168.1.166";
-    //private static final String IP = "127.0.0.1";
+    //private static final String IP = "192.168.1.166";
+    private static final String IP = "127.0.0.1";
     private static final int PORT = 9292;
     private static final String HEART_BEAT = "(heartbeat)";
+    private static final Base64Str BASE_64_STR = new Base64Str();
     private static InputStream in;
     private static OutputStream outputStream;
     private static Scanner sc;
@@ -23,6 +29,11 @@ public class AnaTestClient {
     private AnaTestClient() {
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         new AnaTestClient().invoke();
@@ -69,7 +80,8 @@ public class AnaTestClient {
 
                     b = new byte[available];
                     in.read(b);
-                    final String x = new String(b);
+                    String x = new String(b);
+                    x = BASE_64_STR.decrypt(x);
 
                     if (!x.equals(HEART_BEAT)) {
                         System.out.println(x);
@@ -93,14 +105,64 @@ public class AnaTestClient {
                     if (line == null || line.isEmpty()) {
                         continue;
                     }
-                    outputStream.write(line.getBytes());
+                    outputStream.write(BASE_64_STR.encrypt(line).getBytes(Charset.forName("utf-8")));
                     outputStream.flush();
                 }
-            } catch (IOException e) {
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
                 System.exit(0);
             }
         }
     }
+
+    private static final class Base64Str {
+
+        private String key;
+
+        private Base64Str() {
+            try {
+                this.key = InetAddress.getLocalHost().getHostAddress();
+            } catch (UnknownHostException e) {
+                System.err.println(e.getMessage());
+            }
+
+        }
+
+        String encrypt(String s) {
+            String str = "";
+            int ch;
+            if (!(s == null)) {
+                for (int i = 0, j = 0; i < s.length(); i++, j++) {
+                    if (j > key.length() - 1) {
+                        j = j % key.length();
+                    }
+                    ch = s.codePointAt(i) + key.codePointAt(j);
+                    if (ch > 65535) {
+                        ch = ch % 65535;
+                    }
+                    str += (char) ch;
+                }
+            }
+            return str;
+        }
+
+        String decrypt(String s) {
+            String str = "";
+            int ch;
+            for (int i = 0, j = 0; i < s.length(); i++, j++) {
+                if (j > key.length() - 1) {
+                    j = j % key.length();
+                }
+                ch = (s.codePointAt(i) + 65535 - key.codePointAt(j));
+                if (ch > 65535) {
+                    ch = ch % 65535;
+                }
+                str += (char) ch;
+            }
+            return str;
+        }
+
+    }
+
 
 }

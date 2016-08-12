@@ -16,9 +16,18 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
+/**
+ * The interface Has defaule method interface.
+ */
 @FunctionalInterface
 interface HasDefauleMethodInterface {
 
+    /**
+     * Run.
+     *
+     * @param s the s
+     * @param i the
+     */
     public void run_(String s, int i);
 
 }
@@ -33,6 +42,11 @@ interface HasDefauleMethodInterface {
 public class Lambda_ {
 
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         /*HasDefauleMethodInterface hasDefauleMethod = (s, i) -> {
             System.out.println("s:" + s);

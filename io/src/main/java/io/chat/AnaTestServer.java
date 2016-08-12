@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -132,19 +133,19 @@ public class AnaTestServer {
         private OutputStream out = null;
         private InputStream in = null;
         private boolean run = true;
-
         CSocket(Socket socket) throws IOException {
-            this.key = socket.getInetAddress().toString() + "-" + socket.getPort();
+            final String ip = socket.getInetAddress().toString();
+            this.key = ip + "-" + socket.getPort();
             this.socket = socket;
-            in = socket.getInputStream();
-            out = socket.getOutputStream();
+            this.in = socket.getInputStream();
+            this.out = socket.getOutputStream();
         }
 
         void send(String msg) {
 
             try {
                 if (this.socket.isConnected() && !this.socket.isClosed()) {
-                    out.write(msg.getBytes());
+                    out.write(msg.getBytes(Charset.forName("utf-8")));
                     out.flush();
                 } else {
                     closedSocket(key);
@@ -199,5 +200,4 @@ public class AnaTestServer {
             }
         }
     }
-
 }
