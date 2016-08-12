@@ -7,11 +7,11 @@ import com.lmax.disruptor.EventHandler;
  *
  * @author lw by 14-7-22.
  */
-public class DeliveryReportEventHandler implements EventHandler<ValueEvent> {
+class DeliveryReportEventHandler implements EventHandler<ValueEvent> {
 
     private int id;//消费者编号
 
-    public DeliveryReportEventHandler(int id) {
+    DeliveryReportEventHandler(int id) {
         this.id = id;
     }
 

@@ -7,7 +7,7 @@ import java.util.Random;
  *
  * @author wei.Li by 14-8-21.
  */
-public class Producer implements Runnable {
+class Producer implements Runnable {
 
     @Override
     public void run() {

@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * @author wei.Li
  */
-public class BlockingTestByReentrantLock extends AbsBlockingTest {
+class BlockingTestByReentrantLock extends AbsBlockingTest {
 
     private final AtomicBoolean canInsert = new AtomicBoolean(true);
     private final Lock canInsertLock = new ReentrantLock();

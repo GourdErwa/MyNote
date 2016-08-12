@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 public class CyclicBarrierTest {
 
     //参加跑步比赛的人数
-    public static final int FOOTRACE_NUM = 5;
+    private static final int FOOTRACE_NUM = 5;
 
     //线程池
     private static ExecutorService executor
@@ -42,13 +42,13 @@ public class CyclicBarrierTest {
     }
 
     // 一个同步辅助类，它允许一组线程互相等待，直到到达某个公共屏障点 (common barrier point)
-    static class Footrace implements Runnable {
+    private static class Footrace implements Runnable {
 
         private CyclicBarrier barrier;
 
         private String name;
 
-        public Footrace(CyclicBarrier barrier, String name) {
+        Footrace(CyclicBarrier barrier, String name) {
             super();
             this.barrier = barrier;
             this.name = name;

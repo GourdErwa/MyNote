@@ -7,11 +7,11 @@ import java.util.UUID;
  *
  * @author wei.Li by 14-8-21.
  */
-public class CommodityObj {
+class CommodityObj {
 
     private String objId;
 
-    public CommodityObj() {
+    CommodityObj() {
         this.objId = UUID.randomUUID().toString();
     }
 

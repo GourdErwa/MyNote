@@ -12,10 +12,10 @@ import java.util.Random;
  */
 public class Apple {
 
-    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss", Locale.CHINA);
-    private static final String[] YIELDLY = new String[]{"BeiJing", "ShanXi", "HeNan", "ShangHai", "TianJing"};
     public static final String AVG_PRICE = "avg(price)";
     public static final String CLASSNAME = Apple.class.getName();
+    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss", Locale.CHINA);
+    private static final String[] YIELDLY = new String[]{"BeiJing", "ShanXi", "HeNan", "ShangHai", "TianJing"};
     private static final org.slf4j.Logger LOGGER = LoggerFactory.getLogger(Apple.class);
     private static final String[] COLORS = new String[]{"1", "2", "3"};
     private static final int COLORS_LENGTH = COLORS.length;

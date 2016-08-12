@@ -36,8 +36,8 @@ public class QueueCompare {
 
     private static void runTest() {
 
-        /**
-         * 添加concurrentLinkedQueue生产线程
+        /*
+          添加concurrentLinkedQueue生产线程
          */
         Market<String> concurrentLinkedQueueMarket =
                 new ConcurrentLinkedQueueMarket<>();
@@ -51,7 +51,7 @@ public class QueueCompare {
 
         Set<Object> set
                 = new HashSet<>();
-        /**
+        /*
          * 添加blockingQueue生产线程
          */
         Market<String> blockingQueueMarket

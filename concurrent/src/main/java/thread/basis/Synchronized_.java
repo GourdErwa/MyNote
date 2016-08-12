@@ -47,9 +47,9 @@ public class Synchronized_ {
 
 class OutPuter {
 
-    public static List<String> STRING_LIST = new ArrayList<>();
+    private static List<String> STRING_LIST = new ArrayList<>();
 
-    public void output(String name) {
+    private void output(String name) {
         // 为了保证对name的输出不是一个原子操作，这里逐个的输出的name的每个字符
         for (int i = 0; i < name.length(); i++) {
             System.out.print(name.charAt(i));
@@ -88,7 +88,7 @@ class OutPuter {
  */
     }
 
-    public void aVoid2SetValue() {
+    void aVoid2SetValue() {
        /* Runnable runnable;
         runnable = () -> {
             for (int i = 0; i < 100; i++) {
@@ -111,7 +111,7 @@ class OutPuter {
     }
 
 
-    public void aVoid2GetValue() {
+    void aVoid2GetValue() {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {

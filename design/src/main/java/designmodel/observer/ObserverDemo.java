@@ -14,13 +14,13 @@ public class ObserverDemo {
         beingWatched.addObserver(watcher);
 
         int period = 0;
-        for(; period>=0; period-- ) {
+        for (; period >= 0; period--) {
             //beingWatched.setChanged();
             beingWatched.notifyObservers(period);
             try {
                 Thread.sleep(100);
-            } catch( InterruptedException e) {
-                System.out.println("Sleep interrupeted" );
+            } catch (InterruptedException e) {
+                System.out.println("Sleep interrupeted");
             }
         }
 

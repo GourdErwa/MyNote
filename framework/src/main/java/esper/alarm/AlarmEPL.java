@@ -9,8 +9,8 @@ class AlarmEPL {
             "max(real_value) as max_value, min(real_value) as min_value, " +
             "max(type) as type, min(start_time) as start_time, max(end_time) as end_time, " +
             "max(alarmHandleSetting) as alarmHandleSetting " +
-            "from esper.alarm.EventTest " ;
-            //"group by alarmHandleSetting.id1 having count(*) >= 1 output snapshot every 1 minutes";
+            "from esper.alarm.EventTest ";
+    //"group by alarmHandleSetting.id1 having count(*) >= 1 output snapshot every 1 minutes";
 
 
 }

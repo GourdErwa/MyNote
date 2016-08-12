@@ -13,10 +13,10 @@ import com.lmax.disruptor.EventFactory;
  *
  * @see DeliveryReportEventHandler
  */
-public final class ValueEvent {
+final class ValueEvent {
 
     //定义生成的事件对象，注册到创建 Disruptor 对象
-    public final static EventFactory<ValueEvent> EVENT_FACTORY
+    final static EventFactory<ValueEvent> EVENT_FACTORY
             = new EventFactory<ValueEvent>() {
         public ValueEvent newInstance() {
             return new ValueEvent();
@@ -24,11 +24,11 @@ public final class ValueEvent {
     };
     private String value;//模拟任务数据
 
-    public String getValue() {
+    String getValue() {
         return value;
     }
 
-    public void setValue(String value) {
+    void setValue(String value) {
         this.value = value;
     }
 }

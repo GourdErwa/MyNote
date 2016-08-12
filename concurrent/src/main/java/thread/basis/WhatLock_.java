@@ -17,7 +17,7 @@ class InstanceClass {
     /**
      * 耗时较长的同步方法
      */
-    protected synchronized void instanceMethodOfLongRunning() {
+    synchronized void instanceMethodOfLongRunning() {
         LOGGER.info("into instanceMethodOfLongRunning() ...             obj:<{}>", this);
 
         try {
@@ -31,14 +31,14 @@ class InstanceClass {
     /**
      * 瞬间可完成的同步方法
      */
-    protected synchronized void instanceMethodOfInstantlyComplete() {
+    synchronized void instanceMethodOfInstantlyComplete() {
         LOGGER.info("into instanceMethodOfInstantlyComplete() ...             obj:<{}>", this);
     }
 
     /**
      * 瞬间可完成的非同步方法
      */
-    protected synchronized void instanceMethodOfInstantlyCompleteNotSynchronized() {
+    synchronized void instanceMethodOfInstantlyCompleteNotSynchronized() {
         LOGGER.info("into instanceMethodOfInstantlyCompleteNotSynchronized() ...             obj:<{}>", this);
     }
 
@@ -55,7 +55,7 @@ class StaticClass {
     /**
      * 耗时较长的同步方法
      */
-    protected synchronized static void staticMethodOfLongRunning() {
+    synchronized static void staticMethodOfLongRunning() {
         LOGGER.info("into staticMethodOfLongRunning ...");
         try {
             Thread.sleep(8000L);
@@ -68,14 +68,14 @@ class StaticClass {
     /**
      * 瞬间可完成的同步方法
      */
-    protected synchronized static void staticMethodOfInstantlyComplete() {
+    synchronized static void staticMethodOfInstantlyComplete() {
         LOGGER.info("into staticMethodOfInstantlyComplete ...");
     }
 
     /**
      * 瞬间可完成的非同步方法
      */
-    protected static void staticMethodOfInstantlyCompleteNotSynchronized() {
+    static void staticMethodOfInstantlyCompleteNotSynchronized() {
         LOGGER.info("into staticMethodOfInstantlyCompleteNotSynchronized ...");
     }
 

@@ -22,10 +22,9 @@ import java.util.concurrent.Executors;
 public class CountDownLatchTest {
 
     //同步完成一个事件的执行的线程数量
-    public static final int SYNCHRONIZED_DONE_THREAD_NUM = 3;
+    private static final int SYNCHRONIZED_DONE_THREAD_NUM = 3;
     //线程池
-    public static final ExecutorService EXECUTOR_SERVICE
-            = Executors.newFixedThreadPool(SYNCHRONIZED_DONE_THREAD_NUM + 1);
+    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(SYNCHRONIZED_DONE_THREAD_NUM + 1);
     //声明同步辅助类
     private static CountDownLatch countDownLatch
             = new CountDownLatch(SYNCHRONIZED_DONE_THREAD_NUM);
@@ -33,7 +32,7 @@ public class CountDownLatchTest {
     /**
      * 模拟多个线程执行任务
      */
-    public static void analogThreads() {
+    private static void analogThreads() {
         for (int i = 0; i < SYNCHRONIZED_DONE_THREAD_NUM; i++) {
 
             EXECUTOR_SERVICE.submit(new Callable<Object>() {

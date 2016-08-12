@@ -133,6 +133,7 @@ public class AnaTestServer {
         private OutputStream out = null;
         private InputStream in = null;
         private boolean run = true;
+
         CSocket(Socket socket) throws IOException {
             final String ip = socket.getInetAddress().toString();
             this.key = ip + "-" + socket.getPort();

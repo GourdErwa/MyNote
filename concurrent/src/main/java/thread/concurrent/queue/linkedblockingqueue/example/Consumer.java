@@ -7,7 +7,7 @@ import java.util.Random;
  *
  * @author wei.Li by 14-8-21.
  */
-public class Consumer implements Runnable {
+class Consumer implements Runnable {
 
     @Override
     public void run() {

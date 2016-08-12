@@ -5,7 +5,7 @@ package thread.basis.block;
  *
  * @author wei.Li
  */
-public class BlockingTestBySynchronized extends AbsBlockingTest {
+class BlockingTestBySynchronized extends AbsBlockingTest {
 
     private final Object lock = new Object();
 

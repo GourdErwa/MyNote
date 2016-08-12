@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  *
  * @author wei.Li
  */
-public class BlockingTestByReentrantReadWriteLock extends AbsBlockingTest {
+class BlockingTestByReentrantReadWriteLock extends AbsBlockingTest {
 
     private final AtomicBoolean canInsert = new AtomicBoolean(true);
     private final ReadWriteLock lock = new ReentrantReadWriteLock();
