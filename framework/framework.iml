@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="gwt" name="GWT">
+      <configuration />
+    </facet>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -34,6 +39,16 @@
     <orderEntry type="library" name="Maven: org.abego.treelayout:org.abego.treelayout.core:1.0.1" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.snmp4j:snmp4j:1.10.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.caliper:caliper:1.0-beta-2" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-client:1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject:guice:3.0" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-multibindings:3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-assistedinject:3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-math:2.2" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.java-allocation-instrumenter:java-allocation-instrumenter:3.0" level="project" />
+    <orderEntry type="library" name="Maven: org.ow2.asm:asm-xml:5.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:3.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:3.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:3.2.0.RELEASE" level="project" />
@@ -75,8 +90,6 @@
     <orderEntry type="library" name="Maven: cglib:cglib:3.1" level="project" />
     <orderEntry type="library" name="Maven: joda-time:joda-time:2.4" level="project" />
     <orderEntry type="library" name="Maven: net.israfil.cli:jcommander-guice:0.1" level="project" />
-    <orderEntry type="library" name="Maven: com.google.inject:guice:3.0" level="project" />
-    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: com.beust:jcommander:1.32" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:18.0-rc2" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />
