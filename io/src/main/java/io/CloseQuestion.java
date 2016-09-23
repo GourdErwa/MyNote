@@ -10,6 +10,12 @@ import java.io.*;
  */
 public class CloseQuestion {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws FileNotFoundException the file not found exception
+     */
     public static void main(String[] args) throws FileNotFoundException {
 
         BufferedReader bufferedReader = null;

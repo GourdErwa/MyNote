@@ -1,6 +1,9 @@
 package guice;
 
-import com.google.inject.*;
+import com.google.inject.Binder;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Module;
 
 /**
  * @author wei.Li

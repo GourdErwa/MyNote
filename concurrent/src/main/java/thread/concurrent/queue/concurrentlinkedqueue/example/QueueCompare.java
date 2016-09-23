@@ -1,10 +1,10 @@
 package thread.concurrent.queue.concurrentlinkedqueue.example;
 
 
-import org.joda.time.DateTime;
-import org.joda.time.format.ISODateTimeFormat;
+import com.gourd.erwa.date.DateFormatConstant;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -179,7 +179,7 @@ public class QueueCompare {
             LOGGER.info(" <{}> done <{}> need time <{}>"
                     , market.getClass().getSimpleName()
                     , PRODUCER_OBJ_NUM
-                    , DateTime.now().toString(ISODateTimeFormat.dateHourMinuteSecond()));
+                    , DateFormatConstant.DATE_TIME_FORMAT.format(new Date()));
         }
     }
 

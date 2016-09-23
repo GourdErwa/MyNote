@@ -45,6 +45,7 @@ public class EnumSetContainsBenchmark {
             set.contains(testValues[i % testValues.length]);
         }
     }
+
     enum SetMaker {
         ENUM_SET {
             @Override

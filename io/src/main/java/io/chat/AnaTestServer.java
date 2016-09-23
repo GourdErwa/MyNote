@@ -13,6 +13,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * The type Ana test server.
+ *
  * @author wei.Li
  */
 public class AnaTestServer {
@@ -28,6 +30,11 @@ public class AnaTestServer {
         this.pool = Executors.newCachedThreadPool();
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         new AnaTestServer().start();
     }
@@ -134,6 +141,12 @@ public class AnaTestServer {
         private InputStream in = null;
         private boolean run = true;
 
+        /**
+         * Instantiates a new C socket.
+         *
+         * @param socket the socket
+         * @throws IOException the io exception
+         */
         CSocket(Socket socket) throws IOException {
             final String ip = socket.getInetAddress().toString();
             this.key = ip + "-" + socket.getPort();
@@ -142,6 +155,11 @@ public class AnaTestServer {
             this.out = socket.getOutputStream();
         }
 
+        /**
+         * Send.
+         *
+         * @param msg the msg
+         */
         void send(String msg) {
 
             try {

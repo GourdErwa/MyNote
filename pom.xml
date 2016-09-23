@@ -2,10 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.xiaohulu</groupId>
-    <artifactId>1.0.0</artifactId>
+    <name>MyNote</name>
+
+    <groupId>com.gourd</groupId>
+    <artifactId>erwa</artifactId>
     <packaging>pom</packaging>
-    <version>1.0</version>
+    <version>2016.9.0</version>
+
     <modules>
         <module>concurrent</module>
         <module>db</module>
@@ -23,18 +26,16 @@
         <module>spark</module>
         <module>flume</module>
         <module>flink</module>
+        <module>corejava</module>
     </modules>
-    <name>MyNote</name>
+
 
     <properties>
         <!--[WARNING] File encoding has not been set, using platform encoding GBK, i.e. build is platform dependent!-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
-        <spring.version>3.2.0.RELEASE</spring.version>
-
-        <jackson.version>2.2.3</jackson.version>
         <org.slf4j-version>1.7.5</org.slf4j-version>
-        <quartz.verison>2.1.7</quartz.verison>
+
         <package.environment>etc_java</package.environment>
     </properties>
 
@@ -49,23 +50,23 @@
 
     <!-- 版本控制 -->
     <scm>
-        <connection>scm:git:git@github.com:xiaohulu/my_note.git</connection>
-        <developerConnection>scm:git:git@github.com:xiaohulu/my_note.git</developerConnection>
-        <url>https://github.com/xiaohulu/my_note/tree/master</url>
+        <connection>scm:git:git@github.com:GourdErwa/MyNote.git</connection>
+        <developerConnection>scm:git:git@github.com:GourdErwa/MyNote.git</developerConnection>
+        <url>https://github.com/GourdErwa/MyNote/tree/master</url>
     </scm>
     <!-- 持续集成 -->
     <ciManagement>
         <system>GIT</system>
-        <url>https://github.com/xiaohulu/my_note/tree/master</url>
+        <url>https://github.com/GourdErwa/MyNote/tree/master</url>
     </ciManagement>
 
     <!-- 项目团队 -->
     <developers>
         <developer>
             <id>00000</id>
-            <name>xiaohulu</name>
-            <organization>fusionSky</organization>
-            <organizationUrl>http://www.fusionskye.com</organizationUrl>
+            <name>GourdErwa</name>
+            <organization>GourdErwa</organization>
+            <organizationUrl>http://www.GourdErwa.com</organizationUrl>
             <email>liweityut@163.com</email>
             <roles>
                 <role>Software development</role>
@@ -87,67 +88,6 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.1</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-
-        <!-- Jackson JSON Processor -->
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -194,59 +134,19 @@
             <version>2.1</version>
         </dependency>
 
+        <!-- fastJson -->
         <dependency>
-            <groupId>com.google.code.maven-play-plugin.org.apache.commons</groupId>
-            <artifactId>commons-javaflow</artifactId>
-            <version>1590792</version>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.17</version>
         </dependency>
 
-
-        <!--metrics-->
-        <dependency>
-            <groupId>com.codahale.metrics</groupId>
-            <artifactId>metrics-core</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.codahale.metrics</groupId>
-            <artifactId>metrics-log4j</artifactId>
-            <version>3.0.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-            <version>2.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.israfil.cli</groupId>
-            <artifactId>jcommander-guice</artifactId>
-            <version>0.1</version>
-        </dependency>
 
         <!--google-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>18.0-rc2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.2.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>2.4.0-beta-2</version>
+            <version>19.0</version>
         </dependency>
 
         <dependency>
@@ -258,28 +158,6 @@
     </dependencies>
 
     <build>
-
-        <!--项目的基础目录下跑下面的命令。
-        $ mvn help:effective-pom
-    一旦你运行了此命令,你应该能看到一个大得多的 POM,它暴露了 Maven 的默认设置-->
-
-        <!--<sourceDirectory>/lw/workfile/intellij_work/my_note/src/main/java</sourceDirectory>
-        <scriptSourceDirectory>/lw/workfile/intellij_work/my_note/src/main/scripts</scriptSourceDirectory>
-        <testSourceDirectory>/lw/workfile/intellij_work/my_note/src/test/java</testSourceDirectory>
-        <outputDirectory>/lw/workfile/intellij_work/my_note/target/classes</outputDirectory>
-        <testOutputDirectory>/lw/workfile/intellij_work/my_note/target/test-classes</testOutputDirectory>
-        <resources>
-            <resource>
-                <filtering>true</filtering>
-                <directory>/lw/workfile/intellij_work/my_note/src/main/resources</directory>
-            </resource>
-        </resources>
-        <testResources>
-            <testResource>
-                <directory>/lw/workfile/intellij_work/my_note/src/test/resources</directory>
-            </testResource>
-        </testResources>
-        <directory>/lw/workfile/intellij_work/my_note/target</directory>-->
 
         <!--<finalName>my_note</finalName>-->
         <finalName>${project.artifactId}##${project.version}_${package.environment}</finalName>
@@ -301,7 +179,7 @@
                 <!-- 站点生成插件 -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.2</version>
+                <version>3.3</version>
                 <configuration>
                     <!-- 支持国际化 -->
                     <locales>zh_CN</locales>
@@ -310,7 +188,7 @@
                             <!-- 生成javadoc文件 -->
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
-                            <version>2.9</version>
+                            <version>2.10.4</version>
                             <configuration>
                                 <source>${jdk.version}</source>
                                 <target>${jdk.version}</target>
@@ -350,20 +228,20 @@
                                 <aggregate>true</aggregate>
                             </configuration>
                         </plugin>
-                        <plugin>
-                            <!-- 代码风格检查 -->
+                        <!--<plugin>
+                            &lt;!&ndash; 代码风格检查 &ndash;&gt;
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-checkstyle-plugin</artifactId>
                             <version>2.10</version>
                             <configuration>
-                                <!-- config/sun_checks.xml - Sun Microsystems Definition (default).
+                                &lt;!&ndash; config/sun_checks.xml - Sun Microsystems Definition (default).
                                  config/maven_checks.xml - Maven Development Definitions.
                                  config/turbine_checks.xml - Turbine Development Definitions.
-                                 config/avalon_checks.xml - Avalon Development Definitions.-->
-                                <!-- 使用sun代码风格 -->
+                                 config/avalon_checks.xml - Avalon Development Definitions.&ndash;&gt;
+                                &lt;!&ndash; 使用sun代码风格 &ndash;&gt;
 
-                            </configuration>
-                        </plugin>
+                            </configuration>&ndash;&gt;
+                        </plugin>-->
                         <plugin>
                             <!-- 代码更改日志 -->
                             <groupId>org.apache.maven.plugins</groupId>
@@ -374,7 +252,7 @@
                             <!-- 代码隐藏bug检查 -->
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-pmd-plugin</artifactId>
-                            <version>3.0</version>
+                            <version>3.6</version>
                             <configuration>
                                 <!-- 多模块聚合 -->
                                 <aggregate>true</aggregate>
@@ -410,31 +288,6 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>buildnumber-maven-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>create</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <timestampFormat>{0,date,MM/dd/yyyy hh:mm:ss a}</timestampFormat>
-                    <doUpdate>false</doUpdate>
-                    <doCheck>false</doCheck>
-                    <format>{1}</format>
-                    <items>
-                        <item>timestamp</item>
-                        <item>scmVersion</item>
-                        <item>buildNumber</item>
-                    </items>
-                </configuration>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.4</version>
@@ -447,12 +300,6 @@
                             <filtering>true</filtering>
                         </resource>
                     </webResources>
-                    <archive>
-                        <manifestEntries>
-                            <Revision>${buildNumber}</Revision>
-                            <Build-Time>${timestamp}</Build-Time>
-                        </manifestEntries>
-                    </archive>
                     <outputDirectory>target/deploy/${package.environment}</outputDirectory>
                 </configuration>
             </plugin>

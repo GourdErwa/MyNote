@@ -289,8 +289,8 @@
             remote: "Please fix this field.",
             email: "Please enter a valid email address.",
             url: "Please enter a valid URL.",
-            date: "Please enter a valid date.",
-            dateISO: "Please enter a valid date (ISO).",
+            date: "Please enter a valid com.gourd.erwa.date.",
+            dateISO: "Please enter a valid com.gourd.erwa.date (ISO).",
             number: "Please enter a valid number.",
             digits: "Please enter only digits.",
             creditcard: "Please enter a valid credit card number.",
@@ -343,7 +343,7 @@
                 $(this.currentForm)
                     .validateDelegate(":text, [type='password'], [type='file'], select, textarea, " +
                         "[type='number'], [type='search'] ,[type='tel'], [type='url'], " +
-                        "[type='email'], [type='datetime'], [type='date'], [type='month'], " +
+                        "[type='email'], [type='datetime'], [type='com.gourd.erwa.date'], [type='month'], " +
                         "[type='week'], [type='time'], [type='datetime-local'], " +
                         "[type='range'], [type='color'] ",
                         "focusin focusout keyup", delegate)
@@ -867,7 +867,7 @@
                 }
 
                 // convert the value to a number for number inputs, and for text for backwards compability
-                // allows type="date" and others to be compared as strings
+                // allows type="com.gourd.erwa.date" and others to be compared as strings
                 if (/min|max/.test(method) && ( type === null || /number|range|text/.test(type) )) {
                     value = Number(value);
                 }

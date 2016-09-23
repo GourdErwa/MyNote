@@ -43,6 +43,8 @@ import java.io.IOException;
 
 
 /**
+ * The type Snmp manager vo.
+ *
  * @author wei.Li by 15/2/27 (gourderwa@163.com).
  */
 public class SnmpManagerVo {
@@ -52,6 +54,8 @@ public class SnmpManagerVo {
     private String version = null;
 
     /**
+     * Instantiates a new Snmp manager vo.
+     *
      * @param version version
      */
     public SnmpManagerVo(String version) {
@@ -73,6 +77,11 @@ public class SnmpManagerVo {
         }
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         SnmpManagerVo manager = new SnmpManagerVo("2c");
         //构造报文
@@ -94,11 +103,13 @@ public class SnmpManagerVo {
     }
 
     /**
+     * Send message.
+     *
      * @param syn  是否是同步模式
      * @param bro  是否是广播
      * @param pdu  要发送的报文
      * @param addr 目标地址
-     * @throws IOException
+     * @throws IOException the io exception
      */
     public void sendMessage(Boolean syn, final Boolean bro, PDU pdu,
                             String addr) throws IOException {

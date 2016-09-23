@@ -9,7 +9,7 @@ import java.util.Random;
  * This is how you would implement a Provider "method" pre-Guice 2.0. Basically
  * you would have to host the Provider in its own class, and register it with
  * the binder:
- *
+ * <p>
  * binder.bind(Hero.class).toProvider(HallOfJustice.class);
  */
 public class HallOfJustice implements Provider<Hero> {

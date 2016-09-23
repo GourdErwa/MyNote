@@ -10,6 +10,8 @@ import java.nio.charset.Charset;
 import java.util.List;
 
 /**
+ * The type Files utils.
+ *
  * @author wei.Li by 14-8-20.
  */
 public class FilesUtils {
@@ -59,6 +61,11 @@ public class FilesUtils {
         }
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         deleteContainsStrForFile(FILEPATH, CONTAINSSTR);
     }

@@ -20,6 +20,8 @@ import java.util.Map;
 import java.util.concurrent.*;
 
 /**
+ * The type Executor.
+ *
  * @author wei.Li by 15/3/18 (gourderwa@163.com).
  */
 public class Executor_ {
@@ -30,13 +32,17 @@ public class Executor_ {
     private ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
 
     /**
-     * @param args
+     * The entry point of application.
+     *
+     * @param args the input arguments
      */
     public static void main(String[] args) {
     }
 
     /**
-     * @param tasksList
+     * Add task list.
+     *
+     * @param tasksList the tasks list
      */
     public void addTaskList(List<Callable<String>> tasksList) {
         for (Callable<String> t : tasksList) {
@@ -49,8 +55,10 @@ public class Executor_ {
     }
 
     /**
-     * @param task
-     * @return
+     * Add task string.
+     *
+     * @param task the task
+     * @return string
      */
     public String addTask(Callable<String> task) {
         FutureTask<String> futureTask = new FutureTask<>(task);
@@ -62,8 +70,10 @@ public class Executor_ {
     }
 
     /**
-     * @param task
-     * @return
+     * Add db task string.
+     *
+     * @param task the task
+     * @return string
      */
     public String addDBTask(Callable<String> task) {
         FutureTask<String> futureTask = new FutureTask<String>(task) {
@@ -80,8 +90,10 @@ public class Executor_ {
     }
 
     /**
-     * @param key
-     * @return
+     * Task is done boolean.
+     *
+     * @param key the key
+     * @return boolean
      */
     public boolean taskIsDone(String key) {
         FutureTask<String> futureTask = tasks.get(key);
@@ -92,8 +104,10 @@ public class Executor_ {
     }
 
     /**
-     * @param key
-     * @return
+     * Task is cancelled boolean.
+     *
+     * @param key the key
+     * @return boolean
      */
     public boolean taskIsCancelled(String key) {
         FutureTask<String> futureTask = tasks.get(key);
@@ -104,8 +118,10 @@ public class Executor_ {
     }
 
     /**
-     * @param key
-     * @return
+     * Gets task result.
+     *
+     * @param key the key
+     * @return task result
      */
     public String getTaskResult(String key) {
         FutureTask<String> futureTask = tasks.get(key);
@@ -128,8 +144,10 @@ public class Executor_ {
     }
 
     /**
-     * @param task
-     * @return
+     * Add task and wait result string.
+     *
+     * @param task the task
+     * @return string
      */
     public String addTaskAndWaitResult(Callable<String> task) {
         FutureTask<String> futureTask = new FutureTask<String>(task);
@@ -149,7 +167,7 @@ public class Executor_ {
     }
 
     /**
-     *
+     * Remove all task.
      */
     public void removeAllTask() {
         for (String key : tasks.keySet()) {
@@ -159,26 +177,33 @@ public class Executor_ {
     }
 
     /**
-     * @param key
+     * Remove query task.
+     *
+     * @param key the key
      */
     public void removeQueryTask(String key) {
         executor.remove((Runnable) tasks.get(key));
     }
 
     /**
-     * @param key
+     * Remove task.
+     *
+     * @param key the key
      */
     public void removeTask(String key) {
         tasks.remove(key);
     }
 
     /**
-     *
+     * Clear task list.
      */
     public void clearTaskList() {
         tasks.clear();
     }
 
+    /**
+     * Stop.
+     */
     public synchronized void stop() {
         try {
             executor.shutdownNow();
@@ -193,7 +218,9 @@ public class Executor_ {
     }
 
     /**
-     * @param key
+     * Cancel task.
+     *
+     * @param key the key
      */
     public void cancelTask(String key) {
 
@@ -205,6 +232,9 @@ public class Executor_ {
         }
     }
 
+    /**
+     * Purge cancel task.
+     */
     public void purgeCancelTask() {
         executor.purge();
         executor.getQueue();

@@ -15,7 +15,7 @@ import java.util.Date;
 public class MainExecute extends Thread {
 
     private static final EPServiceProvider DEFAULT_PROVIDER = EPServiceProviderManager.getDefaultProvider();
-    static final EPAdministrator EP_ADMINISTRATOR = DEFAULT_PROVIDER.getEPAdministrator();
+    public static final EPAdministrator EP_ADMINISTRATOR = DEFAULT_PROVIDER.getEPAdministrator();
     private static final EPRuntime EP_RUNTIME = DEFAULT_PROVIDER.getEPRuntime();
     //执行次数
     private static final int EXECUTE_NUM = 1000;

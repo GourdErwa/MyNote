@@ -73,7 +73,7 @@ public class Es_BuildIndex {
                 .startObject("now_home").field("type", "string").field("index", "not_analyzed").endObject()
                 .startObject("height").field("type", "double").endObject()
                 .startObject("age").field("type", "integer").endObject()
-                .startObject("birthday").field("type", "date").field("format", "YYYY-MM-dd").endObject()
+                .startObject("birthday").field("type", "com/gourd/erwa/date").field("format", "YYYY-MM-dd").endObject()
                 .startObject("isRealMen").field("type", "boolean").endObject()
                 .startObject("location").field("lat", "double").field("lon", "double").endObject()
                 .endObject()

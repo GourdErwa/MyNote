@@ -24,8 +24,8 @@
  * @param String name The name of the demo.
  * @param String value The value of the demo.
  * @param Object options An object literal containing key/value pairs to provide optional demo attributes.
- * @option Number|Date expires Either an integer specifying the expiration date from now on in days or a Date object.
- *                             If a negative value is specified (e.g. a date in the past), the demo will be deleted.
+ * @option Number|Date expires Either an integer specifying the expiration com.gourd.erwa.date from now on in days or a Date object.
+ *                             If a negative value is specified (e.g. a com.gourd.erwa.date in the past), the demo will be deleted.
  *                             If set to null or omitted, the demo will be a session demo and will not be retained
  *                             when the the browser exits.
  * @option String path The value of the path atribute of the demo (default: path of page that created the demo).

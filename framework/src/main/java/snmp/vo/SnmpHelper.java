@@ -14,7 +14,8 @@
 
 package snmp.vo;
 
-import org.codehaus.jackson.map.ObjectMapper;
+import com.alibaba.fastjson.JSON;
+import com.google.common.io.Files;
 import org.snmp4j.*;
 import org.snmp4j.event.ResponseEvent;
 import org.snmp4j.event.ResponseListener;
@@ -28,9 +29,12 @@ import org.snmp4j.transport.DefaultUdpTransportMapping;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.List;
 
 /**
+ * The type Snmp helper.
+ *
  * @author wei.Li by 15/2/27 (gourderwa@163.com).
  */
 public class SnmpHelper {
@@ -38,6 +42,11 @@ public class SnmpHelper {
     private static Snmp snmp = null;
 
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
 
@@ -59,9 +68,9 @@ public class SnmpHelper {
      * @return 转换后的 javabean 对象
      */
     public static SnmpSetting initJsonFileToSnmpSetting(String filePath) {
-        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            final SnmpSetting snmpSetting = objectMapper.readValue(new File(filePath), SnmpSetting.class);
+            //objectMapper.readValue(new File(filePath), SnmpSetting.class);
+            final SnmpSetting snmpSetting = JSON.parseObject(Files.toString(new File(filePath), Charset.defaultCharset()), SnmpSetting.class);
             //是否含有 version ==3 的PDU
             final List<PduSetting> pduSettings = snmpSetting.getPduSettings();
             for (PduSetting pduSetting : pduSettings) {
@@ -78,6 +87,9 @@ public class SnmpHelper {
 
     /**
      * initSnmp
+     *
+     * @param snmpSetting the snmp setting
+     * @throws IOException the io exception
      */
     public static void initSnmp(SnmpSetting snmpSetting) throws IOException {
 
@@ -94,8 +106,10 @@ public class SnmpHelper {
 
 
     /**
+     * Send message.
+     *
      * @param snmpSetting snmpSetting
-     * @throws IOException
+     * @throws IOException the io exception
      */
     public static void sendMessage(SnmpSetting snmpSetting) throws IOException {
 

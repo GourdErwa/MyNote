@@ -34,7 +34,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
  * misfire instructions affect the firings of triggers of <code>StatefulJob</code>
  * s - when the jobs take longer to execute that the frequency of the trigger's
  * repitition.
- * <p/>
+ * <p>
  * <p>
  * While the example is running, you should note that there are two triggers
  * with identical schedules, firing identical工作。 The triggers "want" to fire
@@ -48,19 +48,29 @@ import static org.quartz.TriggerBuilder.newTrigger;
  * the trigger to advance to its next fire time (skipping those that it has
  * missed) - so that it does not refire immediately, but rather at the next
  * scheduled time.
- * </p>
  *
  * @author <a href="mailto:bonhamcm@thirdeyeconsulting.com">Chris Bonham</a>
  */
 public class MisfireExample {
 
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     * @throws Exception the exception
+     */
     public static void main(String[] args) throws Exception {
 
         MisfireExample example = new MisfireExample();
         example.run();
     }
 
+    /**
+     * Run.
+     *
+     * @throws Exception the exception
+     */
     public void run() throws Exception {
         Logger log = LoggerFactory.getLogger(MisfireExample.class);
 
@@ -132,7 +142,7 @@ public class MisfireExample {
         try {
             // sleep for ten minutes for triggers to file....
             Thread.sleep(600L * 1000L);
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
         }
 
         log.info("------- 关闭 ---------------------");

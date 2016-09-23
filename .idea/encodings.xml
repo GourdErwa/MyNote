@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/corejava" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/document" charset="UTF-8" />
@@ -18,7 +19,6 @@
     <file url="file://$PROJECT_DIR$/junit" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/performance" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spark" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/com/java/basis/encoding/java字符串的各种编码转换.txt" charset="GBK" />
     <file url="file://$PROJECT_DIR$/util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/work" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

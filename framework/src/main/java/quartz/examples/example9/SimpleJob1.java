@@ -56,7 +56,7 @@ public class SimpleJob1 implements Job {
             throws JobExecutionException {
 
         // This job simply prints out its job name and the
-        // date and time that it is running
+        // com.gourd.erwa.date and time that it is running
         JobKey jobKey = context.getJobDetail().getKey();
         _log.info("SimpleJob1 says: " + jobKey + "执行于 " + new Date());
     }

@@ -65,7 +65,7 @@ public class SimpleTriggerExample {
         // get a "nice round" time a few seconds in the future...
         Date startTime = DateBuilder.nextGivenSecondDate(null, 15);
 
-        // job1 will only fire once at date/time "ts"
+        // job1 will only fire once at com.gourd.erwa.date/time "ts"
         JobDetail job = newJob(SimpleJob.class)
                 .withIdentity("job1", "group1")
                 .build();
@@ -82,7 +82,7 @@ public class SimpleTriggerExample {
                 " 重复次数: " + trigger.getRepeatCount() +
                 " times,时间间隔" + trigger.getRepeatInterval() / 1000 + " seconds");
 
-        // job2 will only fire once at date/time "ts"
+        // job2 will only fire once at com.gourd.erwa.date/time "ts"
         job = newJob(SimpleJob.class)
                 .withIdentity("job2", "group1")
                 .build();

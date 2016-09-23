@@ -7,6 +7,7 @@ import org.quartz.impl.matchers.GroupMatcher;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 一个简单的quartz任务管理器
@@ -101,7 +102,7 @@ public class QuartzSchedule {
      * @param replace         replace
      * @throws SchedulerException SchedulerException
      */
-    public static void scheduleJobs(Map<JobDetail, List<Trigger>> triggersAndJobs, boolean replace) throws SchedulerException {
+    public static void scheduleJobs(Map<JobDetail, Set<? extends Trigger>> triggersAndJobs, boolean replace) throws SchedulerException {
         scheduler.scheduleJobs(triggersAndJobs, replace);
     }
 

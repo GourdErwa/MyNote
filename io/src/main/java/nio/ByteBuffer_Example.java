@@ -132,6 +132,11 @@ public class ByteBuffer_Example {
         }
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         //readInSystem();
         String export_path = "/lw//a//b//c.txt";

@@ -128,6 +128,12 @@ public class AnaTestClient {
 
         }
 
+        /**
+         * Encrypt string.
+         *
+         * @param s the s
+         * @return the string
+         */
         String encrypt(String s) {
             String str = "";
             int ch;
@@ -146,6 +152,12 @@ public class AnaTestClient {
             return str;
         }
 
+        /**
+         * Decrypt string.
+         *
+         * @param s the s
+         * @return the string
+         */
         String decrypt(String s) {
             String str = "";
             int ch;

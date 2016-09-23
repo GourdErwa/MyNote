@@ -27,7 +27,7 @@
      * 起初这看起来并不是大问题，但是当有成千上万行代码时，不使用 var 声明变量将会带来难以跟踪的 BUG。
      */
 
-    // 全局作用域
+            // 全局作用域
     var items = [/* some list */];
 
     for (var i = 0; i < 10; i++) {
@@ -78,7 +78,7 @@
      * JavaScript 将会把 var 表达式和 function 声明提升到当前作用域的顶部。
      */
 
-    // var 表达式被移动到这里
+            // var 表达式被移动到这里
     var bar, someValue; // 缺省值是 'undefined'
 
     // 函数声明也会提升

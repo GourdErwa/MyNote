@@ -60,7 +60,7 @@ public class HelloJob implements Job {
     public void execute(JobExecutionContext context)
             throws JobExecutionException {
 
-        // Say Hello to the World and display the date/time
+        // Say Hello to the World and display the com.gourd.erwa.date/time
         _log.info("Hello World! - " + new Date());
     }
 

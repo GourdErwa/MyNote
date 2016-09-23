@@ -32,11 +32,9 @@ public class TriggerEchoJob implements Job {
 
     /**
      * Empty constructor for job initilization
-     * <p/>
      * <p>
      * Quartz requires a public empty constructor so that the
      * scheduler can instantiate the class whenever it needs.
-     * </p>
      */
     public TriggerEchoJob() {
     }
@@ -46,7 +44,6 @@ public class TriggerEchoJob implements Job {
      * Called by the <code>{@link org.quartz.Scheduler}</code> when a
      * <code>{@link org.quartz.Trigger}</code> fires that is associated with
      * the <code>Job</code>.
-     * </p>
      *
      * @throws org.quartz.JobExecutionException if there is an exception while executing the job.
      */

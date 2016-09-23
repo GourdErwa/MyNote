@@ -92,10 +92,10 @@ public class CalendarExample {
                 .modifiedByCalendar("holidays")
                 .build();
 
-        // schedule the job and print the first run date
+        // schedule the job and print the first run com.gourd.erwa.date
         Date firstRunTime = sched.scheduleJob(job, trigger);
 
-        // print out the first execution date.
+        // print out the first execution com.gourd.erwa.date.
         // Note:  Since Halloween (Oct 31) is a holiday, then
         // we will not run until the next day! (Nov 1)
         log.info(job.getKey() +

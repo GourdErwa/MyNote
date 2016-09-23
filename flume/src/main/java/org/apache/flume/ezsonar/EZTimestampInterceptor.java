@@ -15,6 +15,8 @@ import java.util.Map;
 import static org.apache.flume.ezsonar.EZTimestampInterceptor.Constants.TIMESTAMP;
 
 /**
+ * The type Ez timestamp interceptor.
+ *
  * @author wei.Li by 16/2/24
  */
 public class EZTimestampInterceptor implements Interceptor {
@@ -27,6 +29,11 @@ public class EZTimestampInterceptor implements Interceptor {
     private EZTimestampInterceptor() {
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         System.out.println();
@@ -93,7 +100,13 @@ public class EZTimestampInterceptor implements Interceptor {
 
     }
 
+    /**
+     * The type Constants.
+     */
     public static class Constants {
+        /**
+         * The constant TIMESTAMP.
+         */
         public static String TIMESTAMP = "timestamp";
     }
 

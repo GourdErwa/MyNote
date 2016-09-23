@@ -26,18 +26,18 @@ import java.util.Random;
 /**
  * A simple example of a benchmark for BitSet showing some of the issues with
  * micro-benchmarking.
- *
+ * <p>
  * <p>The following is a discussion of how the benchmarks evolved and what they
  * may (or may not) tell us. This discussion is based on the following set of
  * results:
- *
+ * <p>
  * <p><pre>
  *  0% Scenario{vm=java, benchmark=SetBitSetX64} 233.45ns; σ=0.31ns @ 3 trials
  * 20% Scenario{vm=java, benchmark=SetMaskX64} 116.62ns; σ=0.09ns @ 3 trials
  * 40% Scenario{vm=java, benchmark=CharsToBitSet} 748.40ns; σ=23.52ns @ 10 trials
  * 60% Scenario{vm=java, benchmark=CharsToMask} 198.55ns; σ=9.46ns @ 10 trials
  * 80% Scenario{vm=java, benchmark=BaselineIteration} 67.85ns; σ=0.44ns @ 3 trials
- *
+ * <p>
  *         benchmark   ns logarithmic runtime
  *      SetBitSetX64  233 XXXXXXXXX|||||||||||||||
  *        SetMaskX64  117 XXXX|||||||||||||||||
@@ -45,43 +45,43 @@ import java.util.Random;
  *       CharsToMask  199 XXXXXXX||||||||||||||||
  * BaselineIteration   68 XX|||||||||||||||||
  * </pre>
- *
+ * <p>
  * <p>Initially things look simple. The {@link #setBitSetX64(int)} benchmark
  * takes approximately twice as long as {@link #setMaskX64(int)}. However
  * the inner loops in these benchmarks have almost no content, so a more
  * 'real world' benchmark was devised in an attempt to back up these results.
- *
+ * <p>
  * <p>The {@link #charsToMask(int)} and {@link #charsToBitSet(int)}
  * benchmarks convert a simple char[] of '1's and '0's to a corresponding BitSet
  * or bit mask. These also processes 64 bits per iteration and so appears to be
  * doing the same amount of work as the first benchmarks.
- *
+ * <p>
  * <p>Additionally the {@link BitSetBenchmark#baselineIteration(int)}
  * benchmark attempts to measure the raw cost of looping through and reading the
  * source data.
- *
+ * <p>
  * <p>When comparing the benchmarks that use bit masking, we see that the
  * measured time of the SetMaskX64 benchmark (117ns) is roughly the same
  * as the CharsToMask benchmark (199ns) with the BaselineIteration time (68ms)
  * subtracted from it. This gives us some confidence that both benchmarks are
  * resulting in the same underlying work on the CPU.
- *
+ * <p>
  * <p>However the CharsToBitSet and the SetBitSetX64 benchmarks differ very
  * significantly (approximately 3x) even when accounting for the
  * BaselineIteration result. This suggests that the performance of
  * {@link BitSet#set} is quite dependent on the surrounding code and how
  * it is optimized by the JVM.
- *
+ * <p>
  * <p>The conclusions we can draw from this are:
- *
+ * <p>
  * <p><b>1:</b> Using BitSet is slower than using bit masks directly. At best it
  * seems about 2x slower than a bit mask, but could easily be 5x slower in real
  * applications.
- *
+ * <p>
  * <p>While these are only estimates, we can conclude that when performance is
  * important and where bit set operations occur in tight loops, bit masks
  * should be used in favor of BitSets.
- *
+ * <p>
  * <p><b>2:</b>Overly simplistic benchmarks can give a very false impression of
  * performance.
  */

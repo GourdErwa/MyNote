@@ -1976,9 +1976,9 @@
     var arrayProto = Array.prototype;
     var arrayMethods = Object.create(arrayProto)
 
-    /**
-     * Intercept mutating methods and emit events
-     */
+        /**
+         * Intercept mutating methods and emit events
+         */
 
         ;
     ['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {

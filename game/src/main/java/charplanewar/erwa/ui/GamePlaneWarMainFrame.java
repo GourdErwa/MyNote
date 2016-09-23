@@ -56,9 +56,9 @@ public class GamePlaneWarMainFrame extends JFrame implements ActionListener {
     /**
      * 主面板初始化
      *
-     * @throws IOException
-     * @throws LineUnavailableException
-     * @throws UnsupportedAudioFileException
+     * @throws IOException                   the io exception
+     * @throws LineUnavailableException      the line unavailable exception
+     * @throws UnsupportedAudioFileException the unsupported audio file exception
      */
     public GamePlaneWarMainFrame() throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         try {
@@ -244,9 +244,9 @@ public class GamePlaneWarMainFrame extends JFrame implements ActionListener {
     /**
      * 载入游戏画面
      *
-     * @throws LineUnavailableException
-     * @throws UnsupportedAudioFileException
-     * @throws IOException
+     * @throws LineUnavailableException      the line unavailable exception
+     * @throws UnsupportedAudioFileException the unsupported audio file exception
+     * @throws IOException                   the io exception
      */
     public void loadGame() throws LineUnavailableException, UnsupportedAudioFileException, IOException {
         Container c = this.getContentPane();

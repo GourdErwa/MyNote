@@ -2916,7 +2916,7 @@
         _attachDatepicker: function (target, settings) {
             var inlineSettings = null;
             for (var attrName in this._defaults) {
-                var attrValue = target.getAttribute("date:" + attrName);
+                var attrValue = target.getAttribute("com.gourd.erwa.date:" + attrName);
                 if (attrValue) {
                     inlineSettings = inlineSettings || {};
                     try {
@@ -3359,7 +3359,7 @@
             }
             if (g < t.length) {
                 var w = t.substr(g);
-                if (!/^\s+/.test(w))throw"Extra/unparsed characters found in date: " + w
+                if (!/^\s+/.test(w))throw"Extra/unparsed characters found in com.gourd.erwa.date: " + w
             }
             a == -1 ? a = (new Date).getFullYear() : a < 100 && (a += (new Date).getFullYear() - (new Date).getFullYear() % 100 + (a <= r ? 0 : -100));
             if (c > -1) {
@@ -3371,7 +3371,7 @@
                 } while (!0)
             }
             var b = this._daylightSavingAdjust(new Date(a, f - 1, l));
-            if (b.getFullYear() != a || b.getMonth() + 1 != f || b.getDate() != l)throw"Invalid date";
+            if (b.getFullYear() != a || b.getMonth() + 1 != f || b.getDate() != l)throw"Invalid com.gourd.erwa.date";
             return b
         },
         ATOM: "yy-mm-dd",

@@ -60,7 +60,7 @@ class EPL_6_Annotation {
 
      ------------------------------------------------------
 
-     Hook    Use this annotation to register one or more statement-specific hooks providing a hook type for each individual hook,
+     Hook    Use this com.gourd.erwa.annotation to register one or more statement-specific hooks providing a hook type for each individual hook,
      such as for SQL parameter, column or row conversion.
      属性是 the hook type and the hook itself (usually a import or class name):
 

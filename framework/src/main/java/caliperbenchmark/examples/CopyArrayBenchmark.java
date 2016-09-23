@@ -25,17 +25,17 @@ import java.util.Random;
 
 /**
  * Tests each of four ways to copy an array, for all nine array types.
- *
+ * <p>
  * <p>Once upon a time, {@code clone} was much slower than the other array copy techniques, but
  * that was fixed in Sun bug:
- *
+ * <p>
  * <a href="http://bugs.sun.com/view_bug.do?bug_id=6428387">
  * array clone() much slower than Arrays.copyOf</a>
- *
+ * <p>
  * at which time all copy methods were equally efficient.
- *
+ * <p>
  * <p>Recent (2011) measurements with OpenJDK 7 on Linux are less clear.  Results suggests that:
- *
+ * <p>
  * <ul>
  * <li>The different methods of copying have indistinguishable performance with hotspot server for
  * all nine types, except that the naive LOOP is slower.

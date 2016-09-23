@@ -116,19 +116,19 @@ jQuery.validator.addMethod("vinUS", function (v) {
 }, "The specified vehicle identification number (VIN) is invalid.");
 
 /**
- * Return true, if the value is a valid date, also making this formal check dd/mm/yyyy.
+ * Return true, if the value is a valid com.gourd.erwa.date, also making this formal check dd/mm/yyyy.
  *
- * @example jQuery.validator.methods.date("01/01/1900")
+ * @example jQuery.validator.methods.com.gourd.erwa.date("01/01/1900")
  * @result true
  *
- * @example jQuery.validator.methods.date("01/13/1990")
+ * @example jQuery.validator.methods.com.gourd.erwa.date("01/13/1990")
  * @result false
  *
- * @example jQuery.validator.methods.date("01.01.1900")
+ * @example jQuery.validator.methods.com.gourd.erwa.date("01.01.1900")
  * @result false
  *
  * @example <input name="pippo" class="{dateITA:true}" />
- * @desc Declares an optional input element whose value must be a valid date.
+ * @desc Declares an optional input element whose value must be a valid com.gourd.erwa.date.
  *
  * @name jQuery.validator.methods.dateITA
  * @type Boolean

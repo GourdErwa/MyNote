@@ -17,6 +17,8 @@ package io;
 import java.io.*;
 
 /**
+ * The type In out put stream.
+ *
  * @author wei.Li by 15/1/19 (gourderwa@163.com).
  */
 public class InOutPutStream_ {
@@ -32,6 +34,11 @@ public class InOutPutStream_ {
         final InputStreamReader inputStreamReader = new InputStreamReader(null);
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
     }

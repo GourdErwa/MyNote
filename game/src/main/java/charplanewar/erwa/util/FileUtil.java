@@ -28,6 +28,13 @@ import java.util.List;
 public class FileUtil {
 
 
+    /**
+     * Read file to string string.
+     *
+     * @param filePath the file path
+     * @return the string
+     * @throws IOException the io exception
+     */
     public static String readFileToString(String filePath) throws IOException {
         StringBuilder sb = new StringBuilder();
         File file = new File(filePath);
@@ -45,7 +52,7 @@ public class FileUtil {
      *
      * @param scoreList scoreList
      * @param filePath  文件路径
-     * @throws IOException
+     * @throws IOException the io exception
      */
     public static void writeScore(List<Score> scoreList, String filePath) throws IOException {
         ObjectOutputStream objOutputStream = null;
@@ -69,9 +76,9 @@ public class FileUtil {
      * 反序列化成绩
      *
      * @param filePath 文件路径
-     * @return 读取后的成绩
-     * @throws IOException
-     * @throws ClassNotFoundException
+     * @return 读取后的成绩 list
+     * @throws IOException            the io exception
+     * @throws ClassNotFoundException the class not found exception
      */
     public static List<Score> readScore(String filePath) throws IOException,
             ClassNotFoundException {
@@ -85,6 +92,11 @@ public class FileUtil {
         return scoreList;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         final String resourceAsStream = FileUtil.class.getResource("/resources").getPath();

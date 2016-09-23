@@ -140,7 +140,7 @@ public class Es_Facets {
      */
     private static void dateHistogramFacet() {
         DateHistogramFacetBuilder dateHistogramFacetBuilder = FacetBuilders.dateHistogramFacet("DateHistogramFacetBuilder")
-                .field("birthday")// Your date field
+                .field("birthday")// Your com.gourd.erwa.date field
                 .interval("minute");// You can also use "quarter", "month", "week", "day",
         // "hour" and "minute" or notation like "1.5h" or "2w"
         DateHistogramFacet histogramFacet

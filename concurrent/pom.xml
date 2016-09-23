@@ -3,21 +3,30 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>1.0.0</artifactId>
-        <groupId>com.xiaohulu</groupId>
-        <version>1.0</version>
+        <artifactId>erwa</artifactId>
+        <groupId>com.gourd</groupId>
+        <version>2016.9.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>concurrent</artifactId>
+    <name>concurrent</name>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.gourd</groupId>
+            <artifactId>util</artifactId>
+            <version>2016.9.0</version>
+        </dependency>
+
         <!--disruptor-->
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
-            <version>3.0.1</version>
+            <version>3.3.5</version>
         </dependency>
+
     </dependencies>
 
 </project>
