@@ -7,7 +7,7 @@
     <groupId>com.gourd</groupId>
     <artifactId>erwa</artifactId>
     <packaging>pom</packaging>
-    <version>2016.9.0</version>
+    <version>2016.9.1</version>
 
     <modules>
         <module>concurrent</module>
@@ -19,7 +19,6 @@
         <module>java8</module>
         <module>js</module>
         <module>junit</module>
-        <module>performance</module>
         <module>util</module>
         <module>work</module>
         <module>hadoop</module>

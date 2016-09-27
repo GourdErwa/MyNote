@@ -5,7 +5,7 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.9.0</version>
+        <version>2016.9.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.gourd</groupId>
             <artifactId>util</artifactId>
-            <version>2016.9.0</version>
+            <version>2016.9.1</version>
         </dependency>
 
         <!--disruptor-->
