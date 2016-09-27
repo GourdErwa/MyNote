@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.essence_36;
+package com.gourd.erwa.util.corejava.essence_36;
 
 /**
  * Created by lw on 14-5-18.

@@ -10,7 +10,7 @@
  * Email :	gourderwa@163.com
  */
 
-package com.gourd.erwa.corejava.basis.grammar;
+package com.gourd.erwa.util.corejava.basis.grammar;
 
 
 import java.util.UUID;

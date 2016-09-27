@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis.swap;
+package com.gourd.erwa.util.corejava.basis.swap;
 
 /**
  * @author wei.Li

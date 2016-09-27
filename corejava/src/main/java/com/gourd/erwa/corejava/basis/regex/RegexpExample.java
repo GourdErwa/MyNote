@@ -10,7 +10,7 @@
  * Email :	gourderwa@163.com
  */
 
-package com.gourd.erwa.corejava.basis.regex;
+package com.gourd.erwa.util.corejava.basis.regex;
 
 import org.slf4j.LoggerFactory;
 

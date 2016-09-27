@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis.classinit;
+package com.gourd.erwa.util.corejava.basis.classinit;
 
 /**
  * @author lw by 14-4-23.

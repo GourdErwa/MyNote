@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis.urlproperties;
+package com.gourd.erwa.util.corejava.basis.urlproperties;
 
 import java.net.URL;
 

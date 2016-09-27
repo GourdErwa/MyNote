@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis.enum_;
+package com.gourd.erwa.util.corejava.basis.enum_;
 
 /**
  * @author lw by 14-5-29.

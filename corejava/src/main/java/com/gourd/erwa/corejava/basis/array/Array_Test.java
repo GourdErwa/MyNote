@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis.array;
+package com.gourd.erwa.util.corejava.basis.array;
 
 
 import java.util.Arrays;

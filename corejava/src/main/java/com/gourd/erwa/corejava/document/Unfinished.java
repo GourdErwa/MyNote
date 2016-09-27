@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.document;
+package com.gourd.erwa.util.corejava.document;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

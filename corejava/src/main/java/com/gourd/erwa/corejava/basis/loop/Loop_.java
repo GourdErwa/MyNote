@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.basis.loop;
+package com.gourd.erwa.util.corejava.basis.loop;
 
 /**
  * @author wei.Li by 15/1/16 (gourderwa@163.com).

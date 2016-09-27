@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.code;
+package com.gourd.erwa.util.corejava.code;
 
 /**
  * Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.

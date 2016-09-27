@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.basis.encoding;
+package com.gourd.erwa.util.corejava.basis.encoding;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

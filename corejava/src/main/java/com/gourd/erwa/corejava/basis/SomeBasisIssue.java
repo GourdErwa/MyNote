@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis;
+package com.gourd.erwa.util.corejava.basis;
 
 /**
  * 语法基础

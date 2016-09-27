@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.basis.esc;
+package com.gourd.erwa.util.corejava.basis.esc;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

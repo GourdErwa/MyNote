@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.string;
+package com.gourd.erwa.util.corejava.string;
 
 import org.apache.commons.lang.StringUtils;
 

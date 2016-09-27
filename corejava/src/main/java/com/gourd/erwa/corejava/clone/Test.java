@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.clone;
+package com.gourd.erwa.util.corejava.clone;
 
 import java.util.Vector;
 

@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.basis.regex.html;
+package com.gourd.erwa.util.corejava.basis.regex.html;
 
 import com.google.common.io.Files;
 

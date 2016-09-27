@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.basis.math;
+package com.gourd.erwa.util.corejava.basis.math;
 
 /**
  * 进制转换器

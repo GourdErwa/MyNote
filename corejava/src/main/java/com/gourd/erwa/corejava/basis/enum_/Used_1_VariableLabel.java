@@ -10,7 +10,7 @@
  * Email :	gourderwa@163.com
  */
 
-package com.gourd.erwa.corejava.basis.enum_;
+package com.gourd.erwa.util.corejava.basis.enum_;
 
 /**
  * 枚举定义变量，类似 Map 形式

@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.essence_36;
+package com.gourd.erwa.util.corejava.essence_36;
 
 import java.util.ArrayList;
 import java.util.List;

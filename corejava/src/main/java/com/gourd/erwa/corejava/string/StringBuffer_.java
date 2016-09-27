@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.string;
+package com.gourd.erwa.util.corejava.string;
 
 /**
  * @author wei.Li by 15/1/6 (gourderwa@163.com).

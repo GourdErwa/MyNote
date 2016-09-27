@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis.regex;
+package com.gourd.erwa.util.corejava.basis.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

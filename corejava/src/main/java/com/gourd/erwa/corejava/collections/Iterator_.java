@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.collections;
+package com.gourd.erwa.util.corejava.collections;
 
 import com.google.common.base.Splitter;
 

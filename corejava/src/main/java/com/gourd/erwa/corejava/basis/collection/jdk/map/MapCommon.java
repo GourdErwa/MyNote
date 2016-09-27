@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.basis.collection.jdk.map;
+package com.gourd.erwa.util.corejava.basis.collection.jdk.map;
 
 import java.util.*;
 

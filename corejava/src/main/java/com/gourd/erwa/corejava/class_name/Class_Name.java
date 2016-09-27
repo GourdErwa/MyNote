@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.class_name;
+package com.gourd.erwa.util.corejava.class_name;
 
 import java.io.Serializable;
 import java.util.ArrayList;

@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.reflect;
+package com.gourd.erwa.util.corejava.reflect;
 
 import java.io.*;
 import java.util.ArrayList;

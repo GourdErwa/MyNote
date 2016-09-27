@@ -1,4 +1,4 @@
-package com.gourd.erwa.corejava.bean_;
+package com.gourd.erwa.util.corejava.bean_;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

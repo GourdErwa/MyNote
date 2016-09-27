@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package com.gourd.erwa.corejava.basis.date;
+package com.gourd.erwa.util.corejava.basis.date;
 
 import java.util.Calendar;
 
