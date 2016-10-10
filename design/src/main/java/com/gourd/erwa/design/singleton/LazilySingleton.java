@@ -1,10 +1,12 @@
-package designmodel.singleton;
+package com.gourd.erwa.design.singleton;
 
 /**
- * Created by lw on 14-4-30.
  * 懒汉式加载
+ *
+ * @author lw
  */
-public class LazilySingleton {
+class LazilySingleton {
+
     private static LazilySingleton lazilySingleton = null;
 
     private LazilySingleton() {

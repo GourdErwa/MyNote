@@ -12,12 +12,12 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.listener;
+package com.gourd.erwa.design.listener;
 
 /**
  * @author wei.Li by 15/3/19 (gourderwa@163.com).
  */
-public class TestDemo {
+class TestDemo {
 
     public static void main(String args[]) {
 
@@ -30,6 +30,6 @@ public class TestDemo {
             }
         });
 
-        ds.updateOk(false);
+        ds.updateOk();
     }
 }

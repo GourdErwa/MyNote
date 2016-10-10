@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.abstractfactory;
+package com.gourd.erwa.design.abstractfactory;
 
 interface Shape {
     void draw();
@@ -32,7 +32,7 @@ interface Color {
  *
  * @author wei.Li by 15/3/31 (gourderwa@163.com).
  */
-public class AbstractFactoryClient {
+class AbstractFactoryClient {
 
     public static void main(String[] args) {
 
@@ -150,7 +150,7 @@ class FactoryProducer {
      * @param <T>    T extends AbstractFactory
      * @return AbstractFactory
      */
-    public static <T extends AbstractFactory> AbstractFactory getFactory(Class<T> aClass) {
+    static <T extends AbstractFactory> AbstractFactory getFactory(Class<T> aClass) {
 
         AbstractFactory abstractFactory = null;
         try {

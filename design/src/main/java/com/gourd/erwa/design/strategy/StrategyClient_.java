@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.strategy;
+package com.gourd.erwa.design.strategy;
 
 interface Strategy {
 
@@ -25,12 +25,12 @@ interface Strategy {
  *
  * @author wei.Li by 15/4/17 (gourderwa@163.com).
  */
-public class StrategyClient_ {
+class StrategyClient_ {
 
     public static void main(String[] args) {
         Context context = new Context(new OperationAdd());
         System.out.println("10 + 5 = " + context.executeStrategy(10, 5));
-        context = new Context(new OperationSubstract());
+        context = new Context(new OperationSubStract());
         System.out.println("10 - 5 = " + context.executeStrategy(10, 5));
         context = new Context(new OperationMultiply());
         System.out.println("10 * 5 = " + context.executeStrategy(10, 5));
@@ -45,7 +45,7 @@ class OperationAdd implements Strategy {
     }
 }
 
-class OperationSubstract implements Strategy {
+class OperationSubStract implements Strategy {
     @Override
     public int doOperation(int num1, int num2) {
         return num1 - num2;

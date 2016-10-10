@@ -1,9 +1,9 @@
-package designmodel.observer;
+package com.gourd.erwa.design.observer;
 
 /**
  * @author wei.Li
  */
-public class ObserverDemo {
+class ObserverDemo {
 
     public static void main(String[] args) {
 

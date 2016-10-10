@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.responsibility;
+package com.gourd.erwa.design.responsibility;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ interface Filter {
  *
  * @author wei.Li by 15/3/30 (gourderwa@163.com).
  */
-public class ResponsibilityClient02 {
+class ResponsibilityClient02 {
 
 
     public static void main(String[] args) {

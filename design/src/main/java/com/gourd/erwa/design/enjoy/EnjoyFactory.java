@@ -1,4 +1,4 @@
-package designmodel.enjoy;
+package com.gourd.erwa.design.enjoy;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Map;
  * <p>
  * javax.sql.DataSource 以数据库连接池为实际class
  */
-public class EnjoyFactory {
+class EnjoyFactory {
 
     private static Map<String, DataSource> dataSourceMap = new HashMap<String, DataSource>();
 

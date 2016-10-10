@@ -1,4 +1,4 @@
-package designmodel.proxy.jdk;
+package com.gourd.erwa.design.proxy.jdk;
 
 /**
  * @author lw by 14-5-1.

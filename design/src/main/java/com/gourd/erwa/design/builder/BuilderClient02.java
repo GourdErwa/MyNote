@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.builder;
+package com.gourd.erwa.design.builder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ interface Packing {
  *
  * @author wei.Li by 15/3/31 (gourderwa@163.com).
  */
-public class BuilderClient02 {
+class BuilderClient02 {
 
     public static void main(String[] args) {
 

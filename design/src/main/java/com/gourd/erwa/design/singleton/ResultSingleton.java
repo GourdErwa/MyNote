@@ -1,10 +1,11 @@
-package designmodel.singleton;
+package com.gourd.erwa.design.singleton;
 
 /**
- * Created by lw on 14-4-30.
  * 内部类式加载
+ *
+ * @author lw
  */
-public class ResultSingleton {
+class ResultSingleton {
 
     private ResultSingleton() {
     }

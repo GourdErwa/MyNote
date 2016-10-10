@@ -12,14 +12,14 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.prototype;
+package com.gourd.erwa.design.prototype;
 
 import java.util.Hashtable;
 
 /**
  * @author wei.Li by 15/3/31 (gourderwa@163.com).
  */
-public class PrototypeClient {
+class PrototypeClient {
 
     public static void main(String[] args) {
         ShapeCache.loadCache();

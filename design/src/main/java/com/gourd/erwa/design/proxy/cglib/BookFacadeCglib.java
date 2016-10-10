@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.proxy.cglib;
+package com.gourd.erwa.design.proxy.cglib;
 
 /**
  * @author lw by 14-5-1.

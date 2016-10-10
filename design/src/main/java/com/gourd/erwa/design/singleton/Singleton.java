@@ -1,10 +1,11 @@
-package designmodel.singleton;
+package com.gourd.erwa.design.singleton;
 
 /**
- * Created by lw on 14-4-30.
  * 饿汉式加载
+ *
+ * @author lw
  */
-public class Singleton {
+class Singleton {
 
     private static Singleton singleton = new Singleton();
 

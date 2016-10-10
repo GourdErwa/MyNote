@@ -1,4 +1,4 @@
-package designmodel.observer;
+package com.gourd.erwa.design.observer;
 
 import java.util.Observable;
 

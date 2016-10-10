@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.proxy.jdk;
+package com.gourd.erwa.design.proxy.jdk;
 
 import com.google.common.reflect.Reflection;
 
@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 /**
  * @author wei.Li by 15/3/31 (gourderwa@163.com).
  */
-public class Test_Guava {
+class testGuava {
 
     public static void main(String[] args) {
 

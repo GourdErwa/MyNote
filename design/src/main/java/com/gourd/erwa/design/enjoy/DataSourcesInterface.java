@@ -1,4 +1,4 @@
-package designmodel.enjoy;
+package com.gourd.erwa.design.enjoy;
 
 import javax.sql.DataSource;
 
@@ -7,5 +7,5 @@ import javax.sql.DataSource;
  */
 interface DataSourcesInterface {
 
-    public DataSource getDataSourceByName();
+    DataSource getDataSourceByName();
 }

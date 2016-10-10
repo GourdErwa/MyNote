@@ -1,10 +1,10 @@
-package designmodel.proxy.cglib;
+package com.gourd.erwa.design.proxy.cglib;
 
 
 /**
  * @author lw by 14-5-1.
  */
-public class Test_Cglib {
+class Test_Cglib {
 
     public static void main(String[] args) {
         BookFacadeCglibProxy proxy_cglib = new BookFacadeCglibProxy();

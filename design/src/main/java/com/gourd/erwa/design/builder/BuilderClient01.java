@@ -12,17 +12,15 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.builder;
+package com.gourd.erwa.design.builder;
 
-/**
- * @author wei.Li by 15/3/27 (gourderwa@163.com).
- */
 
 //定义产品
 
-
 /**
  * 抽象产品类，使用了模板方法模式，不同产品有不同的“组成部分part”
+ *
+ * @author wei.Li by 15/3/27 (gourderwa@163.com).
  */
 abstract class AbstractProduct {
 
@@ -163,12 +161,12 @@ class Director {
 }
 
 //测试类
-public class BuilderClient01 {
+class BuilderClient01 {
 
     public static void main(String[] args) {
 
         System.out.println("利用模板方法模式获得默认的产品A");
-        AbstractProduct defualtProductA = new ConcreteProductA().defaultProduct();
+        //AbstractProduct defaultProductA = new ConcreteProductA().defaultProduct();
 
         System.out.println("\n利用Director类获得不同组装方式的产品A");
         Director director = new Director();

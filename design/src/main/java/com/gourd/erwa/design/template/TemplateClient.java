@@ -12,14 +12,14 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.template;
+package com.gourd.erwa.design.template;
 
 /**
  * 模板模式
  *
  * @author wei.Li by 15/3/31 (gourderwa@163.com).
  */
-public class TemplateClient {
+class TemplateClient {
 
     public static void main(String[] args) {
         Game game = new Cricket();

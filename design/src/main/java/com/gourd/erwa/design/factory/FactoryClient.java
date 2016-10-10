@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.factory;
+package com.gourd.erwa.design.factory;
 
 /**
  * 产品接口
@@ -29,7 +29,7 @@ interface IProduct {
  *
  * @author wei.Li by 15/3/31 (gourderwa@163.com).
  */
-public class FactoryClient {
+class FactoryClient {
 
     public static void main(String[] args) {
         final IProduct product = ProductFactory.createProduct(ConcreteProductA.class);

@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.responsibility;
+package com.gourd.erwa.design.responsibility;
 
 /*
 责任链模式
@@ -23,7 +23,7 @@ package designmodel.responsibility;
  *
  * @author wei.Li by 15/3/30 (gourderwa@163.com).
  */
-public class ResponsibilityClient01 {
+class ResponsibilityClient01 {
 
     public static void main(String[] args) {
 
@@ -48,7 +48,6 @@ public class ResponsibilityClient01 {
  * 抽象处理类
  */
 abstract class Handler {
-
 
     /**
      * 持有后继的责任对象
@@ -82,7 +81,7 @@ class ShopManager extends Handler {
     }
 
     private boolean handleReponse(double money) {
-        //dosomething
+        //do something
 
         System.out.println("ShopManager handle ... " + money);
         return true;
@@ -102,7 +101,7 @@ class AreaManager extends Handler {
 
 
     private boolean handleReponse(double money) {
-        //dosomething
+        //do something
 
         System.out.println("AreaManager handle ... " + money);
         return true;
@@ -121,7 +120,7 @@ class GeneralManager extends Handler {
     }
 
     private boolean handleReponse(double money) {
-        //dosomething
+        //do something
 
         System.out.println("GeneralManager handle ... " + money);
         return true;
@@ -141,7 +140,7 @@ class ChairmanManager extends Handler {
     }
 
     private boolean handleReponse(double money) {
-        //dosomething
+        //do something
 
         System.out.println("ChairmanManager handle ... " + money);
         return true;

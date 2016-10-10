@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package designmodel.adapter;
+package com.gourd.erwa.design.adapter;
 
 interface MediaPlayer {
 
@@ -30,7 +30,7 @@ interface AdvancedMediaPlayer {
 /**
  * @author wei.Li by 15/4/7 (gourderwa@163.com).
  */
-public class AdapterClient {
+class AdapterClient {
     public static void main(String[] args) {
         AudioPlayer audioPlayer = new AudioPlayer();
         audioPlayer.play("mp3", "beyond the horizon.mp3");
@@ -68,9 +68,9 @@ class Mp4Player implements AdvancedMediaPlayer {
 }
 
 class MediaAdapter implements MediaPlayer {
-    AdvancedMediaPlayer advancedMusicPlayer;
+    private AdvancedMediaPlayer advancedMusicPlayer;
 
-    public MediaAdapter(String audioType) {
+    MediaAdapter(String audioType) {
         if (audioType.equalsIgnoreCase("vlc")) {
             advancedMusicPlayer = new VlcPlayer();
         } else if (audioType.equalsIgnoreCase("mp4")) {
@@ -91,8 +91,6 @@ class MediaAdapter implements MediaPlayer {
 
 class AudioPlayer implements MediaPlayer {
 
-    private MediaAdapter mediaAdapter;
-
     @Override
     public void play(String audioType, String fileName) {
         //inbuilt support to play mp3 music files
@@ -100,7 +98,7 @@ class AudioPlayer implements MediaPlayer {
             System.out.println("Playing mp3 file. Name: " + fileName);
             //mediaAdapter is providing support to play other file formats
         } else if (audioType.equalsIgnoreCase("vlc") || audioType.equalsIgnoreCase("mp4")) {
-            mediaAdapter = new MediaAdapter(audioType);
+            MediaAdapter mediaAdapter = new MediaAdapter(audioType);
             mediaAdapter.play(audioType, fileName);
         } else {
             System.out.println("Invalid media. " + audioType + " format not supported");

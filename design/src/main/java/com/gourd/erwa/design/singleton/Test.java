@@ -1,4 +1,4 @@
-package designmodel.singleton;
+package com.gourd.erwa.design.singleton;
 
 
 import java.lang.reflect.InvocationTargetException;
@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 /**
  * @author lw by 14-4-30.
  */
-public class Test extends Thread implements Runnable {
+class Test extends Thread {
 
     private static final String[] classNames = {"Singleton", "LazilySingleton", "ResultSingleton"};
     //private static Test test = new Test();
@@ -18,7 +18,7 @@ public class Test extends Thread implements Runnable {
         }
     }
 
-    public static void getTimes(String[] classNames) {
+    private static void getTimes(String[] classNames) {
         for (String className : classNames) {
 
             long start = System.currentTimeMillis();
@@ -30,15 +30,17 @@ public class Test extends Thread implements Runnable {
             }
             Method method = null;
             try {
-                method = c.getMethod("getSingleton");
+                if (c != null) {
+                    method = c.getMethod("getSingleton");
+                }
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             }
             try {
-                method.invoke(c);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
+                if (method != null) {
+                    method.invoke(c);
+                }
+            } catch (IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
             System.out.println(className + "单例获取耗时-》" + (System.currentTimeMillis() - start) + "ms");
@@ -46,6 +48,7 @@ public class Test extends Thread implements Runnable {
         System.out.println();
     }
 
+    @Override
     public void run() {
         try {
             System.out.println(this.toString() + "Thread run ....");

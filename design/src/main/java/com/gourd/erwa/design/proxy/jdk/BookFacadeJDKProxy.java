@@ -1,4 +1,4 @@
-package designmodel.proxy.jdk;
+package com.gourd.erwa.design.proxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -22,7 +22,7 @@ class BookFacadeJDKProxy implements InvocationHandler {
         //取得代理对象
         final Class<?> objectClass = object.getClass();
 
-        /**
+        /*
          ClassLoader loader：    类加载器
          Class<?>[] interfaces： 得到全部的接口
          InvocationHandler h：   得到InvocationHandler接口的子类实例
@@ -39,7 +39,7 @@ class BookFacadeJDKProxy implements InvocationHandler {
      * @param method 要调用的方法
      * @param args   方法调用时所需要的参数
      * @return Object
-     * @throws Throwable
+     * @throws Throwable Throwable
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {

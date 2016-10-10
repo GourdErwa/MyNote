@@ -1,4 +1,4 @@
-package designmodel.proxy.cglib;
+package com.gourd.erwa.design.proxy.cglib;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
