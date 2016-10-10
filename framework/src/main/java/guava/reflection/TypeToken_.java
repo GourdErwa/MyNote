@@ -53,8 +53,8 @@ public class TypeToken_ {
         System.out.println(supertype);
 
         //如果这个类型是 assignable from 指定的类型，并且考虑泛型参数，返回true。List<? extends Number>是assignable from List，但List没有.
-        final boolean assignableFrom = stringListTok.isAssignableFrom(TypeToken.of(List.class));
-        System.out.println(assignableFrom);
+        /*final boolean assignableFrom = stringListTok.isAssignableFrom(TypeToken.of(List.class));
+        System.out.println(assignableFrom);*/
 
         //返回组件类型数组。
         final TypeToken<?> componentType = stringListTok.getComponentType();
