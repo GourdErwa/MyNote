@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../analyzer/src/main/java/com/fusionskye/ezsonar/analyzier/binary/f5/F5Conf.java">
+          <value>
+            <set>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AVethSCSLAYbN6XJaZfy" />
+                <option name="line" value="103" />
+                <option name="message" value="Extract the assignment out of this expression." />
+                <option name="ruleKey" value="squid:AssignmentInSubExpressionCheck" />
+                <option name="severity" value="MAJOR" />
+              </SonarIssue>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AVethSCTLAYbN6XJaZf1" />
+                <option name="line" value="22" />
+                <option name="message" value="Add a private constructor to hide the implicit public one." />
+                <option name="ruleKey" value="squid:S1118" />
+                <option name="severity" value="MAJOR" />
+              </SonarIssue>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AVethSCTLAYbN6XJaZf0" />
+                <option name="line" value="33" />
+                <option name="message" value="Make this IP &quot;127.0.0.1&quot; address configurable." />
+                <option name="ruleKey" value="squid:S1313" />
+                <option name="severity" value="CRITICAL" />
+              </SonarIssue>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AVethSCULAYbN6XJaZf3" />
+                <option name="line" value="139" />
+                <option name="message" value="Either log or rethrow this exception." />
+                <option name="ruleKey" value="squid:S1166" />
+                <option name="severity" value="MAJOR" />
+              </SonarIssue>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AVethSCULAYbN6XJaZf4" />
+                <option name="line" value="139" />
+                <option name="message" value="Either remove or fill this block of code." />
+                <option name="ruleKey" value="squid:S00108" />
+                <option name="severity" value="MAJOR" />
+              </SonarIssue>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AVethSCTLAYbN6XJaZfz" />
+                <option name="line" value="66" />
+                <option name="message" value="Change this &quot;try&quot; to a try-with-resources. (sonar.java.source not set. Assuming 7 or greater.)" />
+                <option name="ruleKey" value="squid:S2093" />
+                <option name="severity" value="MAJOR" />
+              </SonarIssue>
+              <SonarIssue>
+                <option name="isNew" value="false" />
+                <option name="key" value="AVethSCTLAYbN6XJaZf2" />
+                <option name="line" value="127" />
+                <option name="message" value="Either log or rethrow this exception." />
+                <option name="ruleKey" value="squid:S1166" />
+                <option name="severity" value="MAJOR" />
+              </SonarIssue>
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

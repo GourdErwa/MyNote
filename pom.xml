@@ -145,7 +145,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <version>20.0-rc1</version>
         </dependency>
 
         <dependency>
@@ -174,17 +174,18 @@
             </plugin>
 
             <!-- 构建项目站点报告插件-->
+<!--
             <plugin>
-                <!-- 站点生成插件 -->
+                &lt;!&ndash; 站点生成插件 &ndash;&gt;
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <!-- 支持国际化 -->
+                    &lt;!&ndash; 支持国际化 &ndash;&gt;
                     <locales>zh_CN</locales>
                     <reportPlugins>
                         <plugin>
-                            <!-- 生成javadoc文件 -->
+                            &lt;!&ndash; 生成javadoc文件 &ndash;&gt;
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-javadoc-plugin</artifactId>
                             <version>2.10.4</version>
@@ -194,14 +195,14 @@
                             </configuration>
                         </plugin>
                         <plugin>
-                            <!-- 项目信息过滤 -->
+                            &lt;!&ndash; 项目信息过滤 &ndash;&gt;
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-project-info-reports-plugin</artifactId>
                             <version>2.6</version>
                             <reportSets>
                                 <reportSet>
                                     <reports>
-                                        <!-- index一定要生成,否则链接问题 -->
+                                        &lt;!&ndash; index一定要生成,否则链接问题 &ndash;&gt;
                                         <report>index</report>
                                         <report>dependencies</report>
                                         <report>project-team</report>
@@ -218,16 +219,16 @@
                             </reportSets>
                         </plugin>
                         <plugin>
-                            <!-- 源码查看生成 -->
+                            &lt;!&ndash; 源码查看生成 &ndash;&gt;
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-jxr-plugin</artifactId>
                             <version>2.3</version>
                             <configuration>
-                                <!-- 多模块聚合 -->
+                                &lt;!&ndash; 多模块聚合 &ndash;&gt;
                                 <aggregate>true</aggregate>
                             </configuration>
                         </plugin>
-                        <!--<plugin>
+                        &lt;!&ndash;<plugin>
                             &lt;!&ndash; 代码风格检查 &ndash;&gt;
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-checkstyle-plugin</artifactId>
@@ -240,25 +241,25 @@
                                 &lt;!&ndash; 使用sun代码风格 &ndash;&gt;
 
                             </configuration>&ndash;&gt;
-                        </plugin>-->
+                        </plugin>&ndash;&gt;
                         <plugin>
-                            <!-- 代码更改日志 -->
+                            &lt;!&ndash; 代码更改日志 &ndash;&gt;
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-changelog-plugin</artifactId>
                             <version>2.2</version>
                         </plugin>
                         <plugin>
-                            <!-- 代码隐藏bug检查 -->
+                            &lt;!&ndash; 代码隐藏bug检查 &ndash;&gt;
                             <groupId>org.apache.maven.plugins</groupId>
                             <artifactId>maven-pmd-plugin</artifactId>
                             <version>3.6</version>
                             <configuration>
-                                <!-- 多模块聚合 -->
+                                &lt;!&ndash; 多模块聚合 &ndash;&gt;
                                 <aggregate>true</aggregate>
                             </configuration>
                         </plugin>
                         <plugin>
-                            <!-- 测试覆盖率 -->
+                            &lt;!&ndash; 测试覆盖率 &ndash;&gt;
                             <groupId>org.codehaus.mojo</groupId>
                             <artifactId>cobertura-maven-plugin</artifactId>
                             <version>2.5.2</version>
@@ -266,6 +267,7 @@
                     </reportPlugins>
                 </configuration>
             </plugin>
+-->
 
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * list 浅拷贝问题
+ *
  * @author wei.Li
  */
 public class CollectionClone {
