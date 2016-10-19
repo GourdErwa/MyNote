@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.flume.ezsonar;
+package com.gourd.erwa.flume.ezsonar;
 
 import org.apache.commons.lang.time.DateUtils;
 import org.apache.flume.Context;
@@ -39,8 +39,8 @@ import java.util.Map;
  * @author Frederick Haebin Na (haebin.na@gmail.com)
  */
 public class EventTimestampInterceptor implements Interceptor {
-    private static final Logger logger = LoggerFactory
-            .getLogger(EventTimestampInterceptor.class);
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(EventTimestampInterceptor.class);
 
     private static final String YYYY_FIELD = "yyyy";
     private final boolean preserveExisting;
@@ -86,7 +86,7 @@ public class EventTimestampInterceptor implements Interceptor {
                 now = DateUtils.parseDate(str, dateFormat).getTime();
                 headers.put(Constants.TIMESTAMP, Long.toString(now));
             } catch (Exception e) {
-                logger.warn(
+                LOGGER.warn(
                         "Setting system time as timestamp header due to this error: {}",
                         e.getMessage());
                 now = System.currentTimeMillis();
@@ -100,8 +100,8 @@ public class EventTimestampInterceptor implements Interceptor {
     /**
      * Delegates to {@link #intercept(Event)} in a loop.
      *
-     * @param events
-     * @return
+     * @param events events
+     * @return List<Event>
      */
     public List<Event> intercept(List<Event> events) {
         for (Event event : events) {
@@ -116,13 +116,11 @@ public class EventTimestampInterceptor implements Interceptor {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("EventTimestampInterceptor{");
-        sb.append("preserveExisting=").append(preserveExisting);
-        sb.append(", dateFormat=").append(dateFormat == null ? "null" : Arrays.asList(dateFormat).toString());
-        sb.append(", dateFormatField='").append(dateFormatField).append('\'');
-        sb.append(", isHaveYearField=").append(isHaveYearField);
-        sb.append('}');
-        return sb.toString();
+        return "EventTimestampInterceptor{" + "preserveExisting=" + preserveExisting +
+                ", dateFormat=" + (dateFormat == null ? "null" : Arrays.asList(dateFormat).toString()) +
+                ", dateFormatField='" + dateFormatField + '\'' +
+                ", isHaveYearField=" + isHaveYearField +
+                '}';
     }
 
     /**
@@ -130,7 +128,7 @@ public class EventTimestampInterceptor implements Interceptor {
      */
     public static class Builder implements Interceptor.Builder {
 
-        private boolean preserveExisting = Constants.PRESERVE_DFLT;
+        private boolean preserveExisting = Constants.PRESERVE_D;
         private String dateFormat = "yyyy-MM-dd HH:mm:ss";
         private String dateFormatField = "time";
 
@@ -142,19 +140,37 @@ public class EventTimestampInterceptor implements Interceptor {
         }
 
         public void configure(Context context) {
-            preserveExisting = context.getBoolean(Constants.PRESERVE, Constants.PRESERVE_DFLT);
+            preserveExisting = context.getBoolean(Constants.PRESERVE, Constants.PRESERVE_D);
             dateFormat = context.getString(Constants.FORMAT, dateFormat);
             dateFormatField = context.getString(Constants.DATE_FORMAT_FIELD, dateFormatField);
         }
     }
 
-    public static class Constants {
-        public static String TIMESTAMP = "timestamp";
-        public static String PRESERVE = "preserveExisting";
-        public static boolean PRESERVE_DFLT = false;
+    /**
+     * The type Constants.
+     */
+    static class Constants {
+        /**
+         * The Timestamp.
+         */
+        static String TIMESTAMP = "timestamp";
+        /**
+         * The Preserve.
+         */
+        static String PRESERVE = "preserveExisting";
+        /**
+         * The Preserve d.
+         */
+        static boolean PRESERVE_D = false;
 
-        public static String DATE_FORMAT_FIELD = "dateFormatField";
-        public static String FORMAT = "dateFormat";
+        /**
+         * The Date format field.
+         */
+        static String DATE_FORMAT_FIELD = "dateFormatField";
+        /**
+         * The Format.
+         */
+        static String FORMAT = "dateFormat";
     }
 
 }

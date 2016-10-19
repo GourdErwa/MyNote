@@ -1,4 +1,4 @@
-package org.apache.flume.ezsonar;
+package com.gourd.erwa.flume.ezsonar;
 
 import org.apache.flume.Context;
 import org.apache.flume.Event;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import static org.apache.flume.ezsonar.EZTimestampInterceptor.Constants.TIMESTAMP;
+import static com.gourd.erwa.flume.ezsonar.EZTimestampInterceptor.Constants.TIMESTAMP;
 
 /**
  * The type Ez timestamp interceptor.
@@ -67,8 +67,8 @@ public class EZTimestampInterceptor implements Interceptor {
     /**
      * Delegates to {@link #intercept(Event)} in a loop.
      *
-     * @param events
-     * @return
+     * @param events events
+     * @return List<Event>
      */
     @Override
     public List<Event> intercept(List<Event> events) {
@@ -103,11 +103,11 @@ public class EZTimestampInterceptor implements Interceptor {
     /**
      * The type Constants.
      */
-    public static class Constants {
+    static class Constants {
         /**
          * The constant TIMESTAMP.
          */
-        public static String TIMESTAMP = "timestamp";
+        static String TIMESTAMP = "timestamp";
     }
 
 }

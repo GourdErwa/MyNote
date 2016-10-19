@@ -12,6 +12,7 @@
  * 11.单例模式{@link com.gourd.erwa.design.singleton}
  * 12.策略模式{@link com.gourd.erwa.design.strategy}
  * 13.模板模式{@link com.gourd.erwa.design.template}
+ * 14.委派模式{@link com.gourd.erwa.design.delegate}
  *
  * @author wei.Li
  */

@@ -16,8 +16,8 @@ Reference package name
 [![Maven Central](https://img.shields.io/badge/Maven-v3.3.9-green.svg?style=flat-square&maxAge=2592000)]()
 [![JDK Central](https://img.shields.io/badge/JDK-v1.8-green.svg?style=flat-square&maxAge=2592000)]()
 
-## Reference
-- @see pom.xml
+## Learning resources
+- [Node.js 包教不包会](https://github.com/alsotang/node-lessons)
 
 ## About me
 - WebSite：[http://www.gourderwa.com](http://www.gourderwa.com)
