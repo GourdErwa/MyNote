@@ -266,7 +266,7 @@ class MainTest {
                         return !pathname.isHidden();
                     }
                 })
-                .showLength()
+                /*.showLength()
                 .showModify()
                 .showPermission()
                 .addAppendContent(new DirectoryTreeV1.AppendContent() {
@@ -274,9 +274,66 @@ class MainTest {
                     public String appendContent(File file) {
                         return "[" + file.getPath() + "]";
                     }
-                })
+                })*/
                 .generate();
         System.out.println(generate);
+        /*
+├── buildNumber.properties
+├── concurrent.iml
+├── pom.xml
+└── src
+  ├── main
+  │    ├── java
+  │    │    └── com
+  │    │      └── gourd
+  │    │        └── erwa
+  │    │          └── concurrent
+  │    │            ├── basis
+  │    │            │    ├── AtomicTest.java
+  │    │            │    ├── block
+  │    │            │    │    ├── AbsBlockingTest.java
+  │    │            │    │    ├── BlockingTestByReentrantLock.java
+  │    │            │    │    ├── BlockingTestByReentrantReadWriteLock.java
+  │    │            │    │    └── BlockingTestBySynchronized.java
+  │    │            │    ├── CountDownLatchTest.java
+  │    │            │    ├── CyclicBarrierTest.java
+  │    │            │    ├── Lock_.java
+  │    │            │    ├── SimleSafe_.java
+  │    │            │    ├── Synchronized_.java
+  │    │            │    ├── Volatile_.java
+  │    │            │    └── WhatLock_.java
+  │    │            ├── disruptor
+  │    │            │    ├── DeliveryReportEventHandler.java
+  │    │            │    ├── Disruptor_Example.java
+  │    │            │    ├── read.md
+  │    │            │    └── ValueEvent.java
+  │    │            ├── jdkpool
+  │    │            │    ├── Executor_.java
+  │    │            │    ├── FixedThreadPool_Example.java
+  │    │            │    ├── ForkJion_.java
+  │    │            │    ├── ThreadFactory_Example.java
+  │    │            │    └── Volatile_.java
+  │    │            ├── mypool
+  │    │            │    ├── Task.java
+  │    │            │    ├── Task_Demo.java
+  │    │            │    └── ThreadPool.java
+  │    │            └── queue
+  │    │              ├── concurrentlinkedqueue
+  │    │              │    ├── ConcurrentLinkedQueue_.java
+  │    │              │    └── example
+  │    │              │      └── QueueCompare.java
+  │    │              └── linkedblockingqueue
+  │    │                ├── example
+  │    │                │    ├── CommodityObj.java
+  │    │                │    ├── Consumer.java
+  │    │                │    ├── MarketStorage.java
+  │    │                │    └── Producer.java
+  │    │                └── LinkedBlockingQueue_.java
+  │    └── resources
+  └── test
+    └── java
+
+         */
     }
 
 }
