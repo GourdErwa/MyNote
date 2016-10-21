@@ -8,9 +8,16 @@ import java.util.*;
 
 /**
  * 目录树生成工具.
+ * <p>
+ * {@linkplain #setDeep(int) 设置查询目录深度}
+ * {@linkplain #setFileFilter(FileFilter)}  设置查询文件筛选过滤器}
+ * {@linkplain #showLength()} 显示文件大小内容}
+ * {@linkplain #showModify() 显示文件修改时间内容}
+ * {@linkplain #showPermission() 显示文件权限内容}
+ * {@linkplain #addAppendContent(AppendContent) 自定义显示文件内容信息}
  *
  * @author wei.Li
- * @version 1
+ * @since 1
  */
 public class DirectoryTreeV1 {
 
@@ -19,9 +26,9 @@ public class DirectoryTreeV1 {
     /* 空字符串*/
     private static final String EMPTY = "";
     /* 文件连接符*/
-    private static final String VERTICAL = "│  ", INTERMEDIATE = "├──", END = "└──";
+    private static final String VERTICAL = "│ ", INTERMEDIATE = "├─", END = "└─";
     /* 目录间距*/
-    private static final String SPACING = "  ";
+    private static final String SPACING = "\t";
     /* 结果集收集*/
     private final StringBuilder r = new StringBuilder();
     /* 默认查询文件目录深度,默认为Integer.MAX_VALUE */
@@ -71,17 +78,17 @@ public class DirectoryTreeV1 {
     @NotNull
     List<File> fetchFiles(File file) {
         final File[] files = file.listFiles(this.fileFilter);
-        return files != null ? Arrays.asList(files) : Collections.emptyList();
+        return files == null ? Collections.emptyList() : Arrays.asList(files);
     }
 
     /**
      * 自定义文件筛选过滤器.
      *
-     * @param fileFilter the file filter
+     * @param customFilter the custom file filter
      * @return the file filter
      */
-    public DirectoryTreeV1 setFileFilter(FileFilter fileFilter) {
-        this.fileFilter = fileFilter;
+    public DirectoryTreeV1 setFileFilter(FileFilter customFilter) {
+        this.fileFilter = customFilter;
         return this;
     }
 
@@ -253,17 +260,17 @@ public class DirectoryTreeV1 {
 }
 
 /**
- * The type Main.
+ * The type Main Test.
  */
 class MainTest {
 
     public static void main(String[] args) {
-        final String generate = DirectoryTreeV1.createTree(new File("/lw/workfile/intellij_work/MyNote/concurrent"))
+        final String generate = DirectoryTreeV1.createTree(new File("/lw/workfile/intellij_work/MyNote/design"))
                 .setDeep(20)
                 .setFileFilter(new FileFilter() {
                     @Override
                     public boolean accept(File pathname) {
-                        return !pathname.isHidden();
+                        return !(pathname.isHidden() || pathname.getName().contains("target"));
                     }
                 })
                 /*.showLength()
@@ -278,61 +285,83 @@ class MainTest {
                 .generate();
         System.out.println(generate);
         /*
-├── buildNumber.properties
-├── concurrent.iml
-├── pom.xml
-└── src
-  ├── main
-  │    ├── java
-  │    │    └── com
-  │    │      └── gourd
-  │    │        └── erwa
-  │    │          └── concurrent
-  │    │            ├── basis
-  │    │            │    ├── AtomicTest.java
-  │    │            │    ├── block
-  │    │            │    │    ├── AbsBlockingTest.java
-  │    │            │    │    ├── BlockingTestByReentrantLock.java
-  │    │            │    │    ├── BlockingTestByReentrantReadWriteLock.java
-  │    │            │    │    └── BlockingTestBySynchronized.java
-  │    │            │    ├── CountDownLatchTest.java
-  │    │            │    ├── CyclicBarrierTest.java
-  │    │            │    ├── Lock_.java
-  │    │            │    ├── SimleSafe_.java
-  │    │            │    ├── Synchronized_.java
-  │    │            │    ├── Volatile_.java
-  │    │            │    └── WhatLock_.java
-  │    │            ├── disruptor
-  │    │            │    ├── DeliveryReportEventHandler.java
-  │    │            │    ├── Disruptor_Example.java
-  │    │            │    ├── read.md
-  │    │            │    └── ValueEvent.java
-  │    │            ├── jdkpool
-  │    │            │    ├── Executor_.java
-  │    │            │    ├── FixedThreadPool_Example.java
-  │    │            │    ├── ForkJion_.java
-  │    │            │    ├── ThreadFactory_Example.java
-  │    │            │    └── Volatile_.java
-  │    │            ├── mypool
-  │    │            │    ├── Task.java
-  │    │            │    ├── Task_Demo.java
-  │    │            │    └── ThreadPool.java
-  │    │            └── queue
-  │    │              ├── concurrentlinkedqueue
-  │    │              │    ├── ConcurrentLinkedQueue_.java
-  │    │              │    └── example
-  │    │              │      └── QueueCompare.java
-  │    │              └── linkedblockingqueue
-  │    │                ├── example
-  │    │                │    ├── CommodityObj.java
-  │    │                │    ├── Consumer.java
-  │    │                │    ├── MarketStorage.java
-  │    │                │    └── Producer.java
-  │    │                └── LinkedBlockingQueue_.java
-  │    └── resources
-  └── test
-    └── java
-
+├─ buildNumber.properties
+├─ design.iml
+├─ pom.xml
+└─ src
+	├─ main
+	│ 	├─ java
+	│ 	│ 	└─ com
+	│ 	│ 		└─ gourd
+	│ 	│ 			└─ erwa
+	│ 	│ 				└─ design
+	│ 	│ 					├─ abstractfactory
+	│ 	│ 					│ 	└─ AbstractFactoryClient.java
+	│ 	│ 					├─ adapter
+	│ 	│ 					│ 	└─ AdapterClient.java
+	│ 	│ 					├─ builder
+	│ 	│ 					│ 	├─ BuilderClient01.java
+	│ 	│ 					│ 	├─ BuilderClient02.java
+	│ 	│ 					│ 	└─ builderClient02UML.jpg
+	│ 	│ 					├─ delegate
+	│ 	│ 					│ 	├─ ABitComplicated.java
+	│ 	│ 					│ 	├─ package-info.java
+	│ 	│ 					│ 	└─ RealPrinter.java
+	│ 	│ 					├─ enjoy
+	│ 	│ 					│ 	├─ DataSourcesImpl.java
+	│ 	│ 					│ 	├─ DataSourcesInterface.java
+	│ 	│ 					│ 	├─ DataSourcesType.java
+	│ 	│ 					│ 	├─ EnjoyFactory.java
+	│ 	│ 					│ 	└─ read.md
+	│ 	│ 					├─ factory
+	│ 	│ 					│ 	└─ FactoryClient.java
+	│ 	│ 					├─ listener
+	│ 	│ 					│ 	├─ DemoEvent.java
+	│ 	│ 					│ 	├─ DemoListener.java
+	│ 	│ 					│ 	├─ Lights.java
+	│ 	│ 					│ 	└─ TestDemo.java
+	│ 	│ 					├─ observer
+	│ 	│ 					│ 	├─ BeingWatched.java
+	│ 	│ 					│ 	├─ ObserverDemo.java
+	│ 	│ 					│ 	├─ read.md
+	│ 	│ 					│ 	└─ Watcher.java
+	│ 	│ 					├─ package-info.java
+	│ 	│ 					├─ prototype
+	│ 	│ 					│ 	├─ prototype.uml
+	│ 	│ 					│ 	└─ PrototypeClient.java
+	│ 	│ 					├─ proxy
+	│ 	│ 					│ 	├─ cglib
+	│ 	│ 					│ 	│ 	├─ BookFacadeCglib.java
+	│ 	│ 					│ 	│ 	├─ BookFacadeCglibProxy.java
+	│ 	│ 					│ 	│ 	└─ Test_Cglib.java
+	│ 	│ 					│ 	├─ guava
+	│ 	│ 					│ 	├─ jdk
+	│ 	│ 					│ 	│ 	├─ BookFacadeJDKProxy.java
+	│ 	│ 					│ 	│ 	├─ IBookFacadeJDK.java
+	│ 	│ 					│ 	│ 	├─ IBookFacadeJDKImpl.java
+	│ 	│ 					│ 	│ 	├─ testGuava.java
+	│ 	│ 					│ 	│ 	└─ testJDK.java
+	│ 	│ 					│ 	└─ read.md
+	│ 	│ 					├─ responsibility
+	│ 	│ 					│ 	├─ read.md
+	│ 	│ 					│ 	├─ ResponsibilityClient01.java
+	│ 	│ 					│ 	└─ ResponsibilityClient02.java
+	│ 	│ 					├─ singleton
+	│ 	│ 					│ 	├─ LazilySingleton.java
+	│ 	│ 					│ 	├─ read.md
+	│ 	│ 					│ 	├─ ResultSingleton.java
+	│ 	│ 					│ 	├─ Singleton.java
+	│ 	│ 					│ 	└─ Test.java
+	│ 	│ 					├─ strategy
+	│ 	│ 					│ 	├─ read.md
+	│ 	│ 					│ 	└─ StrategyClient_.java
+	│ 	│ 					└─ template
+	│ 	│ 						├─ read.md
+	│ 	│ 						└─ TemplateClient.java
+	│ 	└─ resources
+	└─ test
+		└─ java
+			└─ GroupTest.java
          */
     }
 
