@@ -5,6 +5,7 @@ import com.gourd.erwa.util.annotation.NotNull;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.*;
+import java.util.function.Function;
 
 /**
  * 目录树生成工具.
@@ -14,9 +15,10 @@ import java.util.*;
  * {@linkplain #showLength()} 显示文件大小内容}
  * {@linkplain #showModify() 显示文件修改时间内容}
  * {@linkplain #showPermission() 显示文件权限内容}
- * {@linkplain #addAppendContent(AppendContent) 自定义显示文件内容信息}
+ * {@linkplain #addAppendContent(Function) 自定义显示文件内容信息}
  *
  * @author wei.Li
+ * @version JDK1.8
  * @since 1
  */
 public class DirectoryTreeV1 {
@@ -33,29 +35,15 @@ public class DirectoryTreeV1 {
     private final StringBuilder r = new StringBuilder();
     /* 默认查询文件目录深度,默认为Integer.MAX_VALUE */
     private int deep = Integer.MAX_VALUE;
-    /* 待生成文件目录*/
-    private File generateFile;
     /* 文件筛选过滤器*/
-    private FileFilter fileFilter = new FileFilter() {
-        @Override
-        public boolean accept(File pathname) {
-            return true;
-        }
-    };
+    private FileFilter fileFilter = pathname -> true;
     /* 写出文件名及其他信息，默认只输出文件名称*/
-    private AppendTo displayContent = new AppendTo(new AppendContent() {
-        @Override
-        public String appendContent(File file) {
-            return " " + file.getName();
-        }
-    });
+    private AppendTo displayContent = new AppendTo(file -> " " + file.getName());
 
-    private DirectoryTreeV1(File generateFile) {
-        this.generateFile = generateFile;
+    private DirectoryTreeV1() {
     }
 
     private DirectoryTreeV1(DirectoryTreeV1 directoryTreeV1) {
-        this.generateFile = directoryTreeV1.generateFile;
         this.fileFilter = directoryTreeV1.fileFilter;
     }
 
@@ -65,8 +53,8 @@ public class DirectoryTreeV1 {
      * @param generateFile the generate file
      * @return the tree
      */
-    public static DirectoryTreeV1 createTree(File generateFile) {
-        return new DirectoryTreeV1(generateFile);
+    public static DirectoryTreeV1 create(File generateFile) {
+        return new DirectoryTreeV1();
     }
 
     /**
@@ -114,8 +102,8 @@ public class DirectoryTreeV1 {
             @Override
             List<File> fetchFiles(File file) {
                 final List<File> files = super.fetchFiles(file);
-                Collections.sort(files, comparable);
-                return super.fetchFiles(file);
+                files.sort(comparable);
+                return files;
             }
         };
     }
@@ -126,14 +114,7 @@ public class DirectoryTreeV1 {
      * @return the tree
      */
     public DirectoryTreeV1 showLength() {
-        this.displayContent.add(new AppendContent() {
-            @Override
-            public String appendContent(File file) {
-                return "["
-                        + file.length() + "B"
-                        + "]";
-            }
-        });
+        this.displayContent.add(file -> ("[" + file.length() + "B" + "]"));
         return this;
     }
 
@@ -143,14 +124,7 @@ public class DirectoryTreeV1 {
      * @return the tree
      */
     public DirectoryTreeV1 showModify() {
-        this.displayContent.add(new AppendContent() {
-            @Override
-            public String appendContent(File file) {
-                return "["
-                        + new Date(file.lastModified())
-                        + "]";
-            }
-        });
+        this.displayContent.add(file -> ("[" + new Date(file.lastModified()) + "]"));
         return this;
     }
 
@@ -160,16 +134,13 @@ public class DirectoryTreeV1 {
      * @return the tree
      */
     public DirectoryTreeV1 showPermission() {
-        this.displayContent.add(new AppendContent() {
-            @Override
-            public String appendContent(File file) {
-                return "["
+        this.displayContent.add(
+                file -> ("["
                         + (file.canRead() ? "r-" : "--")
                         + (file.canWrite() ? "w-" : "--")
                         + (file.canExecute() ? "x-" : "--")
-                        + "]";
-            }
-        });
+                        + "]")
+        );
         return this;
     }
 
@@ -179,7 +150,7 @@ public class DirectoryTreeV1 {
      * @param appendContent the append content
      * @return the tree
      */
-    public DirectoryTreeV1 addAppendContent(AppendContent appendContent) {
+    public DirectoryTreeV1 addAppendContent(Function<File, String> appendContent) {
         this.displayContent.add(appendContent);
         return this;
     }
@@ -189,9 +160,11 @@ public class DirectoryTreeV1 {
      *
      * @return 结果内容
      */
-    public final String generate() {
-        if (this.generateFile.exists()) {
-            this.generateHandle(this.generateFile, EMPTY, 0);
+    public final String generate(File generateFile) {
+        if (generateFile.exists()) {
+            this.generateHandle(generateFile, EMPTY, 0);
+        } else {
+            System.err.println(generateFile.getPath() + " not found!");
         }
 
         return this.r.toString();
@@ -224,34 +197,27 @@ public class DirectoryTreeV1 {
      * @param f f
      */
     private void appendDisplayContent(File f) {
-        final List<AppendContent> appendContents = displayContent.appendContents;
-        for (AppendContent to : appendContents) {
-            this.r.append(to.appendContent(f));
+        final List<Function<File, String>> appendContents = displayContent.appendContents;
+        for (Function<File, String> to : appendContents) {
+            this.r.append(to.apply(f));
         }
     }
 
-    /**
-     * 读取 file 解析待内容.
-     */
-    public interface AppendContent {
-
-        String appendContent(File file);
-    }
 
     /**
      * 可累积显示 tree 中具体文件属性内容
      */
     private static class AppendTo {
 
-        private final List<AppendContent> appendContents = new ArrayList<>();
+        private final List<Function<File, String>> appendContents = new ArrayList<>();
 
-        AppendTo(AppendContent appendTo) {
+        AppendTo(Function<File, String> appendTo) {
             if (appendTo != null) {
                 this.appendContents.add(appendTo);
             }
         }
 
-        void add(AppendContent to) {
+        void add(Function<File, String> to) {
             if (to != null) {
                 this.appendContents.add(0, to);
             }
@@ -265,14 +231,10 @@ public class DirectoryTreeV1 {
 class MainTest {
 
     public static void main(String[] args) {
-        final String generate = DirectoryTreeV1.createTree(new File("/lw/workfile/intellij_work/MyNote/design"))
+        final File generateFile = new File("/lw/workfile/intellij_work/MyNote/design1");
+        final String generate = DirectoryTreeV1.create(generateFile)
                 .setDeep(20)
-                .setFileFilter(new FileFilter() {
-                    @Override
-                    public boolean accept(File pathname) {
-                        return !(pathname.isHidden() || pathname.getName().contains("target"));
-                    }
-                })
+                .setFileFilter(pathname -> (!(pathname.isHidden() || pathname.getName().contains("target"))))
                 /*.showLength()
                 .showModify()
                 .showPermission()
@@ -282,9 +244,14 @@ class MainTest {
                         return "[" + file.getPath() + "]";
                     }
                 })*/
-                .generate();
+                .generate(generateFile);
         System.out.println(generate);
-        /*
+
+    }
+
+}
+
+/*
 ├─ buildNumber.properties
 ├─ design.iml
 ├─ pom.xml
@@ -363,6 +330,3 @@ class MainTest {
 		└─ java
 			└─ GroupTest.java
          */
-    }
-
-}
