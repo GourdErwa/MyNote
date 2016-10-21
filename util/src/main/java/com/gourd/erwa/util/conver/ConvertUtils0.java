@@ -2,8 +2,8 @@ package com.gourd.erwa.util.conver;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.collect.Lists;
-import com.gourd.erwa.util.annotation.PreBeta;
 import com.gourd.erwa.util.annotation.NotNull;
+import com.gourd.erwa.util.annotation.PreBeta;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;

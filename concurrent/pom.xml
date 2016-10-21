@@ -5,26 +5,30 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.9.1</version>
+        <version>2016.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>concurrent</artifactId>
     <name>concurrent</name>
 
+    <properties>
+        <disruptor.v>3.3.6</disruptor.v>
+    </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>com.gourd</groupId>
             <artifactId>util</artifactId>
-            <version>2016.9.1</version>
+            <version>2016.2</version>
         </dependency>
 
         <!--disruptor-->
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
-            <version>3.3.5</version>
+            <version>${disruptor.v}</version>
         </dependency>
 
     </dependencies>

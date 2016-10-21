@@ -26,10 +26,10 @@ public class Es_Utils {
 
 
     //
-    protected static final String LOGSTASH_YYYY_MM_DD = "logstash-2014.08.16";
-    protected static final String LOGSTASH_YYYY_MM_DD_MAPPING = "logstash_yyyy_mm_dd_mapping";
+    static final String LOG_STASH_YYYY_MM_DD = "logstash-2014.08.16";
+    static final String LOG_STASH_YYYY_MM_DD_MAPPING = "logstash_yyyy_mm_dd_mapping";
     //直接传入 index_demo_*  即按前缀* 查询
-    protected static final String INDEX_DEMO_ALL = "index_demo_*";
+    static final String INDEX_DEMO_ALL = "index_demo_*";
     protected static final String INDEX_DEMO_01 = "index_demo_01";
     protected static final String INDEX_DEMO_01_MAPPING = "index_demo_01_mapping";
     protected static Client client;
@@ -46,8 +46,7 @@ public class Es_Utils {
         Settings settings = ImmutableSettings.settingsBuilder()
                 .put("client.transport.sniff", true).put("cluster.name", "liw_test").build();
 
-        client = new TransportClient(settings)
-                .addTransportAddress(new InetSocketTransportAddress("localhost", 9300));
+        client = new TransportClient(settings).addTransportAddress(new InetSocketTransportAddress("localhost", 9300));
         //.addTransportAddress(new InetSocketTransportAddress("10.211.55.4", 9300));
         // System.out.println(INDEX_DEMO_01 + "是否存在？-》" + client.admin().indices().exists(new IndicesExistsRequest(INDEX_DEMO_01)).actionGet().isExists());
     }
@@ -56,7 +55,7 @@ public class Es_Utils {
      * on shutDownClient
      * 停止es
      */
-    protected static void shutDownClient() {
+    static void shutDownClient() {
         client.close();
     }
 
@@ -77,7 +76,7 @@ public class Es_Utils {
      *
      * @param response response
      */
-    protected static void writeSearchResponse(SearchResponse response) {
+    static void writeSearchResponse(SearchResponse response) {
         SearchHit[] searchHitsByPrepareSearch = response.getHits().hits();
         //获取结果集打印
         for (SearchHit searchHit : searchHitsByPrepareSearch) {

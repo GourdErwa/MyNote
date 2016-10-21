@@ -100,9 +100,9 @@
             };
 
             var anchors = [[1, 0.2, 1, 0], [0.8, 1, 0, 1], [0, 0.8, -1, 0], [0.2, 0, 0, -1]],
-                    maxConnectionsCallback = function (info) {
-                        alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
-                    };
+                maxConnectionsCallback = function (info) {
+                    alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
+                };
 
             var e1 = jsPlumb.addEndpoint("state2", {anchor: "LeftMiddle"}, exampleEndpoint1);
             // you can bind for a maxConnections callback using a standard bind call, but you can also supply 'onMaxConnections' in an Endpoint definition - see exampleEndpoint3 above.

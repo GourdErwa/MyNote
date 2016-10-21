@@ -458,8 +458,8 @@
                 if (this._trigger("drag", t, r) === !1)return this._mouseUp({}), !1;
                 this.position = r.position
             }
-            if (!this.options.axis || this.options.axis != "y")this.helper[0].style.left = this.position.left + "px";
-            if (!this.options.axis || this.options.axis != "x")this.helper[0].style.top = this.position.top + "px";
+            if (!this.options.axis || this.options.axis != "y") this.helper[0].style.left = this.position.left + "px";
+            if (!this.options.axis || this.options.axis != "x") this.helper[0].style.top = this.position.top + "px";
             return e.ui.ddmanager && e.ui.ddmanager.drag(this, t), !1
         },
         _mouseStop: function (t) {
@@ -504,7 +504,7 @@
             this.offsetParent = this.helper.offsetParent();
             var t = this.offsetParent.offset();
             this.cssPosition == "absolute" && this.scrollParent[0] != document && e.contains(this.scrollParent[0], this.offsetParent[0]) && (t.left += this.scrollParent.scrollLeft(), t.top += this.scrollParent.scrollTop());
-            if (this.offsetParent[0] == document.body || this.offsetParent[0].tagName && this.offsetParent[0].tagName.toLowerCase() == "html" && e.ui.ie)t = {
+            if (this.offsetParent[0] == document.body || this.offsetParent[0].tagName && this.offsetParent[0].tagName.toLowerCase() == "html" && e.ui.ie) t = {
                 top: 0,
                 left: 0
             };
@@ -537,7 +537,7 @@
         _setContainment: function () {
             var t = this.options;
             t.containment == "parent" && (t.containment = this.helper[0].parentNode);
-            if (t.containment == "document" || t.containment == "window")this.containment = [t.containment == "document" ? 0 : e(window).scrollLeft() - this.offset.relative.left - this.offset.parent.left, t.containment == "document" ? 0 : e(window).scrollTop() - this.offset.relative.top - this.offset.parent.top, (t.containment == "document" ? 0 : e(window).scrollLeft()) + e(t.containment == "document" ? document : window).width() - this.helperProportions.width - this.margins.left, (t.containment == "document" ? 0 : e(window).scrollTop()) + (e(t.containment == "document" ? document : window).height() || document.body.parentNode.scrollHeight) - this.helperProportions.height - this.margins.top];
+            if (t.containment == "document" || t.containment == "window") this.containment = [t.containment == "document" ? 0 : e(window).scrollLeft() - this.offset.relative.left - this.offset.parent.left, t.containment == "document" ? 0 : e(window).scrollTop() - this.offset.relative.top - this.offset.parent.top, (t.containment == "document" ? 0 : e(window).scrollLeft()) + e(t.containment == "document" ? document : window).width() - this.helperProportions.width - this.margins.left, (t.containment == "document" ? 0 : e(window).scrollTop()) + (e(t.containment == "document" ? document : window).height() || document.body.parentNode.scrollHeight) - this.helperProportions.height - this.margins.top];
             if (!/^(document|window|parent)$/.test(t.containment) && t.containment.constructor != Array) {
                 var n = e(t.containment), r = n[0];
                 if (!r)return;
@@ -646,11 +646,11 @@
         }, drag: function (t, n) {
             var r = e(this).data("draggable"), i = r.options, s = !1;
             if (r.scrollParent[0] != document && r.scrollParent[0].tagName != "HTML") {
-                if (!i.axis || i.axis != "x")r.overflowOffset.top + r.scrollParent[0].offsetHeight - t.pageY < i.scrollSensitivity ? r.scrollParent[0].scrollTop = s = r.scrollParent[0].scrollTop + i.scrollSpeed : t.pageY - r.overflowOffset.top < i.scrollSensitivity && (r.scrollParent[0].scrollTop = s = r.scrollParent[0].scrollTop - i.scrollSpeed);
-                if (!i.axis || i.axis != "y")r.overflowOffset.left + r.scrollParent[0].offsetWidth - t.pageX < i.scrollSensitivity ? r.scrollParent[0].scrollLeft = s = r.scrollParent[0].scrollLeft + i.scrollSpeed : t.pageX - r.overflowOffset.left < i.scrollSensitivity && (r.scrollParent[0].scrollLeft = s = r.scrollParent[0].scrollLeft - i.scrollSpeed)
+                if (!i.axis || i.axis != "x") r.overflowOffset.top + r.scrollParent[0].offsetHeight - t.pageY < i.scrollSensitivity ? r.scrollParent[0].scrollTop = s = r.scrollParent[0].scrollTop + i.scrollSpeed : t.pageY - r.overflowOffset.top < i.scrollSensitivity && (r.scrollParent[0].scrollTop = s = r.scrollParent[0].scrollTop - i.scrollSpeed);
+                if (!i.axis || i.axis != "y") r.overflowOffset.left + r.scrollParent[0].offsetWidth - t.pageX < i.scrollSensitivity ? r.scrollParent[0].scrollLeft = s = r.scrollParent[0].scrollLeft + i.scrollSpeed : t.pageX - r.overflowOffset.left < i.scrollSensitivity && (r.scrollParent[0].scrollLeft = s = r.scrollParent[0].scrollLeft - i.scrollSpeed)
             } else {
-                if (!i.axis || i.axis != "x")t.pageY - e(document).scrollTop() < i.scrollSensitivity ? s = e(document).scrollTop(e(document).scrollTop() - i.scrollSpeed) : e(window).height() - (t.pageY - e(document).scrollTop()) < i.scrollSensitivity && (s = e(document).scrollTop(e(document).scrollTop() + i.scrollSpeed));
-                if (!i.axis || i.axis != "y")t.pageX - e(document).scrollLeft() < i.scrollSensitivity ? s = e(document).scrollLeft(e(document).scrollLeft() - i.scrollSpeed) : e(window).width() - (t.pageX - e(document).scrollLeft()) < i.scrollSensitivity && (s = e(document).scrollLeft(e(document).scrollLeft() + i.scrollSpeed))
+                if (!i.axis || i.axis != "x") t.pageY - e(document).scrollTop() < i.scrollSensitivity ? s = e(document).scrollTop(e(document).scrollTop() - i.scrollSpeed) : e(window).height() - (t.pageY - e(document).scrollTop()) < i.scrollSensitivity && (s = e(document).scrollTop(e(document).scrollTop() + i.scrollSpeed));
+                if (!i.axis || i.axis != "y") t.pageX - e(document).scrollLeft() < i.scrollSensitivity ? s = e(document).scrollLeft(e(document).scrollLeft() - i.scrollSpeed) : e(window).width() - (t.pageX - e(document).scrollLeft()) < i.scrollSensitivity && (s = e(document).scrollLeft(e(document).scrollLeft() + i.scrollSpeed))
             }
             s !== !1 && e.ui.ddmanager && !i.dropBehaviour && e.ui.ddmanager.prepareOffsets(r, t)
         }
@@ -1010,7 +1010,7 @@
             if (!f)return !1;
             var l = f.apply(this, [e, u, a]);
             this._updateVirtualBoundaries(e.shiftKey);
-            if (this._aspectRatio || e.shiftKey)l = this._updateRatio(l, e);
+            if (this._aspectRatio || e.shiftKey) l = this._updateRatio(l, e);
             return l = this._respectSize(l, e), this._propagate("resize", e), t.css({
                 top: this.position.top + "px",
                 left: this.position.left + "px",
@@ -1041,7 +1041,7 @@
                 minHeight: r(t.minHeight) ? t.minHeight : 0,
                 maxHeight: r(t.maxHeight) ? t.maxHeight : Infinity
             };
-            if (this._aspectRatio || e)n = u.minHeight * this.aspectRatio, s = u.minWidth / this.aspectRatio, i = u.maxHeight * this.aspectRatio, o = u.maxWidth / this.aspectRatio, n > u.minWidth && (u.minWidth = n), s > u.minHeight && (u.minHeight = s), i < u.maxWidth && (u.maxWidth = i), o < u.maxHeight && (u.maxHeight = o);
+            if (this._aspectRatio || e) n = u.minHeight * this.aspectRatio, s = u.minWidth / this.aspectRatio, i = u.maxHeight * this.aspectRatio, o = u.maxWidth / this.aspectRatio, n > u.minWidth && (u.minWidth = n), s > u.minHeight && (u.minHeight = s), i < u.maxWidth && (u.maxWidth = i), o < u.maxHeight && (u.maxHeight = o);
             this._vBoundaries = u
         },
         _updateCache: function (e) {
@@ -1196,7 +1196,7 @@
             var i = e(this).data("resizable"), s = i.options, o = i.element, u = s.containment, a = u instanceof e ? u.get(0) : /parent/.test(u) ? o.parent().get(0) : u;
             if (!a)return;
             i.containerElement = e(a);
-            if (/document/.test(u) || u == document)i.containerOffset = {left: 0, top: 0}, i.containerPosition = {
+            if (/document/.test(u) || u == document) i.containerOffset = {left: 0, top: 0}, i.containerPosition = {
                 left: 0,
                 top: 0
             }, i.parentData = {
@@ -1435,8 +1435,8 @@
                 this.scrollParent[0] != document && this.scrollParent[0].tagName != "HTML" ? (this.overflowOffset.top + this.scrollParent[0].offsetHeight - t.pageY < n.scrollSensitivity ? this.scrollParent[0].scrollTop = r = this.scrollParent[0].scrollTop + n.scrollSpeed : t.pageY - this.overflowOffset.top < n.scrollSensitivity && (this.scrollParent[0].scrollTop = r = this.scrollParent[0].scrollTop - n.scrollSpeed), this.overflowOffset.left + this.scrollParent[0].offsetWidth - t.pageX < n.scrollSensitivity ? this.scrollParent[0].scrollLeft = r = this.scrollParent[0].scrollLeft + n.scrollSpeed : t.pageX - this.overflowOffset.left < n.scrollSensitivity && (this.scrollParent[0].scrollLeft = r = this.scrollParent[0].scrollLeft - n.scrollSpeed)) : (t.pageY - e(document).scrollTop() < n.scrollSensitivity ? r = e(document).scrollTop(e(document).scrollTop() - n.scrollSpeed) : e(window).height() - (t.pageY - e(document).scrollTop()) < n.scrollSensitivity && (r = e(document).scrollTop(e(document).scrollTop() + n.scrollSpeed)), t.pageX - e(document).scrollLeft() < n.scrollSensitivity ? r = e(document).scrollLeft(e(document).scrollLeft() - n.scrollSpeed) : e(window).width() - (t.pageX - e(document).scrollLeft()) < n.scrollSensitivity && (r = e(document).scrollLeft(e(document).scrollLeft() + n.scrollSpeed))), r !== !1 && e.ui.ddmanager && !n.dropBehaviour && e.ui.ddmanager.prepareOffsets(this, t)
             }
             this.positionAbs = this._convertPositionTo("absolute");
-            if (!this.options.axis || this.options.axis != "y")this.helper[0].style.left = this.position.left + "px";
-            if (!this.options.axis || this.options.axis != "x")this.helper[0].style.top = this.position.top + "px";
+            if (!this.options.axis || this.options.axis != "y") this.helper[0].style.left = this.position.left + "px";
+            if (!this.options.axis || this.options.axis != "x") this.helper[0].style.top = this.position.top + "px";
             for (var i = this.items.length - 1; i >= 0; i--) {
                 var s = this.items[i], o = s.item[0], u = this._intersectsWithPointer(s);
                 if (!u)continue;
@@ -1576,7 +1576,7 @@
                 var s = i.offset();
                 r.left = s.left, r.top = s.top
             }
-            if (this.options.custom && this.options.custom.refreshContainers)this.options.custom.refreshContainers.call(this); else for (var n = this.containers.length - 1; n >= 0; n--) {
+            if (this.options.custom && this.options.custom.refreshContainers) this.options.custom.refreshContainers.call(this); else for (var n = this.containers.length - 1; n >= 0; n--) {
                 var s = this.containers[n].element.offset();
                 this.containers[n].containerCache.left = s.left, this.containers[n].containerCache.top = s.top, this.containers[n].containerCache.width = this.containers[n].element.outerWidth(), this.containers[n].containerCache.height = this.containers[n].element.outerHeight()
             }
@@ -1609,7 +1609,7 @@
                 } else this.containers[i].containerCache.over && (this.containers[i]._trigger("out", t, this._uiHash(this)), this.containers[i].containerCache.over = 0)
             }
             if (!n)return;
-            if (this.containers.length === 1)this.containers[r]._trigger("over", t, this._uiHash(this)), this.containers[r].containerCache.over = 1; else {
+            if (this.containers.length === 1) this.containers[r]._trigger("over", t, this._uiHash(this)), this.containers[r].containerCache.over = 1; else {
                 var s = 1e4, o = null, u = this.containers[r].floating ? "left" : "top", a = this.containers[r].floating ? "width" : "height", f = this.positionAbs[u] + this.offset.click[u];
                 for (var l = this.items.length - 1; l >= 0; l--) {
                     if (!e.contains(this.containers[r].element[0], this.items[l].item[0]))continue;
@@ -1641,7 +1641,7 @@
             this.offsetParent = this.helper.offsetParent();
             var t = this.offsetParent.offset();
             this.cssPosition == "absolute" && this.scrollParent[0] != document && e.contains(this.scrollParent[0], this.offsetParent[0]) && (t.left += this.scrollParent.scrollLeft(), t.top += this.scrollParent.scrollTop());
-            if (this.offsetParent[0] == document.body || this.offsetParent[0].tagName && this.offsetParent[0].tagName.toLowerCase() == "html" && e.ui.ie)t = {
+            if (this.offsetParent[0] == document.body || this.offsetParent[0].tagName && this.offsetParent[0].tagName.toLowerCase() == "html" && e.ui.ie) t = {
                 top: 0,
                 left: 0
             };
@@ -1672,7 +1672,7 @@
         _setContainment: function () {
             var t = this.options;
             t.containment == "parent" && (t.containment = this.helper[0].parentNode);
-            if (t.containment == "document" || t.containment == "window")this.containment = [0 - this.offset.relative.left - this.offset.parent.left, 0 - this.offset.relative.top - this.offset.parent.top, e(t.containment == "document" ? document : window).width() - this.helperProportions.width - this.margins.left, (e(t.containment == "document" ? document : window).height() || document.body.parentNode.scrollHeight) - this.helperProportions.height - this.margins.top];
+            if (t.containment == "document" || t.containment == "window") this.containment = [0 - this.offset.relative.left - this.offset.parent.left, 0 - this.offset.relative.top - this.offset.parent.top, e(t.containment == "document" ? document : window).width() - this.helperProportions.width - this.margins.left, (e(t.containment == "document" ? document : window).height() || document.body.parentNode.scrollHeight) - this.helperProportions.height - this.margins.top];
             if (!/^(document|window|parent)$/.test(t.containment)) {
                 var n = e(t.containment)[0], r = e(t.containment).offset(), i = e(n).css("overflow") != "hidden";
                 this.containment = [r.left + (parseInt(e(n).css("borderLeftWidth"), 10) || 0) + (parseInt(e(n).css("paddingLeft"), 10) || 0) - this.margins.left, r.top + (parseInt(e(n).css("borderTopWidth"), 10) || 0) + (parseInt(e(n).css("paddingTop"), 10) || 0) - this.margins.top, r.left + (i ? Math.max(n.scrollWidth, n.offsetWidth) : n.offsetWidth) - (parseInt(e(n).css("borderLeftWidth"), 10) || 0) - (parseInt(e(n).css("paddingRight"), 10) || 0) - this.helperProportions.width - this.margins.left, r.top + (i ? Math.max(n.scrollHeight, n.offsetHeight) : n.offsetHeight) - (parseInt(e(n).css("borderTopWidth"), 10) || 0) - (parseInt(e(n).css("paddingBottom"), 10) || 0) - this.helperProportions.height - this.margins.top]
@@ -1716,7 +1716,7 @@
             var r = [];
             !this._noFinalSort && this.currentItem.parent().length && this.placeholder.before(this.currentItem), this._noFinalSort = null;
             if (this.helper[0] == this.currentItem[0]) {
-                for (var i in this._storedCSS)if (this._storedCSS[i] == "auto" || this._storedCSS[i] == "static")this._storedCSS[i] = "";
+                for (var i in this._storedCSS)if (this._storedCSS[i] == "auto" || this._storedCSS[i] == "static") this._storedCSS[i] = "";
                 this.currentItem.css(this._storedCSS).removeClass("ui-sortable-helper")
             } else this.currentItem.show();
             this.fromOutside && !n && r.push(function (e) {
@@ -1846,7 +1846,7 @@
         }), o.fn = t.extend(o.prototype, {
             parse: function (r, i, s, a) {
                 if (r === n)return this._rgba = [null, null, null, null], this;
-                if (r.jquery || r.nodeType)r = t(r).css(i), i = n;
+                if (r.jquery || r.nodeType) r = t(r).css(i), i = n;
                 var f = this, l = t.type(r), v = this._rgba = [];
                 i !== n && (r = [r, i, s, a], l = "array");
                 if (l === "string")return this.parse(d(r) || c._default);
@@ -2014,7 +2014,7 @@
         };
         e.each(["borderLeftStyle", "borderRightStyle", "borderBottomStyle", "borderTopStyle"], function (t, n) {
             e.fx.step[n] = function (e) {
-                if (e.end !== "none" && !e.setAttr || e.pos === 1 && !e.setAttr)jQuery.style(e.elem, n, e.end), e.setAttr = !0
+                if (e.end !== "none" && !e.setAttr || e.pos === 1 && !e.setAttr) jQuery.style(e.elem, n, e.end), e.setAttr = !0
             }
         }), e.effects.animateClass = function (t, r, o, u) {
             var a = e.speed(r, o, u);
@@ -2059,7 +2059,7 @@
     }(), function () {
         function i(t, n, r, i) {
             e.isPlainObject(t) && (n = t, t = t.effect), t = {effect: t}, n == null && (n = {}), e.isFunction(n) && (i = n, r = null, n = {});
-            if (typeof n == "number" || e.fx.speeds[n])i = r, r = n, n = {};
+            if (typeof n == "number" || e.fx.speeds[n]) i = r, r = n, n = {};
             return e.isFunction(r) && (i = r, r = null), n && e.extend(t, n), r = r || n.duration, t.duration = e.fx.off ? 0 : typeof r == "number" ? r : r in e.fx.speeds ? e.fx.speeds[r] : e.fx.speeds._default, t.complete = i || n.complete, t
         }
 
@@ -2392,7 +2392,7 @@
             _create: function () {
                 this.options.heightStyle = this.options.heightStyle || this._mergeHeightStyle(), n.call(this)
             }, _setOption: function (e) {
-                if (e === "autoHeight" || e === "clearStyle" || e === "fillSpace")this.options.heightStyle = this._mergeHeightStyle();
+                if (e === "autoHeight" || e === "clearStyle" || e === "fillSpace") this.options.heightStyle = this._mergeHeightStyle();
                 r.apply(this, arguments)
             }, _mergeHeightStyle: function () {
                 var e = this.options;
@@ -2676,7 +2676,7 @@
             return this.valueMethod.apply(this.element, arguments)
         },
         _keyEvent: function (e, t) {
-            if (!this.isMultiLine || this.menu.element.is(":visible"))this._move(e, t), t.preventDefault()
+            if (!this.isMultiLine || this.menu.element.is(":visible")) this._move(e, t), t.preventDefault()
         }
     }), e.extend(e.ui.autocomplete, {
         escapeRegex: function (e) {
@@ -2741,7 +2741,7 @@
                 s = !1, r = e.pageX, i = e.pageY
             }).bind("mouseup" + this.eventNamespace, function (e) {
                 if (u.disabled)return;
-                if (r !== e.pageX || i !== e.pageY)s = !0
+                if (r !== e.pageX || i !== e.pageY) s = !0
             })), this.type === "checkbox" ? this.buttonElement.bind("click" + this.eventNamespace, function () {
                 if (u.disabled || s)return !1;
                 e(this).toggleClass("ui-state-active"), t.buttonElement.attr("aria-pressed", t.element[0].checked)
@@ -2895,7 +2895,7 @@
 
     function extendRemove(e, t) {
         $.extend(e, t);
-        for (var n in t)if (t[n] == null || t[n] == undefined)e[n] = t[n];
+        for (var n in t)if (t[n] == null || t[n] == undefined) e[n] = t[n];
         return e
     }
 
@@ -3022,7 +3022,7 @@
             var t = $(e), n = $.data(e, PROP_NAME);
             if (!t.hasClass(this.markerClassName))return;
             var r = e.nodeName.toLowerCase();
-            if (r == "input")e.disabled = !1, n.trigger.filter("button").each(function () {
+            if (r == "input") e.disabled = !1, n.trigger.filter("button").each(function () {
                 this.disabled = !1
             }).end().filter("img").css({opacity: "1.0", cursor: ""}); else if (r == "div" || r == "span") {
                 var i = t.children("." + this._inlineClass);
@@ -3036,7 +3036,7 @@
             var t = $(e), n = $.data(e, PROP_NAME);
             if (!t.hasClass(this.markerClassName))return;
             var r = e.nodeName.toLowerCase();
-            if (r == "input")e.disabled = !0, n.trigger.filter("button").each(function () {
+            if (r == "input") e.disabled = !0, n.trigger.filter("button").each(function () {
                 this.disabled = !0
             }).end().filter("img").css({opacity: "0.5", cursor: "default"}); else if (r == "div" || r == "span") {
                 var i = t.children("." + this._inlineClass);
@@ -3250,7 +3250,7 @@
         },
         _gotoToday: function (e) {
             var t = $(e), n = this._getInst(t[0]);
-            if (this._get(n, "gotoCurrent") && n.currentDay)n.selectedDay = n.currentDay, n.drawMonth = n.selectedMonth = n.currentMonth, n.drawYear = n.selectedYear = n.currentYear; else {
+            if (this._get(n, "gotoCurrent") && n.currentDay) n.selectedDay = n.currentDay, n.drawMonth = n.selectedMonth = n.currentMonth, n.drawYear = n.selectedYear = n.currentYear; else {
                 var r = new Date;
                 n.selectedDay = r.getDate(), n.drawMonth = n.selectedMonth = r.getMonth(), n.drawYear = n.selectedYear = r.getFullYear()
             }
@@ -3324,7 +3324,7 @@
                 if (t.charAt(g) != e.charAt(y))throw"Unexpected literal at position " + g;
                 g++
             }, g = 0;
-            for (var y = 0; y < e.length; y++)if (h)e.charAt(y) == "'" && !p("'") ? h = !1 : m(); else switch (e.charAt(y)) {
+            for (var y = 0; y < e.length; y++)if (h) e.charAt(y) == "'" && !p("'") ? h = !1 : m(); else switch (e.charAt(y)) {
                 case"d":
                     l = d("d");
                     break;
@@ -3399,7 +3399,7 @@
             }, f = function (e, t, n, r) {
                 return u(e) ? r[t] : n[t]
             }, l = "", c = !1;
-            if (t)for (var h = 0; h < e.length; h++)if (c)e.charAt(h) == "'" && !u("'") ? c = !1 : l += e.charAt(h); else switch (e.charAt(h)) {
+            if (t)for (var h = 0; h < e.length; h++)if (c) e.charAt(h) == "'" && !u("'") ? c = !1 : l += e.charAt(h); else switch (e.charAt(h)) {
                 case"d":
                     l += a("d", t.getDate(), 2);
                     break;
@@ -3437,7 +3437,7 @@
                 var n = i + 1 < e.length && e.charAt(i + 1) == t;
                 return n && i++, n
             };
-            for (var i = 0; i < e.length; i++)if (n)e.charAt(i) == "'" && !r("'") ? n = !1 : t += e.charAt(i); else switch (e.charAt(i)) {
+            for (var i = 0; i < e.length; i++)if (n) e.charAt(i) == "'" && !r("'") ? n = !1 : t += e.charAt(i); else switch (e.charAt(i)) {
                 case"d":
                 case"m":
                 case"y":
@@ -3609,7 +3609,7 @@
         },
         _generateMonthYearHeader: function (e, t, n, r, i, s, o, u) {
             var a = this._get(e, "changeMonth"), f = this._get(e, "changeYear"), l = this._get(e, "showMonthAfterYear"), c = '<div class="ui-datepicker-title">', h = "";
-            if (s || !a)h += '<span class="ui-datepicker-month">' + o[t] + "</span>"; else {
+            if (s || !a) h += '<span class="ui-datepicker-month">' + o[t] + "</span>"; else {
                 var p = r && r.getFullYear() == n, d = i && i.getFullYear() == n;
                 h += '<select class="ui-datepicker-month" data-handler="selectMonth" data-event="change">';
                 for (var v = 0; v < 12; v++)(!p || v >= r.getMonth()) && (!d || v <= i.getMonth()) && (h += '<option value="' + v + '"' + (v == t ? ' selected="selected"' : "") + ">" + u[v] + "</option>");
@@ -3618,7 +3618,7 @@
             l || (c += h + (s || !a || !f ? "&#xa0;" : ""));
             if (!e.yearshtml) {
                 e.yearshtml = "";
-                if (s || !f)c += '<span class="ui-datepicker-year">' + n + "</span>"; else {
+                if (s || !f) c += '<span class="ui-datepicker-year">' + n + "</span>"; else {
                     var m = this._get(e, "yearRange").split(":"), g = (new Date).getFullYear(), y = function (e) {
                         var t = e.match(/c[+-].*/) ? n + parseInt(e.substring(1), 10) : e.match(/[+-].*/) ? g + parseInt(e, 10) : parseInt(e, 10);
                         return isNaN(t) ? g : t
@@ -3864,7 +3864,7 @@
         _position: function (t) {
             var n = [], r = [0, 0], i;
             if (t) {
-                if (typeof t == "string" || typeof t == "object" && "0" in t)n = t.split ? t.split(" ") : [t[0], t[1]], n.length === 1 && (n[1] = n[0]), e.each(["left", "top"], function (e, t) {
+                if (typeof t == "string" || typeof t == "object" && "0" in t) n = t.split ? t.split(" ") : [t[0], t[1]], n.length === 1 && (n[1] = n[0]), e.each(["left", "top"], function (e, t) {
                     +n[e] === n[e] && (r[e] = n[e], n[e] = t)
                 }), t = {
                     my: n[0] + (r[0] < 0 ? r[0] : "+" + r[0]) + " " + n[1] + (r[1] < 0 ? r[1] : "+" + r[1]),
@@ -4092,7 +4092,7 @@
 }(jQuery), function (e, t) {
     e.effects.effect.pulsate = function (t, n) {
         var r = e(this), i = e.effects.setMode(r, t.mode || "show"), s = i === "show", o = i === "hide", u = s || i === "hide", a = (t.times || 5) * 2 + (u ? 1 : 0), f = t.duration / a, l = 0, c = r.queue(), h = c.length, p;
-        if (s || !r.is(":visible"))r.css("opacity", 0).show(), l = 1;
+        if (s || !r.is(":visible")) r.css("opacity", 0).show(), l = 1;
         for (p = 1; p < a; p++)r.animate({opacity: l}, f, t.easing), l = 1 - l;
         r.animate({opacity: l}, f, t.easing), r.queue(function () {
             o && r.hide(), n()
@@ -4156,9 +4156,9 @@
                 x: o.from.width / r.width
             }, to: {y: o.to.height / r.height, x: o.to.width / r.width}
         };
-        if (v === "box" || v === "both")s.from.y !== s.to.y && (y = y.concat(c), o.from = e.effects.setTransition(o, c, s.from.y, o.from), o.to = e.effects.setTransition(o, c, s.to.y, o.to)), s.from.x !== s.to.x && (y = y.concat(h), o.from = e.effects.setTransition(o, h, s.from.x, o.from), o.to = e.effects.setTransition(o, h, s.to.x, o.to));
+        if (v === "box" || v === "both") s.from.y !== s.to.y && (y = y.concat(c), o.from = e.effects.setTransition(o, c, s.from.y, o.from), o.to = e.effects.setTransition(o, c, s.to.y, o.to)), s.from.x !== s.to.x && (y = y.concat(h), o.from = e.effects.setTransition(o, h, s.from.x, o.from), o.to = e.effects.setTransition(o, h, s.to.x, o.to));
         (v === "content" || v === "both") && s.from.y !== s.to.y && (y = y.concat(l).concat(f), o.from = e.effects.setTransition(o, l, s.from.y, o.from), o.to = e.effects.setTransition(o, l, s.to.y, o.to)), e.effects.save(o, y), o.show(), e.effects.createWrapper(o), o.css("overflow", "hidden").css(o.from), m && (i = e.effects.getBaseline(m, r), o.from.top = (r.outerHeight - o.outerHeight()) * i.y, o.from.left = (r.outerWidth - o.outerWidth()) * i.x, o.to.top = (r.outerHeight - o.to.outerHeight) * i.y, o.to.left = (r.outerWidth - o.to.outerWidth) * i.x), o.css(o.from);
-        if (v === "content" || v === "both")c = c.concat(["marginTop", "marginBottom"]).concat(l), h = h.concat(["marginLeft", "marginRight"]), f = u.concat(c).concat(h), o.find("*[width]").each(function () {
+        if (v === "content" || v === "both") c = c.concat(["marginTop", "marginBottom"]).concat(l), h = h.concat(["marginLeft", "marginRight"]), f = u.concat(c).concat(h), o.find("*[width]").each(function () {
             var n = e(this), r = {
                 height: n.height(),
                 width: n.width(),
@@ -4416,7 +4416,7 @@
         _move: function (e, t, n) {
             var r;
             this.active && (e === "first" || e === "last" ? r = this.active[e === "first" ? "prevAll" : "nextAll"](".ui-menu-item").eq(-1) : r = this.active[e + "All"](".ui-menu-item").eq(0));
-            if (!r || !r.length || !this.active)r = this.activeMenu.children(".ui-menu-item")[t]();
+            if (!r || !r.length || !this.active) r = this.activeMenu.children(".ui-menu-item")[t]();
             this.focus(n, r)
         },
         nextPage: function (t) {
@@ -4547,10 +4547,10 @@
                 var n = t.within, r = n.offset.left + n.scrollLeft, s = n.width, o = n.isWindow ? n.scrollLeft : n.offset.left, u = e.left - t.collisionPosition.marginLeft, a = u - o, f = u + t.collisionWidth - s - o, l = t.my[0] === "left" ? -t.elemWidth : t.my[0] === "right" ? t.elemWidth : 0, c = t.at[0] === "left" ? t.targetWidth : t.at[0] === "right" ? -t.targetWidth : 0, h = -2 * t.offset[0], p, d;
                 if (a < 0) {
                     p = e.left + l + c + h + t.collisionWidth - s - r;
-                    if (p < 0 || p < i(a))e.left += l + c + h
+                    if (p < 0 || p < i(a)) e.left += l + c + h
                 } else if (f > 0) {
                     d = e.left - t.collisionPosition.marginLeft + l + c + h - o;
-                    if (d > 0 || i(d) < f)e.left += l + c + h
+                    if (d > 0 || i(d) < f) e.left += l + c + h
                 }
             }, top: function (e, t) {
                 var n = t.within, r = n.offset.top + n.scrollTop, s = n.height, o = n.isWindow ? n.scrollTop : n.offset.top, u = e.top - t.collisionPosition.marginTop, a = u - o, f = u + t.collisionHeight - s - o, l = t.my[1] === "top", c = l ? -t.elemHeight : t.my[1] === "bottom" ? t.elemHeight : 0, h = t.at[1] === "top" ? t.targetHeight : t.at[1] === "bottom" ? -t.targetHeight : 0, p = -2 * t.offset[1], d, v;
@@ -4952,7 +4952,7 @@
         _spin: function (e, t) {
             var n = this.value() || 0;
             this.counter || (this.counter = 1), n = this._adjustValue(n + e * this._increment(this.counter));
-            if (!this.spinning || this._trigger("spin", t, {value: n}) !== !1)this._value(n), this.counter++
+            if (!this.spinning || this._trigger("spin", t, {value: n}) !== !1) this._value(n), this.counter++
         },
         _increment: function (t) {
             var n = this.options.incremental;
@@ -5067,7 +5067,7 @@
                 i && this.tabs.each(function (t, n) {
                     if (e(n).attr("aria-controls") === i)return r = t, !1
                 }), r === null && (r = this.tabs.index(this.tabs.filter(".ui-tabs-active")));
-                if (r === null || r === -1)r = this.tabs.length ? 0 : !1
+                if (r === null || r === -1) r = this.tabs.length ? 0 : !1
             }
             r !== !1 && (r = this.tabs.index(this.tabs.eq(r)), r === -1 && (r = n.collapsible ? !1 : 0)), n.active = r, !n.collapsible && n.active === !1 && this.anchors.length && (n.active = 0), e.isArray(n.disabled) && (n.disabled = e.unique(n.disabled.concat(e.map(this.tabs.filter(".ui-state-disabled"), function (e) {
                 return t.tabs.index(e)
@@ -5286,7 +5286,7 @@
         disable: function (n) {
             var r = this.options.disabled;
             if (r === !0)return;
-            if (n === t)r = !0; else {
+            if (n === t) r = !0; else {
                 n = this._getIndex(n);
                 if (e.inArray(n, r) !== -1)return;
                 e.isArray(r) ? r = e.merge([n], r).sort() : r = [n]
@@ -5379,11 +5379,11 @@
     }), e.widget("ui.tabs", e.ui.tabs, {
         options: {enable: null, disable: null}, enable: function (t) {
             var n = this.options, r;
-            if (t && n.disabled === !0 || e.isArray(n.disabled) && e.inArray(t, n.disabled) !== -1)r = !0;
+            if (t && n.disabled === !0 || e.isArray(n.disabled) && e.inArray(t, n.disabled) !== -1) r = !0;
             this._superApply(arguments), r && this._trigger("enable", null, this._ui(this.anchors[t], this.panels[t]))
         }, disable: function (t) {
             var n = this.options, r;
-            if (t && n.disabled === !1 || e.isArray(n.disabled) && e.inArray(t, n.disabled) === -1)r = !0;
+            if (t && n.disabled === !1 || e.isArray(n.disabled) && e.inArray(t, n.disabled) === -1) r = !0;
             this._superApply(arguments), r && this._trigger("disable", null, this._ui(this.anchors[t], this.panels[t]))
         }
     }), e.widget("ui.tabs", e.ui.tabs, {
@@ -5596,8 +5596,8 @@
                     this._removeTooltip(s)
                 }
             };
-            if (!t || t.type === "mouseover")o.mouseleave = "close";
-            if (!t || t.type === "focusin")o.focusout = "close";
+            if (!t || t.type === "mouseover") o.mouseleave = "close";
+            if (!t || t.type === "focusin") o.focusout = "close";
             this._on(!0, r, o)
         }, close: function (t) {
             var n = this, i = e(t ? t.currentTarget : this.element), s = this._find(i);

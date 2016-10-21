@@ -1,4 +1,39 @@
-[2014-08-25 09: 28: 42, 163][INFO][index.search.slowlog.query] [Robert Kelly] [ezsonar_2014-08-25][0] took[5s], took_millis[5047], types[message], stats[], search_type[QUERY_THEN_FETCH], total_shards[96], source[{"size": 0, "query": {"filtered":{"query": {"match_all": {}},"filter": {"and": {"filters":[{"range": {"_start_at": {"from": 1408760917, "to": 1408930117, "include_lower": true, "include_upper": false}}}, {"term": {"streams": "532849bae4b03b2246682400"}}]}}}}, "facets": {"_src_tcp":{"terms": {"field": "_src_tcp", "size":20}}, "_protocol": {"terms": {"field": "_protocol", "size": 20}},"_trans_id": {"terms": {"field": "_trans_id","size": 20}}, "_dport": {"terms": {"field": "_dport", "size": 20}}, "_sport": {"terms": {"field":"_sport", "size": 20}}, "_dst_ip":{"terms": {"field": "_dst_ip", "size":20}}, "_trans_ref.itemId": {"terms": {"field": "_trans_ref.itemId", "size": 20}},"_trans_ref.categoryId": {"terms": {"field": "_trans_ref.categoryId","size": 20}}, "_trans_ref.productId": {"terms": {"field": "_trans_ref.productId", "size": 20}}, "_ret_code.HTTP": {"terms": {"field":"_ret_code.HTTP", "size": 20}}, "_ret_code.probe_st":{"terms": {"field": "_ret_code.probe_st", "size":20}}, "_ret_code.response": {"terms": {"field": "_ret_code.response", "size": 20}},"_ret_code_x.fc": {"terms": {"field": "_ret_code_x.fc","size": 20}}}}], extra_source[],
+[
+  2014
+  -0
+  8
+  -25
+  0
+  9
+  :
+  28
+  :
+  42,
+  163
+][
+  INFO
+][
+  index
+  .
+  search
+  .
+  slowlog
+  .
+  query
+] [
+  Robert
+  Kelly
+] [
+  ezsonar_2014
+  -0
+  8
+  -25
+][
+  0
+] took[
+  5
+  s
+], took_millis[5047], types[message], stats[], search_type[QUERY_THEN_FETCH], total_shards[96], source[{"size": 0, "query": {"filtered":{"query": {"match_all": {}},"filter": {"and": {"filters":[{"range": {"_start_at": {"from": 1408760917, "to": 1408930117, "include_lower": true, "include_upper": false}}}, {"term": {"streams": "532849bae4b03b2246682400"}}]}}}}, "facets": {"_src_tcp":{"terms": {"field": "_src_tcp", "size":20}}, "_protocol": {"terms": {"field": "_protocol", "size": 20}},"_trans_id": {"terms": {"field": "_trans_id","size": 20}}, "_dport": {"terms": {"field": "_dport", "size": 20}}, "_sport": {"terms": {"field":"_sport", "size": 20}}, "_dst_ip":{"terms": {"field": "_dst_ip", "size":20}}, "_trans_ref.itemId": {"terms": {"field": "_trans_ref.itemId", "size": 20}},"_trans_ref.categoryId": {"terms": {"field": "_trans_ref.categoryId","size": 20}}, "_trans_ref.productId": {"terms": {"field": "_trans_ref.productId", "size": 20}}, "_ret_code.HTTP": {"terms": {"field":"_ret_code.HTTP", "size": 20}}, "_ret_code.probe_st":{"terms": {"field": "_ret_code.probe_st", "size":20}}, "_ret_code.response": {"terms": {"field": "_ret_code.response", "size": 20}},"_ret_code_x.fc": {"terms": {"field": "_ret_code_x.fc","size": 20}}}}], extra_source[],
 [2014-08-25 09: 28: 42, 279][INFO][index.search.slowlog.query] [Robert Kelly] [ezsonar_2014-08-25][1] took[5.1s], took_millis[5165], types[message], stats[], search_type[QUERY_THEN_FETCH], total_shards[96], source[{"size": 0, "query": {"filtered":{"query": {"match_all": {}},"filter": {"and": {"filters":[{"range": {"_start_at": {"from": 1408760917, "to": 1408930117, "include_lower": true, "include_upper": false}}}, {"term": {"streams": "532849bae4b03b2246682400"}}]}}}}, "facets": {"_src_tcp":{"terms": {"field": "_src_tcp", "size":20}}, "_protocol": {"terms": {"field": "_protocol", "size": 20}},"_trans_id": {"terms": {"field": "_trans_id","size": 20}}, "_dport": {"terms": {"field": "_dport", "size": 20}}, "_sport": {"terms": {"field":"_sport", "size": 20}}, "_dst_ip":{"terms": {"field": "_dst_ip", "size":20}}, "_trans_ref.itemId": {"terms": {"field": "_trans_ref.itemId", "size": 20}},"_trans_ref.categoryId": {"terms": {"field": "_trans_ref.categoryId","size": 20}}, "_trans_ref.productId": {"terms": {"field": "_trans_ref.productId", "size": 20}}, "_ret_code.HTTP": {"terms": {"field":"_ret_code.HTTP", "size": 20}}, "_ret_code.probe_st":{"terms": {"field": "_ret_code.probe_st", "size":20}}, "_ret_code.response": {"terms": {"field": "_ret_code.response", "size": 20}},"_ret_code_x.fc": {"terms": {"field": "_ret_code_x.fc","size": 20}}}}], extra_source[],
 [2014-08-25 09: 28: 42, 819][INFO][index.search.slowlog.query] [Robert Kelly] [ezsonar_2014-08-25][3] took[5.7s], took_millis[5706], types[message], stats[], search_type[QUERY_THEN_FETCH], total_shards[96], source[{"size": 0, "query": {"filtered":{"query": {"match_all": {}},"filter": {"and": {"filters":[{"range": {"_start_at": {"from": 1408760917, "to": 1408930117, "include_lower": true, "include_upper": false}}}, {"term": {"streams": "532849bae4b03b2246682400"}}]}}}}, "facets": {"_src_tcp":{"terms": {"field": "_src_tcp", "size":20}}, "_protocol": {"terms": {"field": "_protocol", "size": 20}},"_trans_id": {"terms": {"field": "_trans_id","size": 20}}, "_dport": {"terms": {"field": "_dport", "size": 20}}, "_sport": {"terms": {"field":"_sport", "size": 20}}, "_dst_ip":{"terms": {"field": "_dst_ip", "size":20}}, "_trans_ref.itemId": {"terms": {"field": "_trans_ref.itemId", "size": 20}},"_trans_ref.categoryId": {"terms": {"field": "_trans_ref.categoryId","size": 20}}, "_trans_ref.productId": {"terms": {"field": "_trans_ref.productId", "size": 20}}, "_ret_code.HTTP": {"terms": {"field":"_ret_code.HTTP", "size": 20}}, "_ret_code.probe_st":{"terms": {"field": "_ret_code.probe_st", "size":20}}, "_ret_code.response": {"terms": {"field": "_ret_code.response", "size": 20}},"_ret_code_x.fc": {"terms": {"field": "_ret_code_x.fc","size": 20}}}}], extra_source[],
 [2014-08-25 09: 29: 06, 397][WARN][index.search.slowlog.query] [Robert Kelly] [ezsonar_2014-08-24][2] took[29.2s], took_millis[29295], types[message], stats[], search_type[QUERY_THEN_FETCH], total_shards[96], source[{"size": 0, "query": {"filtered":{"query": {"match_all": {}},"filter": {"and": {"filters":[{"range": {"_start_at": {"from": 1408760917, "to": 1408930117, "include_lower": true, "include_upper": false}}}, {"term": {"streams": "532849bae4b03b2246682400"}}]}}}}, "facets": {"_src_tcp":{"terms": {"field": "_src_tcp", "size":20}}, "_protocol": {"terms": {"field": "_protocol", "size": 20}},"_trans_id": {"terms": {"field": "_trans_id","size": 20}}, "_dport": {"terms": {"field": "_dport", "size": 20}}, "_sport": {"terms": {"field":"_sport", "size": 20}}, "_dst_ip":{"terms": {"field": "_dst_ip", "size":20}}, "_trans_ref.itemId": {"terms": {"field": "_trans_ref.itemId", "size": 20}},"_trans_ref.categoryId": {"terms": {"field": "_trans_ref.categoryId","size": 20}}, "_trans_ref.productId": {"terms": {"field": "_trans_ref.productId", "size": 20}}, "_ret_code.HTTP": {"terms": {"field":"_ret_code.HTTP", "size": 20}}, "_ret_code.probe_st":{"terms": {"field": "_ret_code.probe_st", "size":20}}, "_ret_code.response": {"terms": {"field": "_ret_code.response", "size": 20}},"_ret_code_x.fc": {"terms": {"field": "_ret_code_x.fc","size": 20}}}}], extra_source[],

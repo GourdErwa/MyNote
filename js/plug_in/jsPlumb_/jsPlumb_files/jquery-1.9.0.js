@@ -14,31 +14,31 @@
 (function (window, undefined) {
     "use strict";
     var
-    // A central reference to the root jQuery(document)
+        // A central reference to the root jQuery(document)
         rootjQuery,
 
-    // The deferred used on DOM ready
+        // The deferred used on DOM ready
         readyList,
 
-    // Use the correct document accordingly with window argument (sandbox)
+        // Use the correct document accordingly with window argument (sandbox)
         document = window.document,
         location = window.location,
 
-    // Map over jQuery in case of overwrite
+        // Map over jQuery in case of overwrite
         _jQuery = window.jQuery,
 
-    // Map over the $ in case of overwrite
+        // Map over the $ in case of overwrite
         _$ = window.$,
 
-    // [[Class]] -> type pairs
+        // [[Class]] -> type pairs
         class2type = {},
 
-    // List of deleted data cache ids, so we can reuse them
+        // List of deleted data cache ids, so we can reuse them
         core_deletedIds = [],
 
         core_version = "1.9.0",
 
-    // Save a reference to some core methods
+        // Save a reference to some core methods
         core_concat = core_deletedIds.concat,
         core_push = core_deletedIds.push,
         core_slice = core_deletedIds.slice,
@@ -47,45 +47,45 @@
         core_hasOwn = class2type.hasOwnProperty,
         core_trim = core_version.trim,
 
-    // Define a local copy of jQuery
+        // Define a local copy of jQuery
         jQuery = function (selector, context) {
             // The jQuery object is actually just the init constructor 'enhanced'
             return new jQuery.fn.init(selector, context, rootjQuery);
         },
 
-    // Used for matching numbers
+        // Used for matching numbers
         core_pnum = /[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,
 
-    // Used for splitting on whitespace
+        // Used for splitting on whitespace
         core_rnotwhite = /\S+/g,
 
-    // Make sure we trim BOM and NBSP (here's looking at you, Safari 5.0 and IE)
+        // Make sure we trim BOM and NBSP (here's looking at you, Safari 5.0 and IE)
         rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
-    // A simple way to check for HTML strings
-    // Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
-    // Strict HTML recognition (#11290: must start with <)
+        // A simple way to check for HTML strings
+        // Prioritize #id over <tag> to avoid XSS via location.hash (#9521)
+        // Strict HTML recognition (#11290: must start with <)
         rquickExpr = /^(?:(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 
-    // Match a standalone tag
+        // Match a standalone tag
         rsingleTag = /^<(\w+)\s*\/?>(?:<\/\1>|)$/,
 
-    // JSON RegExp
+        // JSON RegExp
         rvalidchars = /^[\],:{}\s]*$/,
         rvalidbraces = /(?:^|:|,)(?:\s*\[)+/g,
         rvalidescape = /\\(?:["\\\/bfnrt]|u[\da-fA-F]{4})/g,
         rvalidtokens = /"[^"\\\r\n]*"|true|false|null|-?(?:\d+\.|)\d+(?:[eE][+-]?\d+|)/g,
 
-    // Matches dashed string for camelizing
+        // Matches dashed string for camelizing
         rmsPrefix = /^-ms-/,
         rdashAlpha = /-([\da-z])/gi,
 
-    // Used by jQuery.camelCase as callback to replace()
+        // Used by jQuery.camelCase as callback to replace()
         fcamelCase = function (all, letter) {
             return letter.toUpperCase();
         },
 
-    // The ready event handler and self cleanup method
+        // The ready event handler and self cleanup method
         DOMContentLoaded = function () {
             if (document.addEventListener) {
                 document.removeEventListener("DOMContentLoaded", DOMContentLoaded, false);
@@ -992,21 +992,21 @@
 
         var // Last fire value (for non-forgettable lists)
             memory,
-        // Flag to know if list was already fired
+            // Flag to know if list was already fired
             fired,
-        // Flag to know if list is currently firing
+            // Flag to know if list is currently firing
             firing,
-        // First callback to fire (used internally by add and fireWith)
+            // First callback to fire (used internally by add and fireWith)
             firingStart,
-        // End of the loop when firing
+            // End of the loop when firing
             firingLength,
-        // Index of currently firing callback (modified by remove if needed)
+            // Index of currently firing callback (modified by remove if needed)
             firingIndex,
-        // Actual callback list
+            // Actual callback list
             list = [],
-        // Stack of fire calls for repeatable lists
+            // Stack of fire calls for repeatable lists
             stack = !options.once && [],
-        // Fire callbacks
+            // Fire callbacks
             fire = function (data) {
                 memory = options.memory && data;
                 fired = true;
@@ -1033,7 +1033,7 @@
                     }
                 }
             },
-        // Actual Callbacks object
+            // Actual Callbacks object
             self = {
                 // Add a callback or a collection of callbacks to the list
                 add: function () {
@@ -1238,13 +1238,13 @@
                 resolveValues = core_slice.call(arguments),
                 length = resolveValues.length,
 
-            // the count of uncompleted subordinates
+                // the count of uncompleted subordinates
                 remaining = length !== 1 || ( subordinate && jQuery.isFunction(subordinate.promise) ) ? length : 0,
 
-            // the master Deferred. If resolveValues consist of only a single Deferred, just use that.
+                // the master Deferred. If resolveValues consist of only a single Deferred, just use that.
                 deferred = remaining === 1 ? subordinate : jQuery.Deferred(),
 
-            // Update function for both resolve and progress values
+                // Update function for both resolve and progress values
                 updateFunc = function (i, contexts, values) {
                     return function (value) {
                         contexts[i] = this;
@@ -1531,16 +1531,16 @@
             internalKey = jQuery.expando,
             getByName = typeof name === "string",
 
-        // We have to handle DOM nodes and JS objects differently because IE6-7
-        // can't GC object references properly across the DOM-JS boundary
+            // We have to handle DOM nodes and JS objects differently because IE6-7
+            // can't GC object references properly across the DOM-JS boundary
             isNode = elem.nodeType,
 
-        // Only DOM nodes need the global jQuery cache; JS object data is
-        // attached directly to the object so GC can occur automatically
+            // Only DOM nodes need the global jQuery cache; JS object data is
+            // attached directly to the object so GC can occur automatically
             cache = isNode ? jQuery.cache : elem,
 
-        // Only defining an ID for JS objects if its cache already exists allows
-        // the code to shortcut on the same path as a DOM node with no cache
+            // Only defining an ID for JS objects if its cache already exists allows
+            // the code to shortcut on the same path as a DOM node with no cache
             id = isNode ? elem[internalKey] : elem[internalKey] && internalKey;
 
         // Avoid doing any more work than we need to when trying to get data on an
@@ -1625,7 +1625,7 @@
 
             isNode = elem.nodeType,
 
-        // See jQuery.data for more information
+            // See jQuery.data for more information
             cache = isNode ? jQuery.cache : elem,
             id = isNode ? elem[jQuery.expando] : jQuery.expando;
 
@@ -2468,10 +2468,10 @@
     boolHook = {
         get: function (elem, name) {
             var
-            // Use .prop to determine if this attribute is understood as boolean
+                // Use .prop to determine if this attribute is understood as boolean
                 prop = jQuery.prop(elem, name),
 
-            // Fetch it accordingly
+                // Fetch it accordingly
                 attr = typeof prop === "boolean" && elem.getAttribute(name),
                 detail = typeof prop === "boolean" ?
 
@@ -2693,7 +2693,7 @@
             var handleObjIn, eventHandle, tmp,
                 events, t, handleObj,
                 special, handlers, type, namespaces, origType,
-            // Don't attach events to noData or text/comment nodes (but allow plain objects)
+                // Don't attach events to noData or text/comment nodes (but allow plain objects)
                 elemData = elem.nodeType !== 3 && elem.nodeType !== 8 && jQuery._data(elem);
 
             if (!elemData) {
@@ -3690,7 +3690,7 @@
             hasDuplicate,
             outermostContext,
 
-        // Local document vars
+            // Local document vars
             setDocument,
             document,
             docElem,
@@ -3701,7 +3701,7 @@
             contains,
             sortOrder,
 
-        // Instance-specific data
+            // Instance-specific data
             expando = "sizzle" + -(new Date()),
             preferredDoc = window.document,
             support = {},
@@ -3711,16 +3711,16 @@
             tokenCache = createCache(),
             compilerCache = createCache(),
 
-        // General-purpose constants
+            // General-purpose constants
             strundefined = typeof undefined,
             MAX_NEGATIVE = 1 << 31,
 
-        // Array methods
+            // Array methods
             arr = [],
             pop = arr.pop,
             push = arr.push,
             slice = arr.slice,
-        // Use a stripped-down indexOf if we can't use a native one
+            // Use a stripped-down indexOf if we can't use a native one
             indexOf = arr.indexOf || function (elem) {
                     var i = 0,
                         len = this.length;
@@ -3733,32 +3733,32 @@
                 },
 
 
-        // Regular expressions
+            // Regular expressions
 
-        // Whitespace characters http://www.w3.org/TR/css3-selectors/#whitespace
+            // Whitespace characters http://www.w3.org/TR/css3-selectors/#whitespace
             whitespace = "[\\x20\\t\\r\\n\\f]",
-        // http://www.w3.org/TR/css3-syntax/#characters
+            // http://www.w3.org/TR/css3-syntax/#characters
             characterEncoding = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",
 
-        // Loosely modeled on CSS identifier characters
-        // An unquoted value should be a CSS identifier http://www.w3.org/TR/css3-selectors/#attribute-selectors
-        // Proper syntax: http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
+            // Loosely modeled on CSS identifier characters
+            // An unquoted value should be a CSS identifier http://www.w3.org/TR/css3-selectors/#attribute-selectors
+            // Proper syntax: http://www.w3.org/TR/CSS21/syndata.html#value-def-identifier
             identifier = characterEncoding.replace("w", "w#"),
 
-        // Acceptable operators http://www.w3.org/TR/selectors/#attribute-selectors
+            // Acceptable operators http://www.w3.org/TR/selectors/#attribute-selectors
             operators = "([*^$|!~]?=)",
             attributes = "\\[" + whitespace + "*(" + characterEncoding + ")" + whitespace +
                 "*(?:" + operators + whitespace + "*(?:(['\"])((?:\\\\.|[^\\\\])*?)\\3|(" + identifier + ")|)|)" + whitespace + "*\\]",
 
-        // Prefer arguments quoted,
-        //   then not containing pseudos/brackets,
-        //   then attribute selectors/non-parenthetical expressions,
-        //   then anything else
-        // These preferences are here to reduce the number of selectors
-        //   needing tokenize in the PSEUDO preFilter
+            // Prefer arguments quoted,
+            //   then not containing pseudos/brackets,
+            //   then attribute selectors/non-parenthetical expressions,
+            //   then anything else
+            // These preferences are here to reduce the number of selectors
+            //   needing tokenize in the PSEUDO preFilter
             pseudos = ":(" + characterEncoding + ")(?:\\(((['\"])((?:\\\\.|[^\\\\])*?)\\3|((?:\\\\.|[^\\\\()[\\]]|" + attributes.replace(3, 8) + ")*)|.*)\\)|)",
 
-        // Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
+            // Leading and non-escaped trailing whitespace, capturing some non-whitespace characters preceding the latter
             rtrim = new RegExp("^" + whitespace + "+|((?:^|[^\\\\])(?:\\\\.)*)" + whitespace + "+$", "g"),
 
             rcomma = new RegExp("^" + whitespace + "*," + whitespace + "*"),
@@ -3786,7 +3786,7 @@
 
             rnative = /\{\s*\[native code\]\s*\}/,
 
-        // Easily-parseable/retrievable ID or TAG or CLASS selectors
+            // Easily-parseable/retrievable ID or TAG or CLASS selectors
             rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
 
             rinputs = /^(?:input|select|textarea|button)$/i,
@@ -3795,7 +3795,7 @@
             rescape = /'|\\/g,
             rattributeQuotes = /\=[\x20\t\r\n\f]*([^'"\]]*)[\x20\t\r\n\f]*\]/g,
 
-        // CSS escapes http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
+            // CSS escapes http://www.w3.org/TR/CSS21/syndata.html#escaped-characters
             runescape = /\\([\da-fA-F]{1,6}[\x20\t\r\n\f]?|.)/g,
             funescape = function (_, escaped) {
                 var high = "0x" + escaped - 0x10000;
@@ -3879,7 +3879,7 @@
 
         function Sizzle(selector, context, results, seed) {
             var match, elem, m, nodeType,
-            // QSA vars
+                // QSA vars
                 i, groups, old, nid, newContext, newSelector;
 
             if (( context ? context.ownerDocument || context : preferredDoc ) !== document) {
@@ -5173,10 +5173,10 @@
                     postMap = [],
                     preexisting = results.length,
 
-                // Get initial elements from seed or context
+                    // Get initial elements from seed or context
                     elems = seed || multipleContexts(selector || "*", context.nodeType ? [context] : context, []),
 
-                // Prefilter to get matcher input, preserving a map for seed-results synchronization
+                    // Prefilter to get matcher input, preserving a map for seed-results synchronization
                     matcherIn = preFilter && ( seed || !selector ) ?
                         condense(elems, preMap, preFilter, context, xml) :
                         elems,
@@ -5260,7 +5260,7 @@
                 implicitRelative = leadingRelative || Expr.relative[" "],
                 i = leadingRelative ? 1 : 0,
 
-            // The foundational matcher ensures that elements are reachable from top-level context(s)
+                // The foundational matcher ensures that elements are reachable from top-level context(s)
                 matchContext = addCombinator(function (elem) {
                     return elem === checkContext;
                 }, implicitRelative, true),
@@ -5318,9 +5318,9 @@
                         unmatched = seed && [],
                         outermost = expandContext != null,
                         contextBackup = outermostContext,
-                    // We must always have either seed elements or context
+                        // We must always have either seed elements or context
                         elems = seed || byElement && Expr.find["TAG"]("*", expandContext && context.parentNode || context),
-                    // Nested matchers should use non-integer dirruns
+                        // Nested matchers should use non-integer dirruns
                         dirrunsUnique = (dirruns += contextBackup == null ? 1 : Math.E);
 
                     if (outermost) {
@@ -5533,7 +5533,7 @@
         rparentsprev = /^(?:parents|prev(?:Until|All))/,
         isSimple = /^.[^:#\[\.,]*$/,
         rneedsContext = jQuery.expr.match.needsContext,
-    // methods guaranteed to produce a unique set when starting from a unique set
+        // methods guaranteed to produce a unique set when starting from a unique set
         guaranteedUnique = {
             children: true,
             contents: true,
@@ -5829,13 +5829,13 @@
         rhtml = /<|&#?\w+;/,
         rnoInnerhtml = /<(?:script|style|link)/i,
         manipulation_rcheckableType = /^(?:checkbox|radio)$/i,
-    // checked="checked" or checked
+        // checked="checked" or checked
         rchecked = /checked\s*(?:[^=]|=\s*.checked.)/i,
         rscriptType = /^$|\/(?:java|ecma)script/i,
         rscriptTypeMasked = /^true\/(.*)/,
         rcleanScript = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g,
 
-    // We have to close these tags to support XHTML (#13200)
+        // We have to close these tags to support XHTML (#13200)
         wrapMap = {
             option: [1, "<select multiple='multiple'>", "</select>"],
             legend: [1, "<fieldset>", "</fieldset>"],
@@ -6429,7 +6429,7 @@
             var contains, elem, tag, tmp, wrap, tbody, j,
                 l = elems.length,
 
-            // Ensure a safe fragment
+                // Ensure a safe fragment
                 safe = createSafeFragment(context),
 
                 nodes = [],
@@ -6608,8 +6608,8 @@
         ralpha = /alpha\([^)]*\)/i,
         ropacity = /opacity\s*=\s*([^)]*)/,
         rposition = /^(top|right|bottom|left)$/,
-    // swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
-    // see here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
+        // swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
+        // see here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
         rdisplayswap = /^(none|table(?!-c[ea]).+)/,
         rmargin = /^margin/,
         rnumsplit = new RegExp("^(" + core_pnum + ")(.*)$", "i"),
@@ -6912,7 +6912,7 @@
             var width, minWidth, maxWidth,
                 computed = _computed || getStyles(elem),
 
-            // getPropertyValue is only needed for .css('filter') in IE9, see #12537
+                // getPropertyValue is only needed for .css('filter') in IE9, see #12537
                 ret = computed ? computed.getPropertyValue(name) || computed[name] : undefined,
                 style = elem.style;
 
@@ -7256,7 +7256,7 @@
                 var i = 0,
                     expanded = {},
 
-                // assumes a single number if not a string
+                    // assumes a single number if not a string
                     parts = typeof value === "string" ? value.split(" ") : [value];
 
                 for (; i < 4; i++) {
@@ -7373,7 +7373,7 @@
     }
 
     var
-    // Document location
+        // Document location
         ajaxLocParts,
         ajaxLocation,
 
@@ -7383,34 +7383,34 @@
         rhash = /#.*$/,
         rts = /([?&])_=[^&]*/,
         rheaders = /^(.*?):[ \t]*([^\r\n]*)\r?$/mg, // IE leaves an \r character at EOL
-    // #7653, #8125, #8152: local protocol detection
+        // #7653, #8125, #8152: local protocol detection
         rlocalProtocol = /^(?:about|app|app-storage|.+-extension|file|res|widget):$/,
         rnoContent = /^(?:GET|HEAD)$/,
         rprotocol = /^\/\//,
         rurl = /^([\w.+-]+:)(?:\/\/([^\/?#:]*)(?::(\d+)|)|)/,
 
-    // Keep a copy of the old load method
+        // Keep a copy of the old load method
         _load = jQuery.fn.load,
 
-    /* Prefilters
-     * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
-     * 2) These are called:
-     *    - BEFORE asking for a transport
-     *    - AFTER param serialization (s.data is a string if s.processData is true)
-     * 3) key is the dataType
-     * 4) the catchall symbol "*" can be used
-     * 5) execution will start with transport dataType and THEN continue down to "*" if needed
-     */
+        /* Prefilters
+         * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
+         * 2) These are called:
+         *    - BEFORE asking for a transport
+         *    - AFTER param serialization (s.data is a string if s.processData is true)
+         * 3) key is the dataType
+         * 4) the catchall symbol "*" can be used
+         * 5) execution will start with transport dataType and THEN continue down to "*" if needed
+         */
         prefilters = {},
 
-    /* Transports bindings
-     * 1) key is the dataType
-     * 2) the catchall symbol "*" can be used
-     * 3) selection will start with transport dataType and THEN go to "*" if needed
-     */
+        /* Transports bindings
+         * 1) key is the dataType
+         * 2) the catchall symbol "*" can be used
+         * 3) selection will start with transport dataType and THEN go to "*" if needed
+         */
         transports = {},
 
-    // Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
+        // Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
         allTypes = "*/".concat("*");
 
 // #8138, IE may throw an exception when accessing
@@ -7691,40 +7691,40 @@
             options = options || {};
 
             var transport,
-            // URL without anti-cache param
+                // URL without anti-cache param
                 cacheURL,
-            // Response headers
+                // Response headers
                 responseHeadersString,
                 responseHeaders,
-            // timeout handle
+                // timeout handle
                 timeoutTimer,
-            // Cross-domain detection vars
+                // Cross-domain detection vars
                 parts,
-            // To know if global events are to be dispatched
+                // To know if global events are to be dispatched
                 fireGlobals,
-            // Loop variable
+                // Loop variable
                 i,
-            // Create the final options object
+                // Create the final options object
                 s = jQuery.ajaxSetup({}, options),
-            // Callbacks context
+                // Callbacks context
                 callbackContext = s.context || s,
-            // Context for global events is callbackContext if it is a DOM node or jQuery collection
+                // Context for global events is callbackContext if it is a DOM node or jQuery collection
                 globalEventContext = s.context && ( callbackContext.nodeType || callbackContext.jquery ) ?
                     jQuery(callbackContext) :
                     jQuery.event,
-            // Deferreds
+                // Deferreds
                 deferred = jQuery.Deferred(),
                 completeDeferred = jQuery.Callbacks("once memory"),
-            // Status-dependent callbacks
+                // Status-dependent callbacks
                 statusCode = s.statusCode || {},
-            // Headers (they are sent all at once)
+                // Headers (they are sent all at once)
                 requestHeaders = {},
                 requestHeadersNames = {},
-            // The jqXHR state
+                // The jqXHR state
                 state = 0,
-            // Default abort message
+                // Default abort message
                 strAbort = "canceled",
-            // Fake xhr
+                // Fake xhr
                 jqXHR = {
                     readyState: 0,
 
@@ -8139,7 +8139,7 @@
         var conv, conv2, current, tmp,
             converters = {},
             i = 0,
-        // Work with a copy of dataTypes in case we need to modify it for conversion
+            // Work with a copy of dataTypes in case we need to modify it for conversion
             dataTypes = s.dataTypes.slice(),
             prev = dataTypes[0];
 
@@ -8390,7 +8390,7 @@
     });
     var xhrCallbacks, xhrSupported,
         xhrId = 0,
-    // #5280: Internet Explorer will keep connections alive if we don't abort on unload
+        // #5280: Internet Explorer will keep connections alive if we don't abort on unload
         xhrOnUnloadAbort = window.ActiveXObject && function () {
                 // Abort all pending requests
                 var key;
@@ -8696,7 +8696,7 @@
                 }
                 var currentTime = fxNow || createFxNow(),
                     remaining = Math.max(0, animation.startTime + animation.duration - currentTime),
-                // archaic crash bug won't allow us to use 1 - ( 0.5 || 0 ) (#12497)
+                    // archaic crash bug won't allow us to use 1 - ( 0.5 || 0 ) (#12497)
                     temp = remaining / animation.duration || 0,
                     percent = 1 - temp,
                     index = 0,
@@ -8732,8 +8732,8 @@
                 },
                 stop: function (gotoEnd) {
                     var index = 0,
-                    // if we are going to the end, we want to run all the tweens
-                    // otherwise we skip this part
+                        // if we are going to the end, we want to run all the tweens
+                        // otherwise we skip this part
                         length = gotoEnd ? animation.tweens.length : 0;
                     if (stopped) {
                         return this;

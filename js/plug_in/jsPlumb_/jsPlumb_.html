@@ -162,14 +162,14 @@
 
             //将连接点绑定到html元素上
             var anchors = [
-                        [1, 0.2, 1, 0],
-                        [0.8, 1, 0, 1],
-                        [0, 0.8, -1, 0],
-                        [0.2, 0, 0, -1]
-                    ],
-                    maxConnectionsCallback = function (info) {
-                        alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
-                    };
+                    [1, 0.2, 1, 0],
+                    [0.8, 1, 0, 1],
+                    [0, 0.8, -1, 0],
+                    [0.2, 0, 0, -1]
+                ],
+                maxConnectionsCallback = function (info) {
+                    alert("Cannot drop connection " + info.connection.id + " : maxConnections has been reached on Endpoint " + info.endpoint.id);
+                };
 
 
             var e1 = jsPlumb.addEndpoint("state2", {anchor: "LeftMiddle"}, exampleEndpoint1);//将exampleEndpoint1类型的点绑定到id为state2的元素上

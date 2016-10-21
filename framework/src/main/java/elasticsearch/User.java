@@ -81,7 +81,7 @@ public class User {
      * @return XContentBuilder
      * @throws IOException IOException
      */
-    public static XContentBuilder getXContentBuilder(User user) throws IOException {
+    static XContentBuilder getXContentBuilder(User user) throws IOException {
         return XContentFactory.jsonBuilder()
                 .startObject()
                 .field("@timestamp", System.currentTimeMillis())

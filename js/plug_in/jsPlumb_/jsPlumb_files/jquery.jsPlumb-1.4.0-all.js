@@ -117,7 +117,7 @@
                     }
                     return fromString;
                 },
-            // process one entry.
+                // process one entry.
                 _one = function (d) {
                     if (d != null) {
                         if (jsPlumbUtil.isString(d)) {
@@ -430,7 +430,7 @@
 
     var canvasAvailable = !!document.createElement('canvas').getContext,
         svgAvailable = !!window.SVGAngle || document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#BasicStructure", "1.1"),
-    // http://stackoverflow.com/questions/654112/how-do-you-detect-support-for-vml-or-svg-in-a-browser
+        // http://stackoverflow.com/questions/654112/how-do-you-detect-support-for-vml-or-svg-in-a-browser
         vmlAvailable = function () {
             if (vmlAvailable.vml == undefined) {
                 var a = document.body.appendChild(document.createElement('div'));
@@ -448,7 +448,7 @@
      */
     var DragManager = function (_currentInstance) {
         var _draggables = {}, _dlist = [], _delements = {}, _elementsWithEndpoints = {},
-        // elementids mapped to the draggable to which they belong.
+            // elementids mapped to the draggable to which they belong.
             _draggablesForElements = {};
 
         /**
@@ -676,7 +676,7 @@
         _indexOf = jsPlumbUtil.indexOf,
         _removeWithFunction = jsPlumbUtil.removeWithFunction,
         _remove = jsPlumbUtil.remove,
-    // TODO support insert index
+        // TODO support insert index
         _addWithFunction = jsPlumbUtil.addWithFunction,
         _addToList = jsPlumbUtil.addToList,
         /**
@@ -733,11 +733,11 @@
             return "" + (new Date()).getTime();
         },
 
-    /*
-     * Class:jsPlumbUIComponent
-     * Abstract superclass for UI components Endpoint and Connection.  Provides the abstraction of paintStyle/hoverPaintStyle,
-     * and also extends jsPlumbUtil.EventGenerator to provide the bind and fire methods.
-     */
+        /*
+         * Class:jsPlumbUIComponent
+         * Abstract superclass for UI components Endpoint and Connection.  Provides the abstraction of paintStyle/hoverPaintStyle,
+         * and also extends jsPlumbUtil.EventGenerator to provide the bind and fire methods.
+         */
         jsPlumbUIComponent = window.jsPlumbUIComponent = function (params) {
             var self = this,
                 a = arguments,
@@ -1144,7 +1144,7 @@
                         // ["Arrow", { width:50 }, {location:0.7}]
                         // which merges the 3rd arg into the 2nd.
                         var type = o[0],
-                        // make a copy of the object so as not to mess up anyone else's reference...
+                            // make a copy of the object so as not to mess up anyone else's reference...
                             p = jsPlumb.extend({component: self, _jsPlumb: self._jsPlumb}, o[1]);
                         if (o.length == 3) jsPlumb.extend(p, o[2]);
                         _newOverlay = new jsPlumb.Overlays[self._jsPlumb.getRenderMode()][type](p);
@@ -1440,7 +1440,7 @@
             draggableStates = {},
             canvasList = [],
             sizes = [],
-        //listeners = {}, // a map: keys are event types, values are lists of listeners.
+            //listeners = {}, // a map: keys are event types, values are lists of listeners.
             DEFAULT_SCOPE = this.Defaults.Scope,
             renderMode = null,  // will be set in init()
 
@@ -1575,9 +1575,9 @@
                 }
             },
 
-        /*
-         * prepares a final params object that can be passed to _newConnection, taking into account defaults, events, etc.
-         */
+            /*
+             * prepares a final params object that can be passed to _newConnection, taking into account defaults, events, etc.
+             */
             _prepareConnectionParams = function (params, referenceParams) {
                 var _p = jsPlumb.extend({
                     sourceIsNew: true,
@@ -1950,7 +1950,7 @@
                 return {o: offsets[elId], s: sizes[elId]};
             },
 
-        // TODO comparison performance
+            // TODO comparison performance
             _getCachedData = function (elId) {
                 var o = offsets[elId];
                 if (!o)
@@ -2814,7 +2814,7 @@
                         _currentInstance.currentlyDragging = false;
                         var draggable = _gel(jpcl.getDragObject(arguments)),
                             id = _att(draggable, "dragId"),
-                        // restore the original scope if necessary (issue 57)
+                            // restore the original scope if necessary (issue 57)
                             scope = _att(draggable, "originalScope"),
                             jpc = floatingConnections[id],
                             source = jpc.endpoints[0],
@@ -3718,10 +3718,10 @@
             jsPlumbInstance = params.jsPlumbInstance,
             jpcl = jsPlumb.CurrentLibrary,
             floatingConnections = {},
-        // TODO this functions uses a crude method of determining orientation between two elements.
-        // 'diagonal' should be chosen when the angle of the line between the two centers is around
-        // one of 45, 135, 225 and 315 degrees. maybe +- 15 degrees.
-        // used by AnchorManager.redraw
+            // TODO this functions uses a crude method of determining orientation between two elements.
+            // 'diagonal' should be chosen when the angle of the line between the two centers is around
+            // one of 45, 135, 225 and 315 degrees. maybe +- 15 degrees.
+            // used by AnchorManager.redraw
             calculateOrientation = function (sourceId, targetId, sd, td, sourceAnchor, targetAnchor) {
 
                 if (sourceId === targetId) return {
@@ -3774,7 +3774,7 @@
                 out.a = possiblyTranslateEdges(out.a);
                 return out;
             },
-        // used by placeAnchors function
+            // used by placeAnchors function
             placeAnchorsOnLine = function (desc, elementDimensions, elementPosition,
                                            connections, horizontal, otherMultiplier, reverse) {
                 var a = [], step = elementDimensions[horizontal ? 0 : 1] / (connections.length + 1);
@@ -3792,7 +3792,7 @@
 
                 return a;
             },
-        // used by edgeSortFunctions
+            // used by edgeSortFunctions
             currySort = function (reverseAngles) {
                 return function (a, b) {
                     var r = true;
@@ -3811,7 +3811,7 @@
                     return r === false ? -1 : 1;
                 };
             },
-        // used by edgeSortFunctions
+            // used by edgeSortFunctions
             leftSort = function (a, b) {
                 // first get adjusted values
                 var p1 = a[0][0] < 0 ? -Math.PI - a[0][0] : Math.PI - a[0][0],
@@ -3819,7 +3819,7 @@
                 if (p1 > p2) return 1;
                 else return a[0][1] > b[0][1] ? 1 : -1;
             },
-        // used by placeAnchors
+            // used by placeAnchors
             edgeSortFunctions = {
                 "top": function (a, b) {
                     return a[0] > b[0] ? 1 : -1
@@ -3828,11 +3828,11 @@
                 "bottom": currySort(true),
                 "left": leftSort
             },
-        // used by placeAnchors
+            // used by placeAnchors
             _sortHelper = function (_array, _fn) {
                 return _array.sort(_fn);
             },
-        // used by AnchorManager.redraw
+            // used by AnchorManager.redraw
             placeAnchors = function (elementId, _anchorLists) {
                 var cd = jsPlumbInstance.getCachedData(elementId), sS = cd.s, sO = cd.o,
                     placeSomeAnchors = function (desc, elementDimensions, elementPosition, unsortedConnections, isHorizontal, otherMultiplier, orientation) {
@@ -4373,18 +4373,18 @@
         var ref = params.reference,
             jpcl = jsPlumb.CurrentLibrary,
             jsPlumbInstance = params.jsPlumbInstance,
-        // the canvas this refers to.
+            // the canvas this refers to.
             refCanvas = params.referenceCanvas,
             size = jpcl.getSize(jpcl.getElementObject(refCanvas)),
 
-        // these are used to store the current relative position of our
-        // anchor wrt the reference anchor. they only indicate
-        // direction, so have a value of 1 or -1 (or, very rarely, 0). these
-        // values are written by the compute method, and read
-        // by the getOrientation method.
+            // these are used to store the current relative position of our
+            // anchor wrt the reference anchor. they only indicate
+            // direction, so have a value of 1 or -1 (or, very rarely, 0). these
+            // values are written by the compute method, and read
+            // by the getOrientation method.
             xDir = 0, yDir = 0,
-        // temporary member used to store an orientation when the floating
-        // anchor is hovering over another anchor.
+            // temporary member used to store an orientation when the floating
+            // anchor is hovering over another anchor.
             orientation = null,
             _lastResult = null;
 
@@ -4475,20 +4475,20 @@
             _lastAnchor = _curAnchor,
             self = this,
 
-        // helper method to calculate the distance between the centers of the two elements.
+            // helper method to calculate the distance between the centers of the two elements.
             _distance = function (anchor, cx, cy, xy, wh) {
                 var ax = xy[0] + (anchor.x * wh[0]), ay = xy[1] + (anchor.y * wh[1]),
                     acx = xy[0] + (wh[0] / 2), acy = xy[1] + (wh[1] / 2);
                 return (Math.sqrt(Math.pow(cx - ax, 2) + Math.pow(cy - ay, 2)) +
                 Math.sqrt(Math.pow(acx - ax, 2) + Math.pow(acy - ay, 2)));
             },
-        // default method uses distance between element centers.  you can provide your own method in the dynamic anchor
-        // constructor (and also to jsPlumb.makeDynamicAnchor). the arguments to it are four arrays:
-        // xy - xy loc of the anchor's element
-        // wh - anchor's element's dimensions
-        // txy - xy loc of the element of the other anchor in the connection
-        // twh - dimensions of the element of the other anchor in the connection.
-        // anchors - the list of selectable anchors
+            // default method uses distance between element centers.  you can provide your own method in the dynamic anchor
+            // constructor (and also to jsPlumb.makeDynamicAnchor). the arguments to it are four arrays:
+            // xy - xy loc of the anchor's element
+            // wh - anchor's element's dimensions
+            // txy - xy loc of the element of the other anchor in the connection
+            // twh - dimensions of the element of the other anchor in the connection.
+            // anchors - the list of selectable anchors
             _anchorSelector = params.selector || function (xy, wh, txy, twh, anchors) {
                     var cx = txy[0] + (twh[0] / 2), cy = txy[1] + (twh[1] / 2);
                     var minIdx = -1, minDist = Infinity;
@@ -6190,7 +6190,7 @@
 
                 params = params || {};
                 var elId = params.elId, ui = params.ui, recalc = params.recalc, timestamp = params.timestamp,
-                // if the moving object is not the source we must transpose the two references.
+                    // if the moving object is not the source we must transpose the two references.
                     swap = false,
                     tId = swap ? this.sourceId : this.targetId, sId = swap ? this.targetId : this.sourceId,
                     tIdx = swap ? 0 : 1, sIdx = swap ? 1 : 0;
@@ -6477,10 +6477,10 @@
                     // closest point lies on normal from given point to this line.
                     var b = y1 - (m * x1),
                         b2 = y - (m2 * x),
-                    // y1 = m.x1 + b and y1 = m2.x1 + b2
-                    // so m.x1 + b = m2.x1 + b2
-                    // x1(m - m2) = b2 - b
-                    // x1 = (b2 - b) / (m - m2)
+                        // y1 = m.x1 + b and y1 = m2.x1 + b2
+                        // so m.x1 + b = m2.x1 + b2
+                        // x1(m - m2) = b2 - b
+                        // x1 = (b2 - b) / (m - m2)
                         _x1 = (b2 - b) / (m - m2),
                         _y1 = (m * _x1) + b,
                         d = jsPlumbUtil.lineLength([x, y], [_x1, _y1]),
@@ -6649,9 +6649,9 @@
                     {x: params.cp2x, y: params.cp2y},
                     {x: params.x2, y: params.y2}
                 ],
-            // although this is not a strictly rigorous determination of bounds
-            // of a bezier curve, it works for the types of curves that this segment
-            // type produces.
+                // although this is not a strictly rigorous determination of bounds
+                // of a bezier curve, it works for the types of curves that this segment
+                // type produces.
                 bounds = {
                     minX: Math.min(params.x1, params.x2, params.cp1x, params.cp2x),
                     minY: Math.min(params.y1, params.y2, params.cp1y, params.cp2y),
@@ -7411,7 +7411,7 @@
         this.id = params.id;
         var direction = (params.direction || 1) < 0 ? -1 : 1,
             paintStyle = params.paintStyle || {lineWidth: 1},
-        // how far along the arrow the lines folding back in come to. default is 62.3%.
+            // how far along the arrow the lines folding back in come to. default is 62.3%.
             foldback = params.foldback || 0.623;
 
         this.computeMaxSize = function () {
@@ -7846,20 +7846,20 @@
             return 4;
         },
 
-    // the control point we will use depends on the faces to which each end of the connection is assigned, specifically whether or not the
-    // two faces are parallel or perpendicular.  if they are parallel then the control point lies on the midpoint of the axis in which they
-    // are parellel and varies only in the other axis; this variation is proportional to the distance that the anchor points lie from the
-    // center of that face.  if the two faces are perpendicular then the control point is at some distance from both the midpoints; the amount and
-    // direction are dependent on the orientation of the two elements. 'seg', passed in to this method, tells you which segment the target element
-    // lies in with respect to the source: 1 is top right, 2 is bottom right, 3 is bottom left, 4 is top left.
-    //
-    // sourcePos and targetPos are arrays of info about where on the source and target each anchor is located.  their contents are:
-    //
-    // 0 - absolute x
-    // 1 - absolute y
-    // 2 - proportional x in element (0 is left edge, 1 is right edge)
-    // 3 - proportional y in element (0 is top edge, 1 is bottom edge)
-    //
+        // the control point we will use depends on the faces to which each end of the connection is assigned, specifically whether or not the
+        // two faces are parallel or perpendicular.  if they are parallel then the control point lies on the midpoint of the axis in which they
+        // are parellel and varies only in the other axis; this variation is proportional to the distance that the anchor points lie from the
+        // center of that face.  if the two faces are perpendicular then the control point is at some distance from both the midpoints; the amount and
+        // direction are dependent on the orientation of the two elements. 'seg', passed in to this method, tells you which segment the target element
+        // lies in with respect to the source: 1 is top right, 2 is bottom right, 3 is bottom left, 4 is top left.
+        //
+        // sourcePos and targetPos are arrays of info about where on the source and target each anchor is located.  their contents are:
+        //
+        // 0 - absolute x
+        // 1 - absolute y
+        // 2 - proportional x in element (0 is left edge, 1 is right edge)
+        // 3 - proportional y in element (0 is top edge, 1 is bottom edge)
+        //
         _findControlPoint = function (midx, midy, segment, sourceEdge, targetEdge, dx, dy, distance, proximityLimit) {
             // TODO (maybe)
             // - if anchor pos is 0.5, make the control point take into account the relative position of the elements.
@@ -7967,8 +7967,8 @@
                     dx = (m2 == Infinity || m2 == -Infinity) ? 0 : Math.abs(curviness / 2 * Math.cos(theta2)),
                     segment = _segment(_sx, _sy, _tx, _ty),
                     distance = Math.sqrt(Math.pow(_tx - _sx, 2) + Math.pow(_ty - _sy, 2)),
-                // calculate the control point.  this code will be where we'll put in a rudimentary element avoidance scheme; it
-                // will work by extending the control point to force the curve to be, um, curvier.
+                    // calculate the control point.  this code will be where we'll put in a rudimentary element avoidance scheme; it
+                    // will work by extending the control point to force the curve to be, um, curvier.
                     _controlPoint = _findControlPoint(_midx,
                         _midy,
                         segment,
@@ -8482,8 +8482,8 @@
         _conv = jsPlumb.vml.convertValue = function (v) {
             return Math.floor(v * scale);
         },
-    // tests if the given style is "transparent" and then sets the appropriate opacity node to 0 if so,
-    // or 1 if not.  TODO in the future, support variable opacity.
+        // tests if the given style is "transparent" and then sets the appropriate opacity node to 0 if so,
+        // or 1 if not.  TODO in the future, support variable opacity.
         _maybeSetOpacity = function (styleToWrite, styleToCheck, type, component) {
             if ("transparent" === styleToCheck)
                 component.setOpacity(type, "0.0");
@@ -8532,9 +8532,9 @@
 
             _atts(node, styleToWrite);
         },
-    /*
-     * Base class for Vml endpoints and connectors. Extends jsPlumbUIComponent.
-     */
+        /*
+         * Base class for Vml endpoints and connectors. Extends jsPlumbUIComponent.
+         */
         VmlComponent = function () {
             var self = this, renderer = {};
             jsPlumb.jsPlumbUIComponent.apply(this, arguments);
@@ -8560,9 +8560,9 @@
                 displayElements.push(el);
             };
         },
-    /*
-     * Base class for Vml connectors. extends VmlComponent.
-     */
+        /*
+         * Base class for Vml connectors. extends VmlComponent.
+         */
         VmlConnector = jsPlumb.ConnectorRenderers.vml = function (params) {
             var self = this;
             self.strokeNode = null;
@@ -8636,11 +8636,11 @@
             };
         },
 
-    /*
-     *
-     * Base class for Vml Endpoints. extends VmlComponent.
-     *
-     */
+        /*
+         *
+         * Base class for Vml Endpoints. extends VmlComponent.
+         *
+         */
         VmlEndpoint = window.VmlEndpoint = function (params) {
             VmlComponent.apply(this, arguments);
             var vml = null, self = this, opacityStrokeNode = null, opacityFillNode = null;

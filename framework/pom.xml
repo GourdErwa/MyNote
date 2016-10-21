@@ -5,7 +5,7 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.9.1</version>
+        <version>2016.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,34 +14,35 @@
 
     <properties>
         <es.version>1.7.0</es.version>
+        <syslog4j.v>0.9.30</syslog4j.v>
+        <beust.jcommander.v>1.48</beust.jcommander.v>
+        <metrics.v>3.0.2</metrics.v>
+        <scheduler.quartz.v>2.2.3</scheduler.quartz.v>
+        <espertech.v>5.5.0</espertech.v>
+        <snmp4j.v>1.10.1</snmp4j.v>
+        <caliper.v>1.0-beta-2</caliper.v>
     </properties>
 
     <dependencies>
 
-        <!--<dependency>
-            <groupId>com.gourd</groupId>
-            <artifactId>util</artifactId>
-            <version>2016.9.0</version>
-        </dependency>-->
-
         <dependency>
             <groupId>org.syslog4j</groupId>
             <artifactId>syslog4j</artifactId>
-            <version>0.9.30</version>
+            <version>${syslog4j.v}</version>
         </dependency>
 
         <!-- jcommander -->
         <dependency>
             <groupId>com.beust</groupId>
             <artifactId>jcommander</artifactId>
-            <version>1.48</version>
+            <version>${beust.jcommander.v}</version>
         </dependency>
 
         <!-- metrics-core -->
         <dependency>
             <groupId>com.codahale.metrics</groupId>
             <artifactId>metrics-core</artifactId>
-            <version>3.0.2</version>
+            <version>${metrics.v}</version>
         </dependency>
 
 
@@ -49,7 +50,7 @@
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.2.3</version>
+            <version>${scheduler.quartz.v}</version>
         </dependency>
 
         <!--elasticsearch-->
@@ -64,14 +65,15 @@
         <dependency>
             <groupId>com.espertech</groupId>
             <artifactId>esper</artifactId>
-            <version>5.4.0</version>
+            <version>${espertech.v}</version>
         </dependency>
+
 
         <!-- snmp4j -->
         <dependency>
             <groupId>org.snmp4j</groupId>
             <artifactId>snmp4j</artifactId>
-            <version>1.10.1</version>
+            <version>${snmp4j.v}</version>
         </dependency>
 
         <!-- guice -->
@@ -85,12 +87,13 @@
         <dependency>
             <groupId>com.google.caliper</groupId>
             <artifactId>caliper</artifactId>
-            <version>1.0-beta-2</version>
+            <version>${caliper.v}</version>
         </dependency>
+
         <dependency>
             <groupId>com.gourd</groupId>
             <artifactId>util</artifactId>
-            <version>2016.9.1</version>
+            <version>2016.2</version>
         </dependency>
 
     </dependencies>

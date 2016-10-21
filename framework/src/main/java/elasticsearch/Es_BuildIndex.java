@@ -120,7 +120,7 @@ public class Es_BuildIndex {
      */
     protected static void buildIndex(User user) throws Exception {
         // INDEX_DEMO_01_MAPPING为上个方法中定义的索引,prindextype为类型.jk8231为id,以此可以代替memchche来进行数据的缓存
-        IndexResponse response = Es_Utils.client.prepareIndex(Es_Utils.LOGSTASH_YYYY_MM_DD, Es_Utils.LOGSTASH_YYYY_MM_DD_MAPPING)
+        IndexResponse response = Es_Utils.client.prepareIndex(Es_Utils.LOG_STASH_YYYY_MM_DD, Es_Utils.LOG_STASH_YYYY_MM_DD_MAPPING)
                 .setSource(
                         User.getXContentBuilder(user)
                 )
@@ -141,7 +141,7 @@ public class Es_BuildIndex {
 
         for (User user : userList) {
             //通过add批量添加
-            bulkRequest.add(Es_Utils.client.prepareIndex(Es_Utils.LOGSTASH_YYYY_MM_DD, Es_Utils.LOGSTASH_YYYY_MM_DD_MAPPING)
+            bulkRequest.add(Es_Utils.client.prepareIndex(Es_Utils.LOG_STASH_YYYY_MM_DD, Es_Utils.LOG_STASH_YYYY_MM_DD_MAPPING)
                     .setSource(
                             User.getXContentBuilder(user)
                     )

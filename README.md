@@ -1,15 +1,6 @@
 # MyNote  [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?maxAge=2592000?style=flat-square)]() [![download Central](https://img.shields.io/badge/download-total_6M-red.svg?style=flat-square&maxAge=2592000)]()
 
 
-## Introduction
-This is my note in my coding life.
-
-## Status
-Coding
-
-## List
-Reference package name
-
 ## Environment
 [![macOS Sierra Central](https://img.shields.io/badge/macOS_Sierra-v10.12.1Beta-green.svg?style=flat-square&maxAge=2592000)]()
 [![IntelliJIDEA Central](https://img.shields.io/badge/IntelliJIDEA-v2016.3EAP-green.svg?style=flat-square&maxAge=2592000)]()
@@ -18,6 +9,34 @@ Reference package name
 
 ## Learning resources
 - [Node.js 包教不包会](https://github.com/alsotang/node-lessons)
+
+## Introduction
+This is my note in my coding life.  
+
+## Status
+Code cleanliness
+
+## List
+| 包名       | 说明         | 
+| ----------|:------------:|
+|MyNote     | root         |  
+|util       | 工具包收集    |   
+|concurrent | 并发编程      |   
+|db         | 数据库相关    |
+|design     | 设计模式      |
+|framework  | 框架技术      |
+|game       | 游戏         |
+|io         | IO 相关      |
+|java8      | java 8      |
+|js         | 前端         |
+|junit      | 测试         |
+|work       | 工作相关测试  |
+|hadoop     | hadoop      |
+|spark      | spark       |
+|flume      | flume       |
+|flink      | flink       |
+|corejava   | java 基础    |
+
 
 ## About me
 - WebSite：[http://www.gourderwa.com](http://www.gourderwa.com)
