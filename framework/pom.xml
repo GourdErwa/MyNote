@@ -21,6 +21,7 @@
         <espertech.v>5.5.0</espertech.v>
         <snmp4j.v>1.10.1</snmp4j.v>
         <caliper.v>1.0-beta-2</caliper.v>
+        <javatuples.v>1.2</javatuples.v>
     </properties>
 
     <dependencies>
@@ -88,6 +89,12 @@
             <groupId>com.google.caliper</groupId>
             <artifactId>caliper</artifactId>
             <version>${caliper.v}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javatuples</groupId>
+            <artifactId>javatuples</artifactId>
+            <version>${javatuples.v}</version>
         </dependency>
 
         <dependency>

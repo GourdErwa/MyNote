@@ -749,7 +749,7 @@
     </table>
     <table id="157" parent="2" name="MVIEW$_ADV_FJG">
       <ObjectId>4118</ObjectId>
-      <Comment>Representation for query join sub-graph not in AJG </Comment>
+      <Comment>Representation for query join sub-graph not in AJG</Comment>
       <CreatedTimestamp>2009-08-15.00:18:30</CreatedTimestamp>
       <ModifiedTimestamp>2009-08-15.00:18:30</ModifiedTimestamp>
     </table>
@@ -1940,7 +1940,7 @@ CATCHUP</ColNames>
       <Comment>Value of delivery_order of last transaction propagated</Comment>
       <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0 </DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="372" parent="72" name="LAST_ENQ_TID">
       <Position>3</Position>
@@ -2232,7 +2232,7 @@ CATCHUP</ColNames>
       <Comment>The time when the propagator is registered</Comment>
       <DataType>DATE|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>SYSDATE </DefaultExpression>
+      <DefaultExpression>SYSDATE</DefaultExpression>
     </column>
     <index id="423" parent="76" name="DEF$_PROPAGATOR_PRIMARY">
       <ObjectId>6829</ObjectId>
@@ -6288,7 +6288,7 @@ USER#</ColNames>
       <Position>8</Position>
       <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>(0) </DefaultExpression>
+      <DefaultExpression>(0)</DefaultExpression>
     </column>
     <column id="1262" parent="138" name="SPARE1">
       <Position>9</Position>
@@ -8284,7 +8284,7 @@ DATA_TYPE_ID</ColNames>
                   data_length is not null)
               or (data_type_id not in (2, 4, 5, 6, 7) and
                   data_length is null)
-                 </Predicate>
+</Predicate>
     </check>
     <check id="1676" parent="178" name="REPCAT$_AUDIT_ATTRIBUTE_NN2">
       <ModifiedTimestamp>2009-08-15.00:19:37</ModifiedTimestamp>
@@ -9736,21 +9736,21 @@ FIXED_DATA_LENGTH</ColNames>
       <Comment>Internal primary key to default refresh group for the template.</Comment>
       <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0 </DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="1892" parent="196" name="TEMPLATE_TYPE_ID">
       <Position>12</Position>
       <Comment>Internal primary key to the template types.</Comment>
       <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>1 </DefaultExpression>
+      <DefaultExpression>1</DefaultExpression>
     </column>
     <column id="1893" parent="196" name="TEMPLATE_STATUS_ID">
       <Position>13</Position>
       <Comment>Internal primary key to the template status table.</Comment>
       <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0 </DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="1894" parent="196" name="FLAGS">
       <Position>14</Position>
@@ -11282,14 +11282,14 @@ GOWNER</ColNames>
       <Comment>Order of ddls to execute.</Comment>
       <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>1 </DefaultExpression>
+      <DefaultExpression>1</DefaultExpression>
     </column>
     <column id="2136" parent="212" name="TEMPLATE_REFGROUP_ID">
       <Position>13</Position>
       <Comment>Internal ID of the refresh group to contain the object.</Comment>
       <DataType>NUMBER(*)|0</DataType>
       <NotNull>1</NotNull>
-      <DefaultExpression>0 </DefaultExpression>
+      <DefaultExpression>0</DefaultExpression>
     </column>
     <column id="2137" parent="212" name="FLAGS">
       <Position>14</Position>
