@@ -29,14 +29,16 @@ public class XMLEventType {
         xml_eventType.getA();
     }
 
-    public void getA() throws ParserConfigurationException, IOException, SAXException {
+    private void getA() throws ParserConfigurationException, IOException, SAXException {
         URL schemaURL = this.getClass().getClassLoader().getResource("sensor.xsd");
         URL xml = this.getClass().getClassLoader().getResource("sensor.xml");
 
         EPServiceProvider epService = EPServiceProviderManager.getDefaultProvider();
         ConfigurationEventTypeXMLDOM sensorcfg = new ConfigurationEventTypeXMLDOM();
         sensorcfg.setRootElementName("Sensor");
-        sensorcfg.setSchemaResource(schemaURL.toString());
+        if (schemaURL != null) {
+            sensorcfg.setSchemaResource(schemaURL.toString());
+        }
         epService.getEPAdministrator().getConfiguration()
                 .addEventType("SensorEvent", sensorcfg);
 
@@ -44,7 +46,10 @@ public class XMLEventType {
                 "  Observation.Tag[0].ID, Observation.Tag[1].ID" +
                 "from SensorEvent";
 
-        InputSource source = new InputSource(new StringReader(xml.toString()));
+        InputSource source = null;
+        if (xml != null) {
+            source = new InputSource(new StringReader(xml.toString()));
+        }
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         builderFactory.setNamespaceAware(true);
         Document doc = builderFactory.newDocumentBuilder().parse(source);

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/annotation" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/concurrent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/corejava" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/db" charset="UTF-8" />
@@ -17,10 +18,12 @@
     <file url="file://$PROJECT_DIR$/java8" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/junit" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/jvm" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spark" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/third_party" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/work" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zookeeper" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

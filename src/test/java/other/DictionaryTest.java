@@ -14,7 +14,6 @@
 
 package other;
 
-import com.google.common.base.CharMatcher;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,14 +54,14 @@ public class DictionaryTest {
         String arithmetic = "1+22%1-4*100/30-200e";
 
 
-        final CharMatcher charMatcher = CharMatcher.anyOf("+-*/%").or(CharMatcher.DIGIT);
+        /*final CharMatcher charMatcher = CharMatcher.anyOf("+-*//*%").or(CharMatcher.DIGIT);
         final char[] chars = arithmetic.toCharArray();
         for (char aChar : chars) {
             if (!charMatcher.matches(aChar)) {
                 System.err.println("运算语句含有非法字符:" + aChar);
                 return;
             }
-        }
+        }*/
 
     }
 

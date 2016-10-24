@@ -1,6 +1,6 @@
 package com.gourd.erwa.util;
 
-import com.gourd.erwa.util.annotation.NotNull;
+import com.gourd.erwa.annotation.NotNull;
 
 import java.io.File;
 import java.io.FileFilter;
