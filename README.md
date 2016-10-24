@@ -20,6 +20,7 @@ Code cleanliness
 | 包名       | 说明         | 
 | ----------|:------------:|
 |MyNote     | root         |  
+|annotation | 注解         | 
 |util       | 工具包收集    |   
 |concurrent | 并发编程      |   
 |db         | 数据库相关    |
@@ -36,6 +37,9 @@ Code cleanliness
 |flume      | flume       |
 |flink      | flink       |
 |corejava   | java 基础    |
+|third_party| 非本人笔记内容 |
+|Kafka      | Kafka       |
+|zookeeper  |zookeeper     |
 
 
 ## About me
