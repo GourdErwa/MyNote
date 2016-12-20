@@ -14,7 +14,7 @@
 
     <properties>
         <es.version>1.7.0</es.version>
-        <syslog4j.v>0.9.30</syslog4j.v>
+        <syslog4j.v>0.9.46</syslog4j.v>
         <beust.jcommander.v>1.48</beust.jcommander.v>
         <metrics.v>3.0.2</metrics.v>
         <scheduler.quartz.v>2.2.3</scheduler.quartz.v>

@@ -31,9 +31,6 @@
     <option name="selectedJavaProfile" value="EclipseStyle-EZSonar" />
     <option name="useOldEclipseJavaFormatter" value="true" />
   </component>
-  <component name="EntryPointsManager">
-    <entry_points version="2.0" />
-  </component>
   <component name="FindBugsConfigurable">
     <option name="make" value="true" />
     <option name="effort" value="default" />
@@ -44,6 +41,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/crawler/pom.xml" />
+        <option value="$PROJECT_DIR$/concurrent/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

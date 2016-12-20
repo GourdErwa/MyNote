@@ -1406,7 +1406,7 @@
     }
 
     /**
-     * Create an "anchor" for performing dom insertion/removals.
+     * Create an "anchor" for performing runningDom insertion/removals.
      * This is used in a number of scenarios:
      * - fragment instance
      * - v-html

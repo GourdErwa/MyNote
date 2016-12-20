@@ -7,5 +7,27 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@192.168.1.219:1521:orcl</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="2152cc09-e8d1-4122-b999-8e2003a4c78a">
+      <driver-ref>oracle</driver-ref>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/work/src/main/resources/hibernate.cfg.xml</remarks>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@192.168.1.219:1521:orcl</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Oracle/12.1.0.2/xmlparserv2.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Oracle/12.1.0.2/xdb6-12.1.0.2.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Oracle/12.1.0.2/ojdbc6-12.1.0.2.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Oracle/12.1.0.2/oracle-driver-license.txt</url>
+        </library>
+      </libraries>
+    </data-source>
   </component>
 </project>

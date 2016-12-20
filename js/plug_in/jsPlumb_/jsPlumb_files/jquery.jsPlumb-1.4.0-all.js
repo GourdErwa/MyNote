@@ -8442,7 +8442,7 @@
         },
         _atts = function (o, atts) {
             for (var i in atts) {
-                // IE8 fix: setattribute does not work after an element has been added to the dom!
+                // IE8 fix: setattribute does not work after an element has been added to the runningDom!
                 // http://www.louisremi.com/2009/03/30/changes-in-vml-for-ie8-or-what-feature-can-the-ie-dev-team-break-for-you-today/
                 //o.setAttribute(i, atts[i]);
 
@@ -9505,7 +9505,7 @@
  * getDragObject		gets the object that is being dragged, by extracting it from the arguments passed to a drag callback
  * getDragScope			gets the drag scope for a given element.
  * getDropScope			gets the drop scope for a given element.
- * getElementObject		turns an id or dom element into an element object of the underlying library's type.
+ * getElementObject		turns an id or runningDom element into an element object of the underlying library's type.
  * getOffset			gets an element's offset
  * getOriginalEvent     gets the original browser event from some wrapper event
  * getPageXY			gets the page event's xy location.

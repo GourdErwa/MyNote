@@ -12,6 +12,7 @@
       <entry name="!?*.clj" />
     </wildcardResourcePatterns>
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -19,6 +20,7 @@
         <module name="annotation" />
         <module name="concurrent" />
         <module name="corejava" />
+        <module name="crawler" />
         <module name="db" />
         <module name="design" />
         <module name="flink" />
@@ -44,6 +46,7 @@
       <module name="bug" target="1.8" />
       <module name="concurrent" target="1.8" />
       <module name="corejava" target="1.8" />
+      <module name="crawler" target="1.8" />
       <module name="db" target="1.8" />
       <module name="design" target="1.8" />
       <module name="document" target="1.8" />

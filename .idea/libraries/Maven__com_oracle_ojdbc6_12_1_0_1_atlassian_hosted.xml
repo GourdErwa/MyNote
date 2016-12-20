@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.oracle:ojdbc6:12.1.0.1-atlassian-hosted">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/oracle/ojdbc6/12.1.0.1-atlassian-hosted/ojdbc6-12.1.0.1-atlassian-hosted.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/oracle/ojdbc6/12.1.0.1-atlassian-hosted/ojdbc6-12.1.0.1-atlassian-hosted-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/oracle/ojdbc6/12.1.0.1-atlassian-hosted/ojdbc6-12.1.0.1-atlassian-hosted-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

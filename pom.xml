@@ -30,6 +30,7 @@
         <module>third_party</module>
         <module>zookeeper</module>
         <module>annotation</module>
+        <module>crawler</module>
     </modules>
 
 

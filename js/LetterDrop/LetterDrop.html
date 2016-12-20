@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Letter drop</title>
+</head>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+    }
+
+    span {
+        color: #13ee41;
+        position: absolute;
+        display: block;
+        font-weight: bold;
+        font-family: Courier New, sans-serif;
+        top: 0;
+    }
+</style>
+<body>
+
+</body>
+<script>
+
+    var maxWidth = window.innerWidth;
+    var maxHeight = window.innerHeight;
+
+    /**
+     * @param intensity 内容密集度
+     */
+    function letterDrop(intensity) {
+
+        this.intensity = intensity;
+        this.runningDom = [];
+
+        //随机字体颜色定义
+        var fontColors = [];
+        for (var i = 1; i < 17; i++) {
+            var f = i.toString(16);
+            fontColors.push('#0' + f + '0');
+        }
+
+        function fetchFontColor() {
+            return fontColors[fetchRandom(0, fontColors.length)];
+        }
+
+        function fetchFontSize() {
+            return fetchRandom(9, 24);
+        }
+
+        function fetchRandom(min, max) {
+            return Number(min + Math.round(Math.random() * (max - min)));
+        }
+
+        this.createEl = function (innerText) {
+
+            var el = document.createElement('span');
+            el.innerText = innerText;
+            el.style.marginLeft = fetchRandom(0, maxWidth - 50) + "px";
+            el.style.fontSize = fetchFontSize();
+            el.style.color = fetchFontColor();
+            document.body.appendChild(el);
+            this.runningDom.push(el);
+        };
+
+        this.createSingleEl = function () {
+
+            for (var i = 0; i < this.intensity; i++) {
+                this.createEl(String.fromCharCode(fetchRandom(0, 200)));
+            }
+
+        };
+
+        this.createMultiLateralEl = function () {
+
+            for (var i = 0; i < this.intensity; i++) {
+                var s = "";
+                for (var i = 0; i < fetchRandom(0, 10); i++) {
+                    s += String.fromCharCode(fetchRandom(0, 200));
+                }
+                this.createEl(s);
+            }
+
+        };
+
+        this.runEl = function () {
+
+            this.runningDom.forEach(function (el, i, runningDom, intensity) {
+                var oldTopPx = el.style.top;
+                var oldTop = Number(oldTopPx.substring(0, oldTopPx.length - 2));
+
+                if (Math.abs(oldTop - maxHeight) < 50) {
+                    runningDom.splice(i, 1);
+                    document.body.removeChild(el);
+                } else {
+                    el.style.top = oldTop + fetchRandom(0, 30) + "px";
+                }
+            });
+        };
+
+        this.running = function () {
+
+            var t = this;
+            window.setInterval(
+                function () {
+                    t.createSingleEl();
+                    t.runEl();
+                },
+                100
+            )
+        };
+
+    }
+
+    new letterDrop(20).running();
+
+</script>
+
+</html>

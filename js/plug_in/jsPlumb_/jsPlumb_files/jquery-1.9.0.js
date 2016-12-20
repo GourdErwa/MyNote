@@ -92,7 +92,7 @@
                 jQuery.ready();
             } else if (document.readyState === "complete") {
                 // we're here because readyState === "complete" in oldIE
-                // which is good enough for us to call the dom ready!
+                // which is good enough for us to call the runningDom ready!
                 document.detachEvent("onreadystatechange", DOMContentLoaded);
                 jQuery.ready();
             }
