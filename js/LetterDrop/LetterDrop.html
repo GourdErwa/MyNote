@@ -3,22 +3,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Letter drop</title>
+    <title>字体掉落效果</title>
 </head>
 <style>
     html, body {
         margin: 0;
         padding: 0;
         background-color: #000000;
+        overflow: hidden;
     }
 
     span {
-        color: #13ee41;
         position: absolute;
-        display: block;
+        display: inline-block;
         font-weight: bold;
         font-family: Courier New, sans-serif;
-        top: 0;
+        top: -10px;
+        width: 50px;
+        word-wrap: break-word;
+        letter-spacing: 20px;
     }
 </style>
 <body>
@@ -26,6 +29,7 @@
 </body>
 <script>
 
+    //窗口宽高
     var maxWidth = window.innerWidth;
     var maxHeight = window.innerHeight;
 
@@ -44,49 +48,64 @@
             fontColors.push('#0' + f + '0');
         }
 
+        //#nnnnnn
         function fetchFontColor() {
-            return fontColors[fetchRandom(0, fontColors.length)];
+            return fontColors[fetchRandomNum(0, fontColors.length)];
         }
 
+        //获取一个随机字体大小 n px
         function fetchFontSize() {
-            return fetchRandom(9, 24);
+            return fetchRandomNum(9, 25) + "px";
         }
 
-        function fetchRandom(min, max) {
+        //获取一个随机数 min ≤ n ≤ max
+        function fetchRandomNum(min, max) {
             return Number(min + Math.round(Math.random() * (max - min)));
         }
 
-        this.createEl = function (innerText) {
+        //获取一个随机 char
+        function fetchRandomChart() {
+            return String.fromCharCode(fetchRandomNum(0, 100));
+        }
+
+        /**
+         * 创建一个 span
+         * @param innerText span 显示内容
+         * @param marginLeft marginLeft
+         */
+        this.createEl = function (innerText, marginLeft) {
 
             var el = document.createElement('span');
             el.innerText = innerText;
-            el.style.marginLeft = fetchRandom(0, maxWidth - 50) + "px";
+            el.style.marginLeft = marginLeft || (fetchRandomNum(0, maxWidth) + "px");
             el.style.fontSize = fetchFontSize();
             el.style.color = fetchFontColor();
             document.body.appendChild(el);
             this.runningDom.push(el);
         };
 
+        //创建单个字母内容 span
         this.createSingleEl = function () {
 
             for (var i = 0; i < this.intensity; i++) {
-                this.createEl(String.fromCharCode(fetchRandom(0, 200)));
+                this.createEl(fetchRandomChart());
             }
 
         };
 
-        this.createMultiLateralEl = function () {
-
+        //创建多个纵向显示字母内容 span
+        this.createMultiVerticalEl = function () {
             for (var i = 0; i < this.intensity; i++) {
-                var s = "";
-                for (var i = 0; i < fetchRandom(0, 10); i++) {
-                    s += String.fromCharCode(fetchRandom(0, 200));
+                var marginLeft = fetchRandomNum(0, maxWidth) + "px";
+                var innerText = "";
+                for (var y = 0; y < fetchRandomNum(1, 15); y++) {
+                    innerText += fetchRandomChart();
                 }
-                this.createEl(s);
+                this.createEl(innerText, marginLeft);
             }
-
         };
 
+        //动态下落span ，移除到达底部的 span
         this.runEl = function () {
 
             this.runningDom.forEach(function (el, i, runningDom, intensity) {
@@ -97,18 +116,21 @@
                     runningDom.splice(i, 1);
                     document.body.removeChild(el);
                 } else {
-                    el.style.top = oldTop + fetchRandom(0, 30) + "px";
+                    el.style.top = oldTop + fetchRandomNum(0, 30) + "px";
                 }
             });
         };
 
         this.running = function () {
 
-            var t = this;
+            var o = this;
             window.setInterval(
-                function () {
-                    t.createSingleEl();
-                    t.runEl();
+                function (t) {
+                    //单个字母span雨
+                    //o.createSingleEl();
+                    //多个字母span雨
+                    o.createMultiVerticalEl();
+                    o.runEl();
                 },
                 100
             )
@@ -116,7 +138,8 @@
 
     }
 
-    new letterDrop(20).running();
+    //密集度默认为 10
+    new letterDrop(8).running();
 
 </script>
 
