@@ -27,18 +27,26 @@
 <body>
 
 </body>
+
 <script>
 
     //窗口宽高
     var maxWidth = window.innerWidth;
     var maxHeight = window.innerHeight;
 
+    window.onresize = function () {
+        maxWidth = window.innerWidth;
+        maxHeight = window.innerHeight;
+    };
     /**
      * @param intensity 内容密集度
      */
     function letterDrop(intensity) {
 
         this.intensity = intensity;
+        var defaultContent = [
+            "var a = 123;"
+        ];
         this.runningDom = [];
 
         //随机字体颜色定义
@@ -65,7 +73,8 @@
 
         //获取一个随机 char
         function fetchRandomChart() {
-            return String.fromCharCode(fetchRandomNum(0, 100));
+            var chars = fetchRandomNum(0, 100);
+            return chars < defaultContent.length ? defaultContent[chars] : String.fromCharCode(chars);
         }
 
         /**
@@ -112,7 +121,7 @@
                 var oldTopPx = el.style.top;
                 var oldTop = Number(oldTopPx.substring(0, oldTopPx.length - 2));
 
-                if (Math.abs(oldTop - maxHeight) < 50) {
+                if (Math.abs(oldTop - maxHeight) < 30) {
                     runningDom.splice(i, 1);
                     document.body.removeChild(el);
                 } else {
@@ -125,7 +134,7 @@
 
             var o = this;
             window.setInterval(
-                function (t) {
+                function () {
                     //单个字母span雨
                     //o.createSingleEl();
                     //多个字母span雨
@@ -138,8 +147,8 @@
 
     }
 
-    //密集度默认为 10
-    new letterDrop(8).running();
+    //密集度默认为 5
+    new letterDrop(5).running();
 
 </script>
 

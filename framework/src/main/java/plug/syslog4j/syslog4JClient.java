@@ -42,7 +42,8 @@ public class syslog4JClient {
     public static void main(String[] args) {
 
         final SyslogConfigIF syslogConfigIF = getSyslogConfigIFOfProtocol(ProtocolType.TCP);
-        final SyslogIF syslogIF = Syslog.createInstance(Joiner.on("#").join("UDP", "192.168.1.137", 1541), syslogConfigIF);
+        final SyslogIF syslogIF = Syslog.createInstance(Joiner.on("#")
+                .join("UDP", "192.168.1.137", 1541), syslogConfigIF);
 
         for (int i = 0; i < 5; i++) {
             final String s = Strings.padStart(MESSAGE, 10000, '哈');

@@ -62,7 +62,8 @@
     l  GraphiteReporter  将度量指标以流式的方式返回给Graphite服务器
 
 参考资料
-[http://metrics.codahale.com/]
+[http://www.dropwizard.io]
+[http://metrics.dropwizard.io]
 https://github.com/dropwizard/metrics
 http://blog.csdn.net/scutshuxue/article/details/8350135
 http://blog.synyx.de/2013/09/yammer-metrics-made-easy-part-i/

@@ -122,7 +122,8 @@ public class Reflect_ {
             for (String annotationName : ANNOTATION_NAMES) {
                 if (line.startsWith(annotationName)) {
                     //提取注解内容
-                    final String[] splitAnnotationValues = line.substring(line.indexOf("(") + 1, line.lastIndexOf(")")).split(",");
+                    final String[] splitAnnotationValues = line.substring(line.indexOf("(") + 1, line.lastIndexOf(")"))
+                            .split(",");
                     for (String aAnnotationVal : splitAnnotationValues) {
                         final String trim = aAnnotationVal.trim();
                         if (trim.startsWith("value")) {

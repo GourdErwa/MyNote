@@ -28,7 +28,8 @@ class HibernateUtil {
             if (resource == null) {
                 throw new FileNotFoundException("resource ./");
             }
-            SESSION_FACTORY = new Configuration().configure(new File(resource.getPath() + HIBERNATE_CFG_XML)).buildSessionFactory();
+            SESSION_FACTORY = new Configuration().configure(new File(resource.getPath() + HIBERNATE_CFG_XML))
+                    .buildSessionFactory();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }

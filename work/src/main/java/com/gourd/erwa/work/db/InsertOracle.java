@@ -35,10 +35,10 @@ public class InsertOracle {
             o = new Object[filedLength];
             o[0] = ++minSerial;
             o[1] = "10.3.177." + j % 255;
-            o[2] = "SHE1X01U09-NM1-C49Z"+ j % 10;
+            o[2] = "SHE1X01U09-NM1-C49Z" + j % 10;
             o[3] = "Cisco" + j % 10;
-            o[4] = "LINK-3-UPDOWN"+ j % 10;
-            o[5] = "GigabitEthernet1/15"+ j % 10;
+            o[4] = "LINK-3-UPDOWN" + j % 10;
+            o[5] = "GigabitEthernet1/15" + j % 10;
             o[6] = j % 3;
             o[7] = j;
             o[8] = j % 5;

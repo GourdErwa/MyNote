@@ -70,6 +70,7 @@ public class KafkaConsumerTest {
         KafkaStream<String, String> stream = consumerMap.get(KafkaProduceTest.TOPIC).get(0);
         ConsumerIterator<String, String> it = stream.iterator();
         while (it.hasNext())
-            System.out.println(it.next().topic() + ":" + it.next().partition() + ":" + it.next().offset() + ":" + it.next().key() + ":" + it.next().message());
+            System.out.println(it.next().topic() + ":" + it.next().partition() + ":" + it.next()
+                    .offset() + ":" + it.next().key() + ":" + it.next().message());
     }
 }

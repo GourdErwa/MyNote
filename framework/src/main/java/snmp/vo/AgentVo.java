@@ -107,7 +107,8 @@ public class AgentVo {
                         String setoid = vPDU.get(0).toString();
                         System.out.println("-----set-----" + setoid.substring(0, setoid.indexOf("=") - 1));
                         System.out.println("-----set-----" + setoid.substring(setoid.indexOf("=") + 1));
-                        config.setValueByOID(setoid.substring(0, setoid.indexOf("=") - 1).trim(), setoid.substring(setoid.indexOf("=") + 1).trim());
+                        config.setValueByOID(setoid.substring(0, setoid.indexOf("=") - 1)
+                                .trim(), setoid.substring(setoid.indexOf("=") + 1).trim());
                 }
                 StatusInformation statusInformation = new StatusInformation();
                 StateReference ref = aEvent.getStateReference();
@@ -120,7 +121,8 @@ public class AgentVo {
                     System.out.println("----get------" + setoid.substring(0, setoid.indexOf("=") - 1));
                     System.out.println("-----get-----" + setoid.substring(setoid.indexOf("=") + 1));
                     vPDU.set(0, new VariableBinding(oid,
-                            new OctetString(config.getValueByOID(setoid.substring(0, setoid.indexOf("=") - 1).trim()))));
+                            new OctetString(config.getValueByOID(setoid.substring(0, setoid.indexOf("=") - 1)
+                                    .trim()))));
 
                     aEvent.getMessageDispatcher().returnResponsePdu(
                             aEvent.getMessageProcessingModel(),

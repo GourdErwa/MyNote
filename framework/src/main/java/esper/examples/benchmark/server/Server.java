@@ -158,7 +158,8 @@ public class Server extends Thread {
         System.err.println("  -sleep:   " + DEFAULT_SLEEP + "(no sleep)");
         System.err.println("  -stat:   " + DEFAULT_STAT + "(s)");
         System.err.println("  -rate:    " + DEFAULT_SIMULATION_RATE + "(no standalone simulation, else <n>x<evt/s> such as 2x1000)");
-        System.err.println("  -mode:    " + "(default " + DEFAULT_MODE + ", choose from " + MODES.keySet().toString() + ")");
+        System.err.println("  -mode:    " + "(default " + DEFAULT_MODE + ", choose from " + MODES.keySet()
+                .toString() + ")");
         System.err.println("Modes are read from statements.properties in the classpath");
         System.exit(1);
     }
@@ -200,7 +201,8 @@ public class Server extends Thread {
             System.out.println("Using direct handoff, cpu#" + Runtime.getRuntime().availableProcessors());
         } else {
             // executor
-            System.out.println("Using ThreadPoolExecutor, cpu#" + Runtime.getRuntime().availableProcessors() + ", threadCore#" + threadCore + " queue#" + queueMax);
+            System.out.println("Using ThreadPoolExecutor, cpu#" + Runtime.getRuntime()
+                    .availableProcessors() + ", threadCore#" + threadCore + " queue#" + queueMax);
             BlockingQueue<Runnable> queue;
             if (queueMax == 0) {
                 queue = new SynchronousQueue<Runnable>(true);//enforce fairness
@@ -243,7 +245,9 @@ public class Server extends Thread {
 
     public void runServer() {
         try {
-            System.out.println((new StringBuilder("Server accepting connections on port ")).append(port).append(".").toString());
+            System.out.println((new StringBuilder("Server accepting connections on port ")).append(port)
+                    .append(".")
+                    .toString());
             ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
             serverSocketChannel.socket().bind(new InetSocketAddress(port));
             do {

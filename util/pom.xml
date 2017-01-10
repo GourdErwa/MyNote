@@ -16,7 +16,7 @@
         <org.slf4j.v>1.7.21</org.slf4j.v>
         <log4j.v>1.2.17</log4j.v>
         <fastjson.v>1.2.21</fastjson.v>
-        <guava.v>20.0</guava.v>
+        <guava.v>21.0-rc2</guava.v>
         <lombok.v>1.16.10</lombok.v>
         <junit.v>4.11</junit.v>
     </properties>

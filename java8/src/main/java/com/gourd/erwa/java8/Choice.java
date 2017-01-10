@@ -3,8 +3,10 @@ package com.gourd.erwa.java8;
 /**
  * @author wei.Li
  */
-public class Choice {
-    public  String getName() {
+class Choice {
+
+    String getName() {
         return "";
     }
+
 }

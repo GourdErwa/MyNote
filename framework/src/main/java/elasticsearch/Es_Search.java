@@ -143,7 +143,8 @@ public class Es_Search {
             }
 
 
-            System.out.println("cache search . result :" + (System.currentTimeMillis() - start) + " \t, count : " + countResponse.getCount());
+            System.out.println("cache search . result :" + (System.currentTimeMillis() - start) + " \t, count : " + countResponse
+                    .getCount());
 
         }
 

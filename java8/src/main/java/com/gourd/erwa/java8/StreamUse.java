@@ -27,8 +27,7 @@ public class StreamUse {
                 .skip(1).limit(5)
                 .filter(aLong -> aLong % 2 == 0)
                 .map(Object::toString)
-                .reduce("HH", (s, s2) -> s + "**" + s2)
-                ;
+                .reduce("HH", (s, s2) -> s + "**" + s2);
         System.out.println(hh);
 
         List<Choice> choices = null;

@@ -16,7 +16,7 @@
         <es.version>1.7.0</es.version>
         <syslog4j.v>0.9.46</syslog4j.v>
         <beust.jcommander.v>1.48</beust.jcommander.v>
-        <metrics.v>3.0.2</metrics.v>
+        <metrics.v>3.1.2</metrics.v>
         <scheduler.quartz.v>2.2.3</scheduler.quartz.v>
         <espertech.v>5.5.0</espertech.v>
         <snmp4j.v>1.10.1</snmp4j.v>
@@ -41,7 +41,7 @@
 
         <!-- metrics-core -->
         <dependency>
-            <groupId>com.codahale.metrics</groupId>
+            <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
             <version>${metrics.v}</version>
         </dependency>

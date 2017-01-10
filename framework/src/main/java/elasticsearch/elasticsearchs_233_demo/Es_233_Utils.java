@@ -135,7 +135,12 @@ public class Es_233_Utils {
     public String aliasTarget(String alias) {
         // The ES return value of this has an awkward format: The first key of the hash is the target index. Thanks.
         // return client.admin().indices().getAliases(new IndicesGetAliasesRequest(alias)).actionGet().getAliases().keysIt().next();
-        Iterator<String> itr = client.admin().indices().getAliases(new GetAliasesRequest(alias)).actionGet().getAliases().keysIt();
+        Iterator<String> itr = client.admin()
+                .indices()
+                .getAliases(new GetAliasesRequest(alias))
+                .actionGet()
+                .getAliases()
+                .keysIt();
         if (itr.hasNext()) {
             // 有alias
             String currentIndexName = itr.next();

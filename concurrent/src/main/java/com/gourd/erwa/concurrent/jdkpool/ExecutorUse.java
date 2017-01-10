@@ -24,7 +24,7 @@ import java.util.concurrent.*;
  *
  * @author wei.Li by 15/3/18 (gourderwa@163.com).
  */
-public class Executor_ {
+public class ExecutorUse {
 
     private Map<String, FutureTask<String>> tasks = new HashMap<>();
 
@@ -97,10 +97,7 @@ public class Executor_ {
      */
     public boolean taskIsDone(String key) {
         FutureTask<String> futureTask = tasks.get(key);
-        if (futureTask != null) {
-            return futureTask.isDone();
-        }
-        return false;
+        return futureTask != null && futureTask.isDone();
     }
 
     /**
@@ -111,10 +108,7 @@ public class Executor_ {
      */
     public boolean taskIsCancelled(String key) {
         FutureTask<String> futureTask = tasks.get(key);
-        if (futureTask != null) {
-            return futureTask.isCancelled();
-        }
-        return false;
+        return futureTask != null && futureTask.isCancelled();
     }
 
     /**
@@ -131,10 +125,7 @@ public class Executor_ {
                 String result = futureTask.get();
                 tasks.remove(key);
                 return result;
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return null;
-            } catch (ExecutionException e) {
+            } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
                 return null;
             }
@@ -157,10 +148,7 @@ public class Executor_ {
         tasks.put(key, futureTask);
         try {
             return futureTask.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            return null;
-        } catch (ExecutionException e) {
+        } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
             return null;
         }
@@ -171,7 +159,7 @@ public class Executor_ {
      */
     public void removeAllTask() {
         for (String key : tasks.keySet()) {
-            executor.remove((Runnable) tasks.get(key));
+            executor.remove(tasks.get(key));
             tasks.remove(key);
         }
     }
@@ -182,7 +170,7 @@ public class Executor_ {
      * @param key the key
      */
     public void removeQueryTask(String key) {
-        executor.remove((Runnable) tasks.get(key));
+        executor.remove(tasks.get(key));
     }
 
     /**

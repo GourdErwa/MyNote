@@ -68,7 +68,8 @@ public class User {
             String home = "山西省太原市" + random.nextInt(10000) + "街道";
             String now_home = random.nextBoolean() ? "北京市" + random.nextInt(10000) + "街道" : home;
             users.add(new User("葫芦" + random.nextInt(10000) + "娃", home, now_home, random.nextInt(10000),
-                    random.nextInt(10000), new Date(System.currentTimeMillis() - (long) (Math.random() * 100000)), random.nextBoolean(), location));
+                    random.nextInt(10000), new Date(System.currentTimeMillis() - (long) (Math.random() * 100000)), random
+                    .nextBoolean(), location));
         }
 
         return users;
@@ -92,7 +93,10 @@ public class User {
                 .field("age", user.getAge())
                 .field("birthday", user.getBirthday())
                 .field("isRealMen", user.isRealMen())
-                .startObject("location").field("lat", user.getLocation().getLat()).field("lon", user.getLocation().getLon()).endObject()
+                .startObject("location")
+                .field("lat", user.getLocation().getLat())
+                .field("lon", user.getLocation().getLon())
+                .endObject()
                 .field("state", "默认属性,mapping中没有定义")//该字段在上面方法中的mapping中没有定义,所以该字段的属性使用es默认的.
                 .endObject();
     }

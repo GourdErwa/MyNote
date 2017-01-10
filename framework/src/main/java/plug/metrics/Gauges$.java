@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * 支持五种metric类型：Gauges、Counters、Meters、Histograms和Timers。
  * 可以将metrics值通过JMX、Console，CSV文件和SLF4J loggers发布出来。
  */
-public class Metrics_Gauges {
+public class Gauges$ {
     /**
      * 实例化一个registry，最核心的一个模块，相当于一个应用程序的metrics系统的容器，维护一个Map
      */
@@ -50,7 +50,7 @@ public class Metrics_Gauges {
         };
 
         //注册到容器中
-        metrics.register(MetricRegistry.name(Metrics_Gauges.class, "pending-job", "size"), gauge);
+        metrics.register(MetricRegistry.name(Gauges$.class, "pending-job", "size"), gauge);
 
         //测试JMX
         JmxReporter jmxReporter = JmxReporter.forRegistry(metrics).build();

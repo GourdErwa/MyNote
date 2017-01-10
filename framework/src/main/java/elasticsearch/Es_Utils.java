@@ -25,13 +25,13 @@ import java.util.Set;
 public class Es_Utils {
 
 
+    protected static final String INDEX_DEMO_01 = "index_demo_01";
+    protected static final String INDEX_DEMO_01_MAPPING = "index_demo_01_mapping";
     //
     static final String LOG_STASH_YYYY_MM_DD = "logstash-2014.08.16";
     static final String LOG_STASH_YYYY_MM_DD_MAPPING = "logstash_yyyy_mm_dd_mapping";
     //直接传入 index_demo_*  即按前缀* 查询
     static final String INDEX_DEMO_ALL = "index_demo_*";
-    protected static final String INDEX_DEMO_01 = "index_demo_01";
-    protected static final String INDEX_DEMO_01_MAPPING = "index_demo_01_mapping";
     protected static Client client;
 
     /**
