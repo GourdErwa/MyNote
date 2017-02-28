@@ -13,7 +13,7 @@
     <name>hadoop</name>
 
     <properties>
-        <hadoop.version>3.0.0-alpha1</hadoop.version>
+        <hadoop.version>3.0.0-alpha2</hadoop.version>
     </properties>
     <dependencies>
         <dependency>

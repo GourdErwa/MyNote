@@ -21,7 +21,7 @@ public class Temperature {
     public static void main(String[] args) throws Exception {
         //输入路径
         String dst = "hdfs://localhost:8020/";
-        //输出路径，必须是不存在的，空文件加也不行。
+        //输出路径，必须是不存在的，空文件夹也不可以
         String dstOut = "hdfs://localhost:8020/output";
         Configuration hadoopConfig = new Configuration();
 

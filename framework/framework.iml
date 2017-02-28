@@ -65,6 +65,7 @@
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-util:5.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-xml:5.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.javatuples:javatuples:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jooq:jooq:3.9.1" level="project" />
     <orderEntry type="module" module-name="util" />
     <orderEntry type="module" module-name="annotation" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.10" level="project" />

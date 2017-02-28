@@ -12,7 +12,7 @@
     <artifactId>zookeeper</artifactId>
 
     <properties>
-        <zookeeper.v>3.4.9</zookeeper.v>
+        <zookeeper.v>3.5.2-alpha</zookeeper.v>
     </properties>
 
     <dependencies>

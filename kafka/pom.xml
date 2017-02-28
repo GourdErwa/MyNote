@@ -12,14 +12,14 @@
     <artifactId>kafka</artifactId>
 
     <properties>
-        <kafka.v>0.10.0.0</kafka.v>
+        <kafka.v>0.10.1.1</kafka.v>
     </properties>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka_2.10 -->
         <dependency>
             <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka_2.10</artifactId>
+            <artifactId>kafka_2.11</artifactId>
             <version>${kafka.v}</version>
         </dependency>
         <dependency>

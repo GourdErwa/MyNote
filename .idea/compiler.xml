@@ -23,6 +23,7 @@
         <module name="crawler" />
         <module name="db" />
         <module name="design" />
+        <module name="elastic5" />
         <module name="flink" />
         <module name="flume" />
         <module name="framework" />
@@ -50,6 +51,7 @@
       <module name="db" target="1.8" />
       <module name="design" target="1.8" />
       <module name="document" target="1.8" />
+      <module name="elastic5" target="1.8" />
       <module name="flink" target="1.8" />
       <module name="flume" target="1.8" />
       <module name="framework" target="1.8" />

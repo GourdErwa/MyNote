@@ -22,6 +22,7 @@
         <snmp4j.v>1.10.1</snmp4j.v>
         <caliper.v>1.0-beta-2</caliper.v>
         <javatuples.v>1.2</javatuples.v>
+        <jooq.v>3.9.1</jooq.v>
     </properties>
 
     <dependencies>
@@ -95,6 +96,12 @@
             <groupId>org.javatuples</groupId>
             <artifactId>javatuples</artifactId>
             <version>${javatuples.v}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.v}</version>
         </dependency>
 
         <dependency>
