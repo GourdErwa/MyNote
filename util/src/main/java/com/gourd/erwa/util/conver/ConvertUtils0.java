@@ -132,8 +132,7 @@ public final class ConvertUtils0 {
 
             //key 类型为嵌套其他 class 数据类型进行解析
             if (isMathBeanNestClass && (value instanceof Map)) {
-                @SuppressWarnings("unchecked")
-                final Map<String, Object> nestClassMap = (Map<String, Object>) value;
+                @SuppressWarnings("unchecked") final Map<String, Object> nestClassMap = (Map<String, Object>) value;
                 value = ConvertUtils0.convertESSourceMap2Object(
                         nestClassMap,
                         TransDescriptor.createTransDescriptor(propertyType, transDescriptor.getBeanNestClass(), transDescriptor

@@ -12,23 +12,23 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.ui;
+package com.gourd.erwa.game.charplanewar.ui;
 
 
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.entity.Score;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.entity.Score;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class Top10ScorePanel extends JPanel {
+class Top10ScorePanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    public static String OK_BUTTON = "TOP_SCORE_OK_BUTTON";
+    static String OK_BUTTON = "TOP_SCORE_OK_BUTTON";
     private GameButton[] scoreButtons;
 
-    public Top10ScorePanel(GamePlaneWarMainFrame gamePlaneWarMainFrame) {
+    Top10ScorePanel(GamePlaneWarMainFrame gamePlaneWarMainFrame) {
         this.initComponents(gamePlaneWarMainFrame);
     }
 

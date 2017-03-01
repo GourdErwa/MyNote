@@ -12,9 +12,10 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.config;
+package com.gourd.erwa.game.charplanewar.config;
 
-import charplanewar.erwa.GamePlaneWarMain;
+
+import com.gourd.erwa.game.charplanewar.GamePlaneWarMain;
 
 public class Config {
 

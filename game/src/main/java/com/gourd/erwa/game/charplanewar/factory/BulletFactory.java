@@ -12,12 +12,12 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.factory;
+package com.gourd.erwa.game.charplanewar.factory;
 
-import charplanewar.erwa.config.BulletType;
-import charplanewar.erwa.config.ImageConstants;
-import charplanewar.erwa.entity.Bullet;
-import charplanewar.erwa.entity.MyPlane;
+import com.gourd.erwa.game.charplanewar.config.BulletType;
+import com.gourd.erwa.game.charplanewar.config.ImageConstants;
+import com.gourd.erwa.game.charplanewar.entity.Bullet;
+import com.gourd.erwa.game.charplanewar.entity.MyPlane;
 
 /**
  * 子弹工厂

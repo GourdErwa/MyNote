@@ -12,16 +12,16 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.ui;
+package com.gourd.erwa.game.charplanewar.ui;
 
-import charplanewar.erwa.GamePlaneWarMain;
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.config.ImageConstants;
-import charplanewar.erwa.entity.Score;
-import charplanewar.erwa.util.FileUtil;
-import charplanewar.erwa.util.ImageLoader;
-import charplanewar.erwa.util.Images;
-import charplanewar.erwa.util.SoundPlayer;
+import com.gourd.erwa.game.charplanewar.GamePlaneWarMain;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.config.ImageConstants;
+import com.gourd.erwa.game.charplanewar.entity.Score;
+import com.gourd.erwa.game.charplanewar.util.FileUtil;
+import com.gourd.erwa.game.charplanewar.util.ImageLoader;
+import com.gourd.erwa.game.charplanewar.util.Images;
+import com.gourd.erwa.game.charplanewar.util.SoundPlayer;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -201,7 +201,7 @@ public class GamePlaneWarMainFrame extends JFrame implements ActionListener {
                 Config.MAIN_FRAME_WIDTH, Config.MAIN_FRAME_HEIGHT);
         this.setResizable(false);
         this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     /**

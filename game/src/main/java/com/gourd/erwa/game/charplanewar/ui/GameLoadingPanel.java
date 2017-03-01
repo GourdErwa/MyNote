@@ -12,10 +12,10 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.ui;
+package com.gourd.erwa.game.charplanewar.ui;
 
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.util.Images;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.util.Images;
 
 import javax.swing.*;
 import java.awt.*;

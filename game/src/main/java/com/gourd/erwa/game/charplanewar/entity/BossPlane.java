@@ -12,13 +12,13 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.entity;
+package com.gourd.erwa.game.charplanewar.entity;
 
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.config.EnemyPlaneType;
-import charplanewar.erwa.config.ImageConstants;
-import charplanewar.erwa.ui.GamePlayingPanel;
-import charplanewar.erwa.util.Images;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.config.EnemyPlaneType;
+import com.gourd.erwa.game.charplanewar.config.ImageConstants;
+import com.gourd.erwa.game.charplanewar.ui.GamePlayingPanel;
+import com.gourd.erwa.game.charplanewar.util.Images;
 
 import java.awt.*;
 

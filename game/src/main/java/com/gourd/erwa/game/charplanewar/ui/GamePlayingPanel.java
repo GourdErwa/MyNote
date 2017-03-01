@@ -12,21 +12,21 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.ui;
+package com.gourd.erwa.game.charplanewar.ui;
 
 
-import charplanewar.erwa.config.CatchableWeaponType;
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.config.EnemyPlaneType;
-import charplanewar.erwa.config.ImageConstants;
-import charplanewar.erwa.entity.*;
-import charplanewar.erwa.factory.CatchableWeaponFactory;
-import charplanewar.erwa.factory.EnemyPlaneFactory;
-import charplanewar.erwa.listener.BulletListener;
-import charplanewar.erwa.listener.CatchableWeaponListener;
-import charplanewar.erwa.listener.EnemyPlaneListener;
-import charplanewar.erwa.util.Images;
-import charplanewar.erwa.util.SoundPlayer;
+import com.gourd.erwa.game.charplanewar.config.CatchableWeaponType;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.config.EnemyPlaneType;
+import com.gourd.erwa.game.charplanewar.config.ImageConstants;
+import com.gourd.erwa.game.charplanewar.entity.*;
+import com.gourd.erwa.game.charplanewar.factory.CatchableWeaponFactory;
+import com.gourd.erwa.game.charplanewar.factory.EnemyPlaneFactory;
+import com.gourd.erwa.game.charplanewar.listener.BulletListener;
+import com.gourd.erwa.game.charplanewar.listener.CatchableWeaponListener;
+import com.gourd.erwa.game.charplanewar.listener.EnemyPlaneListener;
+import com.gourd.erwa.game.charplanewar.util.Images;
+import com.gourd.erwa.game.charplanewar.util.SoundPlayer;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;

@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.util;
+package com.gourd.erwa.game.charplanewar.util;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

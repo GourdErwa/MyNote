@@ -12,11 +12,11 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.ui;
+package com.gourd.erwa.game.charplanewar.ui;
 
 
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.util.Images;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.util.Images;
 
 import javax.swing.*;
 import java.awt.*;
@@ -24,14 +24,14 @@ import java.awt.*;
 /**
  * 游戏主菜单
  */
-public class PopupMenuPanel extends JPanel {
-    public final static String START_GAME_BUTTON = "START_GAME_BUTTON";
-    public final static String EXIT_GAME_BUTTON = "EXIT_GAME_BUTTON";
-    public final static String TOP_10_SCORES_BUTTON = "TOP_10_SCORES_BUTTON";
-    public final static String HELP_BUTTON = "HELP_BUTTON";
+class PopupMenuPanel extends JPanel {
+    final static String START_GAME_BUTTON = "START_GAME_BUTTON";
+    final static String EXIT_GAME_BUTTON = "EXIT_GAME_BUTTON";
+    final static String TOP_10_SCORES_BUTTON = "TOP_10_SCORES_BUTTON";
+    final static String HELP_BUTTON = "HELP_BUTTON";
     private static final long serialVersionUID = 1L;
 
-    public PopupMenuPanel(GamePlaneWarMainFrame gamePlaneWarMainFrame) {
+    PopupMenuPanel(GamePlaneWarMainFrame gamePlaneWarMainFrame) {
         this.initComponents(gamePlaneWarMainFrame);
     }
 

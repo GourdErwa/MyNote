@@ -12,10 +12,9 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa;
+package com.gourd.erwa.game.charplanewar;
 
-
-import charplanewar.erwa.ui.GamePlaneWarMainFrame;
+import com.gourd.erwa.game.charplanewar.ui.GamePlaneWarMainFrame;
 
 /**
  * 游戏启动 - Main 函数
@@ -30,7 +29,7 @@ public class GamePlaneWarMain {
     /**
      * 图片、音频文件路径、sound包所在绝对路径
      */
-    public static String CONF_PATH = "/lw/workfile/intellij_work/my_note/game/src/main/java/charplanewar/erwa/sound/";
+    public static String CONF_PATH = "/lw/workfile/intellij_work/MyNote/game/src/main/java/com/gourd/erwa/game/charplanewar/sound";
 
     /*static {
         CONF_PATH = GamePlaneWarMain.class.getResource("/").getPath()+ "charplanewar/erwa/sound/";

@@ -12,20 +12,20 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.ui;
+package com.gourd.erwa.game.charplanewar.ui;
 
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.util.FileUtil;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.util.FileUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class HelpDialog extends JFrame {
+class HelpDialog extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    public HelpDialog() {
+    HelpDialog() {
         this.initComponent();
     }
 

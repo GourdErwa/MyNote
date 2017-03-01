@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.entity;
+package com.gourd.erwa.game.charplanewar.entity;
 
 import java.io.Serializable;
 import java.util.Date;

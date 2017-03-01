@@ -12,9 +12,9 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.listener;
+package com.gourd.erwa.game.charplanewar.listener;
 
-import charplanewar.erwa.entity.CatchableWeapon;
+import com.gourd.erwa.game.charplanewar.entity.CatchableWeapon;
 
 /**
  * 子弹爆炸监听

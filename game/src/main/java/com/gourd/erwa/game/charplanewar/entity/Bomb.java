@@ -12,10 +12,10 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.entity;
+package com.gourd.erwa.game.charplanewar.entity;
 
-import charplanewar.erwa.config.CatchableWeaponType;
-import charplanewar.erwa.ui.GamePlayingPanel;
+import com.gourd.erwa.game.charplanewar.config.CatchableWeaponType;
+import com.gourd.erwa.game.charplanewar.ui.GamePlayingPanel;
 
 /**
  *

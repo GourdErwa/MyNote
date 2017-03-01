@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.syslog4j:syslog4j:0.9.46">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/syslog4j/syslog4j/0.9.46/syslog4j-0.9.46.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/syslog4j/syslog4j/0.9.46/syslog4j-0.9.46-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/syslog4j/syslog4j/0.9.46/syslog4j-0.9.46-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

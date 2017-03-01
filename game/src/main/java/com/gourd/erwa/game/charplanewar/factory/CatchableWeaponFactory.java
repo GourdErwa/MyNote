@@ -12,16 +12,16 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.factory;
+package com.gourd.erwa.game.charplanewar.factory;
 
-import charplanewar.erwa.config.CatchableWeaponType;
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.config.ImageConstants;
-import charplanewar.erwa.entity.Bomb;
-import charplanewar.erwa.entity.CatchableWeapon;
-import charplanewar.erwa.entity.DoubleLaser;
-import charplanewar.erwa.ui.GamePlayingPanel;
-import charplanewar.erwa.util.Images;
+import com.gourd.erwa.game.charplanewar.config.CatchableWeaponType;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.config.ImageConstants;
+import com.gourd.erwa.game.charplanewar.entity.Bomb;
+import com.gourd.erwa.game.charplanewar.entity.CatchableWeapon;
+import com.gourd.erwa.game.charplanewar.entity.DoubleLaser;
+import com.gourd.erwa.game.charplanewar.ui.GamePlayingPanel;
+import com.gourd.erwa.game.charplanewar.util.Images;
 
 import java.util.Random;
 

@@ -12,10 +12,10 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.ui;
+package com.gourd.erwa.game.charplanewar.ui;
 
-import charplanewar.erwa.config.Config;
-import charplanewar.erwa.util.SoundPlayer;
+import com.gourd.erwa.game.charplanewar.config.Config;
+import com.gourd.erwa.game.charplanewar.util.SoundPlayer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +36,7 @@ public class GameButton extends JButton implements ImageObserver, MouseListener 
     private String buttonStatus;
     private SoundPlayer buttonSoundPlayer;
 
-    public GameButton() {
+    GameButton() {
         super();
         this.text = "";
         initButton();

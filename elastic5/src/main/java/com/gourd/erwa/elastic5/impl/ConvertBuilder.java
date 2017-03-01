@@ -45,8 +45,7 @@ public class ConvertBuilder {
             }
         }
 
-        @SuppressWarnings("unchecked")
-        final List<BaseAggregationBuilder> aggregations = ((EZAggregationBuilder) builder).getAggregations();
+        @SuppressWarnings("unchecked") final List<BaseAggregationBuilder> aggregations = ((EZAggregationBuilder) builder).getAggregations();
         if (!aggregations.isEmpty()) {
             for (BaseAggregationBuilder aggregation : aggregations) {
                 final AggregationBuilder convert = convert(aggregation);

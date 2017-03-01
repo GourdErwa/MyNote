@@ -12,7 +12,7 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.config;
+package com.gourd.erwa.game.charplanewar.config;
 
 /**
  * 子弹类型

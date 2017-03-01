@@ -12,9 +12,9 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.util;
+package com.gourd.erwa.game.charplanewar.util;
 
-import charplanewar.erwa.entity.Score;
+import com.gourd.erwa.game.charplanewar.entity.Score;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

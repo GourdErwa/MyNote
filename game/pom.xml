@@ -21,7 +21,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>charplanewar.erwa.GamePlaneWarMain</mainClass>
+                            <mainClass>com.gourd.erwa.game.charplanewar.GamePlaneWarMain</mainClass>
                         </manifest>
                         <manifestEntries>
                             <!-- <Revision>${buildNumber}</Revision>

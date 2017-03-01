@@ -12,12 +12,12 @@
  * Personal home page: http://grouderwa.com
  */
 
-package charplanewar.erwa.entity;
+package com.gourd.erwa.game.charplanewar.entity;
 
 
-import charplanewar.erwa.config.EnemyPlaneType;
-import charplanewar.erwa.listener.EnemyPlaneListener;
-import charplanewar.erwa.ui.GamePlayingPanel;
+import com.gourd.erwa.game.charplanewar.config.EnemyPlaneType;
+import com.gourd.erwa.game.charplanewar.listener.EnemyPlaneListener;
+import com.gourd.erwa.game.charplanewar.ui.GamePlayingPanel;
 
 import java.awt.*;
 
