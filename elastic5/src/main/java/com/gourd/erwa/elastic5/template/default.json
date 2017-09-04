@@ -1,0 +1,51 @@
+{
+  "template": "*",
+  "order": 0,
+  "settings": {
+    "index": {
+      "refresh_interval": "10s",
+      "number_of_shards": 3,
+      "number_of_replicas": 1
+    }
+  },
+  "mappings": {
+    "_default_": {
+      "_all": {
+        "enabled": false,
+        "norms": false
+      },
+      "dynamic_templates": [
+        {
+          "message_field": {
+            "path_match": "message",
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "text",
+              "norms": false
+            }
+          }
+        },
+        {
+          "string_fields": {
+            "match": "*",
+            "match_mapping_type": "string",
+            "mapping": {
+              "type": "keyword",
+              "norms": false
+            }
+          }
+        }
+      ],
+      "properties": {
+        "@timestamp": {
+          "type": "date",
+          "include_in_all": false
+        },
+        "@version": {
+          "type": "keyword",
+          "include_in_all": false
+        }
+      }
+    }
+  }
+}

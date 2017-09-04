@@ -13,7 +13,7 @@
     <name>hadoop</name>
 
     <properties>
-        <hadoop.version>3.0.0-alpha2</hadoop.version>
+        <hadoop.version>2.7.3</hadoop.version>
     </properties>
     <dependencies>
         <dependency>
@@ -30,6 +30,11 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>${hadoop.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>1.2.1</version>
         </dependency>
     </dependencies>
 

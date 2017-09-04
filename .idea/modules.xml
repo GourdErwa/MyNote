@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/db/db.iml" filepath="$PROJECT_DIR$/db/db.iml" />
       <module fileurl="file://$PROJECT_DIR$/design/design.iml" filepath="$PROJECT_DIR$/design/design.iml" />
       <module fileurl="file://$PROJECT_DIR$/elastic5/elastic5.iml" filepath="$PROJECT_DIR$/elastic5/elastic5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/elasticsearch-hadoop/elasticsearch-hadoop.iml" filepath="$PROJECT_DIR$/elasticsearch-hadoop/elasticsearch-hadoop.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink/flink.iml" filepath="$PROJECT_DIR$/flink/flink.iml" />
       <module fileurl="file://$PROJECT_DIR$/flume/flume.iml" filepath="$PROJECT_DIR$/flume/flume.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
@@ -20,6 +21,8 @@
       <module fileurl="file://$PROJECT_DIR$/js/js.iml" filepath="$PROJECT_DIR$/js/js.iml" />
       <module fileurl="file://$PROJECT_DIR$/junit/junit.iml" filepath="$PROJECT_DIR$/junit/junit.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka/kafka.iml" filepath="$PROJECT_DIR$/kafka/kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka_streams/kafka_streams.iml" filepath="$PROJECT_DIR$/kafka_streams/kafka_streams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shell/shell.iml" filepath="$PROJECT_DIR$/shell/shell.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark/spark.iml" filepath="$PROJECT_DIR$/spark/spark.iml" />
       <module fileurl="file://$PROJECT_DIR$/third_party/third_party.iml" filepath="$PROJECT_DIR$/third_party/third_party.iml" />
       <module fileurl="file://$PROJECT_DIR$/util/util.iml" filepath="$PROJECT_DIR$/util/util.iml" />

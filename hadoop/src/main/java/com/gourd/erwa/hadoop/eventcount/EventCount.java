@@ -20,8 +20,9 @@ import java.io.IOException;
  */
 public class EventCount {
 
-    // program arguments
-    // /data/hadoop/hadoop-2.6.2/temp-my/input /data/hadoop/hadoop-2.6.2/temp-my/output
+    /*
+    /data/hadoop/TestData/EventCount/input/HelloWorld.txt /data/hadoop/TestData/EventCount/output
+     */
     public static void main(String[] args) throws Exception {
 
         Configuration conf = new Configuration();
@@ -30,7 +31,7 @@ public class EventCount {
             System.err.println("Usage: EventCount <in> <out>");
             System.exit(2);
         }
-        Job job = Job.getInstance(conf, "event count");
+        Job job = Job.getInstance(conf, "EventCount");
         job.setJarByClass(EventCount.class);
         job.setMapperClass(MyMapper.class);
         job.setCombinerClass(MyReducer.class);

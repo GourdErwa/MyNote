@@ -10,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/design" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/doc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/elastic5" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/elasticsearch-hadoop" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flink" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/flume" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/framework" charset="UTF-8" />
@@ -21,6 +22,8 @@
     <file url="file://$PROJECT_DIR$/js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/junit" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kafka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kafka_streams" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shell" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spark" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/third_party" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/util" charset="UTF-8" />

@@ -10,6 +10,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
 
 import java.io.IOException;
 
@@ -19,26 +20,29 @@ import java.io.IOException;
 public class Temperature {
 
     public static void main(String[] args) throws Exception {
-        //输入路径
-        String dst = "hdfs://localhost:8020/";
-        //输出路径，必须是不存在的，空文件夹也不可以
-        String dstOut = "hdfs://localhost:8020/output";
-        Configuration hadoopConfig = new Configuration();
 
-        hadoopConfig.set("fs.hdfs.impl",
+        Configuration conf = new Configuration();
+        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+        if (otherArgs.length < 2) {
+            System.err.println("Usage: EventCount <in> <out>");
+            System.exit(2);
+        }
+
+        conf.set("fs.hdfs.impl",
                 org.apache.hadoop.hdfs.DistributedFileSystem.class.getName()
         );
-        hadoopConfig.set("fs.file.impl",
+        conf.set("fs.file.impl",
                 org.apache.hadoop.fs.LocalFileSystem.class.getName()
         );
-        Job job = new Job(hadoopConfig);
+        Job job = new Job(conf);
 
         //如果需要打成jar运行，需要下面这句
-        //job.setJarByClass(NewMaxTemperature.class);
+        job.setJarByClass(Temperature.class);
 
         //job执行作业时输入和输出文件的路径
-        FileInputFormat.addInputPath(job, new Path(dst));
-        FileOutputFormat.setOutputPath(job, new Path(dstOut));
+        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+
 
         //指定自定义的Mapper和Reducer作为两个阶段的任务处理类
         job.setMapperClass(TempMapper.class);
@@ -91,7 +95,7 @@ public class Temperature {
         public void reduce(Text key, Iterable<IntWritable> values,
                            Context context) throws IOException, InterruptedException {
             int maxValue = Integer.MIN_VALUE;
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             //取values的最大值
             for (IntWritable value : values) {
                 maxValue = Math.max(maxValue, value.get());

@@ -12,8 +12,18 @@
     <artifactId>kafka</artifactId>
 
     <properties>
-        <kafka.v>0.10.1.1</kafka.v>
+        <kafka.v>0.11.0.0</kafka.v>
     </properties>
+
+    <repositories>
+
+        <repository>
+            <id>confluent</id>
+            <url>http://packages.confluent.io/maven/</url>
+        </repository>
+
+        <!-- further repository entries here -->
+    </repositories>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka_2.10 -->
@@ -33,4 +43,5 @@
             <version>${kafka.v}</version>
         </dependency>
     </dependencies>
+
 </project>

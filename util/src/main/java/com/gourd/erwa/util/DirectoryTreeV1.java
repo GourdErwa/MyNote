@@ -231,10 +231,10 @@ public class DirectoryTreeV1 {
 class MainTest {
 
     public static void main(String[] args) {
-        final File generateFile = new File("/lw/workfile/intellij_work/MyNote/design1");
+        final File generateFile = new File("/lw/workfile/intellij_work/analyzer/src/main/java/com/fusionskye/ezsonar");
         final String generate = DirectoryTreeV1.create(generateFile)
                 .setDeep(20)
-                .setFileFilter(pathname -> (!(pathname.isHidden() || pathname.getName().contains("target"))))
+                .setFileFilter(pathname -> (!(pathname.isHidden() || pathname.getName().contains("java"))))
                 /*.showLength()
                 .showModify()
                 .showPermission()

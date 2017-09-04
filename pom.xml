@@ -32,6 +32,9 @@
         <module>annotation</module>
         <module>crawler</module>
         <module>elastic5</module>
+        <module>shell</module>
+        <module>elasticsearch-hadoop</module>
+        <module>kafka_streams</module>
     </modules>
 
 

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.typelevel:cats-kernel_2.11:0.9.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/typelevel/cats-kernel_2.11/0.9.0/cats-kernel_2.11-0.9.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/typelevel/cats-kernel_2.11/0.9.0/cats-kernel_2.11-0.9.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/typelevel/cats-kernel_2.11/0.9.0/cats-kernel_2.11-0.9.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
