@@ -12,5 +12,6 @@
         <parameter value="-Ywarn-dead-code" />
       </parameters>
     </profile>
+    <profile name="Maven 2" modules="spark" />
   </component>
 </project>
