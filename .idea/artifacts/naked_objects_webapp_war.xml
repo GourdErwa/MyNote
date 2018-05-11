@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="naked-objects-webapp:war">
+    <output-path>$PROJECT_DIR$/java-design-patterns/naked-objects/webapp/target</output-path>
+    <root id="archive" name="simpleapp.war">
+      <element id="artifact" artifact-name="naked-objects-webapp:war exploded" />
+    </root>
+  </artifact>
+</component>

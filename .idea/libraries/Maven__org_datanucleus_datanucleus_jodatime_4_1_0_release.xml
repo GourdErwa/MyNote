@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.datanucleus:datanucleus-jodatime:4.1.0-release">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/datanucleus/datanucleus-jodatime/4.1.0-release/datanucleus-jodatime-4.1.0-release.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/datanucleus/datanucleus-jodatime/4.1.0-release/datanucleus-jodatime-4.1.0-release-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/datanucleus/datanucleus-jodatime/4.1.0-release/datanucleus-jodatime-4.1.0-release-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
