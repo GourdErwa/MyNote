@@ -24,34 +24,40 @@
 -->
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Design Patterns - Command Presentation</title>
     <meta charset="utf-8">
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-	  
-	  blockquote {
-		border-left: 0.3em solid rgba(0,0,0,0.5);
-		padding: 0 15px;
-		font-style: italic;
-	  }
-	  
-	  img {
-		max-width:100%;
-	  }
+        body {
+            font-family: 'Droid Serif';
+        }
+
+        h1, h2, h3 {
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: normal;
+        }
+
+        .remark-code, .remark-inline-code {
+            font-family: 'Ubuntu Mono';
+        }
+
+        blockquote {
+            border-left: 0.3em solid rgba(0, 0, 0, 0.5);
+            padding: 0 15px;
+            font-style: italic;
+        }
+
+        img {
+            max-width: 100%;
+        }
     </style>
-  </head>
-  <body>
-    <textarea id="source">
+</head>
+<body>
+<textarea id="source">
 
 class: center, middle
 
@@ -76,7 +82,7 @@ class: center, middle
 * [Wikipedia](https://en.wikipedia.org/wiki/Command_pattern) says:
   > In object-oriented programming, the command pattern is a behavioral design pattern in which an object is used to encapsulate all information needed to perform an action or trigger an event at a later time. This information includes the method name, the object that owns the method and values for the method parameters.
 
-<br />
+<br/>
 
 * In plain words:
 
@@ -151,7 +157,7 @@ Use the Command pattern when you want to:
   
   * Commands are an object-oriented replacement for callbacks;
 
-  <br />
+  <br/>
   
 * Specify, queue, and execute requests at different times; 
   * A Command object can have a lifetime independent of the original request;
@@ -234,10 +240,10 @@ Use the Command pattern when you want to:
 * Source code http://java-design-patterns.com/patterns/command/
 
     </textarea>
-    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
+<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+</script>
+<script>
+    var slideshow = remark.create();
+</script>
+</body>
 </html>

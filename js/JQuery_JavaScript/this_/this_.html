@@ -38,6 +38,7 @@
     function people(name) {
         alert(this.toString());//[Object object]
     }
+
     var p = new people('liw');
 
     /*
@@ -49,6 +50,7 @@
     function foo(a, b, c) {
         //alert(a);//1 -  1
     }
+
     var bar = {};
     foo.apply(bar, [1, 2, 3]); // 数组将会被扩展，如下所示
     foo.call(bar, 1, 2, 3); // 传递到foo的参数是：a = 1, b = 2, c = 3
@@ -62,6 +64,7 @@
 
     function Foo() {
     }
+
     Foo.method = function () {
         function test() {
             alert(this.toString());//[Object window]
@@ -94,12 +97,14 @@
     //当 method 被调用时，this 将会指向 Bar 的实例对象。
     function Foo() {
     }
+
     Foo.prototype.method = function () {
         alert(this);
     };
 
     function Bar() {
     }
+
     Bar.prototype = Foo.prototype;
 
     new Bar().method();//bar对象------见下图

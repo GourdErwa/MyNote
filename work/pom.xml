@@ -5,7 +5,7 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.3</version>
+        <version>2018.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,9 +13,7 @@
     <name>work</name>
 
     <properties>
-        <hibernate.v>5.2.4.Final</hibernate.v>
-        <c3p0.v>0.9.1.2</c3p0.v>
-        <ojdbc14.v>12.1.0.1-atlassian-hosted</ojdbc14.v>
+
     </properties>
 
     <dependencies>
@@ -23,23 +21,23 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate.v}</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
-            <version>${hibernate.v}</version>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
             <groupId>c3p0</groupId>
             <artifactId>c3p0</artifactId>
-            <version>${c3p0.v}</version>
+            <version>${c3p0.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
-            <version>${ojdbc14.v}</version>
+            <version>${ojdbc14.version}</version>
         </dependency>
 
     </dependencies>

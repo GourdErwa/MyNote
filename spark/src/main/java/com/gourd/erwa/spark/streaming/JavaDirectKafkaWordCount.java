@@ -80,7 +80,6 @@ public class JavaDirectKafkaWordCount {
         );
 
 
-
         // Start the computation
         javaStreamingContext.start();
         javaStreamingContext.awaitTermination();

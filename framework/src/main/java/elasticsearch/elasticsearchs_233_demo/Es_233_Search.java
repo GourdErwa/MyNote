@@ -7,7 +7,6 @@ import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
-import org.elasticsearch.index.query.FilterBuilders;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
@@ -136,7 +135,7 @@ public class Es_233_Search {
                 //.setQuery(QueryBuilders.termQuery("multi", "test"))       // Query
                 //.setPostFilter(FilterBuilders.rangeFilter("age").lt(10).gt(50))   // Filter过滤
                 //.setPostFilter(FilterBuilders.inFilter("age", 45))   // Filter过滤
-                .setPostFilter(FilterBuilders.boolFilter().mustNot(FilterBuilders.inFilter("age", 20, 21, 22)))
+                //.setPostFilter(FilterBuilders.boolFilter().mustNot(FilterBuilders.inFilter("age", 20, 21, 22)))
                 .setFrom(0).setSize(60).setExplain(true)
                 .execute()
                 //注册监听事件

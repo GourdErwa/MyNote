@@ -3,29 +3,144 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyNote.iml" filepath="$PROJECT_DIR$/MyNote.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/abstract-document/abstract-document.iml" filepath="$PROJECT_DIR$/java-design-patterns/abstract-document/abstract-document.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/abstract-factory/abstract-factory.iml" filepath="$PROJECT_DIR$/java-design-patterns/abstract-factory/abstract-factory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/adapter/adapter.iml" filepath="$PROJECT_DIR$/java-design-patterns/adapter/adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices/aggregator-microservices.iml" filepath="$PROJECT_DIR$/java-design-patterns/aggregator-microservices/aggregator-microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices/aggregator-service/aggregator-service.iml" filepath="$PROJECT_DIR$/java-design-patterns/aggregator-microservices/aggregator-service/aggregator-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/java-design-patterns/api-gateway/api-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/api-gateway/api-gateway-service/api-gateway-service.iml" filepath="$PROJECT_DIR$/java-design-patterns/api-gateway/api-gateway-service/api-gateway-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/async-method-invocation/async-method-invocation.iml" filepath="$PROJECT_DIR$/java-design-patterns/async-method-invocation/async-method-invocation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/balking/balking.iml" filepath="$PROJECT_DIR$/java-design-patterns/balking/balking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/bridge/bridge.iml" filepath="$PROJECT_DIR$/java-design-patterns/bridge/bridge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/builder/builder.iml" filepath="$PROJECT_DIR$/java-design-patterns/builder/builder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/business-delegate/business-delegate.iml" filepath="$PROJECT_DIR$/java-design-patterns/business-delegate/business-delegate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/caching/caching.iml" filepath="$PROJECT_DIR$/java-design-patterns/caching/caching.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/callback/callback.iml" filepath="$PROJECT_DIR$/java-design-patterns/callback/callback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/chain/chain.iml" filepath="$PROJECT_DIR$/java-design-patterns/chain/chain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/command/command.iml" filepath="$PROJECT_DIR$/java-design-patterns/command/command.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/composite/composite.iml" filepath="$PROJECT_DIR$/java-design-patterns/composite/composite.iml" />
       <module fileurl="file://$PROJECT_DIR$/concurrent/concurrent.iml" filepath="$PROJECT_DIR$/concurrent/concurrent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/converter/converter.iml" filepath="$PROJECT_DIR$/java-design-patterns/converter/converter.iml" />
       <module fileurl="file://$PROJECT_DIR$/corejava/corejava.iml" filepath="$PROJECT_DIR$/corejava/corejava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/cqrs/cqrs.iml" filepath="$PROJECT_DIR$/java-design-patterns/cqrs/cqrs.iml" />
       <module fileurl="file://$PROJECT_DIR$/crawler/crawler.iml" filepath="$PROJECT_DIR$/crawler/crawler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/dao/dao.iml" filepath="$PROJECT_DIR$/java-design-patterns/dao/dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/data-bus/data-bus.iml" filepath="$PROJECT_DIR$/java-design-patterns/data-bus/data-bus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/data-mapper/data-mapper.iml" filepath="$PROJECT_DIR$/java-design-patterns/data-mapper/data-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/data-transfer-object/data-transfer-object.iml" filepath="$PROJECT_DIR$/java-design-patterns/data-transfer-object/data-transfer-object.iml" />
       <module fileurl="file://$PROJECT_DIR$/db/db.iml" filepath="$PROJECT_DIR$/db/db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/decorator/decorator.iml" filepath="$PROJECT_DIR$/java-design-patterns/decorator/decorator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/delegation/delegation.iml" filepath="$PROJECT_DIR$/java-design-patterns/delegation/delegation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/dependency-injection/dependency-injection.iml" filepath="$PROJECT_DIR$/java-design-patterns/dependency-injection/dependency-injection.iml" />
       <module fileurl="file://$PROJECT_DIR$/design/design.iml" filepath="$PROJECT_DIR$/design/design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/double-checked-locking/double-checked-locking.iml" filepath="$PROJECT_DIR$/java-design-patterns/double-checked-locking/double-checked-locking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/double-dispatch/double-dispatch.iml" filepath="$PROJECT_DIR$/java-design-patterns/double-dispatch/double-dispatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/eip-aggregator/eip-aggregator.iml" filepath="$PROJECT_DIR$/java-design-patterns/eip-aggregator/eip-aggregator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/eip-message-channel/eip-message-channel.iml" filepath="$PROJECT_DIR$/java-design-patterns/eip-message-channel/eip-message-channel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/eip-publish-subscribe/eip-publish-subscribe.iml" filepath="$PROJECT_DIR$/java-design-patterns/eip-publish-subscribe/eip-publish-subscribe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/eip-splitter/eip-splitter.iml" filepath="$PROJECT_DIR$/java-design-patterns/eip-splitter/eip-splitter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/eip-wire-tap/eip-wire-tap.iml" filepath="$PROJECT_DIR$/java-design-patterns/eip-wire-tap/eip-wire-tap.iml" />
       <module fileurl="file://$PROJECT_DIR$/elastic5/elastic5.iml" filepath="$PROJECT_DIR$/elastic5/elastic5.iml" />
-      <module fileurl="file://$PROJECT_DIR$/elasticsearch-hadoop/elasticsearch-hadoop.iml" filepath="$PROJECT_DIR$/elasticsearch-hadoop/elasticsearch-hadoop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/event-aggregator/event-aggregator.iml" filepath="$PROJECT_DIR$/java-design-patterns/event-aggregator/event-aggregator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/event-asynchronous/event-asynchronous.iml" filepath="$PROJECT_DIR$/java-design-patterns/event-asynchronous/event-asynchronous.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/event-driven-architecture/event-driven-architecture.iml" filepath="$PROJECT_DIR$/java-design-patterns/event-driven-architecture/event-driven-architecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/event-queue/event-queue.iml" filepath="$PROJECT_DIR$/java-design-patterns/event-queue/event-queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/event-sourcing/event-sourcing.iml" filepath="$PROJECT_DIR$/java-design-patterns/event-sourcing/event-sourcing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/execute-around/execute-around.iml" filepath="$PROJECT_DIR$/java-design-patterns/execute-around/execute-around.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/extension-objects/extension-objects.iml" filepath="$PROJECT_DIR$/java-design-patterns/extension-objects/extension-objects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/facade/facade.iml" filepath="$PROJECT_DIR$/java-design-patterns/facade/facade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/factory-kit/factory-kit.iml" filepath="$PROJECT_DIR$/java-design-patterns/factory-kit/factory-kit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/factory-method/factory-method.iml" filepath="$PROJECT_DIR$/java-design-patterns/factory-method/factory-method.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/feature-toggle/feature-toggle.iml" filepath="$PROJECT_DIR$/java-design-patterns/feature-toggle/feature-toggle.iml" />
       <module fileurl="file://$PROJECT_DIR$/flink/flink.iml" filepath="$PROJECT_DIR$/flink/flink.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/fluentinterface/fluentinterface.iml" filepath="$PROJECT_DIR$/java-design-patterns/fluentinterface/fluentinterface.iml" />
       <module fileurl="file://$PROJECT_DIR$/flume/flume.iml" filepath="$PROJECT_DIR$/flume/flume.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/flux/flux.iml" filepath="$PROJECT_DIR$/java-design-patterns/flux/flux.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/flyweight/flyweight.iml" filepath="$PROJECT_DIR$/java-design-patterns/flyweight/flyweight.iml" />
       <module fileurl="file://$PROJECT_DIR$/framework/framework.iml" filepath="$PROJECT_DIR$/framework/framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/front-controller/front-controller.iml" filepath="$PROJECT_DIR$/java-design-patterns/front-controller/front-controller.iml" />
       <module fileurl="file://$PROJECT_DIR$/game/game.iml" filepath="$PROJECT_DIR$/game/game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/guarded-suspension/guarded-suspension.iml" filepath="$PROJECT_DIR$/java-design-patterns/guarded-suspension/guarded-suspension.iml" />
       <module fileurl="file://$PROJECT_DIR$/hadoop/hadoop.iml" filepath="$PROJECT_DIR$/hadoop/hadoop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/half-sync-half-async/half-sync-half-async.iml" filepath="$PROJECT_DIR$/java-design-patterns/half-sync-half-async/half-sync-half-async.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/hexagonal/hexagonal.iml" filepath="$PROJECT_DIR$/java-design-patterns/hexagonal/hexagonal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/api-gateway/image-microservice/image-microservice.iml" filepath="$PROJECT_DIR$/java-design-patterns/api-gateway/image-microservice/image-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices/information-microservice/information-microservice.iml" filepath="$PROJECT_DIR$/java-design-patterns/aggregator-microservices/information-microservice/information-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/intercepting-filter/intercepting-filter.iml" filepath="$PROJECT_DIR$/java-design-patterns/intercepting-filter/intercepting-filter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/interpreter/interpreter.iml" filepath="$PROJECT_DIR$/java-design-patterns/interpreter/interpreter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices/inventory-microservice/inventory-microservice.iml" filepath="$PROJECT_DIR$/java-design-patterns/aggregator-microservices/inventory-microservice/inventory-microservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/io/io.iml" filepath="$PROJECT_DIR$/io/io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/iterator/iterator.iml" filepath="$PROJECT_DIR$/java-design-patterns/iterator/iterator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/java-design-patterns.iml" filepath="$PROJECT_DIR$/java-design-patterns/java-design-patterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/java8/java8.iml" filepath="$PROJECT_DIR$/java8/java8.iml" />
       <module fileurl="file://$PROJECT_DIR$/js/js.iml" filepath="$PROJECT_DIR$/js/js.iml" />
       <module fileurl="file://$PROJECT_DIR$/junit/junit.iml" filepath="$PROJECT_DIR$/junit/junit.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka/kafka.iml" filepath="$PROJECT_DIR$/kafka/kafka.iml" />
-      <module fileurl="file://$PROJECT_DIR$/kafka_streams/kafka_streams.iml" filepath="$PROJECT_DIR$/kafka_streams/kafka_streams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/layers/layers.iml" filepath="$PROJECT_DIR$/java-design-patterns/layers/layers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/lazy-loading/lazy-loading.iml" filepath="$PROJECT_DIR$/java-design-patterns/lazy-loading/lazy-loading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/marker/marker.iml" filepath="$PROJECT_DIR$/java-design-patterns/marker/marker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/mediator/mediator.iml" filepath="$PROJECT_DIR$/java-design-patterns/mediator/mediator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/memento/memento.iml" filepath="$PROJECT_DIR$/java-design-patterns/memento/memento.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/model-view-controller/model-view-controller.iml" filepath="$PROJECT_DIR$/java-design-patterns/model-view-controller/model-view-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/model-view-presenter/model-view-presenter.iml" filepath="$PROJECT_DIR$/java-design-patterns/model-view-presenter/model-view-presenter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/module/module.iml" filepath="$PROJECT_DIR$/java-design-patterns/module/module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/monad/monad.iml" filepath="$PROJECT_DIR$/java-design-patterns/monad/monad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/monostate/monostate.iml" filepath="$PROJECT_DIR$/java-design-patterns/monostate/monostate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/multiton/multiton.iml" filepath="$PROJECT_DIR$/java-design-patterns/multiton/multiton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/mute-idiom/mute-idiom.iml" filepath="$PROJECT_DIR$/java-design-patterns/mute-idiom/mute-idiom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/mutex/mutex.iml" filepath="$PROJECT_DIR$/java-design-patterns/mutex/mutex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/naked-objects/naked-objects.iml" filepath="$PROJECT_DIR$/java-design-patterns/naked-objects/naked-objects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/naked-objects/dom/naked-objects-dom.iml" filepath="$PROJECT_DIR$/java-design-patterns/naked-objects/dom/naked-objects-dom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/naked-objects/fixture/naked-objects-fixture.iml" filepath="$PROJECT_DIR$/java-design-patterns/naked-objects/fixture/naked-objects-fixture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/naked-objects/integtests/naked-objects-integtests.iml" filepath="$PROJECT_DIR$/java-design-patterns/naked-objects/integtests/naked-objects-integtests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/naked-objects/webapp/naked-objects-webapp.iml" filepath="$PROJECT_DIR$/java-design-patterns/naked-objects/webapp/naked-objects-webapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/null-object/null-object.iml" filepath="$PROJECT_DIR$/java-design-patterns/null-object/null-object.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/object-mother/object-mother.iml" filepath="$PROJECT_DIR$/java-design-patterns/object-mother/object-mother.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/object-pool/object-pool.iml" filepath="$PROJECT_DIR$/java-design-patterns/object-pool/object-pool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/observer/observer.iml" filepath="$PROJECT_DIR$/java-design-patterns/observer/observer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/page-object/page-object.iml" filepath="$PROJECT_DIR$/java-design-patterns/page-object/page-object.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/partial-response/partial-response.iml" filepath="$PROJECT_DIR$/java-design-patterns/partial-response/partial-response.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/poison-pill/poison-pill.iml" filepath="$PROJECT_DIR$/java-design-patterns/poison-pill/poison-pill.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/api-gateway/price-microservice/price-microservice.iml" filepath="$PROJECT_DIR$/java-design-patterns/api-gateway/price-microservice/price-microservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/private-class-data/private-class-data.iml" filepath="$PROJECT_DIR$/java-design-patterns/private-class-data/private-class-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/producer-consumer/producer-consumer.iml" filepath="$PROJECT_DIR$/java-design-patterns/producer-consumer/producer-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/promise/promise.iml" filepath="$PROJECT_DIR$/java-design-patterns/promise/promise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/property/property.iml" filepath="$PROJECT_DIR$/java-design-patterns/property/property.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/prototype/prototype.iml" filepath="$PROJECT_DIR$/java-design-patterns/prototype/prototype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/proxy/proxy.iml" filepath="$PROJECT_DIR$/java-design-patterns/proxy/proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/queue-load-leveling/queue-load-leveling.iml" filepath="$PROJECT_DIR$/java-design-patterns/queue-load-leveling/queue-load-leveling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/reactor/reactor.iml" filepath="$PROJECT_DIR$/java-design-patterns/reactor/reactor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/reader-writer-lock/reader-writer-lock.iml" filepath="$PROJECT_DIR$/java-design-patterns/reader-writer-lock/reader-writer-lock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/repository/repository.iml" filepath="$PROJECT_DIR$/java-design-patterns/repository/repository.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/resource-acquisition-is-initialization/resource-acquisition-is-initialization.iml" filepath="$PROJECT_DIR$/java-design-patterns/resource-acquisition-is-initialization/resource-acquisition-is-initialization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/retry/retry.iml" filepath="$PROJECT_DIR$/java-design-patterns/retry/retry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/semaphore/semaphore.iml" filepath="$PROJECT_DIR$/java-design-patterns/semaphore/semaphore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/servant/servant.iml" filepath="$PROJECT_DIR$/java-design-patterns/servant/servant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/serverless/serverless.iml" filepath="$PROJECT_DIR$/java-design-patterns/serverless/serverless.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/service-layer/service-layer.iml" filepath="$PROJECT_DIR$/java-design-patterns/service-layer/service-layer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/service-locator/service-locator.iml" filepath="$PROJECT_DIR$/java-design-patterns/service-locator/service-locator.iml" />
       <module fileurl="file://$PROJECT_DIR$/shell/shell.iml" filepath="$PROJECT_DIR$/shell/shell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/singleton/singleton.iml" filepath="$PROJECT_DIR$/java-design-patterns/singleton/singleton.iml" />
       <module fileurl="file://$PROJECT_DIR$/spark/spark.iml" filepath="$PROJECT_DIR$/spark/spark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spark_ml/spark_ml.iml" filepath="$PROJECT_DIR$/spark_ml/spark_ml.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/specification/specification.iml" filepath="$PROJECT_DIR$/java-design-patterns/specification/specification.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/state/state.iml" filepath="$PROJECT_DIR$/java-design-patterns/state/state.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/step-builder/step-builder.iml" filepath="$PROJECT_DIR$/java-design-patterns/step-builder/step-builder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/strategy/strategy.iml" filepath="$PROJECT_DIR$/java-design-patterns/strategy/strategy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/template-method/template-method.iml" filepath="$PROJECT_DIR$/java-design-patterns/template-method/template-method.iml" />
       <module fileurl="file://$PROJECT_DIR$/third_party/third_party.iml" filepath="$PROJECT_DIR$/third_party/third_party.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/thread-pool/thread-pool.iml" filepath="$PROJECT_DIR$/java-design-patterns/thread-pool/thread-pool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/throttling/throttling.iml" filepath="$PROJECT_DIR$/java-design-patterns/throttling/throttling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/tls/tls.iml" filepath="$PROJECT_DIR$/java-design-patterns/tls/tls.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/tolerant-reader/tolerant-reader.iml" filepath="$PROJECT_DIR$/java-design-patterns/tolerant-reader/tolerant-reader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/trampoline/trampoline.iml" filepath="$PROJECT_DIR$/java-design-patterns/trampoline/trampoline.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/twin/twin.iml" filepath="$PROJECT_DIR$/java-design-patterns/twin/twin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/unit-of-work/unit-of-work.iml" filepath="$PROJECT_DIR$/java-design-patterns/unit-of-work/unit-of-work.iml" />
       <module fileurl="file://$PROJECT_DIR$/util/util.iml" filepath="$PROJECT_DIR$/util/util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/value-object/value-object.iml" filepath="$PROJECT_DIR$/java-design-patterns/value-object/value-object.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-design-patterns/visitor/visitor.iml" filepath="$PROJECT_DIR$/java-design-patterns/visitor/visitor.iml" />
       <module fileurl="file://$PROJECT_DIR$/work/work.iml" filepath="$PROJECT_DIR$/work/work.iml" />
       <module fileurl="file://$PROJECT_DIR$/zookeeper/zookeeper.iml" filepath="$PROJECT_DIR$/zookeeper/zookeeper.iml" />
     </modules>

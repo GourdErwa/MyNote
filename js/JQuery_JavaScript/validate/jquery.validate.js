@@ -58,6 +58,7 @@
                         // prevent form submit to be able to see console output
                         event.preventDefault();
                     }
+
                     function handle() {
                         var hidden;
                         if (validator.settings.submitHandler) {
@@ -471,8 +472,8 @@
             findLastActive: function () {
                 var lastActive = this.lastActive;
                 return lastActive && $.grep(this.errorList, function (n) {
-                        return n.element.name === lastActive.name;
-                    }).length === 1 && lastActive;
+                    return n.element.name === lastActive.name;
+                }).length === 1 && lastActive;
             },
 
             elements: function () {
@@ -804,10 +805,10 @@
 
             previousValue: function (element) {
                 return $.data(element, "previousValue") || $.data(element, "previousValue", {
-                        old: null,
-                        valid: true,
-                        message: this.defaultMessage(element, "remote")
-                    });
+                    old: null,
+                    valid: true,
+                    message: this.defaultMessage(element, "remote")
+                });
             }
 
         },
@@ -868,7 +869,7 @@
 
                 // convert the value to a number for number inputs, and for text for backwards compability
                 // allows type="com.gourd.erwa.date" and others to be compared as strings
-                if (/min|max/.test(method) && ( type === null || /number|range|text/.test(type) )) {
+                if (/min|max/.test(method) && (type === null || /number|range|text/.test(type))) {
                     value = Number(value);
                 }
 
@@ -1094,7 +1095,7 @@
             // http://docs.jquery.com/Plugins/Validation/Methods/rangelength
             rangelength: function (value, element, param) {
                 var length = $.isArray(value) ? value.length : this.getLength($.trim(value), element);
-                return this.optional(element) || ( length >= param[0] && length <= param[1] );
+                return this.optional(element) || (length >= param[0] && length <= param[1]);
             },
 
             // http://docs.jquery.com/Plugins/Validation/Methods/min
@@ -1109,7 +1110,7 @@
 
             // http://docs.jquery.com/Plugins/Validation/Methods/range
             range: function (value, element, param) {
-                return this.optional(element) || ( value >= param[0] && value <= param[1] );
+                return this.optional(element) || (value >= param[0] && value <= param[1]);
             },
 
             // http://docs.jquery.com/Plugins/Validation/Methods/equalTo
@@ -1208,8 +1209,8 @@
         // Proxy ajax
         var ajax = $.ajax;
         $.ajax = function (settings) {
-            var mode = ( "mode" in settings ? settings : $.ajaxSettings ).mode,
-                port = ( "port" in settings ? settings : $.ajaxSettings ).port;
+            var mode = ("mode" in settings ? settings : $.ajaxSettings).mode,
+                port = ("port" in settings ? settings : $.ajaxSettings).port;
             if (mode === "abort") {
                 if (pendingRequests[port]) {
                     pendingRequests[port].abort();

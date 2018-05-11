@@ -1,15 +1,15 @@
 /**
  * The MIT License Copyright (c) 2014 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute,
  * sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all copies or
  * substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
  * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
  * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
@@ -32,83 +32,81 @@ import org.apache.log4j.Logger;
  */
 public final class FileLoggerModule {
 
-  private static final Logger LOGGER = Logger.getLogger(FileLoggerModule.class);
+    private static final Logger LOGGER = Logger.getLogger(FileLoggerModule.class);
+    private static final String OUTPUT_FILE = "output.txt";
+    private static final String ERROR_FILE = "error.txt";
+    private static FileLoggerModule singleton = null;
+    public PrintStream output = null;
+    public PrintStream error = null;
 
-  private static FileLoggerModule singleton = null;
-
-  private static final String OUTPUT_FILE = "output.txt";
-  private static final String ERROR_FILE = "error.txt";
-
-  public PrintStream output = null;
-  public PrintStream error = null;
-
-  private FileLoggerModule() {}
-
-  /**
-   * Static method to get single instance of class
-   * 
-   * @return singleton instance of FileLoggerModule
-   */
-  public static FileLoggerModule getSingleton() {
-
-    if (FileLoggerModule.singleton == null) {
-      FileLoggerModule.singleton = new FileLoggerModule();
+    private FileLoggerModule() {
     }
 
-    return FileLoggerModule.singleton;
-  }
+    /**
+     * Static method to get single instance of class
+     *
+     * @return singleton instance of FileLoggerModule
+     */
+    public static FileLoggerModule getSingleton() {
 
-  /**
-   * Following method performs the initialization
-   * 
-   * @throws FileNotFoundException if program is not able to find log files (output.txt and
-   *         error.txt)
-   */
-  public FileLoggerModule prepare() throws FileNotFoundException {
+        if (FileLoggerModule.singleton == null) {
+            FileLoggerModule.singleton = new FileLoggerModule();
+        }
 
-    LOGGER.debug("FileLoggerModule::prepare();");
-
-    this.output = new PrintStream(new FileOutputStream(OUTPUT_FILE));
-    this.error = new PrintStream(new FileOutputStream(ERROR_FILE));
-
-    return this;
-  }
-
-  /**
-   * Following method performs the finalization
-   */
-  public void unprepare() {
-
-    if (this.output != null) {
-
-      this.output.flush();
-      this.output.close();
+        return FileLoggerModule.singleton;
     }
 
-    if (this.error != null) {
+    /**
+     * Following method performs the initialization
+     *
+     * @throws FileNotFoundException if program is not able to find log files (output.txt and
+     *         error.txt)
+     */
+    public FileLoggerModule prepare() throws FileNotFoundException {
 
-      this.error.flush();
-      this.error.close();
+        LOGGER.debug("FileLoggerModule::prepare();");
+
+        this.output = new PrintStream(new FileOutputStream(OUTPUT_FILE));
+        this.error = new PrintStream(new FileOutputStream(ERROR_FILE));
+
+        return this;
     }
 
-    LOGGER.debug("FileLoggerModule::unprepare();");
-  }
+    /**
+     * Following method performs the finalization
+     */
+    public void unprepare() {
 
-  /**
-   * Used to print a message
-   * 
-   * @param value will be printed in file
-   */
-  public void printString(final String value) {
-    this.output.println(value);
-  }
+        if (this.output != null) {
 
-  /**
-   * Used to print a error message
-   * 
-   * @param value will be printed on error file
-   */
-  public void printErrorString(final String value) {
-    this.error.println(value);
-  }
+            this.output.flush();
+            this.output.close();
+        }
+
+        if (this.error != null) {
+
+            this.error.flush();
+            this.error.close();
+        }
+
+        LOGGER.debug("FileLoggerModule::unprepare();");
+    }
+
+    /**
+     * Used to print a message
+     *
+     * @param value will be printed in file
+     */
+    public void printString(final String value) {
+        this.output.println(value);
+    }
+
+    /**
+     * Used to print a error message
+     *
+     * @param value will be printed on error file
+     */
+    public void printErrorString(final String value) {
+        this.error.println(value);
+    }
 }

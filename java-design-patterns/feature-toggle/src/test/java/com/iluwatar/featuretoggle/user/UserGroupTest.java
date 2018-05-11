@@ -33,35 +33,35 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class UserGroupTest {
 
-  @Test
-  public void testAddUserToFreeGroup() throws Exception {
-    User user = new User("Free User");
-    UserGroup.addUserToFreeGroup(user);
-    assertFalse(UserGroup.isPaid(user));
-  }
+    @Test
+    public void testAddUserToFreeGroup() throws Exception {
+        User user = new User("Free User");
+        UserGroup.addUserToFreeGroup(user);
+        assertFalse(UserGroup.isPaid(user));
+    }
 
-  @Test
-  public void testAddUserToPaidGroup() throws Exception {
-    User user = new User("Paid User");
-    UserGroup.addUserToPaidGroup(user);
-    assertTrue(UserGroup.isPaid(user));
-  }
+    @Test
+    public void testAddUserToPaidGroup() throws Exception {
+        User user = new User("Paid User");
+        UserGroup.addUserToPaidGroup(user);
+        assertTrue(UserGroup.isPaid(user));
+    }
 
-  @Test
-  public void testAddUserToPaidWhenOnFree() throws Exception {
-    User user = new User("Paid User");
-    UserGroup.addUserToFreeGroup(user);
-    assertThrows(IllegalArgumentException.class, () -> {
-      UserGroup.addUserToPaidGroup(user);
-    });
-  }
+    @Test
+    public void testAddUserToPaidWhenOnFree() throws Exception {
+        User user = new User("Paid User");
+        UserGroup.addUserToFreeGroup(user);
+        assertThrows(IllegalArgumentException.class, () -> {
+            UserGroup.addUserToPaidGroup(user);
+        });
+    }
 
-  @Test
-  public void testAddUserToFreeWhenOnPaid() throws Exception {
-    User user = new User("Free User");
-    UserGroup.addUserToPaidGroup(user);
-    assertThrows(IllegalArgumentException.class, () -> {
-      UserGroup.addUserToFreeGroup(user);
-    });
-  }
+    @Test
+    public void testAddUserToFreeWhenOnPaid() throws Exception {
+        User user = new User("Free User");
+        UserGroup.addUserToPaidGroup(user);
+        assertThrows(IllegalArgumentException.class, () -> {
+            UserGroup.addUserToFreeGroup(user);
+        });
+    }
 }

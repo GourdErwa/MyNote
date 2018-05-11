@@ -1,15 +1,15 @@
 /**
  * The MIT License Copyright (c) 2016 Amit Dixit
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute,
  * sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in all copies or
  * substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT
  * NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
  * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
@@ -33,37 +33,37 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class DataMapperTest {
 
-  /**
-   * This test verify that first data mapper is able to perform all CRUD operations on Student
-   */
-  @Test
-  public void testFirstDataMapper() {
+    /**
+     * This test verify that first data mapper is able to perform all CRUD operations on Student
+     */
+    @Test
+    public void testFirstDataMapper() {
 
-    /* Create new data mapper of first type */
-    final StudentDataMapper mapper = new StudentDataMapperImpl();
+        /* Create new data mapper of first type */
+        final StudentDataMapper mapper = new StudentDataMapperImpl();
 
-    /* Create new student */
-    Student student = new Student(1, "Adam", 'A');
+        /* Create new student */
+        Student student = new Student(1, "Adam", 'A');
 
-    /* Add student in respectibe db */
-    mapper.insert(student);
+        /* Add student in respectibe db */
+        mapper.insert(student);
 
-    /* Check if student is added in db */
-    assertEquals(student.getStudentId(), mapper.find(student.getStudentId()).get().getStudentId());
+        /* Check if student is added in db */
+        assertEquals(student.getStudentId(), mapper.find(student.getStudentId()).get().getStudentId());
 
-    /* Update existing student object */
-    student = new Student(student.getStudentId(), "AdamUpdated", 'A');
+        /* Update existing student object */
+        student = new Student(student.getStudentId(), "AdamUpdated", 'A');
 
-    /* Update student in respectibe db */
-    mapper.update(student);
+        /* Update student in respectibe db */
+        mapper.update(student);
 
-    /* Check if student is updated in db */
-    assertEquals(mapper.find(student.getStudentId()).get().getName(), "AdamUpdated");
+        /* Check if student is updated in db */
+        assertEquals(mapper.find(student.getStudentId()).get().getName(), "AdamUpdated");
 
-    /* Delete student in db */
-    mapper.delete(student);
+        /* Delete student in db */
+        mapper.delete(student);
 
-    /* Result should be false */
-    assertEquals(false, mapper.find(student.getStudentId()).isPresent());
-  }
+        /* Result should be false */
+        assertEquals(false, mapper.find(student.getStudentId()).isPresent());
+    }
 }

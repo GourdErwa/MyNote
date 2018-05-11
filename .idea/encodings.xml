@@ -18,6 +18,122 @@
     <file url="file://$PROJECT_DIR$/game" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hadoop" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/io" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/abstract-document" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/abstract-factory" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/adapter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices/aggregator-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices/information-microservice" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/aggregator-microservices/inventory-microservice" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/api-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/api-gateway/api-gateway-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/api-gateway/image-microservice" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/api-gateway/price-microservice" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/async-method-invocation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/balking" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/bridge" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/builder" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/business-delegate" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/caching" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/callback" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/chain" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/command" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/composite" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/converter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/cqrs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/data-bus" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/data-mapper" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/data-transfer-object" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/decorator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/delegation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/dependency-injection" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/double-checked-locking" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/double-dispatch" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/eip-aggregator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/eip-message-channel" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/eip-publish-subscribe" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/eip-splitter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/eip-wire-tap" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/event-aggregator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/event-asynchronous" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/event-driven-architecture" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/event-queue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/event-sourcing" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/execute-around" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/extension-objects" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/facade" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/factory-kit" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/factory-method" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/feature-toggle" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/fluentinterface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/flux" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/flyweight" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/front-controller" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/guarded-suspension" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/half-sync-half-async" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/hexagonal" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/intercepting-filter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/interpreter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/iterator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/layers" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/lazy-loading" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/marker" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/mediator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/memento" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/model-view-controller" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/model-view-presenter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/module" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/monad" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/monostate" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/multiton" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/mute-idiom" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/mutex" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/naked-objects" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/naked-objects/dom" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/naked-objects/fixture" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/naked-objects/integtests" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/naked-objects/webapp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/null-object" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/object-mother" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/object-pool" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/observer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/page-object" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/partial-response" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/poison-pill" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/private-class-data" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/producer-consumer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/promise" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/property" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/prototype" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/proxy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/queue-load-leveling" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/reactor" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/reader-writer-lock" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/repository" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/resource-acquisition-is-initialization" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/retry" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/semaphore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/servant" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/serverless" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/service-layer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/service-locator" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/singleton" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/specification" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/state" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/step-builder" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/strategy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/template-method" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/thread-pool" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/throttling" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/tls" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/tolerant-reader" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/trampoline" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/twin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/unit-of-work" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/value-object" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java-design-patterns/visitor" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java8" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/junit" charset="UTF-8" />
@@ -25,6 +141,7 @@
     <file url="file://$PROJECT_DIR$/kafka_streams" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shell" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/spark" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spark_ml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/third_party" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/work" charset="UTF-8" />

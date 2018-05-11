@@ -35,33 +35,33 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class AlbumPageTest {
 
-  private AlbumPage albumPage = new AlbumPage(new WebClient());
+    private AlbumPage albumPage = new AlbumPage(new WebClient());
 
-  @BeforeEach
-  public void setUp() {
-    albumPage.navigateToPage();
-  }
+    @BeforeEach
+    public void setUp() {
+        albumPage.navigateToPage();
+    }
 
-  @Test
-  public void testSaveAlbum() {
+    @Test
+    public void testSaveAlbum() {
 
-    AlbumPage albumPageAfterChanges = albumPage
-        .changeAlbumTitle("25")
-        .changeArtist("Adele Laurie Blue Adkins")
-        .changeAlbumYear(2015)
-        .changeAlbumRating("B")
-        .changeNumberOfSongs(20)
-        .saveChanges();
+        AlbumPage albumPageAfterChanges = albumPage
+                .changeAlbumTitle("25")
+                .changeArtist("Adele Laurie Blue Adkins")
+                .changeAlbumYear(2015)
+                .changeAlbumRating("B")
+                .changeNumberOfSongs(20)
+                .saveChanges();
 
-    assertTrue(albumPageAfterChanges.isAt());
+        assertTrue(albumPageAfterChanges.isAt());
 
-  }
+    }
 
-  @Test
-  public void testCancelChanges() {
-    AlbumListPage albumListPage = albumPage.cancelChanges();
-    albumListPage.navigateToPage();
-    assertTrue(albumListPage.isAt());
-  }
+    @Test
+    public void testCancelChanges() {
+        AlbumListPage albumListPage = albumPage.cancelChanges();
+        albumListPage.navigateToPage();
+        assertTrue(albumListPage.isAt());
+    }
 
 }

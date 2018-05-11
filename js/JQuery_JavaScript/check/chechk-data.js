@@ -48,7 +48,7 @@ var checkArgs = new function () {
      */
     this.checkIsBlank = function (args) {
 
-        return (typeof args !== 'undefined' && (args == null || args == '' || args.length == 0) );
+        return (typeof args !== 'undefined' && (args == null || args == '' || args.length == 0));
 
     };
 

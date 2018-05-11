@@ -6,7 +6,7 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.3</version>
+        <version>2018.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -14,7 +14,7 @@
     <name>design</name>
 
     <properties>
-        <cglib.v>3.2.4</cglib.v>
+
     </properties>
 
     <dependencies>
@@ -22,13 +22,13 @@
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
-            <version>${cglib.v}</version>
+            <version>${cglib.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.gourd</groupId>
             <artifactId>util</artifactId>
-            <version>2016.3</version>
+            <version>2018.1</version>
         </dependency>
 
     </dependencies>

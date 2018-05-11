@@ -31,10 +31,10 @@ import com.iluwatar.abstractdocument.Document;
  */
 public interface HasParts extends Document {
 
-  String PROPERTY = "parts";
+    String PROPERTY = "parts";
 
-  default Stream<Part> getParts() {
-    return children(PROPERTY, Part::new);
-  }
+    default Stream<Part> getParts() {
+        return children(PROPERTY, Part::new);
+    }
 
 }

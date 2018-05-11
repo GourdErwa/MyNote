@@ -9,7 +9,7 @@ import java.util.Date;
  * main 函数测试
  *
  * @author wei.Li
- *         事件监听处理
+ * 事件监听处理
  * @see AppleListener#update(EventBean[], EventBean[])
  */
 public class MainExecute extends Thread {

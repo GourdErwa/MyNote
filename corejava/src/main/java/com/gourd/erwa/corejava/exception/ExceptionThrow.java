@@ -10,7 +10,7 @@ public class ExceptionThrow {
 
         try {
             throw new ExceptionB();
-        } catch (Exception  a) {
+        } catch (Exception a) {
             a.printStackTrace();
         }
     }

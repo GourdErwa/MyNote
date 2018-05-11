@@ -29,9 +29,9 @@ import org.junit.jupiter.api.Test;
  */
 public class AppTest {
 
-  @Test
-  public void shouldExecuteAppWithoutException() {
-    App.main(null);
-  }
+    @Test
+    public void shouldExecuteAppWithoutException() {
+        App.main(null);
+    }
 
 }

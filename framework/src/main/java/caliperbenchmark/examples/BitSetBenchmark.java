@@ -131,11 +131,11 @@ public class BitSetBenchmark {
      */
     @Benchmark
     String charsToBitSet(int reps) {
-    /*
-     * This benchmark now measures the complete parsing of a char[] rather than
-     * a single invocation of {@link BitSet#set}. However this fine because
-     * it is intended to be a comparative benchmark.
-     */
+        /*
+         * This benchmark now measures the complete parsing of a char[] rather than
+         * a single invocation of {@link BitSet#set}. However this fine because
+         * it is intended to be a comparative benchmark.
+         */
         for (int i = 0; i < reps; i++) {
             for (int n = 0; n < bitString.length; n++) {
                 bitSet.set(n, bitString[n] == '1');
@@ -151,10 +151,10 @@ public class BitSetBenchmark {
      */
     @Benchmark
     long charsToMask(int reps) {
-    /*
-     * Comparing results we see a far more realistic sounding result whereby
-     * using a bit mask is a little over 4x faster than using BitSet.
-     */
+        /*
+         * Comparing results we see a far more realistic sounding result whereby
+         * using a bit mask is a little over 4x faster than using BitSet.
+         */
         long bitMask = 0;
         for (int i = 0; i < reps; i++) {
             for (int n = 0; n < bitString.length; n++) {

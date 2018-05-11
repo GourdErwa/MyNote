@@ -31,8 +31,8 @@ import com.iluwatar.abstractdocument.AbstractDocument;
  */
 public class Part extends AbstractDocument implements HasType, HasModel, HasPrice {
 
-  public Part(Map<String, Object> properties) {
-    super(properties);
-  }
+    public Part(Map<String, Object> properties) {
+        super(properties);
+    }
 
 }

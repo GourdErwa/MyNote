@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -42,32 +42,32 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class App {
 
-  /**
-   * Program entry point. It starts Spring Boot application and using Apache Camel it auto-configures routes.
-   *
-   * @param args command line args
-   */
-  public static void main(String[] args) throws Exception {
-    // Run Spring Boot application and obtain ApplicationContext
-    ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
+    /**
+     * Program entry point. It starts Spring Boot application and using Apache Camel it auto-configures routes.
+     *
+     * @param args command line args
+     */
+    public static void main(String[] args) throws Exception {
+        // Run Spring Boot application and obtain ApplicationContext
+        ConfigurableApplicationContext context = SpringApplication.run(App.class, args);
 
-    // Get CamelContext from ApplicationContext
-    CamelContext camelContext = (CamelContext) context.getBean("camelContext");
+        // Get CamelContext from ApplicationContext
+        CamelContext camelContext = (CamelContext) context.getBean("camelContext");
 
-    // Add a new routes that will handle endpoints form SplitterRoute class.
-    camelContext.addRoutes(new RouteBuilder() {
+        // Add a new routes that will handle endpoints form SplitterRoute class.
+        camelContext.addRoutes(new RouteBuilder() {
 
-      @Override
-      public void configure() throws Exception {
-        from("{{endpoint}}").log("ENDPOINT: ${body}");
-      }
+            @Override
+            public void configure() throws Exception {
+                from("{{endpoint}}").log("ENDPOINT: ${body}");
+            }
 
-    });
+        });
 
-    // Add producer that will send test message to an entry point in WireTapRoute
-    String[] stringArray = {"Test item #1", "Test item #2", "Test item #3"};
-    camelContext.createProducerTemplate().sendBody("{{entry}}", stringArray);
+        // Add producer that will send test message to an entry point in WireTapRoute
+        String[] stringArray = {"Test item #1", "Test item #2", "Test item #3"};
+        camelContext.createProducerTemplate().sendBody("{{entry}}", stringArray);
 
-    SpringApplication.exit(context);
-  }
+        SpringApplication.exit(context);
+    }
 }

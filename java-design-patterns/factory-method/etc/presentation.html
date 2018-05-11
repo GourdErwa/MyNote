@@ -24,34 +24,40 @@
 -->
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Design Patterns - Factory Method Presentation</title>
     <meta charset="utf-8">
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-	  
-	  blockquote {
-		border-left: 0.3em solid rgba(0,0,0,0.5);
-		padding: 0 15px;
-		font-style: italic;
-	  }
-	  
-	  img {
-		max-width:100%;
-	  }
+        body {
+            font-family: 'Droid Serif';
+        }
+
+        h1, h2, h3 {
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: normal;
+        }
+
+        .remark-code, .remark-inline-code {
+            font-family: 'Ubuntu Mono';
+        }
+
+        blockquote {
+            border-left: 0.3em solid rgba(0, 0, 0, 0.5);
+            padding: 0 15px;
+            font-style: italic;
+        }
+
+        img {
+            max-width: 100%;
+        }
     </style>
-  </head>
-  <body>
-    <textarea id="source">
+</head>
+<body>
+<textarea id="source">
 
 class: center, middle
 
@@ -96,7 +102,7 @@ class: center, middle
 
 Considering the blacksmith example, we have a blacksmith interface and some implementations for it:
 
-<br />
+<br/>
 
 ```
 public interface Blacksmith {
@@ -122,7 +128,7 @@ public class OrcBlacksmith implements Blacksmith {
 
 Now, as the customers come, the correct type of blacksmith is summoned and weapons are instantiated via the factory method `manufactureWeapon()`:
 
-<br />
+<br/>
 
 ```
 Blacksmith blacksmith = new ElfBlacksmith();
@@ -176,10 +182,10 @@ Use the Factory Method pattern when:
 * Source code http://java-design-patterns.com/patterns/factory-method/
 
     </textarea>
-    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
+<script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+</script>
+<script>
+    var slideshow = remark.create();
+</script>
+</body>
 </html>

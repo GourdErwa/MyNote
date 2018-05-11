@@ -1489,6 +1489,7 @@
             nodes.push(node);
             removeWithTransition(node, vm, onRemoved);
         });
+
         function onRemoved() {
             removed++;
             if (done && removed >= nodes.length) {
@@ -1877,6 +1878,7 @@
                 mergeField(key);
             }
         }
+
         function mergeField(key) {
             var strat = strats[key] || defaultStrat;
             options[key] = strat(parent[key], child[key], vm, key);
@@ -1980,7 +1982,7 @@
          * Intercept mutating methods and emit events
          */
 
-        ;
+    ;
     ['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {
         // cache original method
         var original = arrayProto[method];
@@ -4605,6 +4607,7 @@
             } else {
                 toggle();
             }
+
             function toggle() {
                 el.style.display = value ? '' : 'none';
             }
@@ -5884,6 +5887,7 @@
         var total = hooks.length;
         var called = 0;
         hooks[0].call(vm, next);
+
         function next() {
             if (++called >= total) {
                 cb();
@@ -6370,12 +6374,12 @@
     var waitForTransitionStart = raf
         /* istanbul ignore next */
         ? function (fn) {
-        raf(function () {
-            raf(fn);
-        });
-    } : function (fn) {
-        setTimeout(fn, 50);
-    };
+            raf(function () {
+                raf(fn);
+            });
+        } : function (fn) {
+            setTimeout(fn, 50);
+        };
 
     /**
      * A Transition object that encapsulates the state and logic
@@ -7117,6 +7121,7 @@
                 setTokenType('text');
             }
         }
+
         function setTokenType(type) {
             if (token.descriptor) return;
             var parsed = parseDirective(token.value);
@@ -7388,8 +7393,8 @@
                 // warn against mixing mustaches with v-bind
                 if ('development' !== 'production') {
                     if (name === 'class' && Array.prototype.some.call(attrs, function (attr) {
-                            return attr.name === ':class' || attr.name === 'v-bind:class';
-                        })) {
+                        return attr.name === ':class' || attr.name === 'v-bind:class';
+                    })) {
                         warn('class="' + rawValue + '": Do not mix mustache interpolation ' + 'and v-bind for "class" on the same element. Use one or the other.', options);
                     }
                 }
@@ -7590,17 +7595,17 @@
                 // can create more than 1 root nodes.
                 if (
                     // multi-children template
-                frag.childNodes.length > 1 ||
-                // non-element template
-                replacer.nodeType !== 1 ||
-                // single nested component
-                tag === 'component' || resolveAsset(options, 'components', tag) || hasBindAttr(replacer, 'is') ||
-                // element directive
-                resolveAsset(options, 'elementDirectives', tag) ||
-                // for block
-                replacer.hasAttribute('v-for') ||
-                // if block
-                replacer.hasAttribute('v-if')) {
+                    frag.childNodes.length > 1 ||
+                    // non-element template
+                    replacer.nodeType !== 1 ||
+                    // single nested component
+                    tag === 'component' || resolveAsset(options, 'components', tag) || hasBindAttr(replacer, 'is') ||
+                    // element directive
+                    resolveAsset(options, 'elementDirectives', tag) ||
+                    // for block
+                    replacer.hasAttribute('v-for') ||
+                    // if block
+                    replacer.hasAttribute('v-if')) {
                     return frag;
                 } else {
                     options._replacerAttrs = extractAttrs(replacer);
@@ -9227,8 +9232,8 @@
                 // the propagation handling is somewhat broken. Therefore we
                 // need to treat these inline callbacks differently.
                 var hasParentCbs = isSource && cbs.some(function (cb) {
-                        return cb._fromParent;
-                    });
+                    return cb._fromParent;
+                });
                 if (hasParentCbs) {
                     shouldPropagate = false;
                 }

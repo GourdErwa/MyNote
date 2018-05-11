@@ -37,6 +37,10 @@
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
   </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/java-design-patterns/naked-objects/webapp" />
+    <type id="Spring" />
+  </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="FLOW" />
   </component>
@@ -46,12 +50,15 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/crawler/pom.xml" />
         <option value="$PROJECT_DIR$/concurrent/pom.xml" />
+        <option value="$PROJECT_DIR$/java-design-patterns/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/bug/pom.xml" />
         <option value="$PROJECT_DIR$/document/pom.xml" />
+        <option value="$PROJECT_DIR$/elasticsearch-hadoop/pom.xml" />
+        <option value="$PROJECT_DIR$/kafka_streams/pom.xml" />
       </set>
     </option>
   </component>

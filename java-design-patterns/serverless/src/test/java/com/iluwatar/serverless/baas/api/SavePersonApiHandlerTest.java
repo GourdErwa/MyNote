@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -47,55 +47,55 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class SavePersonApiHandlerTest {
 
-  private SavePersonApiHandler savePersonApiHandler;
+    private SavePersonApiHandler savePersonApiHandler;
 
-  @Mock
-  private DynamoDBMapper dynamoDbMapper;
+    @Mock
+    private DynamoDBMapper dynamoDbMapper;
 
-  private ObjectMapper objectMapper = new ObjectMapper();
+    private ObjectMapper objectMapper = new ObjectMapper();
 
-  @Before
-  public void setUp() {
-    this.savePersonApiHandler = new SavePersonApiHandler();
-    this.savePersonApiHandler.setDynamoDbMapper(dynamoDbMapper);
-  }
+    @Before
+    public void setUp() {
+        this.savePersonApiHandler = new SavePersonApiHandler();
+        this.savePersonApiHandler.setDynamoDbMapper(dynamoDbMapper);
+    }
 
-  @Test
-  public void handleRequestSavePersonSuccessful() throws JsonProcessingException {
-    Person person = newPerson();
-    APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent =
-        this.savePersonApiHandler
-            .handleRequest(apiGatewayProxyRequestEvent(objectMapper.writeValueAsString(person)), mock(Context.class));
-    verify(dynamoDbMapper, times(1)).save(person);
-    Assert.assertNotNull(apiGatewayProxyResponseEvent);
-    Assert.assertEquals(new Integer(201), apiGatewayProxyResponseEvent.getStatusCode());
-  }
+    @Test
+    public void handleRequestSavePersonSuccessful() throws JsonProcessingException {
+        Person person = newPerson();
+        APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent =
+                this.savePersonApiHandler
+                        .handleRequest(apiGatewayProxyRequestEvent(objectMapper.writeValueAsString(person)), mock(Context.class));
+        verify(dynamoDbMapper, times(1)).save(person);
+        Assert.assertNotNull(apiGatewayProxyResponseEvent);
+        Assert.assertEquals(new Integer(201), apiGatewayProxyResponseEvent.getStatusCode());
+    }
 
-  @Test
-  public void handleRequestSavePersonException() {
-    APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent =
-        this.savePersonApiHandler
-            .handleRequest(apiGatewayProxyRequestEvent("invalid sample request"), mock(Context.class));
-    Assert.assertNotNull(apiGatewayProxyResponseEvent);
-    Assert.assertEquals(new Integer(400), apiGatewayProxyResponseEvent.getStatusCode());
-  }
+    @Test
+    public void handleRequestSavePersonException() {
+        APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent =
+                this.savePersonApiHandler
+                        .handleRequest(apiGatewayProxyRequestEvent("invalid sample request"), mock(Context.class));
+        Assert.assertNotNull(apiGatewayProxyResponseEvent);
+        Assert.assertEquals(new Integer(400), apiGatewayProxyResponseEvent.getStatusCode());
+    }
 
-  private APIGatewayProxyRequestEvent apiGatewayProxyRequestEvent(String body) {
-    APIGatewayProxyRequestEvent apiGatewayProxyRequestEvent = new APIGatewayProxyRequestEvent();
-    return apiGatewayProxyRequestEvent.withBody(body);
-  }
+    private APIGatewayProxyRequestEvent apiGatewayProxyRequestEvent(String body) {
+        APIGatewayProxyRequestEvent apiGatewayProxyRequestEvent = new APIGatewayProxyRequestEvent();
+        return apiGatewayProxyRequestEvent.withBody(body);
+    }
 
-  private Person newPerson() {
-    Person person = new Person();
-    person.setFirstName("Thor");
-    person.setLastName("Odinson");
-    Address address = new Address();
-    address.setAddressLineOne("1 Odin ln");
-    address.setCity("Asgard");
-    address.setState("country of the Gods");
-    address.setZipCode("00001");
-    person.setAddress(address);
+    private Person newPerson() {
+        Person person = new Person();
+        person.setFirstName("Thor");
+        person.setLastName("Odinson");
+        Address address = new Address();
+        address.setAddressLineOne("1 Odin ln");
+        address.setCity("Asgard");
+        address.setState("country of the Gods");
+        address.setZipCode("00001");
+        person.setAddress(address);
 
-    return person;
-  }
+        return person;
+    }
 }

@@ -34,6 +34,8 @@ import java.time.LocalDateTime;
 /**
  * The Data Bus pattern
  * <p>
+ *
+ * @author Paul Campbell (pcampbell@kemitix.net)
  * @see <a href="http://wiki.c2.com/?DataBusPattern">http://wiki.c2.com/?DataBusPattern</a>
  * <p>The Data-Bus pattern provides a method where different parts of an application may
  * pass messages between each other without needing to be aware of the other's existence.</p>
@@ -55,24 +57,22 @@ import java.time.LocalDateTime;
  * <p>The {@code members} package contains example {@link Member} implementations.</p>
  * <p>The {@link StatusMember} demonstrates using the DataBus to publish a message
  * to the Data-Bus when it receives a message.</p>
- *
- * @author Paul Campbell (pcampbell@kemitix.net)
  */
 class App {
 
-  public static void main(String[] args) {
-    final DataBus bus = DataBus.getInstance();
-    bus.subscribe(new StatusMember(1));
-    bus.subscribe(new StatusMember(2));
-    final MessageCollectorMember foo = new MessageCollectorMember("Foo");
-    final MessageCollectorMember bar = new MessageCollectorMember("Bar");
-    bus.subscribe(foo);
-    bus.publish(StartingData.of(LocalDateTime.now()));
-    bus.publish(MessageData.of("Only Foo should see this"));
-    bus.subscribe(bar);
-    bus.publish(MessageData.of("Foo and Bar should see this"));
-    bus.unsubscribe(foo);
-    bus.publish(MessageData.of("Only Bar should see this"));
-    bus.publish(StoppingData.of(LocalDateTime.now()));
-  }
+    public static void main(String[] args) {
+        final DataBus bus = DataBus.getInstance();
+        bus.subscribe(new StatusMember(1));
+        bus.subscribe(new StatusMember(2));
+        final MessageCollectorMember foo = new MessageCollectorMember("Foo");
+        final MessageCollectorMember bar = new MessageCollectorMember("Bar");
+        bus.subscribe(foo);
+        bus.publish(StartingData.of(LocalDateTime.now()));
+        bus.publish(MessageData.of("Only Foo should see this"));
+        bus.subscribe(bar);
+        bus.publish(MessageData.of("Foo and Bar should see this"));
+        bus.unsubscribe(foo);
+        bus.publish(MessageData.of("Only Bar should see this"));
+        bus.publish(StoppingData.of(LocalDateTime.now()));
+    }
 }

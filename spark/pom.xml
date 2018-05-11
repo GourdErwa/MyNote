@@ -5,49 +5,15 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.3</version>
+        <version>2018.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>spark</artifactId>
     <name>spark</name>
 
-    <properties>
-        <spark.version>2.1.1</spark.version>
-        <scala.version>2.11.8</scala.version>
-    </properties>
-
     <dependencies>
 
-        <!--<dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-compiler</artifactId>
-            <version>${scala.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-reflect</artifactId>
-            <version>${scala.version}</version>
-            <scope>provided</scope>
-        </dependency>
-        -->
-
-        <!--  <dependency>
-              <groupId>org.apache.kafka</groupId>
-              <artifactId>kafka_2.11</artifactId>
-              <version>0.11.0.1</version>
-          </dependency>
-
-  -->
-
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

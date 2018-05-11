@@ -209,14 +209,14 @@
             var x1 = r1.x, x2 = r1.x + r1.w, y1 = r1.y, y2 = r1.y + r1.h,
                 a1 = r2.x, a2 = r2.x + r2.w, b1 = r2.y, b2 = r2.y + r2.h;
 
-            return ( (x1 <= a1 && a1 <= x2) && (y1 <= b1 && b1 <= y2) ) ||
-                ( (x1 <= a2 && a2 <= x2) && (y1 <= b1 && b1 <= y2) ) ||
-                ( (x1 <= a1 && a1 <= x2) && (y1 <= b2 && b2 <= y2) ) ||
-                ( (x1 <= a2 && a1 <= x2) && (y1 <= b2 && b2 <= y2) ) ||
-                ( (a1 <= x1 && x1 <= a2) && (b1 <= y1 && y1 <= b2) ) ||
-                ( (a1 <= x2 && x2 <= a2) && (b1 <= y1 && y1 <= b2) ) ||
-                ( (a1 <= x1 && x1 <= a2) && (b1 <= y2 && y2 <= b2) ) ||
-                ( (a1 <= x2 && x1 <= a2) && (b1 <= y2 && y2 <= b2) );
+            return ((x1 <= a1 && a1 <= x2) && (y1 <= b1 && b1 <= y2)) ||
+                ((x1 <= a2 && a2 <= x2) && (y1 <= b1 && b1 <= y2)) ||
+                ((x1 <= a1 && a1 <= x2) && (y1 <= b2 && b2 <= y2)) ||
+                ((x1 <= a2 && a1 <= x2) && (y1 <= b2 && b2 <= y2)) ||
+                ((a1 <= x1 && x1 <= a2) && (b1 <= y1 && y1 <= b2)) ||
+                ((a1 <= x2 && x2 <= a2) && (b1 <= y1 && y1 <= b2)) ||
+                ((a1 <= x1 && x1 <= a2) && (b1 <= y2 && y2 <= b2)) ||
+                ((a1 <= x2 && x1 <= a2) && (b1 <= y2 && y2 <= b2));
         },
         segmentMultipliers: [null, [1, -1], [1, 1], [-1, 1], [-1, -1]],
         inverseSegmentMultipliers: [null, [-1, -1], [-1, 1], [1, 1], [1, -1]],
@@ -325,8 +325,8 @@
                         // doing it this way rather than catching and then possibly re-throwing means that an error propagated by this
                         // method will have the whole call stack available in the debugger.
                         if (jsPlumbUtil.findWithFunction(eventsToDieOn, function (e) {
-                                return e === event
-                            }) != -1)
+                            return e === event
+                        }) != -1)
                             _listeners[event][i](value, originalEvent);
                         else {
                             // for events we don't want to die on, catch and log.
@@ -526,7 +526,8 @@
          el to that parent's list of elements to update on drag (if it is not there already)
          */
         this.endpointAdded = function (el) {
-            var jpcl = jsPlumb.CurrentLibrary, b = document.body, id = _currentInstance.getId(el), c = jpcl.getDOMElement(el),
+            var jpcl = jsPlumb.CurrentLibrary, b = document.body, id = _currentInstance.getId(el),
+                c = jpcl.getDOMElement(el),
                 p = c.parentNode, done = p == b;
 
             _elementsWithEndpoints[id] = _elementsWithEndpoints[id] ? _elementsWithEndpoints[id] + 1 : 1;
@@ -2001,9 +2002,9 @@
                 // TODO move to util.
             _wrap = function (wrappedFunction, newFunction, returnOnThisValue) {
                 wrappedFunction = wrappedFunction || function () {
-                    };
+                };
                 newFunction = newFunction || function () {
-                    };
+                };
                 return function () {
                     var r = null;
                     try {
@@ -2279,10 +2280,10 @@
 
             if (conn) {
                 if (forceDetach || jsPlumbUtil.functionChain(true, false, [
-                        [conn.endpoints[0], "isDetachAllowed", [conn]],
-                        [conn.endpoints[1], "isDetachAllowed", [conn]],
-                        [conn, "isDetachAllowed", [conn]],
-                        [_currentInstance, "checkCondition", ["beforeDetach", conn]]])) {
+                    [conn.endpoints[0], "isDetachAllowed", [conn]],
+                    [conn.endpoints[1], "isDetachAllowed", [conn]],
+                    [conn, "isDetachAllowed", [conn]],
+                    [_currentInstance, "checkCondition", ["beforeDetach", conn]]])) {
 
                     conn.endpoints[0].detach(conn, false, true, fireEvent);
                 }
@@ -3108,8 +3109,8 @@
                         // make sure we have the latest offset for this div
                         var myOffsetInfo = _updateOffset({elId: elid}).o,
                             z = _currentInstance.getZoom(),
-                            x = ( ((e.pageX || e.page.x) / z) - myOffsetInfo.left) / myOffsetInfo.width,
-                            y = ( ((e.pageY || e.page.y) / z) - myOffsetInfo.top) / myOffsetInfo.height,
+                            x = (((e.pageX || e.page.x) / z) - myOffsetInfo.left) / myOffsetInfo.width,
+                            y = (((e.pageY || e.page.y) / z) - myOffsetInfo.top) / myOffsetInfo.height,
                             parentX = x,
                             parentY = y;
 
@@ -3732,9 +3733,9 @@
                 var theta = Math.atan2((td.centery - sd.centery), (td.centerx - sd.centerx)),
                     theta2 = Math.atan2((sd.centery - td.centery), (sd.centerx - td.centerx)),
                     h = ((sd.left <= td.left && sd.right >= td.left) || (sd.left <= td.right && sd.right >= td.right) ||
-                    (sd.left <= td.left && sd.right >= td.right) || (td.left <= sd.left && td.right >= sd.right)),
+                        (sd.left <= td.left && sd.right >= td.right) || (td.left <= sd.left && td.right >= sd.right)),
                     v = ((sd.top <= td.top && sd.bottom >= td.top) || (sd.top <= td.bottom && sd.bottom >= td.bottom) ||
-                    (sd.top <= td.top && sd.bottom >= td.bottom) || (td.top <= sd.top && td.bottom >= sd.bottom)),
+                        (sd.top <= td.top && sd.bottom >= td.bottom) || (td.top <= sd.top && td.bottom >= sd.bottom)),
                     possiblyTranslateEdges = function (edges) {
                         // this function checks to see if either anchor is Continuous, and if so, runs the suggested edge
                         // through the anchor: Continuous anchors can say which faces they support, and they get to choose
@@ -3851,7 +3852,8 @@
                             };
 
                             for (var i = 0; i < anchors.length; i++) {
-                                var c = anchors[i][4], weAreSource = c.endpoints[0].elementId === elementId, weAreTarget = c.endpoints[1].elementId === elementId;
+                                var c = anchors[i][4], weAreSource = c.endpoints[0].elementId === elementId,
+                                    weAreTarget = c.endpoints[1].elementId === elementId;
                                 if (weAreSource)
                                     _setAnchorLocation(c.endpoints[0], anchors[i]);
                                 else if (weAreTarget)
@@ -4480,7 +4482,7 @@
                 var ax = xy[0] + (anchor.x * wh[0]), ay = xy[1] + (anchor.y * wh[1]),
                     acx = xy[0] + (wh[0] / 2), acy = xy[1] + (wh[1] / 2);
                 return (Math.sqrt(Math.pow(cx - ax, 2) + Math.pow(cy - ay, 2)) +
-                Math.sqrt(Math.pow(acx - ax, 2) + Math.pow(acy - ay, 2)));
+                    Math.sqrt(Math.pow(acx - ax, 2) + Math.pow(acy - ay, 2)));
             },
             // default method uses distance between element centers.  you can provide your own method in the dynamic anchor
             // constructor (and also to jsPlumb.makeDynamicAnchor). the arguments to it are four arrays:
@@ -4490,17 +4492,17 @@
             // twh - dimensions of the element of the other anchor in the connection.
             // anchors - the list of selectable anchors
             _anchorSelector = params.selector || function (xy, wh, txy, twh, anchors) {
-                    var cx = txy[0] + (twh[0] / 2), cy = txy[1] + (twh[1] / 2);
-                    var minIdx = -1, minDist = Infinity;
-                    for (var i = 0; i < anchors.length; i++) {
-                        var d = _distance(anchors[i], cx, cy, xy, wh);
-                        if (d < minDist) {
-                            minIdx = i + 0;
-                            minDist = d;
-                        }
+                var cx = txy[0] + (twh[0] / 2), cy = txy[1] + (twh[1] / 2);
+                var minIdx = -1, minDist = Infinity;
+                for (var i = 0; i < anchors.length; i++) {
+                    var d = _distance(anchors[i], cx, cy, xy, wh);
+                    if (d < minDist) {
+                        minIdx = i + 0;
+                        minDist = d;
                     }
-                    return anchors[minIdx];
-                };
+                }
+                return anchors[minIdx];
+            };
 
         this.compute = function (params) {
             var xy = params.xy, wh = params.wh, timestamp = params.timestamp, txy = params.txy, twh = params.twh;
@@ -5564,7 +5566,8 @@
                         }
 
                         if (jpc != null) {
-                            var idx = jpc.floatingAnchorIndex == null ? 1 : jpc.floatingAnchorIndex, oidx = idx == 0 ? 1 : 0;
+                            var idx = jpc.floatingAnchorIndex == null ? 1 : jpc.floatingAnchorIndex,
+                                oidx = idx == 0 ? 1 : 0;
 
                             // restore the original scope if necessary (issue 57)
                             if (scope) jsPlumb.CurrentLibrary.setDragScope(draggable, scope);
@@ -5630,7 +5633,8 @@
                                             jsPlumb.CurrentLibrary.initDraggable(self.element, dragOptions, true, _jsPlumb);
                                     }
                                     else {
-                                        var suspendedElement = jpc.suspendedEndpoint.getElement(), suspendedElementId = jpc.suspendedEndpoint.elementId;
+                                        var suspendedElement = jpc.suspendedEndpoint.getElement(),
+                                            suspendedElementId = jpc.suspendedEndpoint.elementId;
                                         // fire a detach event
                                         _fireDetachEvent({
                                             source: idx == 0 ? suspendedElement : jpc.source,
@@ -5991,7 +5995,7 @@
                         }
                     }
                     var a = params.anchors ? params.anchors[index] :
-                            params.anchor ? params.anchor :
+                        params.anchor ? params.anchor :
                             _makeAnchor(_jsPlumb.Defaults.Anchors[index], elementId) ||
                             _makeAnchor(jsPlumb.Defaults.Anchors[index], elementId) ||
                             _makeAnchor(_jsPlumb.Defaults.Anchor, elementId) ||
@@ -7986,7 +7990,8 @@
             }
             else {
                 // a loopback connector.  draw an arc from one anchor to the other.
-                var x1 = params.sourcePos[0], x2 = params.sourcePos[0], y1 = params.sourcePos[1] - margin, y2 = params.sourcePos[1] - margin,
+                var x1 = params.sourcePos[0], x2 = params.sourcePos[0], y1 = params.sourcePos[1] - margin,
+                    y2 = params.sourcePos[1] - margin,
                     cx = x1, cy = y1 - loopbackRadius;
 
                 // canvas sizing stuff, to ensure the whole painted area is visible.
@@ -8041,7 +8046,8 @@
  //  }
  //			    }
  //}
- *//*
+ */
+/*
  * jsPlumb
  *
  * Title:jsPlumb 1.4.0
@@ -8132,8 +8138,8 @@
                         next[0] += next[5] * radiusToUse;
                         next[1] += next[6] * radiusToUse;
                         var ac = (current[6] == next[5] && next[5] == 1) ||
-                                ((current[6] == next[5] && next[5] == 0) && current[5] != next[6]) ||
-                                (current[6] == next[5] && next[5] == -1),
+                            ((current[6] == next[5] && next[5] == 0) && current[5] != next[6]) ||
+                            (current[6] == next[5] && next[5] == -1),
                             sgny = next[1] > current[3] ? 1 : -1,
                             sgnx = next[0] > current[2] ? 1 : -1,
                             sgnEqual = sgny == sgnx,
@@ -8207,7 +8213,7 @@
             addSegment(segments, paintInfo.startStubX, paintInfo.startStubY, paintInfo.sx, paintInfo.sy);
 
             var findClearedLine = function (start, mult, anchorPos, dimension) {
-                    return start + (mult * (( 1 - anchorPos) * dimension) + _super.maxStub);
+                    return start + (mult * ((1 - anchorPos) * dimension) + _super.maxStub);
                 },
                 orientations = {x: [0, 1], y: [1, 0]},
                 lineCalculators = {
@@ -9897,21 +9903,21 @@
             return {x: a.x * b, y: a.y * b}
         }
     }, B = Math.pow(2, -65), x = function (a, b) {
-        for (var f = [], d = b.length - 1, g = 2 * d - 1, h = [], e = [], m = [], k = [], l = [[1, 0.6, 0.3, 0.1], [0.4, 0.6, 0.6, 0.4], [0.1, 0.3, 0.6, 1]], c = 0; c <= d; c++)h[c] = q.subtract(b[c], a);
-        for (c = 0; c <= d - 1; c++)e[c] = q.subtract(b[c +
+        for (var f = [], d = b.length - 1, g = 2 * d - 1, h = [], e = [], m = [], k = [], l = [[1, 0.6, 0.3, 0.1], [0.4, 0.6, 0.6, 0.4], [0.1, 0.3, 0.6, 1]], c = 0; c <= d; c++) h[c] = q.subtract(b[c], a);
+        for (c = 0; c <= d - 1; c++) e[c] = q.subtract(b[c +
         1], b[c]), e[c] = q.scale(e[c], 3);
-        for (c = 0; c <= d - 1; c++)for (var n = 0; n <= d; n++)m[c] || (m[c] = []), m[c][n] = q.dotProduct(e[c], h[n]);
-        for (c = 0; c <= g; c++)k[c] || (k[c] = []), k[c].y = 0, k[c].x = parseFloat(c) / g;
+        for (c = 0; c <= d - 1; c++) for (var n = 0; n <= d; n++) m[c] || (m[c] = []), m[c][n] = q.dotProduct(e[c], h[n]);
+        for (c = 0; c <= g; c++) k[c] || (k[c] = []), k[c].y = 0, k[c].x = parseFloat(c) / g;
         g = d - 1;
         for (h = 0; h <= d + g; h++) {
             c = Math.max(0, h - g);
-            for (e = Math.min(h, d); c <= e; c++)j = h - c, k[c + j].y += m[j][c] * l[j][c]
+            for (e = Math.min(h, d); c <= e; c++) j = h - c, k[c + j].y += m[j][c] * l[j][c]
         }
         d = b.length - 1;
         k = u(k, 2 * d - 1, f, 0);
         g = q.subtract(a, b[0]);
         m = q.square(g);
-        for (c = l = 0; c < k; c++)g = q.subtract(a, v(b, d, f[c], null, null)), g = q.square(g), g < m && (m = g, l = f[c]);
+        for (c = l = 0; c < k; c++) g = q.subtract(a, v(b, d, f[c], null, null)), g = q.square(g), g < m && (m = g, l = f[c]);
         g = q.subtract(a, b[d]);
         g = q.square(g);
         g < m && (m = g, l = 1);
@@ -9922,17 +9928,17 @@
     }, u = function (a, b, f, d) {
         var g = [], h = [], e = [], m = [], k = 0, l, c;
         c = Math.sgn(a[0].y);
-        for (var n = 1; n <= b; n++)l = Math.sgn(a[n].y), l != c && k++, c = l;
+        for (var n = 1; n <= b; n++) l = Math.sgn(a[n].y), l != c && k++, c = l;
         switch (k) {
             case 0:
                 return 0;
             case 1:
-                if (64 <= d)return f[0] = (a[0].x + a[b].x) / 2, 1;
+                if (64 <= d) return f[0] = (a[0].x + a[b].x) / 2, 1;
                 var r, p, k = a[0].y - a[b].y;
                 c = a[b].x - a[0].x;
                 n = a[0].x * a[b].y - a[b].x * a[0].y;
                 l = max_distance_below = 0;
-                for (r = 1; r < b; r++)p = k * a[r].x + c * a[r].y + n, p > l ? l = p : p < max_distance_below && (max_distance_below = p);
+                for (r = 1; r < b; r++) p = k * a[r].x + c * a[r].y + n, p > l ? l = p : p < max_distance_below && (max_distance_below = p);
                 p = c;
                 r = 0 * p - 1 * k;
                 l = (1 * (n - l) - 0 * p) * (1 / r);
@@ -9941,20 +9947,20 @@
                 r = 0 * p - 1 * k;
                 k = (1 * c - 0 * p) * (1 / r);
                 c = Math.min(l, k);
-                if (Math.max(l, k) - c < B)return e = a[b].x - a[0].x, m = a[b].y - a[0].y, f[0] = 0 + 1 * (e * (a[0].y - 0) - m * (a[0].x - 0)) * (1 / (0 * e - 1 * m)), 1
+                if (Math.max(l, k) - c < B) return e = a[b].x - a[0].x, m = a[b].y - a[0].y, f[0] = 0 + 1 * (e * (a[0].y - 0) - m * (a[0].x - 0)) * (1 / (0 * e - 1 * m)), 1
         }
         v(a, b, 0.5, g, h);
         a = u(g, b, e, d + 1);
         b = u(h, b, m, d + 1);
-        for (d = 0; d < a; d++)f[d] = e[d];
-        for (d = 0; d < b; d++)f[d + a] = m[d];
+        for (d = 0; d < a; d++) f[d] = e[d];
+        for (d = 0; d < b; d++) f[d + a] = m[d];
         return a + b
     }, v = function (a, b, f, d, g) {
-        for (var h = [[]], e = 0; e <= b; e++)h[0][e] = a[e];
-        for (a = 1; a <= b; a++)for (e = 0; e <= b - a; e++)h[a] || (h[a] = []), h[a][e] || (h[a][e] = {}), h[a][e].x = (1 - f) * h[a - 1][e].x + f * h[a - 1][e + 1].x, h[a][e].y = (1 - f) * h[a - 1][e].y + f * h[a - 1][e + 1].y;
-        if (null != d)for (e = 0; e <= b; e++)d[e] = h[e][0];
-        if (null != g)for (e =
-                               0; e <= b; e++)g[e] = h[b - e][e];
+        for (var h = [[]], e = 0; e <= b; e++) h[0][e] = a[e];
+        for (a = 1; a <= b; a++) for (e = 0; e <= b - a; e++) h[a] || (h[a] = []), h[a][e] || (h[a][e] = {}), h[a][e].x = (1 - f) * h[a - 1][e].x + f * h[a - 1][e + 1].x, h[a][e].y = (1 - f) * h[a - 1][e].y + f * h[a - 1][e + 1].y;
+        if (null != d) for (e = 0; e <= b; e++) d[e] = h[e][0];
+        if (null != g) for (e =
+                                0; e <= b; e++) g[e] = h[b - e][e];
         return h[b][0]
     }, y = {}, s = function (a, b) {
         var f, d = a.length - 1;
@@ -9975,7 +9981,7 @@
                 }
             }, m = function (a) {
                 return function (b) {
-                    for (var c = 1, d = 0; d < a.length; d++)c *= a[d](b);
+                    for (var c = 1, d = 0; d < a.length; d++) c *= a[d](b);
                     return c
                 }
             };
@@ -9985,8 +9991,8 @@
                 }
             });
             for (var k = 1; k < d; k++) {
-                for (var l = [new g(d)], c = 0; c < d - k; c++)l.push(new h);
-                for (c = 0; c < k; c++)l.push(new e);
+                for (var l = [new g(d)], c = 0; c < d - k; c++) l.push(new h);
+                for (c = 0; c < k; c++) l.push(new e);
                 f.push(new m(l))
             }
             f.push(new function () {
@@ -9997,15 +10003,15 @@
             });
             y[d] = f
         }
-        for (e = h = g = 0; e < a.length; e++)g += a[e].x * f[e](b), h += a[e].y * f[e](b);
+        for (e = h = g = 0; e < a.length; e++) g += a[e].x * f[e](b), h += a[e].y * f[e](b);
         return {x: g, y: h}
     }, z = function (a, b) {
         return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2))
     }, A = function (a) {
         return a[0].x == a[1].x && a[0].y == a[1].y
     }, t = function (a, b, f) {
-        if (A(a))return {point: a[0], location: b};
-        for (var d = s(a, b), g = 0, h = 0 < f ? 1 : -1, e = null; g < Math.abs(f);)b += 0.005 * h, e = s(a, b), g += z(e, d), d = e;
+        if (A(a)) return {point: a[0], location: b};
+        for (var d = s(a, b), g = 0, h = 0 < f ? 1 : -1, e = null; g < Math.abs(f);) b += 0.005 * h, e = s(a, b), g += z(e, d), d = e;
         return {point: e, location: b}
     }, w = function (a, b) {
         var f = s(a, b), d = s(a.slice(0, a.length - 1), b), g = d.y - f.y, f = d.x - f.x;
@@ -10033,8 +10039,8 @@
         }, locationAlongCurveFrom: function (a, b, f) {
             return t(a, b, f).location
         }, getLength: function (a) {
-            if (A(a))return 0;
-            for (var b = s(a, 0), f = 0, d = 0, g = null; 1 > d;)d += 0.005, g = s(a, d), f += z(g, b), b = g;
+            if (A(a)) return 0;
+            for (var b = s(a, 0), f = 0, d = 0, g = null; 1 > d;) d += 0.005, g = s(a, d), f += z(g, b), b = g;
             return f
         }
     }

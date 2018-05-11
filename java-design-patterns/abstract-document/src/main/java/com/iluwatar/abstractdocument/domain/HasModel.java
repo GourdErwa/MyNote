@@ -31,10 +31,10 @@ import com.iluwatar.abstractdocument.Document;
  */
 public interface HasModel extends Document {
 
-  String PROPERTY = "model";
+    String PROPERTY = "model";
 
-  default Optional<String> getModel() {
-    return Optional.ofNullable((String) get(PROPERTY));
-  }
+    default Optional<String> getModel() {
+        return Optional.ofNullable((String) get(PROPERTY));
+    }
 
 }

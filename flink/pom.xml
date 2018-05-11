@@ -5,7 +5,7 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.3</version>
+        <version>2018.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,7 +13,7 @@
     <name>flink</name>
 
     <properties>
-        <flink.v>1.1.2</flink.v>
+
     </properties>
 
     <dependencies>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
-            <version>${flink.v}</version>
+            <version>${flink.version}</version>
         </dependency>
     </dependencies>
 

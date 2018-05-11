@@ -5,7 +5,7 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.3</version>
+        <version>2018.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,7 +13,7 @@
     <name>hadoop</name>
 
     <properties>
-        <hadoop.version>2.7.3</hadoop.version>
+
     </properties>
     <dependencies>
         <dependency>

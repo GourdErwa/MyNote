@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014-2016 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -35,39 +35,39 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  */
 public class PoisonMessageTest {
 
-  @Test
-  public void testAddHeader() throws Exception {
-    assertThrows(UnsupportedOperationException.class, () -> {
-      POISON_PILL.addHeader(Headers.SENDER, "sender");
-    });
-  }
+    @Test
+    public void testAddHeader() throws Exception {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            POISON_PILL.addHeader(Headers.SENDER, "sender");
+        });
+    }
 
-  @Test
-  public void testGetHeader() throws Exception {
-    assertThrows(UnsupportedOperationException.class, () -> {
-      POISON_PILL.getHeader(Headers.SENDER);
-    });
-  }
+    @Test
+    public void testGetHeader() throws Exception {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            POISON_PILL.getHeader(Headers.SENDER);
+        });
+    }
 
-  @Test
-  public void testGetHeaders() throws Exception {
-    assertThrows(UnsupportedOperationException.class, () -> {
-      POISON_PILL.getHeaders();
-    });
-  }
+    @Test
+    public void testGetHeaders() throws Exception {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            POISON_PILL.getHeaders();
+        });
+    }
 
-  @Test
-  public void testSetBody() throws Exception {
-    assertThrows(UnsupportedOperationException.class, () -> {
-      POISON_PILL.setBody("Test message.");
-    });
-  }
+    @Test
+    public void testSetBody() throws Exception {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            POISON_PILL.setBody("Test message.");
+        });
+    }
 
-  @Test
-  public void testGetBody() throws Exception {
-    assertThrows(UnsupportedOperationException.class, () -> {
-      POISON_PILL.getBody();
-    });
-  }
+    @Test
+    public void testGetBody() throws Exception {
+        assertThrows(UnsupportedOperationException.class, () -> {
+            POISON_PILL.getBody();
+        });
+    }
 
 }

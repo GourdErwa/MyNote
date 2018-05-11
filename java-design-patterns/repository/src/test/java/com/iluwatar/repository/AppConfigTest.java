@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014-2016 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -40,37 +40,37 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * This case is Just for test the Annotation Based configuration
- * 
+ *
  */
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = { AppConfig.class }, loader = AnnotationConfigContextLoader.class)
+@ContextConfiguration(classes = {AppConfig.class}, loader = AnnotationConfigContextLoader.class)
 public class AppConfigTest {
 
-  @Autowired
-  DataSource dataSource;
+    @Autowired
+    DataSource dataSource;
 
-  /**
-   * Test for bean instance
-   */
-  @Test
-  public void testDataSource() {
-    assertNotNull(dataSource);
-  }
-
-  /**
-   * Test for correct query execution
-   */
-  @Test
-  @Transactional
-  public void testQuery() throws SQLException {
-    ResultSet resultSet = dataSource.getConnection().createStatement().executeQuery("SELECT 1");
-    String result = null;
-    String expected = "1";
-    while (resultSet.next()) {
-      result = resultSet.getString(1);
-
+    /**
+     * Test for bean instance
+     */
+    @Test
+    public void testDataSource() {
+        assertNotNull(dataSource);
     }
-    assertTrue(result.equals(expected));
-  }
+
+    /**
+     * Test for correct query execution
+     */
+    @Test
+    @Transactional
+    public void testQuery() throws SQLException {
+        ResultSet resultSet = dataSource.getConnection().createStatement().executeQuery("SELECT 1");
+        String result = null;
+        String expected = "1";
+        while (resultSet.next()) {
+            result = resultSet.getString(1);
+
+        }
+        assertTrue(result.equals(expected));
+    }
 
 }

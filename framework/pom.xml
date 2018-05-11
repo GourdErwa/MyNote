@@ -5,7 +5,7 @@
     <parent>
         <artifactId>erwa</artifactId>
         <groupId>com.gourd</groupId>
-        <version>2016.3</version>
+        <version>2018.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,16 +13,7 @@
     <name>framework</name>
 
     <properties>
-        <es.version>1.7.0</es.version>
-        <syslog4j.v>0.9.46</syslog4j.v>
-        <beust.jcommander.v>1.48</beust.jcommander.v>
-        <metrics.v>3.1.2</metrics.v>
-        <scheduler.quartz.v>2.2.3</scheduler.quartz.v>
-        <espertech.v>5.5.0</espertech.v>
-        <snmp4j.v>1.10.1</snmp4j.v>
-        <caliper.v>1.0-beta-2</caliper.v>
-        <javatuples.v>1.2</javatuples.v>
-        <jooq.v>3.9.1</jooq.v>
+
     </properties>
 
     <dependencies>
@@ -30,21 +21,21 @@
         <dependency>
             <groupId>org.syslog4j</groupId>
             <artifactId>syslog4j</artifactId>
-            <version>${syslog4j.v}</version>
+            <version>${syslog4j.version}</version>
         </dependency>
 
         <!-- jcommander -->
         <dependency>
             <groupId>com.beust</groupId>
             <artifactId>jcommander</artifactId>
-            <version>${beust.jcommander.v}</version>
+            <version>${beust.jcommander.version}</version>
         </dependency>
 
         <!-- metrics-core -->
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
-            <version>${metrics.v}</version>
+            <version>${metrics.version}</version>
         </dependency>
 
 
@@ -52,14 +43,14 @@
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>${scheduler.quartz.v}</version>
+            <version>${scheduler.quartz.version}</version>
         </dependency>
 
         <!--elasticsearch-->
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-            <version>${es.version}</version>
+            <version>${elastic.1.version}</version>
         </dependency>
 
 
@@ -67,7 +58,7 @@
         <dependency>
             <groupId>com.espertech</groupId>
             <artifactId>esper</artifactId>
-            <version>${espertech.v}</version>
+            <version>${espertech.version}</version>
         </dependency>
 
 
@@ -75,7 +66,7 @@
         <dependency>
             <groupId>org.snmp4j</groupId>
             <artifactId>snmp4j</artifactId>
-            <version>${snmp4j.v}</version>
+            <version>${snmp4j.version}</version>
         </dependency>
 
         <!-- guice -->
@@ -89,25 +80,25 @@
         <dependency>
             <groupId>com.google.caliper</groupId>
             <artifactId>caliper</artifactId>
-            <version>${caliper.v}</version>
+            <version>${caliper.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.javatuples</groupId>
             <artifactId>javatuples</artifactId>
-            <version>${javatuples.v}</version>
+            <version>${javatuples.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
-            <version>${jooq.v}</version>
+            <version>${jooq.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.gourd</groupId>
             <artifactId>util</artifactId>
-            <version>2016.3</version>
+            <version>2018.1</version>
         </dependency>
 
     </dependencies>

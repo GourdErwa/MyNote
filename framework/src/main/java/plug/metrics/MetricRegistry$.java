@@ -1,6 +1,10 @@
 package plug.metrics;
 
-import com.codahale.metrics.*;
+import com.codahale.metrics.ConsoleReporter;
+import com.codahale.metrics.CsvReporter;
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Slf4jReporter;
+import com.espertech.esper.metrics.codahale_metrics.metrics.reporting.JmxReporter;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
@@ -22,10 +26,10 @@ interface MetricRegistry$ {
      *
      * @return JmxReporter {@link JmxReporter}
      */
-    static JmxReporter fetchJmxReporter() {
+    /*static JmxReporter fetchJmxReporter() {
 
         return JmxReporter.forRegistry(REGISTRY).build();
-    }
+    }*/
 
     /**
      * ConsoleReporter

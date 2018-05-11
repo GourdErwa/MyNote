@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -39,45 +39,45 @@ import java.util.Map;
  */
 public class LambdaInfoApiHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
-  private static final Logger LOG = Logger.getLogger(LambdaInfoApiHandler.class);
-  private static final Integer SUCCESS_STATUS_CODE = 200;
+    private static final Logger LOG = Logger.getLogger(LambdaInfoApiHandler.class);
+    private static final Integer SUCCESS_STATUS_CODE = 200;
 
 
-  @Override
-  public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
-    BasicConfigurator.configure();
-    LOG.info("received: " + input);
+    @Override
+    public ApiGatewayResponse handleRequest(Map<String, Object> input, Context context) {
+        BasicConfigurator.configure();
+        LOG.info("received: " + input);
 
-    return new ApiGatewayResponse
-            .ApiGatewayResponseBuilder<LambdaInfo>()
-            .headers(headers())
-            .statusCode(SUCCESS_STATUS_CODE)
-            .body(lambdaInfo(context))
-            .build();
+        return new ApiGatewayResponse
+                .ApiGatewayResponseBuilder<LambdaInfo>()
+                .headers(headers())
+                .statusCode(SUCCESS_STATUS_CODE)
+                .body(lambdaInfo(context))
+                .build();
 
-  }
+    }
 
-  /**
-   * lambdaInfo
-   * @param context - Lambda context
-   * @return LambdaInfo
-   */
-  private LambdaInfo lambdaInfo(Context context) {
-    LambdaInfo lambdaInfo = new LambdaInfo();
-    lambdaInfo.setAwsRequestId(context.getAwsRequestId());
-    lambdaInfo.setFunctionName(context.getFunctionName());
-    lambdaInfo.setFunctionVersion(context.getFunctionVersion());
-    lambdaInfo.setLogGroupName(context.getLogGroupName());
-    lambdaInfo.setLogStreamName(context.getLogStreamName());
-    lambdaInfo.setMemoryLimitInMb(context.getMemoryLimitInMB());
+    /**
+     * lambdaInfo
+     * @param context - Lambda context
+     * @return LambdaInfo
+     */
+    private LambdaInfo lambdaInfo(Context context) {
+        LambdaInfo lambdaInfo = new LambdaInfo();
+        lambdaInfo.setAwsRequestId(context.getAwsRequestId());
+        lambdaInfo.setFunctionName(context.getFunctionName());
+        lambdaInfo.setFunctionVersion(context.getFunctionVersion());
+        lambdaInfo.setLogGroupName(context.getLogGroupName());
+        lambdaInfo.setLogStreamName(context.getLogStreamName());
+        lambdaInfo.setMemoryLimitInMb(context.getMemoryLimitInMB());
 
-    return lambdaInfo;
-  }
+        return lambdaInfo;
+    }
 
-  private Map<String, String> headers() {
-    Map<String, String> headers = new HashMap<>();
-    headers.put("Content-Type", "application/json");
+    private Map<String, String> headers() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
 
-    return headers;
-  }
+        return headers;
+    }
 }

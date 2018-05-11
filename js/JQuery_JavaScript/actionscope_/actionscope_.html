@@ -10,6 +10,7 @@
         return
         a + b;  //error 返回underfined
     }
+
     console.log(abc(1, 2));
 
     /*
@@ -22,6 +23,7 @@
     function test() {
         foo = '1';
     }
+
     /**
      * 在函数 test 内不使用 var 关键字声明 foo 变量将会覆盖外部的同名变量。
      * 起初这看起来并不是大问题，但是当有成千上万行代码时，不使用 var 声明变量将会带来难以跟踪的 BUG。
@@ -61,6 +63,7 @@
     var someValue = 42;
 
     test(["1", "2"]);
+
     function test(data) {
         if (false) {
             goo = 1;

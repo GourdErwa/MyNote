@@ -56,6 +56,7 @@ class OnlineBlackListFilter {
         validClicked._2._1
       })
     }).print()
+
     /**
       * 计算后的有效数据一般都会写入Kafka中，下游的计费系统会从Kafka中pull到有效数据进行计费
       */

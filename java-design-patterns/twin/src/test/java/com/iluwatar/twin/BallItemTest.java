@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014-2016 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,6 +31,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,87 +48,87 @@ import org.slf4j.LoggerFactory;
  */
 public class BallItemTest {
 
-  private InMemoryAppender appender;
+    private InMemoryAppender appender;
 
-  @BeforeEach
-  public void setUp() {
-    appender = new InMemoryAppender();
-  }
-
-  @AfterEach
-  public void tearDown() {
-    appender.stop();
-  }
-
-  @Test
-  public void testClick() {
-    final BallThread ballThread = mock(BallThread.class);
-    final BallItem ballItem = new BallItem();
-    ballItem.setTwin(ballThread);
-
-    final InOrder inOrder = inOrder(ballThread);
-
-    for (int i = 0; i < 10; i++) {
-      ballItem.click();
-      inOrder.verify(ballThread).suspendMe();
-
-      ballItem.click();
-      inOrder.verify(ballThread).resumeMe();
+    @BeforeEach
+    public void setUp() {
+        appender = new InMemoryAppender();
     }
 
-    inOrder.verifyNoMoreInteractions();
-  }
-
-  @Test
-  public void testDoDraw() {
-    final BallItem ballItem = new BallItem();
-    final BallThread ballThread = mock(BallThread.class);
-    ballItem.setTwin(ballThread);
-
-    ballItem.draw();
-    assertTrue(appender.logContains("draw"));
-    assertTrue(appender.logContains("doDraw"));
-
-    verifyNoMoreInteractions(ballThread);
-    assertEquals(2, appender.getLogSize());
-  }
-
-  @Test
-  public void testMove() {
-    final BallItem ballItem = new BallItem();
-    final BallThread ballThread = mock(BallThread.class);
-    ballItem.setTwin(ballThread);
-
-    ballItem.move();
-    assertTrue(appender.logContains("move"));
-
-    verifyNoMoreInteractions(ballThread);
-    assertEquals(1, appender.getLogSize());
-  }
-
-  /**
-   * Logging Appender Implementation
-   */
-  public class InMemoryAppender extends AppenderBase<ILoggingEvent> {
-    private List<ILoggingEvent> log = new LinkedList<>();
-
-    public InMemoryAppender() {
-      ((Logger) LoggerFactory.getLogger("root")).addAppender(this);
-      start();
+    @AfterEach
+    public void tearDown() {
+        appender.stop();
     }
 
-    @Override
-    protected void append(ILoggingEvent eventObject) {
-      log.add(eventObject);
+    @Test
+    public void testClick() {
+        final BallThread ballThread = mock(BallThread.class);
+        final BallItem ballItem = new BallItem();
+        ballItem.setTwin(ballThread);
+
+        final InOrder inOrder = inOrder(ballThread);
+
+        for (int i = 0; i < 10; i++) {
+            ballItem.click();
+            inOrder.verify(ballThread).suspendMe();
+
+            ballItem.click();
+            inOrder.verify(ballThread).resumeMe();
+        }
+
+        inOrder.verifyNoMoreInteractions();
     }
 
-    public boolean logContains(String message) {
-      return log.stream().anyMatch(event -> event.getMessage().equals(message));
+    @Test
+    public void testDoDraw() {
+        final BallItem ballItem = new BallItem();
+        final BallThread ballThread = mock(BallThread.class);
+        ballItem.setTwin(ballThread);
+
+        ballItem.draw();
+        assertTrue(appender.logContains("draw"));
+        assertTrue(appender.logContains("doDraw"));
+
+        verifyNoMoreInteractions(ballThread);
+        assertEquals(2, appender.getLogSize());
     }
 
-    public int getLogSize() {
-      return log.size();
+    @Test
+    public void testMove() {
+        final BallItem ballItem = new BallItem();
+        final BallThread ballThread = mock(BallThread.class);
+        ballItem.setTwin(ballThread);
+
+        ballItem.move();
+        assertTrue(appender.logContains("move"));
+
+        verifyNoMoreInteractions(ballThread);
+        assertEquals(1, appender.getLogSize());
     }
-  }
+
+    /**
+     * Logging Appender Implementation
+     */
+    public class InMemoryAppender extends AppenderBase<ILoggingEvent> {
+        private List<ILoggingEvent> log = new LinkedList<>();
+
+        public InMemoryAppender() {
+            ((Logger) LoggerFactory.getLogger("root")).addAppender(this);
+            start();
+        }
+
+        @Override
+        protected void append(ILoggingEvent eventObject) {
+            log.add(eventObject);
+        }
+
+        public boolean logContains(String message) {
+            return log.stream().anyMatch(event -> event.getMessage().equals(message));
+        }
+
+        public int getLogSize() {
+            return log.size();
+        }
+    }
 
 }

@@ -21,6 +21,7 @@
         console.log(arguments);//["liw", "24"]
         bar.apply(null, arguments);
     }
+
     function bar(a, b, c) {
         // do stuff here
         console.log(a + b + c);//liw,24,undefined
@@ -64,6 +65,7 @@
         //people.call(this, name,sex);//正确写法
         this.age = age;
     }
+
     var st = new studentByCall("liw", "男", 24);
 
     console.log(st.name + "\t" + st.sex + "\t" + st.age);//[object Arguments]	undefined	24
@@ -113,6 +115,7 @@
         arguments[1] = 20;
         console.log(b);//20
     }
+
     arguments(1, 2, 3, 4);
 
 

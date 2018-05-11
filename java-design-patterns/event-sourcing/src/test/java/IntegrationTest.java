@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -44,56 +44,56 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class IntegrationTest {
 
-  /**
-   * The Domain event processor.
-   */
-  private DomainEventProcessor eventProcessor;
+    /**
+     * The Domain event processor.
+     */
+    private DomainEventProcessor eventProcessor;
 
-  /**
-   * Initialize.
-   */
-  @BeforeEach
-  public void initialize() {
-    eventProcessor = new DomainEventProcessor();
-  }
+    /**
+     * Initialize.
+     */
+    @BeforeEach
+    public void initialize() {
+        eventProcessor = new DomainEventProcessor();
+    }
 
-  /**
-   * Test state recovery.
-   */
-  @Test
-  public void testStateRecovery() {
-    eventProcessor.reset();
+    /**
+     * Test state recovery.
+     */
+    @Test
+    public void testStateRecovery() {
+        eventProcessor.reset();
 
-    eventProcessor.process(new AccountCreateEvent(
-        0, new Date().getTime(), ACCOUNT_OF_DAENERYS, "Daenerys Targaryen"));
+        eventProcessor.process(new AccountCreateEvent(
+                0, new Date().getTime(), ACCOUNT_OF_DAENERYS, "Daenerys Targaryen"));
 
-    eventProcessor.process(new AccountCreateEvent(
-        1, new Date().getTime(), ACCOUNT_OF_JON, "Jon Snow"));
+        eventProcessor.process(new AccountCreateEvent(
+                1, new Date().getTime(), ACCOUNT_OF_JON, "Jon Snow"));
 
-    eventProcessor.process(new MoneyDepositEvent(
-        2, new Date().getTime(), ACCOUNT_OF_DAENERYS,  new BigDecimal("100000")));
+        eventProcessor.process(new MoneyDepositEvent(
+                2, new Date().getTime(), ACCOUNT_OF_DAENERYS, new BigDecimal("100000")));
 
-    eventProcessor.process(new MoneyDepositEvent(
-        3, new Date().getTime(), ACCOUNT_OF_JON,  new BigDecimal("100")));
+        eventProcessor.process(new MoneyDepositEvent(
+                3, new Date().getTime(), ACCOUNT_OF_JON, new BigDecimal("100")));
 
-    eventProcessor.process(new MoneyTransferEvent(
-        4, new Date().getTime(), new BigDecimal("10000"), ACCOUNT_OF_DAENERYS,
-        ACCOUNT_OF_JON));
+        eventProcessor.process(new MoneyTransferEvent(
+                4, new Date().getTime(), new BigDecimal("10000"), ACCOUNT_OF_DAENERYS,
+                ACCOUNT_OF_JON));
 
-    Account accountOfDaenerysBeforeShotDown = AccountAggregate.getAccount(ACCOUNT_OF_DAENERYS);
-    Account accountOfJonBeforeShotDown = AccountAggregate.getAccount(ACCOUNT_OF_JON);
+        Account accountOfDaenerysBeforeShotDown = AccountAggregate.getAccount(ACCOUNT_OF_DAENERYS);
+        Account accountOfJonBeforeShotDown = AccountAggregate.getAccount(ACCOUNT_OF_JON);
 
-    AccountAggregate.resetState();
+        AccountAggregate.resetState();
 
-    eventProcessor = new DomainEventProcessor();
-    eventProcessor.recover();
+        eventProcessor = new DomainEventProcessor();
+        eventProcessor.recover();
 
-    Account accountOfDaenerysAfterShotDown = AccountAggregate.getAccount(ACCOUNT_OF_DAENERYS);
-    Account accountOfJonAfterShotDown = AccountAggregate.getAccount(ACCOUNT_OF_JON);
+        Account accountOfDaenerysAfterShotDown = AccountAggregate.getAccount(ACCOUNT_OF_DAENERYS);
+        Account accountOfJonAfterShotDown = AccountAggregate.getAccount(ACCOUNT_OF_JON);
 
-    assertEquals(accountOfDaenerysBeforeShotDown.getMoney(),
-        accountOfDaenerysAfterShotDown.getMoney());
-    assertEquals(accountOfJonBeforeShotDown.getMoney(), accountOfJonAfterShotDown.getMoney());
-  }
+        assertEquals(accountOfDaenerysBeforeShotDown.getMoney(),
+                accountOfDaenerysAfterShotDown.getMoney());
+        assertEquals(accountOfJonBeforeShotDown.getMoney(), accountOfJonAfterShotDown.getMoney());
+    }
 
 }

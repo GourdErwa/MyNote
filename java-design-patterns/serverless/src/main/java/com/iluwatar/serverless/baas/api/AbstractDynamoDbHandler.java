@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -39,63 +39,63 @@ import java.util.Map;
  * @param <T> - serializable collection
  */
 public abstract class AbstractDynamoDbHandler<T extends Serializable> {
-  private DynamoDBMapper dynamoDbMapper;
+    private DynamoDBMapper dynamoDbMapper;
 
-  private ObjectMapper objectMapper;
+    private ObjectMapper objectMapper;
 
-  public AbstractDynamoDbHandler() {
-    this.initAmazonDynamoDb();
-    this.objectMapper = new ObjectMapper();
-  }
-
-  private void initAmazonDynamoDb() {
-    AmazonDynamoDB amazonDynamoDb = AmazonDynamoDBClientBuilder
-        .standard()
-        .withRegion(Regions.US_EAST_1)
-        .build();
-
-    this.dynamoDbMapper = new DynamoDBMapper(amazonDynamoDb);
-  }
-
-  protected DynamoDBMapper getDynamoDbMapper() {
-    return this.dynamoDbMapper;
-  }
-
-  protected ObjectMapper getObjectMapper() {
-    return objectMapper;
-  }
-
-  public void setDynamoDbMapper(DynamoDBMapper dynamoDbMapper) {
-    this.dynamoDbMapper = dynamoDbMapper;
-  }
-
-  protected Map<String, String> headers() {
-    Map<String, String> headers = new HashMap<>();
-    headers.put("Content-Type", "application/json");
-
-    return headers;
-  }
-
-  /**
-   * API Gateway response
-   *
-   * @param statusCode - status code
-   * @param body - Object body
-   * @return - api gateway proxy response
-   */
-  protected APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent(Integer statusCode, T body) {
-    APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent =
-        new APIGatewayProxyResponseEvent().withHeaders(headers());
-    try {
-      apiGatewayProxyResponseEvent
-          .withStatusCode(statusCode)
-          .withBody(getObjectMapper()
-              .writeValueAsString(body));
-
-    } catch (JsonProcessingException jsonProcessingException) {
-      throw new RuntimeException(jsonProcessingException);
+    public AbstractDynamoDbHandler() {
+        this.initAmazonDynamoDb();
+        this.objectMapper = new ObjectMapper();
     }
 
-    return apiGatewayProxyResponseEvent;
-  }
+    private void initAmazonDynamoDb() {
+        AmazonDynamoDB amazonDynamoDb = AmazonDynamoDBClientBuilder
+                .standard()
+                .withRegion(Regions.US_EAST_1)
+                .build();
+
+        this.dynamoDbMapper = new DynamoDBMapper(amazonDynamoDb);
+    }
+
+    protected DynamoDBMapper getDynamoDbMapper() {
+        return this.dynamoDbMapper;
+    }
+
+    public void setDynamoDbMapper(DynamoDBMapper dynamoDbMapper) {
+        this.dynamoDbMapper = dynamoDbMapper;
+    }
+
+    protected ObjectMapper getObjectMapper() {
+        return objectMapper;
+    }
+
+    protected Map<String, String> headers() {
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/json");
+
+        return headers;
+    }
+
+    /**
+     * API Gateway response
+     *
+     * @param statusCode - status code
+     * @param body - Object body
+     * @return - api gateway proxy response
+     */
+    protected APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent(Integer statusCode, T body) {
+        APIGatewayProxyResponseEvent apiGatewayProxyResponseEvent =
+                new APIGatewayProxyResponseEvent().withHeaders(headers());
+        try {
+            apiGatewayProxyResponseEvent
+                    .withStatusCode(statusCode)
+                    .withBody(getObjectMapper()
+                            .writeValueAsString(body));
+
+        } catch (JsonProcessingException jsonProcessingException) {
+            throw new RuntimeException(jsonProcessingException);
+        }
+
+        return apiGatewayProxyResponseEvent;
+    }
 }

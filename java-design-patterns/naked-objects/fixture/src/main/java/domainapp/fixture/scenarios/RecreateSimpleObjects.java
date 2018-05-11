@@ -33,63 +33,61 @@ import domainapp.fixture.modules.simple.SimpleObjectsTearDown;
  */
 public class RecreateSimpleObjects extends FixtureScript {
 
-  public final List<String> names = Collections.unmodifiableList(Arrays.asList("Foo", "Bar", "Baz",
-      "Frodo", "Froyo", "Fizz", "Bip", "Bop", "Bang", "Boo"));
+    public final List<String> names = Collections.unmodifiableList(Arrays.asList("Foo", "Bar", "Baz",
+            "Frodo", "Froyo", "Fizz", "Bip", "Bop", "Bang", "Boo"));
+    // region > simpleObjects (output)
+    private final List<SimpleObject> simpleObjects = Lists.newArrayList();
 
-  // region > number (optional input)
-  private Integer number;
+    // endregion
+    // region > number (optional input)
+    private Integer number;
 
-  // endregion
-
-  // region > simpleObjects (output)
-  private final List<SimpleObject> simpleObjects = Lists.newArrayList();
-
-  public RecreateSimpleObjects() {
-    withDiscoverability(Discoverability.DISCOVERABLE);
-  }
-
-  /**
-   * The number of objects to create, up to 10; optional, defaults to 3.
-   */
-  public Integer getNumber() {
-    return number;
-  }
-
-  public RecreateSimpleObjects setNumber(final Integer number) {
-    this.number = number;
-    return this;
-  }
-
-  /**
-   * The simpleobjects created by this fixture (output).
-   */
-  public List<SimpleObject> getSimpleObjects() {
-    return simpleObjects;
-  }
-
-  // endregion
-
-  @Override
-  protected void execute(final ExecutionContext ec) {
-
-    // defaults
-    final int paramNumber = defaultParam("number", ec, 3);
-
-    // validate
-    if (paramNumber < 0 || paramNumber > names.size()) {
-      throw new IllegalArgumentException(String.format("number must be in range [0,%d)",
-          names.size()));
+    public RecreateSimpleObjects() {
+        withDiscoverability(Discoverability.DISCOVERABLE);
     }
 
-    //
-    // execute
-    //
-    ec.executeChild(this, new SimpleObjectsTearDown());
-
-    for (int i = 0; i < paramNumber; i++) {
-      final SimpleObjectCreate fs = new SimpleObjectCreate().setName(names.get(i));
-      ec.executeChild(this, fs.getName(), fs);
-      simpleObjects.add(fs.getSimpleObject());
+    /**
+     * The number of objects to create, up to 10; optional, defaults to 3.
+     */
+    public Integer getNumber() {
+        return number;
     }
-  }
+
+    public RecreateSimpleObjects setNumber(final Integer number) {
+        this.number = number;
+        return this;
+    }
+
+    /**
+     * The simpleobjects created by this fixture (output).
+     */
+    public List<SimpleObject> getSimpleObjects() {
+        return simpleObjects;
+    }
+
+    // endregion
+
+    @Override
+    protected void execute(final ExecutionContext ec) {
+
+        // defaults
+        final int paramNumber = defaultParam("number", ec, 3);
+
+        // validate
+        if (paramNumber < 0 || paramNumber > names.size()) {
+            throw new IllegalArgumentException(String.format("number must be in range [0,%d)",
+                    names.size()));
+        }
+
+        //
+        // execute
+        //
+        ec.executeChild(this, new SimpleObjectsTearDown());
+
+        for (int i = 0; i < paramNumber; i++) {
+            final SimpleObjectCreate fs = new SimpleObjectCreate().setName(names.get(i));
+            ec.executeChild(this, fs.getName(), fs);
+            simpleObjects.add(fs.getSimpleObject());
+        }
+    }
 }

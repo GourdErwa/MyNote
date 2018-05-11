@@ -81,7 +81,7 @@ public class Es_Search {
                 //.setQuery(QueryBuilders.termQuery("multi", "test"))       // Query
                 //.setPostFilter(FilterBuilders.rangeFilter("age").lt(10).gt(50))   // Filter过滤
                 //.setPostFilter(FilterBuilders.inFilter("age", 45))   // Filter过滤
-                .setPostFilter(FilterBuilders.boolFilter().mustNot(FilterBuilders.inFilter("age", 20, 21, 22)))
+                //.setPostFilter(FilterBuilders.boolFilter().mustNot(FilterBuilders.inFilter("age", 20, 21, 22)))
                 .setFrom(0).setSize(60).setExplain(true)
                 .execute()
                 //注册监听事件

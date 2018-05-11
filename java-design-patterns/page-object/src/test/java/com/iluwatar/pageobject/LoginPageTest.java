@@ -35,21 +35,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 public class LoginPageTest {
 
-  private LoginPage loginPage = new LoginPage(new WebClient());
+    private LoginPage loginPage = new LoginPage(new WebClient());
 
-  @BeforeEach
-  public void setUp() {
-    loginPage.navigateToPage();
-  }
+    @BeforeEach
+    public void setUp() {
+        loginPage.navigateToPage();
+    }
 
-  @Test
-  public void testLogin() {
-    AlbumListPage albumListPage = loginPage
-        .enterUsername("admin")
-        .enterPassword("password")
-        .login();
-    albumListPage.navigateToPage();
-    assertTrue(albumListPage.isAt());
-  }
+    @Test
+    public void testLogin() {
+        AlbumListPage albumListPage = loginPage
+                .enterUsername("admin")
+                .enterPassword("password")
+                .login();
+        albumListPage.navigateToPage();
+        assertTrue(albumListPage.isAt());
+    }
 
 }

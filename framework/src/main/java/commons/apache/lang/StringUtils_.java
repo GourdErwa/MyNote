@@ -9,7 +9,7 @@ public class StringUtils_ {
 
     private static void demo_1() {
 
-       /*检查字符是否为空(" ")或null*/
+        /*检查字符是否为空(" ")或null*/
         StringUtils.isEmpty(null);//true;
         StringUtils.isEmpty("");// true
         StringUtils.isEmpty(" ");// false

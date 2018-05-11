@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014-2016 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,30 +23,30 @@
 package com.iluwatar.prototype;
 
 /**
- * 
+ *
  * ElfBeast
  *
  */
 public class ElfBeast extends Beast {
-  
-  private String helpType;
 
-  public ElfBeast(String helpType) {
-    this.helpType = helpType;
-  }
+    private String helpType;
 
-  public ElfBeast(ElfBeast elfBeast) {
-    this.helpType = elfBeast.helpType;
-  }
+    public ElfBeast(String helpType) {
+        this.helpType = helpType;
+    }
 
-  @Override
-  public Beast copy() throws CloneNotSupportedException {
-    return new ElfBeast(this);
-  }
+    public ElfBeast(ElfBeast elfBeast) {
+        this.helpType = elfBeast.helpType;
+    }
 
-  @Override
-  public String toString() {
-    return "Elven eagle helps in " + helpType;
-  }
+    @Override
+    public Beast copy() throws CloneNotSupportedException {
+        return new ElfBeast(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Elven eagle helps in " + helpType;
+    }
 
 }

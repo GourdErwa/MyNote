@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -41,65 +41,65 @@ import com.iluwatar.cqrs.util.HibernateUtil;
  */
 public class QueryServiceImpl implements IQueryService {
 
-  private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-  @Override
-  public Author getAuthorByUsername(String username) {
-    Author authorDTo = null;
-    try (Session session = sessionFactory.openSession()) {
-      SQLQuery sqlQuery = session
-          .createSQLQuery("SELECT a.username as \"username\", a.name as \"name\", a.email as \"email\""
-              + "FROM Author a where a.username=:username");
-      sqlQuery.setParameter("username", username);
-      authorDTo = (Author) sqlQuery.setResultTransformer(Transformers.aliasToBean(Author.class)).uniqueResult();
+    @Override
+    public Author getAuthorByUsername(String username) {
+        Author authorDTo = null;
+        try (Session session = sessionFactory.openSession()) {
+            SQLQuery sqlQuery = session
+                    .createSQLQuery("SELECT a.username as \"username\", a.name as \"name\", a.email as \"email\""
+                            + "FROM Author a where a.username=:username");
+            sqlQuery.setParameter("username", username);
+            authorDTo = (Author) sqlQuery.setResultTransformer(Transformers.aliasToBean(Author.class)).uniqueResult();
+        }
+        return authorDTo;
     }
-    return authorDTo;
-  }
 
-  @Override
-  public Book getBook(String title) {
-    Book bookDTo = null;
-    try (Session session = sessionFactory.openSession()) {
-      SQLQuery sqlQuery = session
-          .createSQLQuery("SELECT b.title as \"title\", b.price as \"price\"" + " FROM Book b where b.title=:title");
-      sqlQuery.setParameter("title", title);
-      bookDTo = (Book) sqlQuery.setResultTransformer(Transformers.aliasToBean(Book.class)).uniqueResult();
+    @Override
+    public Book getBook(String title) {
+        Book bookDTo = null;
+        try (Session session = sessionFactory.openSession()) {
+            SQLQuery sqlQuery = session
+                    .createSQLQuery("SELECT b.title as \"title\", b.price as \"price\"" + " FROM Book b where b.title=:title");
+            sqlQuery.setParameter("title", title);
+            bookDTo = (Book) sqlQuery.setResultTransformer(Transformers.aliasToBean(Book.class)).uniqueResult();
+        }
+        return bookDTo;
     }
-    return bookDTo;
-  }
 
-  @Override
-  public List<Book> getAuthorBooks(String username) {
-    List<Book> bookDTos = null;
-    try (Session session = sessionFactory.openSession()) {
-      SQLQuery sqlQuery = session.createSQLQuery("SELECT b.title as \"title\", b.price as \"price\""
-          + " FROM Author a , Book b where b.author_id = a.id and a.username=:username");
-      sqlQuery.setParameter("username", username);
-      bookDTos = sqlQuery.setResultTransformer(Transformers.aliasToBean(Book.class)).list();
+    @Override
+    public List<Book> getAuthorBooks(String username) {
+        List<Book> bookDTos = null;
+        try (Session session = sessionFactory.openSession()) {
+            SQLQuery sqlQuery = session.createSQLQuery("SELECT b.title as \"title\", b.price as \"price\""
+                    + " FROM Author a , Book b where b.author_id = a.id and a.username=:username");
+            sqlQuery.setParameter("username", username);
+            bookDTos = sqlQuery.setResultTransformer(Transformers.aliasToBean(Book.class)).list();
+        }
+        return bookDTos;
     }
-    return bookDTos;
-  }
 
-  @Override
-  public BigInteger getAuthorBooksCount(String username) {
-    BigInteger bookcount = null;
-    try (Session session = sessionFactory.openSession()) {
-      SQLQuery sqlQuery = session.createSQLQuery(
-          "SELECT count(b.title)" + " FROM  Book b, Author a where b.author_id = a.id and a.username=:username");
-      sqlQuery.setParameter("username", username);
-      bookcount = (BigInteger) sqlQuery.uniqueResult();
+    @Override
+    public BigInteger getAuthorBooksCount(String username) {
+        BigInteger bookcount = null;
+        try (Session session = sessionFactory.openSession()) {
+            SQLQuery sqlQuery = session.createSQLQuery(
+                    "SELECT count(b.title)" + " FROM  Book b, Author a where b.author_id = a.id and a.username=:username");
+            sqlQuery.setParameter("username", username);
+            bookcount = (BigInteger) sqlQuery.uniqueResult();
+        }
+        return bookcount;
     }
-    return bookcount;
-  }
 
-  @Override
-  public BigInteger getAuthorsCount() {
-    BigInteger authorcount = null;
-    try (Session session = sessionFactory.openSession()) {
-      SQLQuery sqlQuery = session.createSQLQuery("SELECT count(id) from Author");
-      authorcount = (BigInteger) sqlQuery.uniqueResult();
+    @Override
+    public BigInteger getAuthorsCount() {
+        BigInteger authorcount = null;
+        try (Session session = sessionFactory.openSession()) {
+            SQLQuery sqlQuery = session.createSQLQuery("SELECT count(id) from Author");
+            authorcount = (BigInteger) sqlQuery.uniqueResult();
+        }
+        return authorcount;
     }
-    return authorcount;
-  }
 
 }

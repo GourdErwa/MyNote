@@ -30,12 +30,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Test Inventory Rest Controller
  */
 public class InventoryControllerTest {
-  @Test
-  public void testGetProductInventories() throws Exception {
-    InventoryController inventoryController = new InventoryController();
+    @Test
+    public void testGetProductInventories() throws Exception {
+        InventoryController inventoryController = new InventoryController();
 
-    int numberOfInventories = inventoryController.getProductInventories();
+        int numberOfInventories = inventoryController.getProductInventories();
 
-    assertEquals(5, numberOfInventories);
-  }
+        assertEquals(5, numberOfInventories);
+    }
 }

@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.gourd</groupId>
         <artifactId>erwa</artifactId>
-        <version>2016.3</version>
+        <version>2018.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -13,12 +13,7 @@
     <name>util</name>
 
     <properties>
-        <org.slf4j.v>1.7.21</org.slf4j.v>
-        <log4j.v>1.2.17</log4j.v>
-        <fastjson.v>1.2.21</fastjson.v>
-        <guava.v>21.0-rc2</guava.v>
-        <lombok.v>1.16.10</lombok.v>
-        <junit.v>4.11</junit.v>
+
     </properties>
 
     <dependencies>
@@ -26,14 +21,14 @@
 
             <groupId>com.gourd</groupId>
             <artifactId>annotation</artifactId>
-            <version>2016.3</version>
+            <version>2018.1</version>
         </dependency>
 
         <!-- lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.v}</version>
+            <version>${lombok.version}</version>
         </dependency>
 
         <!--ssh-->
@@ -47,23 +42,23 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${org.slf4j.v}</version>
+            <version>${org.slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
-            <version>${org.slf4j.v}</version>
+            <version>${org.slf4j.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j.v}</version>
+            <version>${org.slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>${log4j.v}</version>
+            <version>${log4j.version}</version>
         </dependency>
 
         <!--commons-->
@@ -93,14 +88,14 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>${fastjson.v}</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <!--google-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>${guava.v}</version>
+            <version>${guava.version}</version>
         </dependency>
 
 
@@ -115,7 +110,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.v}</version>
+            <version>${junit.version}</version>
         </dependency>
 
 

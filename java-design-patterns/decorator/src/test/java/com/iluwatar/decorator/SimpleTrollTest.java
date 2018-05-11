@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014-2016 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -40,52 +40,52 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class SimpleTrollTest {
 
-  private InMemoryAppender appender;
+    private InMemoryAppender appender;
 
-  @BeforeEach
-  public void setUp() {
-    appender = new InMemoryAppender(SimpleTroll.class);
-  }
-
-  @AfterEach
-  public void tearDown() {
-    appender.stop();
-  }
-
-  @Test
-  public void testTrollActions() throws Exception {
-    final SimpleTroll troll = new SimpleTroll();
-    assertEquals(10, troll.getAttackPower());
-
-    troll.attack();
-    assertEquals("The troll tries to grab you!", appender.getLastMessage());
-
-    troll.fleeBattle();
-    assertEquals("The troll shrieks in horror and runs away!", appender.getLastMessage());
-
-    assertEquals(2, appender.getLogSize());
-  }
-
-  private class InMemoryAppender extends AppenderBase<ILoggingEvent> {
-
-    private List<ILoggingEvent> log = new LinkedList<>();
-
-    public InMemoryAppender(Class clazz) {
-      ((Logger) LoggerFactory.getLogger(clazz)).addAppender(this);
-      start();
+    @BeforeEach
+    public void setUp() {
+        appender = new InMemoryAppender(SimpleTroll.class);
     }
 
-    @Override
-    protected void append(ILoggingEvent eventObject) {
-      log.add(eventObject);
+    @AfterEach
+    public void tearDown() {
+        appender.stop();
     }
 
-    public String getLastMessage() {
-      return log.get(log.size() - 1).getMessage();
+    @Test
+    public void testTrollActions() throws Exception {
+        final SimpleTroll troll = new SimpleTroll();
+        assertEquals(10, troll.getAttackPower());
+
+        troll.attack();
+        assertEquals("The troll tries to grab you!", appender.getLastMessage());
+
+        troll.fleeBattle();
+        assertEquals("The troll shrieks in horror and runs away!", appender.getLastMessage());
+
+        assertEquals(2, appender.getLogSize());
     }
 
-    public int getLogSize() {
-      return log.size();
+    private class InMemoryAppender extends AppenderBase<ILoggingEvent> {
+
+        private List<ILoggingEvent> log = new LinkedList<>();
+
+        public InMemoryAppender(Class clazz) {
+            ((Logger) LoggerFactory.getLogger(clazz)).addAppender(this);
+            start();
+        }
+
+        @Override
+        protected void append(ILoggingEvent eventObject) {
+            log.add(eventObject);
+        }
+
+        public String getLastMessage() {
+            return log.get(log.size() - 1).getMessage();
+        }
+
+        public int getLogSize() {
+            return log.size();
+        }
     }
-  }
 }

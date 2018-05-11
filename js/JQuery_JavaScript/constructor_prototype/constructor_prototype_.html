@@ -14,6 +14,7 @@
 
     function Foo() {
     }
+
     Foo.bar = 1;
     Foo.bar;//1
 
@@ -74,6 +75,7 @@
     function Man() {
         this.sex = "男";
     }
+
     Man.prototype.action = "run by Man_people...";//男人有一个动作是run...
 
     function WoMan() {
@@ -145,6 +147,7 @@
         }
         return 'I am a function';
     }
+
     var foo = new Foo();
     var boo = new Foo();
     boo.foo = 'I don want to be Foo'
@@ -236,6 +239,7 @@
 
     function a() {
     }
+
     var arr = new Array();
     a.prototype = arr;
     var as = new a();

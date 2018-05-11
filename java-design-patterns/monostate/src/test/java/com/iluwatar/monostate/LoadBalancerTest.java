@@ -1,17 +1,17 @@
 /**
  * The MIT License
  * Copyright (c) 2014-2016 Ilkka Seppälä
- *
+ * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * <p>
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * <p>
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -41,37 +41,37 @@ import static org.mockito.Mockito.when;
  */
 public class LoadBalancerTest {
 
-  @Test
-  public void testSameStateAmongstAllInstances() {
-    final LoadBalancer firstBalancer = new LoadBalancer();
-    final LoadBalancer secondBalancer = new LoadBalancer();
-    firstBalancer.addServer(new Server("localhost", 8085, 6));
-    // Both should have the same number of servers.
-    assertTrue(firstBalancer.getNoOfServers() == secondBalancer.getNoOfServers());
-    // Both Should have the same LastServedId
-    assertTrue(firstBalancer.getLastServedId() == secondBalancer.getLastServedId());
-  }
-
-  @Test
-  public void testServe() {
-    final Server server = mock(Server.class);
-    when(server.getHost()).thenReturn("testhost");
-    when(server.getPort()).thenReturn(1234);
-    doNothing().when(server).serve(any(Request.class));
-
-    final LoadBalancer loadBalancer = new LoadBalancer();
-    loadBalancer.addServer(server);
-
-    verifyZeroInteractions(server);
-
-    final Request request = new Request("test");
-    for (int i = 0; i < loadBalancer.getNoOfServers() * 2; i++) {
-      loadBalancer.serverRequest(request);
+    @Test
+    public void testSameStateAmongstAllInstances() {
+        final LoadBalancer firstBalancer = new LoadBalancer();
+        final LoadBalancer secondBalancer = new LoadBalancer();
+        firstBalancer.addServer(new Server("localhost", 8085, 6));
+        // Both should have the same number of servers.
+        assertTrue(firstBalancer.getNoOfServers() == secondBalancer.getNoOfServers());
+        // Both Should have the same LastServedId
+        assertTrue(firstBalancer.getLastServedId() == secondBalancer.getLastServedId());
     }
 
-    verify(server, times(2)).serve(request);
-    verifyNoMoreInteractions(server);
+    @Test
+    public void testServe() {
+        final Server server = mock(Server.class);
+        when(server.getHost()).thenReturn("testhost");
+        when(server.getPort()).thenReturn(1234);
+        doNothing().when(server).serve(any(Request.class));
 
-  }
+        final LoadBalancer loadBalancer = new LoadBalancer();
+        loadBalancer.addServer(server);
+
+        verifyZeroInteractions(server);
+
+        final Request request = new Request("test");
+        for (int i = 0; i < loadBalancer.getNoOfServers() * 2; i++) {
+            loadBalancer.serverRequest(request);
+        }
+
+        verify(server, times(2)).serve(request);
+        verifyNoMoreInteractions(server);
+
+    }
 
 }

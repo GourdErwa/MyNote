@@ -34,28 +34,28 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Test for Guarded Queue
  */
 public class GuardedQueueTest {
-  private volatile Integer value;
+    private volatile Integer value;
 
-  @Test
-  public void testGet() {
-    GuardedQueue g = new GuardedQueue();
-    ExecutorService executorService = Executors.newFixedThreadPool(2);
-    executorService.submit(() -> value = g.get());
-    executorService.submit(() -> g.put(Integer.valueOf(10)));
-    executorService.shutdown();
-    try {
-      executorService.awaitTermination(30, TimeUnit.SECONDS);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
+    @Test
+    public void testGet() {
+        GuardedQueue g = new GuardedQueue();
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+        executorService.submit(() -> value = g.get());
+        executorService.submit(() -> g.put(Integer.valueOf(10)));
+        executorService.shutdown();
+        try {
+            executorService.awaitTermination(30, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        assertEquals(Integer.valueOf(10), value);
     }
-    assertEquals(Integer.valueOf(10), value);
-  }
 
-  @Test
-  public void testPut() {
-    GuardedQueue g = new GuardedQueue();
-    g.put(12);
-    assertEquals(Integer.valueOf(12), g.get());
-  }
+    @Test
+    public void testPut() {
+        GuardedQueue g = new GuardedQueue();
+        g.put(12);
+        assertEquals(Integer.valueOf(12), g.get());
+    }
 
 }

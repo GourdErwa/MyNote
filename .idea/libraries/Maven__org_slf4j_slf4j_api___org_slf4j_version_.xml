@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Maven: org.slf4j:slf4j-api:${org.slf4j.version}">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/${org.slf4j.version}/slf4j-api-${org.slf4j.version}-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/${org.slf4j.version}/slf4j-api-${org.slf4j.version}-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

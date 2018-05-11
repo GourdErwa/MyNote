@@ -199,6 +199,7 @@
         };
         console.log(checkHelperUtils.dontIgnoreNumberStringTypeCompare(objs, arg));
     });
+
     function validateForm(form_id) {
         $("#test_form").validate({
             ignore: ':hidden:not(.chzn-done)',
@@ -236,6 +237,7 @@
         });
 
     }
+
     var obj11 = {
         "array": [
             1,
@@ -254,6 +256,7 @@
         "string": "Hello World",
         "ss": null
     };
+
     function di(obj) {
         for (var key in obj) {
             var obj22 = obj[key];

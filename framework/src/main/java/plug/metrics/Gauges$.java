@@ -2,7 +2,6 @@ package plug.metrics;
 
 import com.codahale.metrics.ConsoleReporter;
 import com.codahale.metrics.Gauge;
-import com.codahale.metrics.JmxReporter;
 import com.codahale.metrics.MetricRegistry;
 
 import java.util.Queue;
@@ -52,9 +51,9 @@ public class Gauges$ {
         //注册到容器中
         metrics.register(MetricRegistry.name(Gauges$.class, "pending-job", "size"), gauge);
 
-        //测试JMX
+       /* //测试JMX
         JmxReporter jmxReporter = JmxReporter.forRegistry(metrics).build();
-        jmxReporter.start();
+        jmxReporter.start();*/
 
         //模拟数据
         for (int i = 0; i < 20000; i++) {

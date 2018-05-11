@@ -38,12 +38,12 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class LambdaInfoApiHandlerTest {
 
-  @Test
-  public void handleRequestWithMockContext() {
-    LambdaInfoApiHandler lambdaInfoApiHandler = new LambdaInfoApiHandler();
-    Context context = mock(Context.class);
-    when(context.getAwsRequestId()).thenReturn("mock aws request id");
+    @Test
+    public void handleRequestWithMockContext() {
+        LambdaInfoApiHandler lambdaInfoApiHandler = new LambdaInfoApiHandler();
+        Context context = mock(Context.class);
+        when(context.getAwsRequestId()).thenReturn("mock aws request id");
 
-    assertThat(lambdaInfoApiHandler.handleRequest(null, context), notNullValue());
-  }
+        assertThat(lambdaInfoApiHandler.handleRequest(null, context), notNullValue());
+    }
 }

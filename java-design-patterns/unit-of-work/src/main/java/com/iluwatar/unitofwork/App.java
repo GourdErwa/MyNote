@@ -31,22 +31,21 @@ import java.util.List;
  * {@link App} Application for managing student data.
  */
 public class App {
-  /**
-   *
-   * @param args no argument sent
-   */
-  public static void main(String[] args) {
-    Student ram = new Student(1, "Ram", "Street 9, Cupertino");
-    Student shyam = new Student(2, "Shyam", "Z bridge, Pune");
-    Student gopi = new Student(3, "Gopi", "Street 10, Mumbai");
+    /**
+     * @param args no argument sent
+     */
+    public static void main(String[] args) {
+        Student ram = new Student(1, "Ram", "Street 9, Cupertino");
+        Student shyam = new Student(2, "Shyam", "Z bridge, Pune");
+        Student gopi = new Student(3, "Gopi", "Street 10, Mumbai");
 
-    HashMap<String, List<Student>> context = new HashMap<>();
-    StudentDatabase studentDatabase = new StudentDatabase();
-    StudentRepository studentRepository = new StudentRepository(context, studentDatabase);
+        HashMap<String, List<Student>> context = new HashMap<>();
+        StudentDatabase studentDatabase = new StudentDatabase();
+        StudentRepository studentRepository = new StudentRepository(context, studentDatabase);
 
-    studentRepository.registerNew(ram);
-    studentRepository.registerModified(shyam);
-    studentRepository.registerDeleted(gopi);
-    studentRepository.commit();
-  }
+        studentRepository.registerNew(ram);
+        studentRepository.registerModified(shyam);
+        studentRepository.registerDeleted(gopi);
+        studentRepository.commit();
+    }
 }

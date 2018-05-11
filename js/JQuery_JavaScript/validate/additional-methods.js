@@ -143,7 +143,7 @@ jQuery.validator.addMethod("dateITA", function (value, element) {
         var mm = parseInt(adata[1], 10);
         var aaaa = parseInt(adata[2], 10);
         var xdata = new Date(aaaa, mm - 1, gg);
-        if (( xdata.getFullYear() === aaaa ) && ( xdata.getMonth() === mm - 1 ) && ( xdata.getDate() === gg )) {
+        if ((xdata.getFullYear() === aaaa) && (xdata.getMonth() === mm - 1) && (xdata.getDate() === gg)) {
             check = true;
         } else {
             check = false;
@@ -529,8 +529,8 @@ jQuery.validator.addMethod("require_from_group", function (value, element, optio
     var validator = this;
     var selector = options[1];
     var validOrNot = $(selector, element.form).filter(function () {
-            return validator.elementValue(this);
-        }).length >= options[0];
+        return validator.elementValue(this);
+    }).length >= options[0];
 
     if (!$(element).data('being_validated')) {
         var fields = $(selector, element.form);

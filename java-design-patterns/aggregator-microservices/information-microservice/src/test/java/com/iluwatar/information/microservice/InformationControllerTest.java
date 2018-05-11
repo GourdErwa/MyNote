@@ -31,13 +31,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 public class InformationControllerTest {
 
-  @Test
-  public void shouldGetProductTitle() {
-    InformationController infoController = new InformationController();
+    @Test
+    public void shouldGetProductTitle() {
+        InformationController infoController = new InformationController();
 
-    String title = infoController.getProductTitle();
+        String title = infoController.getProductTitle();
 
-    assertEquals("The Product Title.", title);
-  }
+        assertEquals("The Product Title.", title);
+    }
 
 }
