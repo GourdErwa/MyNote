@@ -305,4 +305,13 @@
       <module name="zookeeper" target="1.8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="naked-objects" options="-parameters" />
+      <module name="naked-objects-dom" options="-parameters" />
+      <module name="naked-objects-fixture" options="-parameters" />
+      <module name="naked-objects-integtests" options="-parameters" />
+      <module name="naked-objects-webapp" options="-parameters" />
+    </option>
+  </component>
 </project>
