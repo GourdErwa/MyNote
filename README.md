@@ -33,7 +33,8 @@ Code cleanliness
 |junit      | 测试         |
 |work       | 工作相关测试  |
 |hadoop     | hadoop      |
-|spark      | spark       |
+|spark      | spark基础       |
+|spark_ml      | spark机器学习       |
 |flume      | flume       |
 |flink      | flink       |
 |corejava   | java 基础    |

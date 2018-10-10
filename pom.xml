@@ -56,6 +56,7 @@
         <disruptor.version>3.4.2</disruptor.version>
 
         <elastic.1.version>1.7.0</elastic.1.version>
+        <elastic.5.version>5.6.0</elastic.5.version>
         <syslog4j.version>0.9.46</syslog4j.version>
 
         <beust.jcommander.version>1.72</beust.jcommander.version>
@@ -73,6 +74,7 @@
         <log4j.version>1.2.17</log4j.version>
         <org.slf4j.version>1.7.25</org.slf4j.version>
         <fastjson.version>1.2.47</fastjson.version>
+        <jackson.version>2.9.5</jackson.version>
         <guava.version>25.0-jre</guava.version>
         <lombok.version>1.16.20</lombok.version>
 
