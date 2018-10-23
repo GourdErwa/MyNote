@@ -1,14 +1,15 @@
-package com.gourd.erwa.design.alias.producer.instance;
+package com.gourd.erwa.design.alias.example.instance;
 
 import com.gourd.erwa.design.alias.producer.base.AliasProducer;
+import com.gourd.erwa.design.alias.producer.base.AliasProducerKey;
 
 /**
  * 支持别名生产者类型定义.
- * {@linkplain AliasProducer#producerEnum()}
+ * {@linkplain AliasProducer#aliasProducerKey()}
  *
  * @author wei.Li by 2018/10/23
  */
-public enum AliasProducerKeyEnum {
+public enum AliasProducerKeyEnum implements AliasProducerKey {
 
     /**
      * 游戏道具别名替换.
@@ -25,4 +26,8 @@ public enum AliasProducerKeyEnum {
      */
     AliasProducerGameServer;
 
+    @Override
+    public String key() {
+        return this.name();
+    }
 }

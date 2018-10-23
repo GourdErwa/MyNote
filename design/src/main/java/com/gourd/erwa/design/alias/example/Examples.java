@@ -2,16 +2,16 @@ package com.gourd.erwa.design.alias.example;
 
 import com.gourd.erwa.design.alias.AliasCenter;
 import com.gourd.erwa.design.alias.AliasCenterKey;
-import com.gourd.erwa.design.alias.producer.instance.AliasProducerKeyEnum;
-import com.gourd.erwa.design.alias.producer.instance.AliasProducerGameItem;
-import com.gourd.erwa.design.alias.producer.instance.AliasProducerGameItemOperate;
-import com.gourd.erwa.design.alias.producer.instance.AliasProducerGameServer;
+import com.gourd.erwa.design.alias.example.instance.AliasProducerKeyEnum;
+import com.gourd.erwa.design.alias.example.instance.AliasProducerGameItem;
+import com.gourd.erwa.design.alias.example.instance.AliasProducerGameItemOperate;
+import com.gourd.erwa.design.alias.example.instance.AliasProducerGameServer;
 
 import java.util.Arrays;
 
 
 /**
- * The type Examples.
+ * 使用示例演示.
  *
  * @author wei.Li by 2018/10/23
  */
@@ -39,10 +39,7 @@ public class Examples {
          */
         final String[] game01Originals = {"101", "102"};
         final String[] game01s = aliasCenter.aliasReplace(
-                AliasCenterKey.builder()
-                        .app("game01")
-                        .aliasProducerKeyEnum(AliasProducerKeyEnum.AliasProducerGameItem)
-                        .build(),
+                AliasCenterKey.create("game01", AliasProducerKeyEnum.AliasProducerGameItem),
                 game01Originals,
                 AliasCenter.BI_FUNCTION_PARENTHESES
         );

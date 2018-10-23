@@ -1,11 +1,12 @@
 package com.gourd.erwa.design.alias;
 
 /**
- * The type Alias exception.
+ * 别名转换处理异常.
  *
  * @author wei.Li by 2018/10/23
  */
 public class AliasException extends RuntimeException {
+
     private static final long serialVersionUID = -6386905622323402163L;
 
     /**

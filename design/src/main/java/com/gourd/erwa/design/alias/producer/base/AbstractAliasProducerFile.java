@@ -8,5 +8,4 @@ package com.gourd.erwa.design.alias.producer.base;
 public abstract class AbstractAliasProducerFile extends AbstractAliasProducer {
 
 
-
 }
