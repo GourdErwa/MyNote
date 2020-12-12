@@ -1,6 +1,6 @@
 # MyNote  [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?maxAge=2592000?style=flat-square)]() [![download Central](https://img.shields.io/badge/download-total_6M-red.svg?style=flat-square&maxAge=2592000)]()
 
-本项目迁移至 [review-notes](github.com/gourderwa/review-notes)
+本项目迁移至 [review-notes](https://github.com/GourdErwa/review-notes)
 
 ## Environment
 [![macOS Sierra Central](https://img.shields.io/badge/macOS_Sierra-v10.12.1Beta-green.svg?style=flat-square&maxAge=2592000)]()
